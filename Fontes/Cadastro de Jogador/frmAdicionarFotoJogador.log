@@ -1,0 +1,51 @@
+Line 37: Class Threed.SSCommand of control cmdSalvar was not a loaded control class.
+Line 53: Class Threed.SSFrame of control SSFrame was not a loaded control class.
+Line 71: Class Threed.SSFrame of control frame was not a loaded control class.
+Line 89: Class Threed.SSCommand of control cmdProcurar was not a loaded control class.
+Line 104: Class Threed.SSCommand of control cmdExcluirFoto was not a loaded control class.
+Line 119: Class MSComctlLib.StatusBar of control Sta was not a loaded control class.
+Line 137: Class MSComDlg.CommonDialog of control dlg was not a loaded control class.
+Line 144: Class Threed.SSCommand of control cmdWebcam was not a loaded control class.
+Line 43: The property name _ExtentX in cmdSalvar is invalid.
+Line 44: The property name _ExtentY in cmdSalvar is invalid.
+Line 45: The property name _Version in cmdSalvar is invalid.
+Line 46: The property name PictureFrames in cmdSalvar is invalid.
+Line 49: The property name Caption in cmdSalvar is invalid.
+Line 50: The property name PictureAlignment in cmdSalvar is invalid.
+Line 51: The property name BevelWidth in cmdSalvar is invalid.
+Line 37: Property Picture in cmdSalvar could not be set.
+Line 60: The property name _ExtentX in SSFrame is invalid.
+Line 61: The property name _ExtentY in SSFrame is invalid.
+Line 62: The property name _Version in SSFrame is invalid.
+Line 77: The property name _ExtentX in frame is invalid.
+Line 78: The property name _ExtentY in frame is invalid.
+Line 79: The property name _Version in frame is invalid.
+Line 95: The property name _ExtentX in cmdProcurar is invalid.
+Line 96: The property name _ExtentY in cmdProcurar is invalid.
+Line 97: The property name _Version in cmdProcurar is invalid.
+Line 98: The property name PictureFrames in cmdProcurar is invalid.
+Line 101: The property name PictureAlignment in cmdProcurar is invalid.
+Line 89: Property Picture in cmdProcurar could not be set.
+Line 110: The property name _ExtentX in cmdExcluirFoto is invalid.
+Line 111: The property name _ExtentY in cmdExcluirFoto is invalid.
+Line 112: The property name _Version in cmdExcluirFoto is invalid.
+Line 113: The property name PictureFrames in cmdExcluirFoto is invalid.
+Line 115: The property name Caption in cmdExcluirFoto is invalid.
+Line 116: The property name PictureAlignment in cmdExcluirFoto is invalid.
+Line 117: The property name BevelWidth in cmdExcluirFoto is invalid.
+Line 104: Property Picture in cmdExcluirFoto could not be set.
+Line 126: The property name _ExtentX in Sta is invalid.
+Line 127: The property name _ExtentY in Sta is invalid.
+Line 128: The property name _Version in Sta is invalid.
+Line 135: The property name Panels in Sta is invalid.
+Line 140: The property name _ExtentX in dlg is invalid.
+Line 141: The property name _ExtentY in dlg is invalid.
+Line 142: The property name _Version in dlg is invalid.
+Line 150: The property name _ExtentX in cmdWebcam is invalid.
+Line 151: The property name _ExtentY in cmdWebcam is invalid.
+Line 152: The property name _Version in cmdWebcam is invalid.
+Line 153: The property name PictureFrames in cmdWebcam is invalid.
+Line 155: The property name Caption in cmdWebcam is invalid.
+Line 156: The property name PictureAlignment in cmdWebcam is invalid.
+Line 157: The property name BevelWidth in cmdWebcam is invalid.
+Line 144: Property Picture in cmdWebcam could not be set.

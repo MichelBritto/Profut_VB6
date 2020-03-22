@@ -1,0 +1,8 @@
+clsCadEquipe = 0, 0, 0, 0, C
+frmCadastroDeEquipe = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+mdConexao = 0, 0, 0, 0, C
+modPadrao = 0, 0, 0, 0, C
+modEquipe = 0, 0, 0, 0, C
+modBDCombo = 0, 0, 0, 0, C
+frmAdicionarFotoEquipe = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmCadastroDeEquipeV2 = 0, 0, 0, 0, C, 0, 0, 0, 0, C

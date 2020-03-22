@@ -1,0 +1,1 @@
+cNewMenu6.dll e SSubTmr6.dll são utilizadas pelo sistema SINCRONIZAR
