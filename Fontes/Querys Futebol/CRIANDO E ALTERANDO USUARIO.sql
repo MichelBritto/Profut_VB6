@@ -30,7 +30,7 @@ AS
                       email_VC
                     )
             VALUES  ( @login_VC ,
-                      @nomecompleto_VC,
+                      @nomecompleto_VC ,
                       @setorinterno_IN ,
                       @email_VC
                     )
@@ -39,11 +39,9 @@ AS
             SET @NomeBase_VC = DB_NAME() 
 		-- Criando usuário no SQL Server
 
-            SET @comando_VC = 'CREATE LOGIN [' + @login_VC
-                + '] WITH PASSWORD=''123'''		
+            SET @comando_VC = 'CREATE LOGIN [' + @login_VC + '] WITH PASSWORD=''123'''		
             EXEC (@comando_VC)
-            SET @comando_VC = 'CREATE USER [' + @nomecompleto_VC
-                + '] FOR LOGIN [' + @login_VC + ']'
+            SET @comando_VC = 'CREATE USER [' + @nomecompleto_VC + '] FOR LOGIN [' + @login_VC + ']'
             EXEC (@comando_VC)			
         END
 

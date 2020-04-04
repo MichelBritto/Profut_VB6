@@ -6,7 +6,7 @@ IF ( SELECT COUNT(*)
     BEGIN
         CREATE TABLE CARTEGORIA_T
             (
-              ID_IN INT IDENTITY(1,1) ,
+              ID_IN INT IDENTITY(1, 1) ,
               DESCRICAO_VC VARCHAR(128) NOT NULL ,
               IDADEMAXIMA_IN INT NOT NULL ,
               CONSTRAINT PK_CARTEGORIA_T_IN PRIMARY KEY ( ID_IN )
