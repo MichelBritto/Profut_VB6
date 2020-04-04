@@ -1,4 +1,4 @@
 frmPrincipal = 0, 0, 0, 0, C, 0, 0, 0, 0, C
 frmMenu = 0, 0, 0, 0, C, 0, 0, 0, 0, C
-modPadrao = 54, 127, 509, 804, 
+modPadrao = 54, 127, 509, 804, C
 mdConexao = 0, 0, 0, 0, C
