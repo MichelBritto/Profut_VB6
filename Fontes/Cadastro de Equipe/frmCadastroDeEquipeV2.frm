@@ -986,7 +986,8 @@ Dim binIMG() As Byte
         .blnWpp1 = IIf(chkWpp1.Value = vbChecked, True, False)
         .blnWpp2 = IIf(chkWpp2.Value = vbChecked, True, False)
         .strContato2 = txtTelefoneCelular2.Text
-        .strEnderecoImagem() = IIf(mstrFoto <> "", binIMG(), 0)
+        .strEnderecoImagem() = binIMG()
+        .blnTemImagem = IIf(mstrFoto <> "", True, False)
     End With
     
     If mstrFlag = "I" Then
@@ -1029,8 +1030,8 @@ Dim binIMG() As Byte
             txtUsuarioCadastro.Text = NS(objRsEquipe!USUARIOCADASTRO_VC)
             txtCodigoInterno.Text = lngCodigo
             
-            dtcDataCadastro.DateValue = ND(objRsEquipe!USUARIOULTIMAALTERACAO_VC)
-            dtcDataUltimaAlteracao.DateValue = ND(objRsEquipe!DATAULTIMAALTERACAO_DT)
+            dtcDataCadastro.DateValue = ND(Format(objRsEquipe!DATACADASTRO_DT, "DD/MM/YYYY"))
+            dtcDataUltimaAlteracao.DateValue = ND(Format(objRsEquipe!DATAULTIMAALTERACAO_DT, "DD/MM/YYYY"))
             
             chkWpp1.Value = IIf(NB(objRsEquipe!WHATSAPP1_BT), vbChecked, vbUnchecked)
             chkWpp2.Value = IIf(NB(objRsEquipe!WHATSAP2_BT), vbChecked, vbUnchecked)

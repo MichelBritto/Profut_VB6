@@ -13,6 +13,7 @@ Type TypEquipe
     blnWpp2 As Boolean
     strEmailContato As String
     strEnderecoImagem() As Byte
+    blnTemImagem As Boolean
 End Type
 
 Public Sub modEquipe_AdicionarEquipe(ByRef udtEquipe As TypEquipe)
@@ -32,9 +33,9 @@ On Error GoTo Erro
        .Parameters("@WHATSAPP1_BT").Value = udtEquipe.blnWpp1
        .Parameters("@CONTATO2_VC").Value = udtEquipe.strContato2
        .Parameters("@WHATSAP2_BT").Value = udtEquipe.blnWpp2
-       .Parameters("@ENDERECOIMAGEM_VC").Value = udtEquipe.blnWpp2
+       '.Parameters("@ENDERECOIMAGEM_VC").Value = udtEquipe.blnWpp2
        .Parameters("@EMAILCONTATO_VC").Value = udtEquipe.strEmailContato
-       .Parameters("@ENDERECOIMAGEM_VC").Value = udtEquipe.strEnderecoImagem
+       .Parameters("@ENDERECOIMAGEM_VC").Value = IIf(udtEquipe.blnTemImagem = True, udtEquipe.strEnderecoImagem, Null)
     End With
     gobjCmd.Execute , , adExecuteNoRecords
     
@@ -63,7 +64,7 @@ On Error GoTo Erro
         .Parameters("@WHATSAPP1_BT").Value = udtEquipe.blnWpp1
         .Parameters("@CONTATO2_VC").Value = udtEquipe.strContato2
         .Parameters("@WHATSAP2_BT").Value = udtEquipe.blnWpp2
-        .Parameters("@ENDERECOIMAGEM_VC").Value = udtEquipe.strEnderecoImagem()
+        .Parameters("@ENDERECOIMAGEM_VC").Value = IIf(udtEquipe.blnTemImagem = True, udtEquipe.strEnderecoImagem, Null)
         .Parameters("@EMAILCONTATO_VC").Value = udtEquipe.strEmailContato
     End With
     gobjCmd.Execute , , adExecuteNoRecords
