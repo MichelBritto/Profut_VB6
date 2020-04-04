@@ -1,7 +1,7 @@
 ClsRelJogador = 131, 90, 908, 635, CZ
 modBDCombo = 0, 0, 0, 0, C
 mdConexao = 0, 0, 0, 0, C
-modPadrao = 0, 0, 0, 0, C
+modPadrao = 54, 127, 509, 804, C
 frmRelJogador = 149, 90, 908, 635, C, 0, 0, 0, 0, C
 modJogador = 0, 0, 0, 0, C
 modEquipe = 0, 0, 0, 0, C

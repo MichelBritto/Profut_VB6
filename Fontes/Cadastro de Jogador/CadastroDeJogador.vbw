@@ -1,4 +1,4 @@
-frmCadastroDeJogador = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmCadastroDeJogador = 54, 127, 509, 804, C, 0, 0, 0, 0, C
 clsCadJogador = 201, 127, 656, 672, CZ
 mdConexao = 0, 0, 0, 0, C
 modPadrao = 201, 127, 656, 672, C
@@ -6,7 +6,7 @@ modJogador = 0, 0, 0, 0, C
 modBDCombo = 0, 0, 0, 0, C
 frmAdicionarFotoJogador = 0, 0, 0, 0, C, 0, 0, 0, 0, C
 frmwebcam = 0, 0, 0, 0, C, 0, 0, 0, 0, C
-frmCadastroDeJogadorV2 = 659, 118, 1114, 394, C, 0, 0, 0, 0, C
+frmCadastroDeJogadorV2 = 424, 156, 952, 432, C, 0, 0, 0, 0, C
 rptCarteirinha = 153, 35, 944, 580, C, 0, 0, 0, 0, C
 rptFichaJogador = 758, 70, 1213, 615, CI, 0, 0, 0, 0, C
 frmOpcaoImpressao = 201, 127, 656, 672, C, 0, 0, 0, 0, C
