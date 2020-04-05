@@ -42,6 +42,7 @@ Type TypJogador
     strEquipes As String
     lngSexo As Long
     lngNumeroCamisa As Long
+    blnTemImagem As Boolean
 
 End Type
 
@@ -84,7 +85,7 @@ On Error GoTo Erro
         .Parameters("@ENDERECOESCOLA_VC").Value = udtJogador.strEnderecoEscola
         .Parameters("@REDESOCIALESCOLA_VC").Value = udtJogador.strFacebookEscola
         .Parameters("@INSTAGRAM_VC").Value = udtJogador.strInstagram
-        .Parameters("@ENDERECOIMAGEM_VC").Value = udtJogador.strEnderecoImagem()
+        .Parameters("@ENDERECOIMAGEM_VC").Value = IIf(udtJogador.blnTemImagem = True, udtJogador.strEnderecoImagem(), Null)
         .Parameters("@SEXO_IN").Value = udtJogador.lngSexo
         .Parameters("@NUMEROCAMISA_IN").Value = udtJogador.lngNumeroCamisa
     End With
@@ -137,7 +138,7 @@ Public Sub modJogador_AlterarJogador(ByRef udtJogador As TypJogador)
         .Parameters("@ENDERECOESCOLA_VC").Value = udtJogador.strEnderecoEscola
         .Parameters("@REDESOCIALESCOLA_VC").Value = udtJogador.strFacebookEscola
         .Parameters("@INSTAGRAM_VC").Value = udtJogador.strInstagram
-        .Parameters("@ENDERECOIMAGEM_VC").Value = udtJogador.strEnderecoImagem()
+        .Parameters("@ENDERECOIMAGEM_VC").Value = IIf(udtJogador.blnTemImagem = True, udtJogador.strEnderecoImagem(), Null)
         .Parameters("@SEXO_IN").Value = udtJogador.lngSexo
         .Parameters("@NUMEROCAMISA_IN").Value = udtJogador.lngNumeroCamisa
     End With

@@ -17,6 +17,7 @@ Begin VB.Form frmCadastroDeJogadorV2
    LockControls    =   -1  'True
    ScaleHeight     =   6375
    ScaleWidth      =   10815
+   StartUpPosition =   2  'CenterScreen
    Begin SSDesignerWidgetsTabs.SSIndexTab tabPrincipal 
       Height          =   5835
       Left            =   0
@@ -2036,9 +2037,10 @@ On Error GoTo Erro
         .strEmailContato = txtEmail.Text
         .strFacebook = txtFacebookAtleta
         .strInstagram = txtInstagramAtleta.Text
-        .strEnderecoImagem() = IIf(mstrFoto <> "", binIMG(), 0)
+        .strEnderecoImagem() = binIMG()
         .lngSexo = IIf(optMasculino.Value = True, 1, 2)
         .lngNumeroCamisa = Val(txtNumCamisa.Text)
+        .blnTemImagem = IIf(mstrFoto = "", False, True)
     End With
     
     
