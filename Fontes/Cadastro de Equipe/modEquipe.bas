@@ -86,7 +86,7 @@ On Error GoTo Erro
     gobjCmd.CommandTimeout = 1000
     
     With gobjCmd
-       .Parameters("@EQUIPE_IN").Value = lngCodigo
+       .Parameters("@EQUIPE_IN").Value = IIf(lngCodigo = 0, Null, lngCodigo)
     End With
     
     Set objrs = gobjCmd.Execute

@@ -1,15 +1,4 @@
-IF ( SELECT COUNT(*)
-     FROM   sysobjects
-     WHERE  xtype = 'P'
-            AND name = 'usp_SelecionarDadosParaRelatorioDeJogador'
-   ) > 0 
-    BEGIN
-        DROP PROCEDURE usp_SelecionarDadosParaRelatorioDeJogador
-    END
-
-go
-
-CREATE PROCEDURE usp_SelecionarDadosParaRelatorioDeJogador
+ALTER PROCEDURE dbo.usp_SelecionarDadosParaRelatorioDeJogador
     (
       @Nome_VC VARCHAR(1024) = NULL ,
       @Apelido_VC VARCHAR(1024) = NULL ,
@@ -19,7 +8,8 @@ CREATE PROCEDURE usp_SelecionarDadosParaRelatorioDeJogador
       @UF_IN INT = NULL ,
       @Cidade_VC VARCHAR(1024) = NULL ,
       @Bairro_VC VARCHAR(1024) = NULL ,
-      @Equipes_VC VARCHAR(1024) = NULL
+      @Equipes_VC VARCHAR(1024) = NULL ,
+      @Sexo_IN INT = NULL
     )
 AS 
     SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
@@ -52,16 +42,18 @@ AS
     IF ISNULL(@DataNascimentoDE_DT, 0) <> 0
         AND ISNULL(@DataNascimentoATE_DT, 0) = 0 
         BEGIN
-            SET @DataNascimentoATE_DT = '2199/12/31'
+            SET @DataNascimentoATE_DT = '2199/31/12'
         END
     IF ISNULL(@DataNascimentoDE_DT, 0) = 0
         AND ISNULL(@DataNascimentoATE_DT, 0) = 0 
         BEGIN
             SET @DataNascimentoDE_DT = '1900/1/1'
-            SET @DataNascimentoATE_DT = '2199/12/31'
+            SET @DataNascimentoATE_DT = '2199/31/12'
         END
         
-    SELECT  CAT.DESCRICAO_VC AS Cartegoria ,
+    SELECT  jog.ID_JOGADOR_IN AS Codigo ,
+            jog.SEXO_IN AS Sexo ,
+            CAT.DESCRICAO_VC AS Cartegoria ,
             EQU.NOME_VC AS Equipe ,
             est.UF_CH ,
             jog.ID_JOGADOR_IN ,
@@ -113,12 +105,11 @@ AS
             AND JOG.BAIRRO_VC LIKE ISNULL(@Bairro_VC, JOG.BAIRRO_VC)
             AND JOG.EQUIPE_IN IN ( SELECT   EQUIPE_IN
                                    FROM     dbo.fnc_MontaEquipes(@Equipes_VC) )
+            AND JOG.SEXO_IN = ( CASE WHEN ISNULL(@Sexo_IN, 0) = 0 THEN JOG.SEXO_IN
+                                     WHEN ISNULL(@Sexo_IN, 0) = 1 THEN 1
+                                     ELSE 2
+                                END )
 			
-			
-			
-	
-	
-	
 	
       --@Apelido_VC VARCHAR(1024) = NULL ,
       --@Cartegoria_IN INT = NULL ,
