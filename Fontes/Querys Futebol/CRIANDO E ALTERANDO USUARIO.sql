@@ -1,8 +1,9 @@
-CREATE PROCEDURE dbo.usp_AdicionarAlterarUsuario
+ALTER PROCEDURE dbo.usp_AdicionarAlterarUsuario
     (
       @login_VC VARCHAR(20) ,
       @nomecompleto_VC VARCHAR(50) ,
       @email_VC VARCHAR(100) = NULL ,
+      @telefone_VC VARCHAR(100) = NULL ,
       @usuario_IN INT OUTPUT ,
       @setorinterno_IN INT
     )
@@ -15,6 +16,7 @@ AS
             UPDATE  usuario_T
             SET     Login_VC = @login_VC ,
                     Nome_VC = @nomecompleto_VC ,
+                    Telefone_VC = @telefone_VC ,
                     Cargo_IN = CASE WHEN @setorinterno_IN = 0 THEN 'NULL'
                                     ELSE @setorinterno_IN
                                END ,
@@ -27,12 +29,14 @@ AS
                     ( login_VC ,
                       nome_VC ,
                       cargo_IN ,
-                      email_VC
+                      email_VC ,
+                      Telefone_VC
                     )
             VALUES  ( @login_VC ,
                       @nomecompleto_VC ,
                       @setorinterno_IN ,
-                      @email_VC
+                      @email_VC ,
+                      @telefone_VC
                     )
 
             SET @usuario_IN = @@IDENTITY
@@ -48,3 +52,5 @@ AS
 
     RETURN @@ERROR
 GO
+
+GRANT EXECUTE ON usp_AdicionarAlterarUsuario TO PUBLIC

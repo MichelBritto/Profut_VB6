@@ -74,33 +74,16 @@ INSERT  INTO dbo.Permissao_T
           Status_BT
         )
 VALUES  ( 1 , -- Permissao_IN - int
-          'Permitir criar competições. 1 - Permite/0 - Não permite' , -- Descricao_VC - varchar(256)
+          'Permitir adicionar novos clubes ao sistema. 1 - Permite/0 - Não permite' , -- Descricao_VC - varchar(256)
           1  -- Status_BT - bit
         )
+
 INSERT  INTO dbo.Permissao_T
         ( Permissao_IN ,
           Descricao_VC ,
           Status_BT
         )
 VALUES  ( 2 , -- Permissao_IN - int
-          'Permitir adicionar novos clubes ao sistema. 1 - Permite/0 - Não permite' , -- Descricao_VC - varchar(256)
-          1  -- Status_BT - bit
-        )
-INSERT  INTO dbo.Permissao_T
-        ( Permissao_IN ,
-          Descricao_VC ,
-          Status_BT
-        )
-VALUES  ( 3 , -- Permissao_IN - int
-          'Permitir adicionar clubes a um campeonato. 1 - Permite/0 - Não permite' , -- Descricao_VC - varchar(256)
-          1  -- Status_BT - bit
-        )
-INSERT  INTO dbo.Permissao_T
-        ( Permissao_IN ,
-          Descricao_VC ,
-          Status_BT
-        )
-VALUES  ( 4 , -- Permissao_IN - int
           'Permite adicionar novos jogadores. 1 - Permite/0 - Não permite' , -- Descricao_VC - varchar(256)
           1  -- Status_BT - bit
         )
@@ -110,7 +93,7 @@ INSERT  INTO dbo.Permissao_T
           Descricao_VC ,
           Status_BT
         )
-VALUES  ( 5 , -- Permissao_IN - int
+VALUES  ( 3 , -- Permissao_IN - int
           'Permite visualizar clubes e jogadores de todos os clubes. 1 - Permite/0 - Não permite' , -- Descricao_VC - varchar(256)
           1  -- Status_BT - bit
         )
@@ -149,16 +132,6 @@ INSERT  INTO dbo.CargoXPermissao_T
 VALUES  ( 3, -- Permissao_IN - int
           1  -- Cargo_IN - int
           )
-INSERT  INTO dbo.CargoXPermissao_T
-        ( Permissao_IN, Cargo_IN )
-VALUES  ( 4, -- Permissao_IN - int
-          1  -- Cargo_IN - int
-          )
-INSERT  INTO dbo.CargoXPermissao_T
-        ( Permissao_IN, Cargo_IN )
-VALUES  ( 5, -- Permissao_IN - int
-          1  -- Cargo_IN - int
-          )
 --------------Gerencia--------------------------------------          
 INSERT  INTO dbo.CargoXPermissao_T
         ( Permissao_IN, Cargo_IN )
@@ -170,22 +143,15 @@ INSERT  INTO dbo.CargoXPermissao_T
 VALUES  ( 3, -- Permissao_IN - int
           1  -- Cargo_IN - int
           )
-INSERT  INTO dbo.CargoXPermissao_T
-        ( Permissao_IN, Cargo_IN )
-VALUES  ( 4, -- Permissao_IN - int
-          1  -- Cargo_IN - int
-          )
-INSERT  INTO dbo.CargoXPermissao_T
-        ( Permissao_IN, Cargo_IN )
-VALUES  ( 5, -- Permissao_IN - int
-          1  -- Cargo_IN - int
-          )
 ------------------Responsável---------------------------------
 INSERT  INTO dbo.CargoXPermissao_T
         ( Permissao_IN, Cargo_IN )
-VALUES  ( 4, -- Permissao_IN - int
+VALUES  ( 3, -- Permissao_IN - int
           3  -- Cargo_IN - int
           )
     
       
+          
+          
+          
           
