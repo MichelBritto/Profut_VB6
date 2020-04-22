@@ -1,7 +1,7 @@
-clsManutencao = 189, 127, 1040, 804, 
+clsManutencao = 189, 127, 1040, 804, C
 mdConexao = 0, 0, 0, 0, C
 modBDCombo = 189, 127, 644, 804, C
 modPadrao = 189, 127, 644, 804, C
-frmUsuarios = 236, 392, 1313, 738, CZ, 0, 0, 0, 0, C
+frmUsuarios = 242, 340, 1319, 686, I, 0, 0, 0, 0, C
 frmCargos = 189, 127, 644, 804, C, 0, 0, 0, 0, C
 modManutencao = 265, 87, 1214, 764, I

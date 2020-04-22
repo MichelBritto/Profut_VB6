@@ -588,6 +588,22 @@ Begin VB.Form frmUsuarios
          EndProperty
       EndProperty
    End
+   Begin VB.Image imgbaixo 
+      Height          =   135
+      Left            =   0
+      Picture         =   "frmUsuarios.frx":3E6E
+      Top             =   0
+      Visible         =   0   'False
+      Width           =   165
+   End
+   Begin VB.Image imgcima 
+      Height          =   135
+      Left            =   180
+      Picture         =   "frmUsuarios.frx":3FF4
+      Top             =   0
+      Visible         =   0   'False
+      Width           =   165
+   End
 End
 Attribute VB_Name = "frmUsuarios"
 Attribute VB_GlobalNameSpace = False
@@ -710,8 +726,8 @@ Private Sub LimparCampos()
 60        sscCargo.Text = ""
 70        fpTelefone.Text = ""
           
-80        cmdNovoUsuario.Text = ""
-90        cmdAlterarUsuario.Text = ""
+80        'cmdNovoUsuario.Text = ""
+90        'cmdAlterarUsuario.Text = ""
           
           
 
@@ -747,10 +763,6 @@ Private Sub HabilitarTBBotoes(blnAlterar As Boolean, blnGravar As Boolean, blnSa
 20        tbBotoes.Buttons("cmdGravar").Enabled = blnGravar
 30        tbBotoes.Buttons("cmdSair").Enabled = blnSair
           
-End Sub
-
-Private Sub fraCadastro_DragDrop(Source As Control, X As Single, Y As Single)
-
 End Sub
 
 Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
