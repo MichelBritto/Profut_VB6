@@ -35,6 +35,15 @@ Begin VB.Form frmUsuarios
          TabIndex        =   4
          Top             =   120
          Width           =   10425
+         Begin VB.TextBox txtCodigoUsuario 
+            Appearance      =   0  'Flat
+            Height          =   405
+            Left            =   60
+            MaxLength       =   6
+            TabIndex        =   17
+            Top             =   450
+            Width           =   885
+         End
          Begin VB.CommandButton cmdAlterarUsuario 
             Appearance      =   0  'Flat
             Caption         =   "Alterar"
@@ -44,9 +53,9 @@ Begin VB.Form frmUsuarios
             Top             =   1080
             Width           =   1395
          End
-         Begin VB.CommandButton cmdAdicionarUsuário 
+         Begin VB.CommandButton cmdNovoUsuario 
             Appearance      =   0  'Flat
-            Caption         =   "Adicionar"
+            Caption         =   "Novo"
             Height          =   405
             Left            =   7410
             Picture         =   "frmUsuarios.frx":0000
@@ -158,7 +167,7 @@ Begin VB.Form frmUsuarios
          Begin VB.TextBox txtLogin 
             Appearance      =   0  'Flat
             Height          =   405
-            Left            =   4830
+            Left            =   5610
             MaxLength       =   6
             TabIndex        =   7
             Top             =   450
@@ -167,15 +176,15 @@ Begin VB.Form frmUsuarios
          Begin VB.TextBox txtNome 
             Appearance      =   0  'Flat
             Height          =   405
-            Left            =   60
+            Left            =   990
             MaxLength       =   6
             TabIndex        =   5
             Top             =   450
-            Width           =   4695
+            Width           =   4575
          End
          Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscCargo 
             Height          =   390
-            Left            =   7350
+            Left            =   8130
             TabIndex        =   13
             Top             =   450
             Width           =   2175
@@ -211,10 +220,18 @@ Begin VB.Form frmUsuarios
                Strikethrough   =   0   'False
             EndProperty
          End
+         Begin VB.Label Label4 
+            Caption         =   "Código"
+            Height          =   285
+            Left            =   90
+            TabIndex        =   18
+            Top             =   240
+            Width           =   555
+         End
          Begin VB.Label Label29 
             Caption         =   "Cargo"
             Height          =   285
-            Left            =   7380
+            Left            =   8160
             TabIndex        =   14
             Top             =   240
             Width           =   1365
@@ -238,7 +255,7 @@ Begin VB.Form frmUsuarios
          Begin VB.Label Label1 
             Caption         =   "Login"
             Height          =   285
-            Left            =   4860
+            Left            =   5640
             TabIndex        =   8
             Top             =   240
             Width           =   855
@@ -246,10 +263,10 @@ Begin VB.Form frmUsuarios
          Begin VB.Label Label 
             Caption         =   "Nome"
             Height          =   285
-            Left            =   90
+            Left            =   1020
             TabIndex        =   6
             Top             =   240
-            Width           =   555
+            Width           =   735
          End
       End
       Begin VB.Frame fraUsuários 
@@ -268,7 +285,7 @@ Begin VB.Form frmUsuarios
          TabIndex        =   2
          Top             =   1770
          Width           =   10425
-         Begin TrueOleDBGrid80.TDBGrid ssgJogadoresEquipe 
+         Begin TrueOleDBGrid80.TDBGrid ssgUsuarios 
             Height          =   6765
             Left            =   60
             TabIndex        =   3
@@ -282,22 +299,22 @@ Begin VB.Form frmUsuarios
             Columns(0)._VlistStyle=   0
             Columns(0)._MaxComboItems=   5
             Columns(0).Caption=   "Nome"
-            Columns(0).DataField=   "Apelido"
+            Columns(0).DataField=   "Nome_VC"
             Columns(0)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
             Columns(1)._VlistStyle=   0
             Columns(1)._MaxComboItems=   5
             Columns(1).Caption=   "Login"
-            Columns(1).DataField=   "Camisa"
+            Columns(1).DataField=   "Login_VC"
             Columns(1)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
             Columns(2)._VlistStyle=   0
             Columns(2)._MaxComboItems=   5
             Columns(2).Caption=   "Cargo"
-            Columns(2).DataField=   "Cartegoria"
+            Columns(2).DataField=   "Descricao_VC"
             Columns(2)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
             Columns(3)._VlistStyle=   0
             Columns(3)._MaxComboItems=   5
             Columns(3).Caption=   "Telefone"
-            Columns(3).DataField=   "Nome"
+            Columns(3).DataField=   "Telefone_VC"
             Columns(3)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
             Columns(4)._VlistStyle=   16
             Columns(4)._MaxComboItems=   5
@@ -321,10 +338,11 @@ Begin VB.Form frmUsuarios
             Columns(4).ValueItems(2)._PropDict=   "_DefaultItem,517,2"
             Columns(4).ValueItems.Count=   3
             Columns(4).Caption=   "E-mail"
-            Columns(4).DataField=   "Sexo"
+            Columns(4).DataField=   "Email_VC"
             Columns(4)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
             Columns.Count   =   5
             Splits(0)._UserFlags=   0
+            Splits(0).Locked=   -1  'True
             Splits(0).MarqueeStyle=   3
             Splits(0).AllowRowSizing=   0   'False
             Splits(0).RecordSelectors=   0   'False
@@ -576,8 +594,275 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Dim mstrFlag As String
 Dim mobjRsUsuarios As Recordset
 
-Private Sub Form_Load()
+Private Sub cmdAlterarUsuario_Click()
+10    On Error GoTo Erro
+            
+20        If cmdAlterarUsuario.Caption = "Alterar" Then
+          
+30            txtCodigoUsuario.Text = mobjRsUsuarios!ID_IN
+40            txtNome.Text = mobjRsUsuarios!Nome_VC
+50            txtLogin.Text = mobjRsUsuarios!Login_VC
+              'FAZER SSCCARGO
+60            txtEmail.Text = mobjRsUsuarios!Email_VC
+70            fpTelefone.Text = mobjRsUsuarios!Telefone_VC
+              
+80            cmdAlterarUsuario.Caption = "Gravar"
+90            cmdNovoUsuario.Enabled = False
+100       Else
+110           If VerificarCampos = True Then
+120               If MsgBox("Deseja alterar o usuário?", vbYesNo + vbExclamation, "Atenção!") = vbNo Then Exit Sub
+130               GravarUsuario
+140               LimparCampos
+150               cmdNovoUsuario.Enabled = True
+160               cmdAlterarUsuario.Caption = "Alterar"
+170               MsgBox "Usuário Alterado!", vbOKOnly + vbInformation, "Sucesso!"
+180           Else
+190               Exit Sub
+200           End If
+210       End If
+
+220   Exit Sub
+Erro:
+230      Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "cmdAlterarUsuario_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
 
 End Sub
+
+Private Sub cmdNovoUsuario_Click()
+On Error GoTo Erro
+      
+    If cmdNovoUsuario.Caption = "Novo" Then
+        LimparCampos
+        cmdAlterarUsuario.Enabled = False
+        cmdNovoUsuario.Caption = "Gravar"
+    Else
+        If VerificarCampos = True Then
+            If MsgBox("Deseja adicionar o usuário?", vbYesNo + vbExclamation, "Atenção!") = vbNo Then Exit Sub
+            GravarUsuario
+            LimparCampos
+            cmdAlterarUsuario.Enabled = True
+            cmdNovoUsuario.Caption = "Novo"
+            MsgBox "Usuário Adicionado!" & vbCrLf & "A senha padrão é 123", vbOKOnly + vbInformation, "Sucesso!"
+        Else
+            Exit Sub
+        End If
+    End If
+
+Exit Sub
+Erro:
+   Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "cmdNovoUsuario_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
+
+End Sub
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+10        Select Case KeyCode
+              'Case vbKeyF2:  tbBotoes.Buttons("cmdNovo").Value = tbrPressed
+              Case vbKeyF3:  tbBotoes.Buttons("cmdAlterar").Value = tbrPressed
+              'Case vbKeyF5:  tbBotoes.Buttons("cmdApagar").Value = tbrPressed
+              'Case vbKeyF6:  tbBotoes.Buttons("cmdLimpar").Value = tbrPressed
+20            Case vbKeyF7:  tbBotoes.Buttons("cmdGravar").Value = tbrPressed
+              'Case vbKeyF8:  tbBotoes.Buttons("cmdImprimir").Value = tbrPressed
+30            Case vbKeyF10: tbBotoes.Buttons("cmdSair").Value = tbrPressed
+40       End Select
+End Sub
+
+Private Sub Form_KeyUp(KeyCode As Integer, Shift As Integer)
+          'tbBotoes.Buttons("cmdNovo").Value = tbrUnpressed
+10        tbBotoes.Buttons("cmdAlterar").Value = tbrUnpressed
+          'tbBotoes.Buttons("cmdApagar").Value = tbrUnpressed
+          'tbBotoes.Buttons("cmdLimpar").Value = tbrUnpressed
+          'tbBotoes.Buttons("cmdImprimir").Value = tbrUnpressed
+20        tbBotoes.Buttons("cmdGravar").Value = tbrUnpressed
+30        tbBotoes.Buttons("cmdSair").Value = tbrUnpressed
+        
+40        Select Case KeyCode
+              'Case vbKeyF2:  If tbBotoes.Buttons("cmdNovo").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdNovo"))
+              Case vbKeyF3:  If tbBotoes.Buttons("cmdAlterar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdAlterar"))
+              'Case vbKeyF5:  If tbBotoes.Buttons("cmdApagar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdApagar"))
+              'Case vbKeyF6:  If tbBotoes.Buttons("cmdLimpar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdLimpar"))
+50            Case vbKeyF7:  If tbBotoes.Buttons("cmdGravar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdGravar"))
+              'Case vbKeyF8:  If tbBotoes.Buttons("cmdImprimir").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdImprimir"))
+60            Case vbKeyF10: If tbBotoes.Buttons("cmdSair").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdSair"))
+70        End Select
+
+End Sub
+
+
+Private Sub Form_Load()
+    
+    mstrFlag = ""
+    Call CarregarCampos
+    Call LimparCampos
+    Call HabilitarCampos(False)
+End Sub
+
+Private Sub LimparCampos()
+10    On Error GoTo Erro
+            
+20        txtCodigoUsuario.Text = ""
+30        txtNome.Text = ""
+40        txtLogin.Text = ""
+50        txtEmail.Text = ""
+60        sscCargo.Text = ""
+70        fpTelefone.Text = ""
+          
+80        cmdNovoUsuario.Text = ""
+90        cmdAlterarUsuario.Text = ""
+          
+          
+
+100   Exit Sub
+Erro:
+110      Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "LimparCampos" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
+
+End Sub
+
+Private Sub HabilitarCampos(blnHabilitar As Boolean)
+10    On Error GoTo Erro
+            
+20        txtCodigoUsuario.Enabled = False
+30        txtNome.Enabled = blnHabilitar
+40        txtLogin.Enabled = blnHabilitar
+50        txtEmail.Enabled = blnHabilitar
+60        sscCargo.Enabled = blnHabilitar
+70        fpTelefone.Enabled = blnHabilitar
+          
+80        cmdNovoUsuario.Enabled = blnHabilitar
+90        cmdAlterarUsuario.Enabled = blnHabilitar
+
+100   Exit Sub
+Erro:
+110      Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "HabilitarCampos" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
+End Sub
+
+Private Sub HabilitarTBBotoes(blnAlterar As Boolean, blnGravar As Boolean, blnSair As Boolean)
+
+10        tbBotoes.Buttons("cmdAlterar").Enabled = blnAlterar
+20        tbBotoes.Buttons("cmdGravar").Enabled = blnGravar
+30        tbBotoes.Buttons("cmdSair").Enabled = blnSair
+          
+End Sub
+
+Private Sub fraCadastro_DragDrop(Source As Control, X As Single, Y As Single)
+
+End Sub
+
+Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
+    If Not (Button.Enabled) Then Exit Sub
+    Select Case Button.Key
+
+        Case "cmdAlterar":
+            mstrFlag = "A"
+            Call HabilitarCampos(True)
+            Call HabilitarTBBotoes(False, True, False)
+        
+'        Case "cmdGravar"
+'            'mstrFlag = ""
+'            If VerificarCampos Then
+'                GravarUsuario
+'                CarregarCampos
+'                mstrFlag = ""
+'            Else: Exit Sub
+'
+'            End If
+'
+'            Call HabilitarCampos(False)
+'            Call HabilitarTBBotoes(True, False, True)
+            
+        Case "cmdSair"
+            Unload Me
+        
+    End Select
+End Sub
+
+Private Sub GravarUsuario()
+10    On Error GoTo Erro
+            
+20        If VerificarCampos = True Then
+              
+30            gSMConexao.BeginTransaction
+              
+40            Call modManutencao_AdicionarAlterarUsuario(txtLogin.Text, txtNome.Text, sscCargo.Columns("chcodigo").Value, txtCodigoUsuario.Text, fpTelefone.Text, txtEmail.Text)
+              
+50            CarregarCampos
+60            mstrFlag = ""
+              
+70            gSMConexao.CommitTransaction
+80        End If
+
+90    Exit Sub
+Erro:
+100       gSMConexao.RollbackTransaction
+110       Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "GravarUsuario" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
+
+End Sub
+
+Private Sub CarregarCampos()
+10    On Error GoTo Erro
+            
+20        Call modManutencao_SelecionarUsuario(mobjRsUsuarios)
+30        Set ssgUsuarios.DataSource = mobjRsUsuarios
+
+40    Exit Sub
+Erro:
+50       Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "CarregarCampos" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
+
+End Sub
+
+Private Function VerificarCampos() As Boolean
+10    On Error GoTo Erro
+          Dim blnContinua As Boolean
+          Dim strMensagem As String
+          
+20        blnContinua = True
+            
+          
+30        If txtNome.Text = "" Then
+40            strMensagem = strMensagem & "-> Nome do usuário não preenchido." & vbCrLf
+50        End If
+          
+60        If txtLogin.Text = "" Then
+70            strMensagem = strMensagem & "-> Login do usuário não preenchido." & vbCrLf
+80        End If
+          
+90        If sscCargo.Text = "" And Not sscCargo.IsTextValid And Not sscCargo.IsItemInList Then
+100           strMensagem = strMensagem & "-> Cargo do usuário não selecionado." & vbCrLf
+110       End If
+            
+120       If Not blnContinua Then
+130           MsgBox "O jogador não pode ser gravado pois possuí as seguintes pendências: " & vbCrLf & strMensagem, vbOKOnly + vbInformation, "Atenção!"
+140       End If
+          
+150       VerificarCampos = blnContinua
+          
+160   Exit Function
+Erro:
+170       VerificarCampos = False
+180      Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "VerificarCampos" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
+
+End Function
+
+Private Sub ssgUsuarios_Click()
+On Error Resume Next
+    ssgUsuarios.SelBookmarks.Clear
+    ssgUsuarios.SelBookmarks.Add ssgUsuarios.Bookmark
+On Error GoTo 0
+End Sub
+
+Private Sub ssgUsuarios_HeadClick(ByVal ColIndex As Integer)
+    OrdenarColunaTrueDB ssgUsuarios, ColIndex, imgcima, imgbaixo
+End Sub
+
+Private Sub ssgUsuarios_RowColChange(LastRow As Variant, ByVal LastCol As Integer)
+    ssgUsuarios_Click
+End Sub
+

@@ -15,25 +15,34 @@ Option Explicit
 
 
 Public Function Show(ByRef SMConexao As clsConexaoMC, _
-                     Optional ByVal strCaption As String, _
+                     ByVal strCaption As String, _
                      Optional ByVal modal As FormShowConstants = vbModeless, _
                      Optional ByVal OwnerForm As Object = Nothing)
 On Error GoTo Erro
         
     Set gSMConexao = SMConexao
 
-    frmManutencao.Caption = strCaption
-    frmManutencao.Show modal, OwnerForm
+    'frmCadastroDeEquipe.Caption = strCaption
+    'frmCadastroDeEquipe.Show modal, OwnerForm
+    frmUsuarios.Show modal, OwnerForm
 
 Exit Function
 Erro:
     Select Case Err.Number
         Case 373
-                frmManutencao.Show vbModeless, OwnerForm
+                frmUsuarios.Show vbModeless, OwnerForm
+            Resume Next
+            
         Case 401
-                frmManutencao.Show vbModal, OwnerForm
+                frmUsuarios.Show vbModal, OwnerForm
+            Resume Next
         Case Else
-                Call MsgBox("Erro no módulo: " & "clsManutencao" & vbCrLf & "No Procedimento: " & "Show" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+            Call MsgBox("clsManutencao", "Show", Err.Description, Err.Number, Erl)
     End Select
+
 End Function
+
+
+
+
 

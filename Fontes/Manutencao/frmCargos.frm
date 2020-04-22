@@ -3,45 +3,64 @@ Object = "{562E3E04-2C31-4ECE-83F4-4017EEE51D40}#8.0#0"; "todg8.ocx"
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.ocx"
 Begin VB.Form frmCargos 
    Caption         =   "ProFut - Cargos e Permissões"
-   ClientHeight    =   5070
-   ClientLeft      =   7530
-   ClientTop       =   3825
-   ClientWidth     =   10245
+   ClientHeight    =   8430
+   ClientLeft      =   6705
+   ClientTop       =   2265
+   ClientWidth     =   10590
    LinkTopic       =   "Form1"
    LockControls    =   -1  'True
-   ScaleHeight     =   5070
-   ScaleWidth      =   10245
+   ScaleHeight     =   8430
+   ScaleWidth      =   10590
    Begin VB.Frame fraPrincipal 
-      Height          =   4455
+      Height          =   7755
       Left            =   0
       TabIndex        =   0
       Top             =   -60
-      Width           =   10245
+      Width           =   10605
       Begin VB.Frame fraPermissao 
          Caption         =   "Permisões"
-         Height          =   3375
-         Left            =   5130
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   5205
+         Left            =   60
          TabIndex        =   3
-         Top             =   60
-         Width           =   5055
+         Top             =   2460
+         Width           =   10485
          Begin TrueOleDBGrid80.TDBGrid ssgPermissoes 
-            Height          =   3075
+            Height          =   4905
             Left            =   60
             TabIndex        =   5
             Top             =   210
-            Width           =   4905
-            _ExtentX        =   8652
-            _ExtentY        =   5424
+            Width           =   10335
+            _ExtentX        =   18230
+            _ExtentY        =   8652
             _LayoutType     =   4
             _RowHeight      =   -2147483647
             _WasPersistedAsPixels=   0
-            Columns(0)._VlistStyle=   0
+            Columns(0)._VlistStyle=   68
             Columns(0)._MaxComboItems=   5
-            Columns(0).Caption=   "Telefone"
-            Columns(0).DataField=   "Nome"
+            Columns(0).DataField=   "check"
             Columns(0)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
-            Columns.Count   =   1
+            Columns(1)._VlistStyle=   0
+            Columns(1)._MaxComboItems=   5
+            Columns(1).Caption=   "Código"
+            Columns(1).DataField=   "codigo"
+            Columns(1)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
+            Columns(2)._VlistStyle=   0
+            Columns(2)._MaxComboItems=   5
+            Columns(2).Caption=   "Permissão"
+            Columns(2).DataField=   "permissao"
+            Columns(2)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
+            Columns.Count   =   3
             Splits(0)._UserFlags=   0
+            Splits(0).Locked=   -1  'True
             Splits(0).MarqueeStyle=   3
             Splits(0).AllowRowSizing=   0   'False
             Splits(0).RecordSelectors=   0   'False
@@ -51,13 +70,25 @@ Begin VB.Form frmCargos
             Splits(0).DividerColor=   -2147483633
             Splits(0).SpringMode=   0   'False
             Splits(0)._PropDict=   "_ColumnProps,515,0;_UserFlags,518,3"
-            Splits(0)._ColumnProps(0)=   "Columns.Count=1"
-            Splits(0)._ColumnProps(1)=   "Column(0).Width=8123"
+            Splits(0)._ColumnProps(0)=   "Columns.Count=3"
+            Splits(0)._ColumnProps(1)=   "Column(0).Width=450"
             Splits(0)._ColumnProps(2)=   "Column(0).DividerColor=0"
-            Splits(0)._ColumnProps(3)=   "Column(0)._WidthInPix=8043"
+            Splits(0)._ColumnProps(3)=   "Column(0)._WidthInPix=370"
             Splits(0)._ColumnProps(4)=   "Column(0)._EditAlways=0"
-            Splits(0)._ColumnProps(5)=   "Column(0)._ColStyle=1"
+            Splits(0)._ColumnProps(5)=   "Column(0).AllowSizing=0"
             Splits(0)._ColumnProps(6)=   "Column(0).Order=1"
+            Splits(0)._ColumnProps(7)=   "Column(1).Width=1005"
+            Splits(0)._ColumnProps(8)=   "Column(1).DividerColor=0"
+            Splits(0)._ColumnProps(9)=   "Column(1)._WidthInPix=926"
+            Splits(0)._ColumnProps(10)=   "Column(1)._EditAlways=0"
+            Splits(0)._ColumnProps(11)=   "Column(1)._ColStyle=513"
+            Splits(0)._ColumnProps(12)=   "Column(1).Order=2"
+            Splits(0)._ColumnProps(13)=   "Column(2).Width=16245"
+            Splits(0)._ColumnProps(14)=   "Column(2).DividerColor=0"
+            Splits(0)._ColumnProps(15)=   "Column(2)._WidthInPix=16166"
+            Splits(0)._ColumnProps(16)=   "Column(2)._EditAlways=0"
+            Splits(0)._ColumnProps(17)=   "Column(2)._ColStyle=513"
+            Splits(0)._ColumnProps(18)=   "Column(2).Order=3"
             Splits.Count    =   1
             PrintInfos(0)._StateFlags=   0
             PrintInfos(0).Name=   "piInternal 0"
@@ -126,48 +157,82 @@ Begin VB.Form frmCargos
             _StyleDefs(39)  =   "Splits(0).OddRowStyle:id=21,.parent=10"
             _StyleDefs(40)  =   "Splits(0).RecordSelectorStyle:id=23,.parent=11"
             _StyleDefs(41)  =   "Splits(0).FilterBarStyle:id=24,.parent=12"
-            _StyleDefs(42)  =   "Splits(0).Columns(0).Style:id=50,.parent=13,.alignment=2"
-            _StyleDefs(43)  =   "Splits(0).Columns(0).HeadingStyle:id=47,.parent=14"
-            _StyleDefs(44)  =   "Splits(0).Columns(0).FooterStyle:id=48,.parent=15"
-            _StyleDefs(45)  =   "Splits(0).Columns(0).EditorStyle:id=49,.parent=17"
-            _StyleDefs(46)  =   "Named:id=33:Normal"
-            _StyleDefs(47)  =   ":id=33,.parent=0"
-            _StyleDefs(48)  =   "Named:id=34:Heading"
-            _StyleDefs(49)  =   ":id=34,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
-            _StyleDefs(50)  =   ":id=34,.wraptext=-1"
-            _StyleDefs(51)  =   "Named:id=35:Footing"
-            _StyleDefs(52)  =   ":id=35,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
-            _StyleDefs(53)  =   "Named:id=36:Selected"
-            _StyleDefs(54)  =   ":id=36,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&H8000000E&"
-            _StyleDefs(55)  =   "Named:id=37:Caption"
-            _StyleDefs(56)  =   ":id=37,.parent=34,.alignment=2"
-            _StyleDefs(57)  =   "Named:id=38:HighlightRow"
-            _StyleDefs(58)  =   ":id=38,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&H8000000E&"
-            _StyleDefs(59)  =   "Named:id=39:EvenRow"
-            _StyleDefs(60)  =   ":id=39,.parent=33,.bgcolor=&HFFFF00&"
-            _StyleDefs(61)  =   "Named:id=40:OddRow"
-            _StyleDefs(62)  =   ":id=40,.parent=33"
-            _StyleDefs(63)  =   "Named:id=41:RecordSelector"
-            _StyleDefs(64)  =   ":id=41,.parent=34"
-            _StyleDefs(65)  =   "Named:id=42:FilterBar"
-            _StyleDefs(66)  =   ":id=42,.parent=33"
+            _StyleDefs(42)  =   "Splits(0).Columns(0).Style:id=28,.parent=13"
+            _StyleDefs(43)  =   "Splits(0).Columns(0).HeadingStyle:id=25,.parent=14"
+            _StyleDefs(44)  =   "Splits(0).Columns(0).FooterStyle:id=26,.parent=15"
+            _StyleDefs(45)  =   "Splits(0).Columns(0).EditorStyle:id=27,.parent=17"
+            _StyleDefs(46)  =   "Splits(0).Columns(1).Style:id=50,.parent=13,.alignment=2"
+            _StyleDefs(47)  =   "Splits(0).Columns(1).HeadingStyle:id=47,.parent=14,.alignment=2"
+            _StyleDefs(48)  =   "Splits(0).Columns(1).FooterStyle:id=48,.parent=15"
+            _StyleDefs(49)  =   "Splits(0).Columns(1).EditorStyle:id=49,.parent=17"
+            _StyleDefs(50)  =   "Splits(0).Columns(2).Style:id=32,.parent=13,.alignment=2"
+            _StyleDefs(51)  =   "Splits(0).Columns(2).HeadingStyle:id=29,.parent=14,.alignment=2"
+            _StyleDefs(52)  =   "Splits(0).Columns(2).FooterStyle:id=30,.parent=15"
+            _StyleDefs(53)  =   "Splits(0).Columns(2).EditorStyle:id=31,.parent=17"
+            _StyleDefs(54)  =   "Named:id=33:Normal"
+            _StyleDefs(55)  =   ":id=33,.parent=0"
+            _StyleDefs(56)  =   "Named:id=34:Heading"
+            _StyleDefs(57)  =   ":id=34,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
+            _StyleDefs(58)  =   ":id=34,.wraptext=-1"
+            _StyleDefs(59)  =   "Named:id=35:Footing"
+            _StyleDefs(60)  =   ":id=35,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
+            _StyleDefs(61)  =   "Named:id=36:Selected"
+            _StyleDefs(62)  =   ":id=36,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&H8000000E&"
+            _StyleDefs(63)  =   "Named:id=37:Caption"
+            _StyleDefs(64)  =   ":id=37,.parent=34,.alignment=2"
+            _StyleDefs(65)  =   "Named:id=38:HighlightRow"
+            _StyleDefs(66)  =   ":id=38,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&H8000000E&"
+            _StyleDefs(67)  =   "Named:id=39:EvenRow"
+            _StyleDefs(68)  =   ":id=39,.parent=33,.bgcolor=&HFFFF00&"
+            _StyleDefs(69)  =   "Named:id=40:OddRow"
+            _StyleDefs(70)  =   ":id=40,.parent=33"
+            _StyleDefs(71)  =   "Named:id=41:RecordSelector"
+            _StyleDefs(72)  =   ":id=41,.parent=34"
+            _StyleDefs(73)  =   "Named:id=42:FilterBar"
+            _StyleDefs(74)  =   ":id=42,.parent=33"
          End
       End
       Begin VB.Frame fraCargos 
          Caption         =   "Cargos"
-         Height          =   3375
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   2445
          Left            =   60
          TabIndex        =   2
          Top             =   60
-         Width           =   5055
+         Width           =   10485
+         Begin VB.Frame fraAdicionarAlterar 
+            Caption         =   "Adicionar/Alterar"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   2235
+            Left            =   5010
+            TabIndex        =   6
+            Top             =   120
+            Width           =   5415
+         End
          Begin TrueOleDBGrid80.TDBGrid ssgCargos 
-            Height          =   3075
+            Height          =   2145
             Left            =   60
             TabIndex        =   4
             Top             =   210
             Width           =   4905
             _ExtentX        =   8652
-            _ExtentY        =   5424
+            _ExtentY        =   3784
             _LayoutType     =   4
             _RowHeight      =   -2147483647
             _WasPersistedAsPixels=   0
@@ -292,9 +357,9 @@ Begin VB.Form frmCargos
    End
    Begin MSComctlLib.Toolbar tbBotoes 
       Height          =   570
-      Left            =   7350
+      Left            =   7650
       TabIndex        =   1
-      Top             =   4470
+      Top             =   7800
       Width           =   2880
       _ExtentX        =   5080
       _ExtentY        =   1005
@@ -329,8 +394,8 @@ Begin VB.Form frmCargos
       EndProperty
    End
    Begin MSComctlLib.ImageList imgList 
-      Left            =   0
-      Top             =   4650
+      Left            =   60
+      Top             =   8730
       _ExtentX        =   1005
       _ExtentY        =   1005
       BackColor       =   -2147483643
@@ -388,3 +453,6 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Private Sub Form_Load()
+
+End Sub
