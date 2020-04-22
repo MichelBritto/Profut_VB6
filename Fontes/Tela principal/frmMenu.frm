@@ -42,13 +42,13 @@ Begin VB.Form frmMenu
          Top             =   120
          Width           =   3435
          Begin Threed.SSCommand cmdCadastroDeJogador 
-            Height          =   1065
+            Height          =   645
             Left            =   30
             TabIndex        =   3
             Top             =   60
             Width           =   3360
             _ExtentX        =   5927
-            _ExtentY        =   1879
+            _ExtentY        =   1138
             _Version        =   196609
             ForeColor       =   14737632
             BackColor       =   0
@@ -72,13 +72,13 @@ Begin VB.Form frmMenu
             Outline         =   0   'False
          End
          Begin Threed.SSCommand cmdCadastroEquipe 
-            Height          =   1065
+            Height          =   645
             Left            =   30
             TabIndex        =   4
-            Top             =   1290
+            Top             =   780
             Width           =   3360
             _ExtentX        =   5927
-            _ExtentY        =   1879
+            _ExtentY        =   1138
             _Version        =   196609
             ForeColor       =   14737632
             BackColor       =   0
@@ -102,13 +102,13 @@ Begin VB.Form frmMenu
             Outline         =   0   'False
          End
          Begin Threed.SSCommand cmdRelatorioJogador 
-            Height          =   1065
+            Height          =   645
             Left            =   30
             TabIndex        =   5
-            Top             =   2520
+            Top             =   1530
             Width           =   3360
             _ExtentX        =   5927
-            _ExtentY        =   1879
+            _ExtentY        =   1138
             _Version        =   196609
             ForeColor       =   14737632
             BackColor       =   0
@@ -132,13 +132,13 @@ Begin VB.Form frmMenu
             Outline         =   0   'False
          End
          Begin Threed.SSCommand cmdSair 
-            Height          =   1065
+            Height          =   645
             Left            =   30
             TabIndex        =   6
-            Top             =   5010
+            Top             =   5520
             Width           =   3360
             _ExtentX        =   5927
-            _ExtentY        =   1879
+            _ExtentY        =   1138
             _Version        =   196609
             ForeColor       =   14737632
             BackColor       =   0
@@ -162,13 +162,13 @@ Begin VB.Form frmMenu
             Outline         =   0   'False
          End
          Begin Threed.SSCommand cmdManutencao 
-            Height          =   1065
+            Height          =   645
             Left            =   30
             TabIndex        =   7
-            Top             =   3780
+            Top             =   2280
             Width           =   3360
             _ExtentX        =   5927
-            _ExtentY        =   1879
+            _ExtentY        =   1138
             _Version        =   196609
             ForeColor       =   14737632
             BackColor       =   0
@@ -185,6 +185,37 @@ Begin VB.Form frmMenu
             EndProperty
             Picture         =   "frmMenu.frx":35F1
             Caption         =   "Manutenção"
+            Alignment       =   1
+            PictureAlignment=   9
+            BevelWidth      =   1
+            RoundedCorners  =   0   'False
+            Outline         =   0   'False
+         End
+         Begin Threed.SSCommand cmdUsuario 
+            Height          =   555
+            Left            =   1020
+            TabIndex        =   8
+            Top             =   2970
+            Visible         =   0   'False
+            Width           =   2370
+            _ExtentX        =   4180
+            _ExtentY        =   979
+            _Version        =   196609
+            ForeColor       =   14737632
+            BackColor       =   0
+            PictureMaskColor=   16777152
+            PictureFrames   =   1
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial Black"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   900
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Picture         =   "frmMenu.frx":39A3
+            Caption         =   "Usuário"
             Alignment       =   1
             PictureAlignment=   9
             BevelWidth      =   1
@@ -242,6 +273,14 @@ Private Sub cmdCadastroEquipe_MouseExit(ByVal Button As Integer, ByVal Shift As 
     cmdCadastroEquipe.ForeColor = vbWhite
 End Sub
 
+
+Private Sub cmdManutencao_Click()
+    If cmdUsuario.Visible = False Then
+        cmdUsuario.Visible = True
+    Else
+        cmdUsuario.Visible = False
+    End If
+End Sub
 
 Private Sub cmdManutencao_MouseEnter(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
     'cmdCadastroDeJogador.BackColor = "&H000080FF&"
@@ -302,6 +341,29 @@ Private Sub cmdCadastroDeJogador_MouseExit(ByVal Button As Integer, ByVal Shift 
     cmdCadastroDeJogador.ForeColor = vbWhite
 End Sub
 
+Private Sub cmdUsuario_MouseEnter(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+    'cmdCadastroDeJogador.BackColor = "&H000080FF&"
+    cmdUsuario.ForeColor = &H80FF&
+End Sub
+
+Private Sub cmdUsuario_MouseExit(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+    'cmdCadastroDeJogador.BackColor = "&H00000000&"
+    cmdUsuario.ForeColor = vbWhite
+End Sub
+Private Sub cmdUsuario_Click()
+    Dim ObjManutencao As clsManutencao
+    Set ObjManutencao = New clsManutencao
+    If Not gSMConexao Is Nothing Then
+    
+        If gSMConexao.EstadoConexaoBD = adStateOpen Then
+            
+            ObjManutencao.Show gSMConexao, "ProFut - Cadastro de Usuário"
+            Exit Sub
+        Else
+            gSMConexao.conectar
+        End If
+    End If
+End Sub
 
 Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
     frmPrincipal.FecharPrograma = True

@@ -136,7 +136,7 @@ Begin VB.Form frmUsuarios
             BestFit         =   0   'False
             ClipMode        =   0
             DataFormatEx    =   0
-            Mask            =   "( __ ) ____-_____"
+            Mask            =   ""
             PromptChar      =   "_"
             PromptInclude   =   0   'False
             RequireFill     =   0   'False
@@ -159,7 +159,7 @@ Begin VB.Form frmUsuarios
             Appearance      =   0  'Flat
             Height          =   405
             Left            =   60
-            MaxLength       =   6
+            MaxLength       =   100
             TabIndex        =   9
             Top             =   1110
             Width           =   4695
@@ -168,7 +168,7 @@ Begin VB.Form frmUsuarios
             Appearance      =   0  'Flat
             Height          =   405
             Left            =   5610
-            MaxLength       =   6
+            MaxLength       =   30
             TabIndex        =   7
             Top             =   450
             Width           =   2475
@@ -177,7 +177,7 @@ Begin VB.Form frmUsuarios
             Appearance      =   0  'Flat
             Height          =   405
             Left            =   990
-            MaxLength       =   6
+            MaxLength       =   100
             TabIndex        =   5
             Top             =   450
             Width           =   4575
@@ -498,13 +498,13 @@ Begin VB.Form frmUsuarios
    End
    Begin MSComctlLib.Toolbar tbBotoes 
       Height          =   570
-      Left            =   7710
+      Left            =   6900
       TabIndex        =   1
       Top             =   8820
-      Width           =   2850
-      _ExtentX        =   5027
+      Width           =   3630
+      _ExtentX        =   6403
       _ExtentY        =   1005
-      ButtonWidth     =   1720
+      ButtonWidth     =   2196
       ButtonHeight    =   1005
       AllowCustomize  =   0   'False
       Wrappable       =   0   'False
@@ -521,10 +521,9 @@ Begin VB.Form frmUsuarios
          EndProperty
          BeginProperty Button2 {66833FEA-8583-11D1-B16A-00C0F0283628} 
             Enabled         =   0   'False
-            Caption         =   "F7-Gravar"
+            Caption         =   "F7-Abandonar"
             Key             =   "cmdGravar"
-            Object.ToolTipText     =   "Gravar Alterações"
-            ImageIndex      =   7
+            ImageIndex      =   6
          EndProperty
          BeginProperty Button3 {66833FEA-8583-11D1-B16A-00C0F0283628} 
             Caption         =   "F10-Sair"
@@ -621,28 +620,28 @@ Private Sub cmdAlterarUsuario_Click()
 30            txtCodigoUsuario.Text = mobjRsUsuarios!ID_IN
 40            txtNome.Text = mobjRsUsuarios!Nome_VC
 50            txtLogin.Text = mobjRsUsuarios!Login_VC
-              'FAZER SSCCARGO
-60            txtEmail.Text = mobjRsUsuarios!Email_VC
-70            fpTelefone.Text = mobjRsUsuarios!Telefone_VC
+60            Call modBDCombo_SelecionarCargos(sscCargo, mobjRsUsuarios!Cargo_IN)
+70            txtEmail.Text = NS(mobjRsUsuarios!Email_VC)
+80            fpTelefone.Text = NS(mobjRsUsuarios!Telefone_VC)
               
-80            cmdAlterarUsuario.Caption = "Gravar"
-90            cmdNovoUsuario.Enabled = False
-100       Else
-110           If VerificarCampos = True Then
-120               If MsgBox("Deseja alterar o usuário?", vbYesNo + vbExclamation, "Atenção!") = vbNo Then Exit Sub
-130               GravarUsuario
-140               LimparCampos
-150               cmdNovoUsuario.Enabled = True
-160               cmdAlterarUsuario.Caption = "Alterar"
-170               MsgBox "Usuário Alterado!", vbOKOnly + vbInformation, "Sucesso!"
-180           Else
-190               Exit Sub
-200           End If
-210       End If
+90            cmdAlterarUsuario.Caption = "Gravar"
+100           cmdNovoUsuario.Enabled = False
+110       Else
+120           If VerificarCampos = True Then
+130               If MsgBox("Deseja alterar o usuário?", vbYesNo + vbExclamation, "Atenção!") = vbNo Then Exit Sub
+140               GravarUsuario
+150               LimparCampos
+160               cmdNovoUsuario.Enabled = True
+170               cmdAlterarUsuario.Caption = "Alterar"
+180               MsgBox "Usuário Alterado!", vbOKOnly + vbInformation, "Sucesso!"
+190           Else
+200               Exit Sub
+210           End If
+220       End If
 
-220   Exit Sub
+230   Exit Sub
 Erro:
-230      Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "cmdAlterarUsuario_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+240      Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "cmdAlterarUsuario_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 
 End Sub
@@ -711,6 +710,7 @@ End Sub
 Private Sub Form_Load()
     
     mstrFlag = ""
+    Call modBDCombo_SelecionarCargos(sscCargo)
     Call CarregarCampos
     Call LimparCampos
     Call HabilitarCampos(False)
@@ -766,31 +766,24 @@ Private Sub HabilitarTBBotoes(blnAlterar As Boolean, blnGravar As Boolean, blnSa
 End Sub
 
 Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
-    If Not (Button.Enabled) Then Exit Sub
-    Select Case Button.Key
+10        If Not (Button.Enabled) Then Exit Sub
+20        Select Case Button.Key
 
-        Case "cmdAlterar":
-            mstrFlag = "A"
-            Call HabilitarCampos(True)
-            Call HabilitarTBBotoes(False, True, False)
-        
-'        Case "cmdGravar"
-'            'mstrFlag = ""
-'            If VerificarCampos Then
-'                GravarUsuario
-'                CarregarCampos
-'                mstrFlag = ""
-'            Else: Exit Sub
-'
-'            End If
-'
-'            Call HabilitarCampos(False)
-'            Call HabilitarTBBotoes(True, False, True)
-            
-        Case "cmdSair"
-            Unload Me
-        
-    End Select
+              Case "cmdAlterar":
+30                mstrFlag = "A"
+40                Call HabilitarCampos(True)
+50                Call HabilitarTBBotoes(False, True, False)
+
+60            Case "cmdGravar"
+70                mstrFlag = ""
+80                LimparCampos
+90                Call HabilitarCampos(False)
+100               Call HabilitarTBBotoes(True, False, True)
+
+110           Case "cmdSair"
+120               Unload Me
+              
+130       End Select
 End Sub
 
 Private Sub GravarUsuario()
@@ -800,7 +793,7 @@ Private Sub GravarUsuario()
               
 30            gSMConexao.BeginTransaction
               
-40            Call modManutencao_AdicionarAlterarUsuario(txtLogin.Text, txtNome.Text, sscCargo.Columns("chcodigo").Value, txtCodigoUsuario.Text, fpTelefone.Text, txtEmail.Text)
+40            Call modManutencao_AdicionarAlterarUsuario(txtLogin.Text, txtNome.Text, Val(sscCargo.Columns("chcodigo").Value), Val(txtCodigoUsuario.Text), fpTelefone.Text, txtEmail.Text)
               
 50            CarregarCampos
 60            mstrFlag = ""
@@ -839,14 +832,17 @@ Private Function VerificarCampos() As Boolean
           
 30        If txtNome.Text = "" Then
 40            strMensagem = strMensagem & "-> Nome do usuário não preenchido." & vbCrLf
+            blnContinua = False
 50        End If
           
 60        If txtLogin.Text = "" Then
 70            strMensagem = strMensagem & "-> Login do usuário não preenchido." & vbCrLf
+            blnContinua = False
 80        End If
           
 90        If sscCargo.Text = "" And Not sscCargo.IsTextValid And Not sscCargo.IsItemInList Then
 100           strMensagem = strMensagem & "-> Cargo do usuário não selecionado." & vbCrLf
+            blnContinua = False
 110       End If
             
 120       If Not blnContinua Then
