@@ -36,59 +36,61 @@ Begin VB.Form frmCargos
          Begin TrueOleDBGrid80.TDBGrid ssgPermissoes 
             Height          =   4905
             Left            =   60
-            TabIndex        =   5
+            TabIndex        =   6
             Top             =   210
-            Width           =   10335
-            _ExtentX        =   18230
+            Width           =   10350
+            _ExtentX        =   18256
             _ExtentY        =   8652
             _LayoutType     =   4
-            _RowHeight      =   -2147483647
+            _RowHeight      =   15
             _WasPersistedAsPixels=   0
-            Columns(0)._VlistStyle=   68
+            Columns(0)._VlistStyle=   100
             Columns(0)._MaxComboItems=   5
             Columns(0).DataField=   "check"
+            Columns(0).DefaultValue=   "0"
+            Columns(0).DefaultValue.vt=   8
             Columns(0)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
             Columns(1)._VlistStyle=   0
             Columns(1)._MaxComboItems=   5
             Columns(1).Caption=   "Código"
-            Columns(1).DataField=   "codigo"
+            Columns(1).DataField=   "Permissao_IN"
             Columns(1)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
             Columns(2)._VlistStyle=   0
             Columns(2)._MaxComboItems=   5
             Columns(2).Caption=   "Permissão"
-            Columns(2).DataField=   "permissao"
+            Columns(2).DataField=   "Descricao_VC"
             Columns(2)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
             Columns.Count   =   3
-            Splits(0)._UserFlags=   0
-            Splits(0).Locked=   -1  'True
-            Splits(0).MarqueeStyle=   3
+            Splits(0)._UserFlags=   1
+            Splits(0).MarqueeStyle=   5
             Splits(0).AllowRowSizing=   0   'False
             Splits(0).RecordSelectors=   0   'False
             Splits(0).RecordSelectorWidth=   688
             Splits(0)._SavedRecordSelectors=   0   'False
-            Splits(0).ScrollBars=   3
+            Splits(0).AllowColSelect=   0   'False
             Splits(0).DividerColor=   -2147483633
             Splits(0).SpringMode=   0   'False
             Splits(0)._PropDict=   "_ColumnProps,515,0;_UserFlags,518,3"
             Splits(0)._ColumnProps(0)=   "Columns.Count=3"
-            Splits(0)._ColumnProps(1)=   "Column(0).Width=450"
+            Splits(0)._ColumnProps(1)=   "Column(0).Width=635"
             Splits(0)._ColumnProps(2)=   "Column(0).DividerColor=0"
-            Splits(0)._ColumnProps(3)=   "Column(0)._WidthInPix=370"
+            Splits(0)._ColumnProps(3)=   "Column(0)._WidthInPix=556"
             Splits(0)._ColumnProps(4)=   "Column(0)._EditAlways=0"
             Splits(0)._ColumnProps(5)=   "Column(0).AllowSizing=0"
-            Splits(0)._ColumnProps(6)=   "Column(0).Order=1"
-            Splits(0)._ColumnProps(7)=   "Column(1).Width=1005"
-            Splits(0)._ColumnProps(8)=   "Column(1).DividerColor=0"
-            Splits(0)._ColumnProps(9)=   "Column(1)._WidthInPix=926"
-            Splits(0)._ColumnProps(10)=   "Column(1)._EditAlways=0"
-            Splits(0)._ColumnProps(11)=   "Column(1)._ColStyle=513"
-            Splits(0)._ColumnProps(12)=   "Column(1).Order=2"
-            Splits(0)._ColumnProps(13)=   "Column(2).Width=16245"
-            Splits(0)._ColumnProps(14)=   "Column(2).DividerColor=0"
-            Splits(0)._ColumnProps(15)=   "Column(2)._WidthInPix=16166"
-            Splits(0)._ColumnProps(16)=   "Column(2)._EditAlways=0"
-            Splits(0)._ColumnProps(17)=   "Column(2)._ColStyle=513"
-            Splits(0)._ColumnProps(18)=   "Column(2).Order=3"
+            Splits(0)._ColumnProps(6)=   "Column(0)._ColStyle=1"
+            Splits(0)._ColumnProps(7)=   "Column(0).Order=1"
+            Splits(0)._ColumnProps(8)=   "Column(1).Width=1005"
+            Splits(0)._ColumnProps(9)=   "Column(1).DividerColor=0"
+            Splits(0)._ColumnProps(10)=   "Column(1)._WidthInPix=926"
+            Splits(0)._ColumnProps(11)=   "Column(1)._EditAlways=0"
+            Splits(0)._ColumnProps(12)=   "Column(1)._ColStyle=513"
+            Splits(0)._ColumnProps(13)=   "Column(1).Order=2"
+            Splits(0)._ColumnProps(14)=   "Column(2).Width=16536"
+            Splits(0)._ColumnProps(15)=   "Column(2).DividerColor=0"
+            Splits(0)._ColumnProps(16)=   "Column(2)._WidthInPix=16457"
+            Splits(0)._ColumnProps(17)=   "Column(2)._EditAlways=0"
+            Splits(0)._ColumnProps(18)=   "Column(2)._ColStyle=512"
+            Splits(0)._ColumnProps(19)=   "Column(2).Order=3"
             Splits.Count    =   1
             PrintInfos(0)._StateFlags=   0
             PrintInfos(0).Name=   "piInternal 0"
@@ -99,18 +101,19 @@ Begin VB.Form frmCargos
             PrintInfos.Count=   1
             Appearance      =   2
             DefColWidth     =   0
-            HeadLines       =   2
+            HeadLines       =   1
             FootLines       =   1
             MultipleLines   =   0
             CellTipsWidth   =   0
             InsertMode      =   0   'False
+            MultiSelect     =   0
             DeadAreaBackColor=   -2147483633
             RowDividerColor =   -2147483633
             RowSubDividerColor=   -2147483633
-            DirectionAfterEnter=   2
+            DirectionAfterEnter=   1
             DirectionAfterTab=   1
             MaxRows         =   250000
-            ChildGrid       =   "ssgEventoCentroCusto"
+            ChildGrid       =   "ssgObrasEnderecos"
             ChildGrid.vt    =   8
             ViewColumnCaptionWidth=   0
             ViewColumnWidth =   0
@@ -122,74 +125,75 @@ Begin VB.Form frmCargos
             _StyleDefs(4)   =   ":id=0,.underline=0,.strikethrough=0,.charset=0"
             _StyleDefs(5)   =   ":id=0,.fontname=MS Sans Serif"
             _StyleDefs(6)   =   "Style:id=1,.parent=0,.namedParent=33,.bgcolor=&HFFFFFF&,.fgcolor=&H0&"
-            _StyleDefs(7)   =   ":id=1,.borderColor=&HFFFF&,.bold=0,.fontsize=825,.italic=0,.underline=0"
+            _StyleDefs(7)   =   ":id=1,.borderColor=&HFFFFFF&,.bold=0,.fontsize=825,.italic=0,.underline=0"
             _StyleDefs(8)   =   ":id=1,.strikethrough=0,.charset=0"
             _StyleDefs(9)   =   ":id=1,.fontname=Arial"
-            _StyleDefs(10)  =   "CaptionStyle:id=4,.parent=2,.namedParent=37,.bgcolor=&HE3DFE0&,.fgcolor=&H0&"
-            _StyleDefs(11)  =   ":id=4,.borderColor=&HFFFFFF&"
-            _StyleDefs(12)  =   "HeadingStyle:id=2,.parent=1,.namedParent=34,.bgcolor=&H8000000F&,.fgcolor=&H0&"
-            _StyleDefs(13)  =   ":id=2,.bold=0,.fontsize=825,.italic=0,.underline=0,.strikethrough=0,.charset=0"
-            _StyleDefs(14)  =   ":id=2,.fontname=Arial"
-            _StyleDefs(15)  =   "FooterStyle:id=3,.parent=1,.namedParent=35,.borderColor=&HFFFFFF&"
-            _StyleDefs(16)  =   "InactiveStyle:id=5,.parent=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
-            _StyleDefs(17)  =   "SelectedStyle:id=6,.parent=1,.namedParent=36,.bgcolor=&H808080&,.fgcolor=&H0&"
-            _StyleDefs(18)  =   ":id=6,.borderColor=&H8080&"
-            _StyleDefs(19)  =   "EditorStyle:id=7,.parent=1,.bgcolor=&HCCFFFF&,.borderColor=&HFFFFFF&,.bold=0"
-            _StyleDefs(20)  =   ":id=7,.fontsize=825,.italic=0,.underline=0,.strikethrough=0,.charset=0"
-            _StyleDefs(21)  =   ":id=7,.fontname=Arial"
-            _StyleDefs(22)  =   "HighlightRowStyle:id=8,.parent=1,.namedParent=38"
-            _StyleDefs(23)  =   "EvenRowStyle:id=9,.parent=1,.namedParent=39,.bgcolor=&HFFFF00&"
-            _StyleDefs(24)  =   ":id=9,.borderColor=&HFFFFFF&,.bold=0,.fontsize=825,.italic=0,.underline=0"
-            _StyleDefs(25)  =   ":id=9,.strikethrough=0,.charset=0"
-            _StyleDefs(26)  =   ":id=9,.fontname=Arial"
-            _StyleDefs(27)  =   "OddRowStyle:id=10,.parent=1,.namedParent=40,.borderColor=&HFFFFFF&"
-            _StyleDefs(28)  =   "RecordSelectorStyle:id=11,.parent=2,.namedParent=41"
-            _StyleDefs(29)  =   "FilterBarStyle:id=12,.parent=1,.namedParent=42,.borderColor=&HFFFF&"
-            _StyleDefs(30)  =   "Splits(0).Style:id=13,.parent=1,.bgcolor=&H80000005&"
-            _StyleDefs(31)  =   "Splits(0).CaptionStyle:id=22,.parent=4,.bgcolor=&HC0C0C0&"
-            _StyleDefs(32)  =   "Splits(0).HeadingStyle:id=14,.parent=2,.bgcolor=&H8000000F&,.fgcolor=&H0&"
-            _StyleDefs(33)  =   "Splits(0).FooterStyle:id=15,.parent=3"
-            _StyleDefs(34)  =   "Splits(0).InactiveStyle:id=16,.parent=5"
-            _StyleDefs(35)  =   "Splits(0).SelectedStyle:id=18,.parent=6,.bgcolor=&H800000&,.fgcolor=&HFFFFFF&"
-            _StyleDefs(36)  =   "Splits(0).EditorStyle:id=17,.parent=7"
-            _StyleDefs(37)  =   "Splits(0).HighlightRowStyle:id=19,.parent=8"
-            _StyleDefs(38)  =   "Splits(0).EvenRowStyle:id=20,.parent=9"
-            _StyleDefs(39)  =   "Splits(0).OddRowStyle:id=21,.parent=10"
-            _StyleDefs(40)  =   "Splits(0).RecordSelectorStyle:id=23,.parent=11"
-            _StyleDefs(41)  =   "Splits(0).FilterBarStyle:id=24,.parent=12"
-            _StyleDefs(42)  =   "Splits(0).Columns(0).Style:id=28,.parent=13"
-            _StyleDefs(43)  =   "Splits(0).Columns(0).HeadingStyle:id=25,.parent=14"
-            _StyleDefs(44)  =   "Splits(0).Columns(0).FooterStyle:id=26,.parent=15"
-            _StyleDefs(45)  =   "Splits(0).Columns(0).EditorStyle:id=27,.parent=17"
-            _StyleDefs(46)  =   "Splits(0).Columns(1).Style:id=50,.parent=13,.alignment=2"
-            _StyleDefs(47)  =   "Splits(0).Columns(1).HeadingStyle:id=47,.parent=14,.alignment=2"
-            _StyleDefs(48)  =   "Splits(0).Columns(1).FooterStyle:id=48,.parent=15"
-            _StyleDefs(49)  =   "Splits(0).Columns(1).EditorStyle:id=49,.parent=17"
-            _StyleDefs(50)  =   "Splits(0).Columns(2).Style:id=32,.parent=13,.alignment=2"
-            _StyleDefs(51)  =   "Splits(0).Columns(2).HeadingStyle:id=29,.parent=14,.alignment=2"
-            _StyleDefs(52)  =   "Splits(0).Columns(2).FooterStyle:id=30,.parent=15"
-            _StyleDefs(53)  =   "Splits(0).Columns(2).EditorStyle:id=31,.parent=17"
-            _StyleDefs(54)  =   "Named:id=33:Normal"
-            _StyleDefs(55)  =   ":id=33,.parent=0"
-            _StyleDefs(56)  =   "Named:id=34:Heading"
-            _StyleDefs(57)  =   ":id=34,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
-            _StyleDefs(58)  =   ":id=34,.wraptext=-1"
-            _StyleDefs(59)  =   "Named:id=35:Footing"
-            _StyleDefs(60)  =   ":id=35,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
-            _StyleDefs(61)  =   "Named:id=36:Selected"
-            _StyleDefs(62)  =   ":id=36,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&H8000000E&"
-            _StyleDefs(63)  =   "Named:id=37:Caption"
-            _StyleDefs(64)  =   ":id=37,.parent=34,.alignment=2"
-            _StyleDefs(65)  =   "Named:id=38:HighlightRow"
-            _StyleDefs(66)  =   ":id=38,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&H8000000E&"
-            _StyleDefs(67)  =   "Named:id=39:EvenRow"
-            _StyleDefs(68)  =   ":id=39,.parent=33,.bgcolor=&HFFFF00&"
-            _StyleDefs(69)  =   "Named:id=40:OddRow"
-            _StyleDefs(70)  =   ":id=40,.parent=33"
-            _StyleDefs(71)  =   "Named:id=41:RecordSelector"
-            _StyleDefs(72)  =   ":id=41,.parent=34"
-            _StyleDefs(73)  =   "Named:id=42:FilterBar"
-            _StyleDefs(74)  =   ":id=42,.parent=33"
+            _StyleDefs(10)  =   "CaptionStyle:id=4,.parent=2,.namedParent=37,.bgcolor=&H0&,.fgcolor=&HFFFFFF&"
+            _StyleDefs(11)  =   ":id=4,.appearance=0,.borderSize=0,.borderColor=&HFFFFFF&,.borderType=0,.bold=-1"
+            _StyleDefs(12)  =   ":id=4,.fontsize=825,.italic=0,.underline=0,.strikethrough=0,.charset=0"
+            _StyleDefs(13)  =   ":id=4,.fontname=Arial"
+            _StyleDefs(14)  =   "HeadingStyle:id=2,.parent=1,.namedParent=34,.bgcolor=&H8000000F&,.fgcolor=&H0&"
+            _StyleDefs(15)  =   ":id=2,.bold=0,.fontsize=825,.italic=0,.underline=0,.strikethrough=0,.charset=0"
+            _StyleDefs(16)  =   ":id=2,.fontname=Arial"
+            _StyleDefs(17)  =   "FooterStyle:id=3,.parent=1,.namedParent=35"
+            _StyleDefs(18)  =   "InactiveStyle:id=5,.parent=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
+            _StyleDefs(19)  =   "SelectedStyle:id=6,.parent=1,.namedParent=36,.bgcolor=&H808080&,.fgcolor=&H0&"
+            _StyleDefs(20)  =   "EditorStyle:id=7,.parent=1,.borderColor=&HFFFFFF&,.bold=0,.fontsize=825"
+            _StyleDefs(21)  =   ":id=7,.italic=0,.underline=0,.strikethrough=0,.charset=0"
+            _StyleDefs(22)  =   ":id=7,.fontname=Arial"
+            _StyleDefs(23)  =   "HighlightRowStyle:id=8,.parent=1,.namedParent=38"
+            _StyleDefs(24)  =   "EvenRowStyle:id=9,.parent=1,.namedParent=39,.bgcolor=&HFFFF00&"
+            _StyleDefs(25)  =   ":id=9,.borderColor=&HFFFFFF&,.bold=0,.fontsize=825,.italic=0,.underline=0"
+            _StyleDefs(26)  =   ":id=9,.strikethrough=0,.charset=0"
+            _StyleDefs(27)  =   ":id=9,.fontname=Arial"
+            _StyleDefs(28)  =   "OddRowStyle:id=10,.parent=1,.namedParent=40"
+            _StyleDefs(29)  =   "RecordSelectorStyle:id=11,.parent=2,.namedParent=41"
+            _StyleDefs(30)  =   "FilterBarStyle:id=12,.parent=1,.namedParent=42"
+            _StyleDefs(31)  =   "Splits(0).Style:id=13,.parent=1"
+            _StyleDefs(32)  =   "Splits(0).CaptionStyle:id=22,.parent=4,.bgcolor=&HC0C0C0&"
+            _StyleDefs(33)  =   "Splits(0).HeadingStyle:id=14,.parent=2,.bgcolor=&H8000000F&,.fgcolor=&H0&"
+            _StyleDefs(34)  =   "Splits(0).FooterStyle:id=15,.parent=3"
+            _StyleDefs(35)  =   "Splits(0).InactiveStyle:id=16,.parent=5"
+            _StyleDefs(36)  =   "Splits(0).SelectedStyle:id=18,.parent=6,.bgcolor=&H800000&,.fgcolor=&HFFFFFF&"
+            _StyleDefs(37)  =   "Splits(0).EditorStyle:id=17,.parent=7"
+            _StyleDefs(38)  =   "Splits(0).HighlightRowStyle:id=19,.parent=8"
+            _StyleDefs(39)  =   "Splits(0).EvenRowStyle:id=20,.parent=9"
+            _StyleDefs(40)  =   "Splits(0).OddRowStyle:id=21,.parent=10"
+            _StyleDefs(41)  =   "Splits(0).RecordSelectorStyle:id=23,.parent=11"
+            _StyleDefs(42)  =   "Splits(0).FilterBarStyle:id=24,.parent=12"
+            _StyleDefs(43)  =   "Splits(0).Columns(0).Style:id=102,.parent=13,.alignment=2,.locked=0"
+            _StyleDefs(44)  =   "Splits(0).Columns(0).HeadingStyle:id=99,.parent=14"
+            _StyleDefs(45)  =   "Splits(0).Columns(0).FooterStyle:id=100,.parent=15"
+            _StyleDefs(46)  =   "Splits(0).Columns(0).EditorStyle:id=101,.parent=17"
+            _StyleDefs(47)  =   "Splits(0).Columns(1).Style:id=28,.parent=13,.alignment=2"
+            _StyleDefs(48)  =   "Splits(0).Columns(1).HeadingStyle:id=25,.parent=14,.alignment=2"
+            _StyleDefs(49)  =   "Splits(0).Columns(1).FooterStyle:id=26,.parent=15"
+            _StyleDefs(50)  =   "Splits(0).Columns(1).EditorStyle:id=27,.parent=17"
+            _StyleDefs(51)  =   "Splits(0).Columns(2).Style:id=32,.parent=13,.alignment=0"
+            _StyleDefs(52)  =   "Splits(0).Columns(2).HeadingStyle:id=29,.parent=14,.alignment=2"
+            _StyleDefs(53)  =   "Splits(0).Columns(2).FooterStyle:id=30,.parent=15"
+            _StyleDefs(54)  =   "Splits(0).Columns(2).EditorStyle:id=31,.parent=17"
+            _StyleDefs(55)  =   "Named:id=33:Normal"
+            _StyleDefs(56)  =   ":id=33,.parent=0"
+            _StyleDefs(57)  =   "Named:id=34:Heading"
+            _StyleDefs(58)  =   ":id=34,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
+            _StyleDefs(59)  =   ":id=34,.wraptext=-1"
+            _StyleDefs(60)  =   "Named:id=35:Footing"
+            _StyleDefs(61)  =   ":id=35,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
+            _StyleDefs(62)  =   "Named:id=36:Selected"
+            _StyleDefs(63)  =   ":id=36,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&H8000000E&"
+            _StyleDefs(64)  =   "Named:id=37:Caption"
+            _StyleDefs(65)  =   ":id=37,.parent=34,.alignment=2"
+            _StyleDefs(66)  =   "Named:id=38:HighlightRow"
+            _StyleDefs(67)  =   ":id=38,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&H8000000E&"
+            _StyleDefs(68)  =   "Named:id=39:EvenRow"
+            _StyleDefs(69)  =   ":id=39,.parent=33,.bgcolor=&HFFFF00&"
+            _StyleDefs(70)  =   "Named:id=40:OddRow"
+            _StyleDefs(71)  =   ":id=40,.parent=33"
+            _StyleDefs(72)  =   "Named:id=41:RecordSelector"
+            _StyleDefs(73)  =   ":id=41,.parent=34"
+            _StyleDefs(74)  =   "Named:id=42:FilterBar"
+            _StyleDefs(75)  =   ":id=42,.parent=33"
          End
       End
       Begin VB.Frame fraCargos 
@@ -221,7 +225,7 @@ Begin VB.Form frmCargos
             EndProperty
             Height          =   2235
             Left            =   5010
-            TabIndex        =   6
+            TabIndex        =   5
             Top             =   120
             Width           =   5415
          End
@@ -239,7 +243,7 @@ Begin VB.Form frmCargos
             Columns(0)._VlistStyle=   0
             Columns(0)._MaxComboItems=   5
             Columns(0).Caption=   "Cargo"
-            Columns(0).DataField=   "Cartegoria"
+            Columns(0).DataField=   "Descricao_VC"
             Columns(0)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
             Columns.Count   =   1
             Splits(0)._UserFlags=   0
@@ -447,12 +451,218 @@ Begin VB.Form frmCargos
          EndProperty
       EndProperty
    End
+   Begin VB.Image imgcima 
+      Height          =   135
+      Left            =   180
+      Picture         =   "frmCargos.frx":3804
+      Top             =   0
+      Visible         =   0   'False
+      Width           =   165
+   End
+   Begin VB.Image imgbaixo 
+      Height          =   135
+      Left            =   0
+      Picture         =   "frmCargos.frx":398A
+      Top             =   0
+      Visible         =   0   'False
+      Width           =   165
+   End
 End
 Attribute VB_Name = "frmCargos"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Dim mobjRsCargo As Recordset
+Dim mobjrsPermissao As Recordset
+Dim mobjrsPermissaoXCargo As Recordset
 Private Sub Form_Load()
+
+    CriarEPreencherRecordsets
+
+End Sub
+
+Private Sub CriarEPreencherRecordsets()
+Dim objRsCargos As Recordset
+Dim objRsPermissao As Recordset
+On Error GoTo Erro
+      
+    Set mobjRsCargo = Nothing
+    Set mobjRsCargo = New Recordset
+    
+    With mobjRsCargo
+        .Fields.Append "Cargo_IN", adInteger
+        .Fields.Append "Descricao_VC", adVarChar, 1024
+        .CursorLocation = adUseClient
+        .Open , Nothing, adOpenDynamic, adLockOptimistic
+    End With
+    
+    Call modManutencao_SelecionarCargos(objRsCargos)
+    
+    If Not objRsCargos Is Nothing Then
+        If Not objRsCargos.BOF And Not objRsCargos.EOF Then
+            If objRsCargos.RecordCount > 0 Then
+                objRsCargos.MoveFirst
+                
+                Do While Not objRsCargos.EOF
+                    mobjRsCargo.AddNew
+                        
+                    mobjRsCargo!Cargo_IN = NZ(objRsCargos!ID_IN)
+                    mobjRsCargo!Descricao_VC = NS(objRsCargos!Descricao_VC)
+                    
+                    objRsCargos.MoveNext
+                Loop
+                ssgCargos.DataSource = mobjRsCargo
+                ssgCargos.Update
+            End If
+        End If
+    End If
+    
+    Set mobjrsPermissao = Nothing
+    Set mobjrsPermissao = New Recordset
+    
+    With mobjrsPermissao
+        .Fields.Append "Cargo_IN", adInteger
+        .Fields.Append "ID_IN", adInteger
+        .Fields.Append "Permissao_IN", adInteger
+        .Fields.Append "Descricao_VC", adVarChar, 1024
+        .Fields.Append "check", adBoolean
+        .CursorLocation = adUseClient
+        .Open , Nothing, adOpenDynamic, adLockOptimistic
+    End With
+    
+    Call modManutencao_SelecionarPermissao(objRsPermissao)
+    
+    If Not objRsPermissao Is Nothing Then
+        If Not objRsPermissao.BOF And Not objRsPermissao.EOF Then
+            If objRsPermissao.RecordCount > 0 Then
+                objRsPermissao.MoveFirst
+                
+                Do While Not objRsPermissao.EOF
+                    mobjrsPermissao.AddNew
+                    mobjrsPermissao!ID_IN = NZ(objRsPermissao!ID_IN)
+                    mobjrsPermissao!Permissao_IN = NZ(objRsPermissao!Permissao_IN)
+                    mobjrsPermissao!Descricao_VC = NS(objRsPermissao!Descricao_VC)
+                    'mobjrsPermissao!Status_BT = NB(objRsPermissao!Status_BT)
+                    
+                    objRsPermissao.MoveNext
+                Loop
+                
+                ssgPermissoes.DataSource = mobjrsPermissao
+                ssgPermissoes.Update
+            End If
+        End If
+    End If
+    
+    Set mobjrsPermissaoXCargo = Nothing
+    Set mobjrsPermissaoXCargo = New Recordset
+    
+    With mobjrsPermissaoXCargo
+        .Fields.Append "ID_IN", adInteger
+        .Fields.Append "Cargo_IN", adInteger
+        .Fields.Append "Permissao_IN", adInteger
+        .CursorLocation = adUseClient
+        .Open , Nothing, adOpenDynamic, adLockOptimistic
+    End With
+    
+    Set mobjrsPermissaoXCargo = objRsPermissao.NextRecordset
+    
+    If Not objRsPermissao Is Nothing Then
+        If Not objRsPermissao.BOF And Not objRsPermissao.EOF Then
+            If objRsPermissao.RecordCount > 0 Then
+                objRsPermissao.MoveFirst
+                
+                Do While Not objRsPermissao.EOF
+                    mobjrsPermissao.AddNew
+                    mobjrsPermissao!ID_IN = NZ(objRsPermissao!ID_IN)
+                    mobjrsPermissao!Cargo_IN = NZ(objRsPermissao!Cargo_IN)
+                    mobjrsPermissao!Permissao_IN = NZ(objRsPermissao!Permissao_IN)
+                    
+                    objRsPermissao.MoveNext
+                Loop
+            End If
+        End If
+    End If
+        
+
+Exit Sub
+Erro:
+   Call MsgBox("Erro no módulo: " & "frmCargos" & vbCrLf & "CriarEPreencherRecordsets" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
+
+
+End Sub
+
+Private Sub ssgCargos_Click()
+On Error Resume Next
+    ssgCargos.SelBookmarks.Clear
+    ssgCargos.SelBookmarks.Add ssgCargos.Bookmark
+On Error GoTo 0
+End Sub
+
+Private Sub ssgCargos_HeadClick(ByVal ColIndex As Integer)
+    OrdenarColunaTrueDB ssgCargos, ColIndex, imgcima, imgbaixo
+End Sub
+
+Private Sub ssgCargos_RowColChange(LastRow As Variant, ByVal LastCol As Integer)
+    'On Error Resume Next
+    'mobjrsPermissao.Filter = "Cargo_IN =" & mobjRsCargo!Cargo_IN
+    ssgCargos_Click
+End Sub
+
+
+Private Sub ssgPermissoes_Click()
+On Error Resume Next
+    ssgPermissoes.SelBookmarks.Clear
+    ssgPermissoes.SelBookmarks.Add ssgPermissoes.Bookmark
+On Error GoTo 0
+
+End Sub
+
+Private Sub ssgPermissoes_HeadClick(ByVal ColIndex As Integer)
+    OrdenarColunaTrueDB ssgPermissoes, ColIndex, imgcima, imgbaixo
+End Sub
+
+Private Sub ssgPermissoes_RowColChange(LastRow As Variant, ByVal LastCol As Integer)
+    ssgPermissoes_Click
+End Sub
+
+Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
+    If Not (Button.Enabled) Then Exit Sub
+    Select Case Button.Key
+
+'              Case "cmdAlterar":
+'30                mstrFlag = "A"
+'40                Call HabilitarCampos(True)
+'50                Call HabilitarTBBotoes(False, True, False)
+'
+'60            Case "cmdGravar"
+'70                mstrFlag = ""
+'80                LimparCampos
+'90                Call HabilitarCampos(False)
+'100               Call HabilitarTBBotoes(True, False, True)
+
+        Case "cmdSair"
+            Unload Me
+        
+    End Select
+End Sub
+
+Private Sub FlegarPermissaoPorCargo()
+On Error GoTo Erro
+      
+    If mobjrsPermissaoXCargo Is Nothing Then Exit Sub
+    If mobjrsPermissaoXCargo.EOF And mobjrsPermissaoXCargo.BOF Then Exit Sub
+    If mobjrsPermissaoXCargo.RecordCount = 0 Then Exit Sub
+    
+    mobjrsPermissaoXCargo.MoveFirst
+    
+    
+    
+
+Exit Sub
+Erro:
+   Call MsgBox("Erro no módulo: " & "frmCargos" & vbCrLf & "FlegarPermissaoPorCargo" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
 
 End Sub

@@ -222,6 +222,37 @@ Begin VB.Form frmMenu
             RoundedCorners  =   0   'False
             Outline         =   0   'False
          End
+         Begin Threed.SSCommand cmdCargos 
+            Height          =   555
+            Left            =   1020
+            TabIndex        =   9
+            Top             =   3570
+            Visible         =   0   'False
+            Width           =   2370
+            _ExtentX        =   4180
+            _ExtentY        =   979
+            _Version        =   196609
+            ForeColor       =   14737632
+            BackColor       =   0
+            PictureMaskColor=   16777152
+            PictureFrames   =   1
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial Black"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   900
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Picture         =   "frmMenu.frx":3D55
+            Caption         =   "Cargos"
+            Alignment       =   1
+            PictureAlignment=   9
+            BevelWidth      =   1
+            RoundedCorners  =   0   'False
+            Outline         =   0   'False
+         End
       End
    End
 End
@@ -279,6 +310,12 @@ Private Sub cmdManutencao_Click()
         cmdUsuario.Visible = True
     Else
         cmdUsuario.Visible = False
+    End If
+    
+    If cmdCargos.Visible = False Then
+        cmdCargos.Visible = True
+    Else
+        cmdCargos.Visible = False
     End If
 End Sub
 
@@ -357,7 +394,7 @@ Private Sub cmdUsuario_Click()
     
         If gSMConexao.EstadoConexaoBD = adStateOpen Then
             
-            ObjManutencao.Show gSMConexao, "ProFut - Cadastro de Usuário"
+            ObjManutencao.ShowUsuarios gSMConexao, "ProFut - Cadastro de Usuário"
             Exit Sub
         Else
             gSMConexao.conectar
@@ -369,3 +406,26 @@ Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
     frmPrincipal.FecharPrograma = True
 End Sub
 
+Private Sub cmdCargos_MouseEnter(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+    'cmdCadastroDeJogador.BackColor = "&H000080FF&"
+    cmdCargos.ForeColor = &H80FF&
+End Sub
+
+Private Sub cmdCargos_MouseExit(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+    'cmdCadastroDeJogador.BackColor = "&H00000000&"
+    cmdCargos.ForeColor = vbWhite
+End Sub
+Private Sub cmdCargos_Click()
+    Dim ObjManutencao As clsManutencao
+    Set ObjManutencao = New clsManutencao
+    If Not gSMConexao Is Nothing Then
+    
+        If gSMConexao.EstadoConexaoBD = adStateOpen Then
+            
+            ObjManutencao.ShowCargos gSMConexao, "ProFut - Cadastro de Usuário"
+            Exit Sub
+        Else
+            gSMConexao.conectar
+        End If
+    End If
+End Sub

@@ -14,7 +14,7 @@ Attribute VB_Exposed = True
 Option Explicit
 
 
-Public Function Show(ByRef SMConexao As clsConexaoMC, _
+Public Function ShowUsuarios(ByRef SMConexao As clsConexaoMC, _
                      ByVal strCaption As String, _
                      Optional ByVal modal As FormShowConstants = vbModeless, _
                      Optional ByVal OwnerForm As Object = Nothing)
@@ -41,7 +41,33 @@ Erro:
     End Select
 
 End Function
+Public Function ShowCargos(ByRef SMConexao As clsConexaoMC, _
+                     ByVal strCaption As String, _
+                     Optional ByVal modal As FormShowConstants = vbModeless, _
+                     Optional ByVal OwnerForm As Object = Nothing)
+On Error GoTo Erro
+        
+    Set gSMConexao = SMConexao
 
+    'frmCadastroDeEquipe.Caption = strCaption
+    'frmCadastroDeEquipe.Show modal, OwnerForm
+    frmCargos.Show modal, OwnerForm
+
+Exit Function
+Erro:
+    Select Case Err.Number
+        Case 373
+                frmCargos.Show vbModeless, OwnerForm
+            Resume Next
+            
+        Case 401
+                frmCargos.Show vbModal, OwnerForm
+            Resume Next
+        Case Else
+            Call MsgBox("clsManutencao", "Show", Err.Description, Err.Number, Erl)
+    End Select
+
+End Function
 
 
 
