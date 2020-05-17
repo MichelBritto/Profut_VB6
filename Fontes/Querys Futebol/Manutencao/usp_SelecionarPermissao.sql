@@ -10,13 +10,7 @@ AS
             PER.Status_BT
     FROM    dbo.Permissao_T (NOLOCK) PER
     WHERE   PER.Permissao_IN = ISNULL(@Permissao_IN, PER.Permissao_IN)
-    
-    
-    SELECT  ID_IN ,
-            Cargo_IN ,
-            Permissao_IN
-    FROM    CargoXPermissao_T 
-    ORDER BY Cargo_IN ASC
+   
 
 GO
 

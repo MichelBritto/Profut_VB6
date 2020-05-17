@@ -1,4 +1,5 @@
 VERSION 5.00
+Object = "{065E6FD1-1BF9-11D2-BAE8-00104B9E0792}#3.0#0"; "ssa3d30.ocx"
 Object = "{562E3E04-2C31-4ECE-83F4-4017EEE51D40}#8.0#0"; "todg8.ocx"
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.ocx"
 Object = "{CDF3B183-D408-11CE-AE2C-0080C786E37D}#3.0#0"; "Edt32x30.ocx"
@@ -48,7 +49,7 @@ Begin VB.Form frmUsuarios
             Appearance      =   0  'Flat
             Caption         =   "Alterar"
             Height          =   405
-            Left            =   8850
+            Left            =   8940
             TabIndex        =   16
             Top             =   1080
             Width           =   1395
@@ -167,7 +168,7 @@ Begin VB.Form frmUsuarios
          Begin VB.TextBox txtLogin 
             Appearance      =   0  'Flat
             Height          =   405
-            Left            =   5610
+            Left            =   5340
             MaxLength       =   30
             TabIndex        =   7
             Top             =   450
@@ -180,14 +181,14 @@ Begin VB.Form frmUsuarios
             MaxLength       =   100
             TabIndex        =   5
             Top             =   450
-            Width           =   4575
+            Width           =   4305
          End
          Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscCargo 
             Height          =   390
-            Left            =   8130
+            Left            =   7860
             TabIndex        =   13
             Top             =   450
-            Width           =   2175
+            Width           =   1935
             DataFieldList   =   "Column 0"
             BevelType       =   0
             _Version        =   196617
@@ -206,7 +207,7 @@ Begin VB.Form frmUsuarios
             Columns(0).Width=   3200
             Columns(0).DataType=   8
             Columns(0).FieldLen=   4096
-            _ExtentX        =   3836
+            _ExtentX        =   3413
             _ExtentY        =   688
             _StockProps     =   93
             BackColor       =   -2147483643
@@ -220,6 +221,19 @@ Begin VB.Form frmUsuarios
                Strikethrough   =   0   'False
             EndProperty
          End
+         Begin Threed.SSCommand cmdAdicionarCargo 
+            Height          =   465
+            Left            =   9840
+            TabIndex        =   19
+            ToolTipText     =   "Adicionar Cargos"
+            Top             =   420
+            Width           =   465
+            _ExtentX        =   820
+            _ExtentY        =   820
+            _Version        =   196609
+            PictureFrames   =   1
+            Picture         =   "frmUsuarios.frx":066A
+         End
          Begin VB.Label Label4 
             Caption         =   "Código"
             Height          =   285
@@ -231,7 +245,7 @@ Begin VB.Form frmUsuarios
          Begin VB.Label Label29 
             Caption         =   "Cargo"
             Height          =   285
-            Left            =   8160
+            Left            =   7890
             TabIndex        =   14
             Top             =   240
             Width           =   1365
@@ -255,7 +269,7 @@ Begin VB.Form frmUsuarios
          Begin VB.Label Label1 
             Caption         =   "Login"
             Height          =   285
-            Left            =   5640
+            Left            =   5370
             TabIndex        =   8
             Top             =   240
             Width           =   855
@@ -546,43 +560,43 @@ Begin VB.Form frmUsuarios
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
          NumListImages   =   10
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":066A
+            Picture         =   "frmUsuarios.frx":0BAC
             Key             =   ""
          EndProperty
          BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":0C04
+            Picture         =   "frmUsuarios.frx":1146
             Key             =   ""
          EndProperty
          BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":119E
+            Picture         =   "frmUsuarios.frx":16E0
             Key             =   ""
          EndProperty
          BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":1738
+            Picture         =   "frmUsuarios.frx":1C7A
             Key             =   ""
          EndProperty
          BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":1CD2
+            Picture         =   "frmUsuarios.frx":2214
             Key             =   ""
          EndProperty
          BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":226C
+            Picture         =   "frmUsuarios.frx":27AE
             Key             =   ""
          EndProperty
          BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":2806
+            Picture         =   "frmUsuarios.frx":2D48
             Key             =   ""
          EndProperty
          BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":2DA0
+            Picture         =   "frmUsuarios.frx":32E2
             Key             =   ""
          EndProperty
          BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":333A
+            Picture         =   "frmUsuarios.frx":387C
             Key             =   ""
          EndProperty
          BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":38D4
+            Picture         =   "frmUsuarios.frx":3E16
             Key             =   ""
          EndProperty
       EndProperty
@@ -590,7 +604,7 @@ Begin VB.Form frmUsuarios
    Begin VB.Image imgbaixo 
       Height          =   135
       Left            =   0
-      Picture         =   "frmUsuarios.frx":3E6E
+      Picture         =   "frmUsuarios.frx":43B0
       Top             =   0
       Visible         =   0   'False
       Width           =   165
@@ -598,7 +612,7 @@ Begin VB.Form frmUsuarios
    Begin VB.Image imgcima 
       Height          =   135
       Left            =   180
-      Picture         =   "frmUsuarios.frx":3FF4
+      Picture         =   "frmUsuarios.frx":4536
       Top             =   0
       Visible         =   0   'False
       Width           =   165
@@ -611,6 +625,11 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim mstrFlag As String
 Dim mobjRsUsuarios As Recordset
+
+Private Sub cmdAdicionarCargo_Click()
+    frmCargos.Show vbModal, Me
+    Call modBDCombo_SelecionarCargos(sscCargo)
+End Sub
 
 Private Sub cmdAlterarUsuario_Click()
 10    On Error GoTo Erro
@@ -757,11 +776,11 @@ Erro:
 
 End Sub
 
-Private Sub HabilitarTBBotoes(blnAlterar As Boolean, blnGravar As Boolean, blnSair As Boolean)
+Private Sub HabilitarTBBotoes(blnAlterar As Boolean, blnGravar As Boolean, blnsair As Boolean)
 
 10        tbBotoes.Buttons("cmdAlterar").Enabled = blnAlterar
 20        tbBotoes.Buttons("cmdGravar").Enabled = blnGravar
-30        tbBotoes.Buttons("cmdSair").Enabled = blnSair
+30        tbBotoes.Buttons("cmdSair").Enabled = blnsair
           
 End Sub
 

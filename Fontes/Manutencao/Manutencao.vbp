@@ -20,6 +20,7 @@ Object={4A4AA691-3E6F-11D2-822F-00104B9E07A1}#3.0#0; ssdw3bo.ocx
 Form=frmUsuarios.frm
 Form=frmCargos.frm
 Module=modManutencao; modManutencao.bas
+Form=frmManutencaoCargos.frm
 Startup="(None)"
 HelpFile=""
 Title="Manutencao"

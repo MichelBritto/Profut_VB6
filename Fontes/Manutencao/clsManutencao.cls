@@ -51,17 +51,17 @@ On Error GoTo Erro
 
     'frmCadastroDeEquipe.Caption = strCaption
     'frmCadastroDeEquipe.Show modal, OwnerForm
-    frmCargos.Show modal, OwnerForm
+    frmPermissao.Show modal, OwnerForm
 
 Exit Function
 Erro:
     Select Case Err.Number
         Case 373
-                frmCargos.Show vbModeless, OwnerForm
+                frmPermissao.Show vbModeless, OwnerForm
             Resume Next
             
         Case 401
-                frmCargos.Show vbModal, OwnerForm
+                frmPermissao.Show vbModal, OwnerForm
             Resume Next
         Case Else
             Call MsgBox("clsManutencao", "Show", Err.Description, Err.Number, Erl)

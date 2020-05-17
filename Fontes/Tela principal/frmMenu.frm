@@ -222,7 +222,7 @@ Begin VB.Form frmMenu
             RoundedCorners  =   0   'False
             Outline         =   0   'False
          End
-         Begin Threed.SSCommand cmdCargos 
+         Begin Threed.SSCommand cmdPermissao 
             Height          =   555
             Left            =   1020
             TabIndex        =   9
@@ -246,7 +246,7 @@ Begin VB.Form frmMenu
                Strikethrough   =   0   'False
             EndProperty
             Picture         =   "frmMenu.frx":3D55
-            Caption         =   "Cargos"
+            Caption         =   "Permissão"
             Alignment       =   1
             PictureAlignment=   9
             BevelWidth      =   1
@@ -312,10 +312,10 @@ Private Sub cmdManutencao_Click()
         cmdUsuario.Visible = False
     End If
     
-    If cmdCargos.Visible = False Then
-        cmdCargos.Visible = True
+    If cmdPermissao.Visible = False Then
+        cmdPermissao.Visible = True
     Else
-        cmdCargos.Visible = False
+        cmdPermissao.Visible = False
     End If
 End Sub
 
@@ -406,16 +406,16 @@ Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
     frmPrincipal.FecharPrograma = True
 End Sub
 
-Private Sub cmdCargos_MouseEnter(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+Private Sub cmdPermissao_MouseEnter(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
     'cmdCadastroDeJogador.BackColor = "&H000080FF&"
-    cmdCargos.ForeColor = &H80FF&
+    cmdPermissao.ForeColor = &H80FF&
 End Sub
 
-Private Sub cmdCargos_MouseExit(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+Private Sub cmdPermissao_MouseExit(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
     'cmdCadastroDeJogador.BackColor = "&H00000000&"
-    cmdCargos.ForeColor = vbWhite
+    cmdPermissao.ForeColor = vbWhite
 End Sub
-Private Sub cmdCargos_Click()
+Private Sub cmdPermissao_Click()
     Dim ObjManutencao As clsManutencao
     Set ObjManutencao = New clsManutencao
     If Not gSMConexao Is Nothing Then

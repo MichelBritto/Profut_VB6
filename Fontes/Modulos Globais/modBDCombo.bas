@@ -4,7 +4,7 @@ Option Explicit
 Public Sub modBDCombo_SelecionarCartecoriaJogador(ByRef objSSOleDBCombo As SSOleDBCombo, Optional ByVal lngCodigo As Long)
 
     Dim intIndex          As Integer
-    Dim objRs             As New Recordset
+    Dim objrs             As New Recordset
    
 On Error GoTo Erro
    
@@ -26,13 +26,13 @@ On Error GoTo Erro
         .DataFieldToDisplay = "column 0"
     End With
      
-    objRs.Open "dbo.USP_SELECIONARCARTEGORIA", gSMConexao.Conexao, adOpenForwardOnly, adLockReadOnly, adCmdStoredProc
-    With objRs
-        If Not objRs.RecordCount = 0 Then objRs.MoveFirst
+    objrs.Open "dbo.USP_SELECIONARCARTEGORIA", gSMConexao.Conexao, adOpenForwardOnly, adLockReadOnly, adCmdStoredProc
+    With objrs
+        If Not objrs.RecordCount = 0 Then objrs.MoveFirst
         objSSOleDBCombo.RemoveAll
         Do While Not .EOF
             objSSOleDBCombo.AddItem NZ(!Descricao_VC) & vbTab & NS(!ID_IN)
-            If NZ(!ID_IN) = lngCodigo Then intIndex = objRs.AbsolutePosition - 1
+            If NZ(!ID_IN) = lngCodigo Then intIndex = objrs.AbsolutePosition - 1
             .MoveNext
         Loop
     End With
@@ -53,7 +53,7 @@ End Sub
 Public Sub modBDCombo_SelecionarEstados(ByRef objSSOleDBCombo As SSOleDBCombo, Optional ByVal lngCodigo As Long)
 
     Dim intIndex          As Integer
-    Dim objRs             As New Recordset
+    Dim objrs             As New Recordset
    
 On Error GoTo Erro
    
@@ -75,13 +75,13 @@ On Error GoTo Erro
         .DataFieldToDisplay = "column 0"
     End With
      
-    objRs.Open "dbo.USP_SELECIONARESTADOS", gSMConexao.Conexao, adOpenForwardOnly, adLockReadOnly, adCmdStoredProc
-    With objRs
-        If Not objRs.RecordCount = 0 Then objRs.MoveFirst
+    objrs.Open "dbo.USP_SELECIONARESTADOS", gSMConexao.Conexao, adOpenForwardOnly, adLockReadOnly, adCmdStoredProc
+    With objrs
+        If Not objrs.RecordCount = 0 Then objrs.MoveFirst
         objSSOleDBCombo.RemoveAll
         Do While Not .EOF
             objSSOleDBCombo.AddItem NZ(!UF_CH) & vbTab & NS(!ID_IN)
-            If NZ(!ID_IN) = lngCodigo Then intIndex = objRs.AbsolutePosition - 1
+            If NZ(!ID_IN) = lngCodigo Then intIndex = objrs.AbsolutePosition - 1
             .MoveNext
         Loop
     End With
@@ -102,7 +102,7 @@ End Sub
 Public Sub modBDCombo_SelecionarEquipePorCodigo(ByRef objSSOleDBCombo As SSOleDBCombo, Optional ByVal lngCodigo As Long)
 
     Dim intIndex          As Integer
-    Dim objRs             As New Recordset
+    Dim objrs             As New Recordset
    
 On Error GoTo Erro
    
@@ -124,13 +124,13 @@ On Error GoTo Erro
         .DataFieldToDisplay = "column 0"
     End With
      
-    objRs.Open "dbo.USP_SELECIONAREQUIPEPORCODIGO", gSMConexao.Conexao, adOpenForwardOnly, adLockReadOnly, adCmdStoredProc
-    With objRs
-        If Not objRs.RecordCount = 0 Then objRs.MoveFirst
+    objrs.Open "dbo.USP_SELECIONAREQUIPEPORCODIGO", gSMConexao.Conexao, adOpenForwardOnly, adLockReadOnly, adCmdStoredProc
+    With objrs
+        If Not objrs.RecordCount = 0 Then objrs.MoveFirst
         objSSOleDBCombo.RemoveAll
         Do While Not .EOF
             objSSOleDBCombo.AddItem NZ(!Nome_VC) & vbTab & NS(!ID_IN)
-            If NZ(!ID_IN) = lngCodigo Then intIndex = objRs.AbsolutePosition - 1
+            If NZ(!ID_IN) = lngCodigo Then intIndex = objrs.AbsolutePosition - 1
             .MoveNext
         Loop
     End With
@@ -151,7 +151,7 @@ End Sub
 Public Sub modBDCombo_SelecionarCargos(ByRef objSSOleDBCombo As SSOleDBCombo, Optional ByVal lngCodigo As Long)
 
     Dim intIndex          As Integer
-    Dim objRs             As New Recordset
+    Dim objrs             As New Recordset
    
 On Error GoTo Erro
    
@@ -173,13 +173,13 @@ On Error GoTo Erro
         .DataFieldToDisplay = "column 0"
     End With
      
-    objRs.Open "dbo.usp_SelecionarCargos", gSMConexao.Conexao, adOpenForwardOnly, adLockReadOnly, adCmdStoredProc
-    With objRs
-        If Not objRs.RecordCount = 0 Then objRs.MoveFirst
+    objrs.Open "dbo.usp_SelecionarCargos", gSMConexao.Conexao, adOpenForwardOnly, adLockReadOnly, adCmdStoredProc
+    With objrs
+        If Not objrs.RecordCount = 0 Then objrs.MoveFirst
         objSSOleDBCombo.RemoveAll
         Do While Not .EOF
-            objSSOleDBCombo.AddItem NS(!Descricao_VC) & vbTab & NZ(!ID_IN)
-            If NZ(!ID_IN) = lngCodigo Then intIndex = objRs.AbsolutePosition - 1
+            objSSOleDBCombo.AddItem NS(!Cargo_VC) & vbTab & NZ(!Cargo_IN)
+            If NZ(!Cargo_IN) = lngCodigo Then intIndex = objrs.AbsolutePosition - 1
             .MoveNext
         Loop
     End With

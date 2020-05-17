@@ -27,19 +27,19 @@ Erro:
 
 End Sub
 
-Public Sub modManutencao_SelecionarUsuario(ByRef objRs As Recordset, Optional ByVal lngUsuario As Long)
+Public Sub modManutencao_SelecionarUsuario(ByRef objrs As Recordset, Optional ByVal lngUsuario As Long)
 10    On Error GoTo Erro
-            
+      
 20        Set gobjCmd.ActiveConnection = gSMConexao.Conexao
 30        gobjCmd.CommandText = "usp_SelecionarUsuarios"
 40        gobjCmd.CommandType = adCmdStoredProc
 50        gobjCmd.CommandTimeout = 1000
-          
+    
 60        With gobjCmd
-70            .Parameters("@Usuario_IN").Value = IIf(lngUsuario = 0, Null, lngUsuario)
+70      .Parameters("@Usuario_IN").Value = IIf(lngUsuario = 0, Null, lngUsuario)
 80        End With
-          
-90        Set objRs = gobjCmd.Execute
+    
+90        Set objrs = gobjCmd.Execute
 
 100   Exit Sub
 Erro:
@@ -48,7 +48,7 @@ Erro:
 
 End Sub
 
-Public Sub modManutencao_SelecionarCargos(ByRef objRs As Recordset, Optional ByVal lngCargo As Long)
+Public Sub modManutencao_SelecionarCargos(ByRef objrs As Recordset, Optional ByVal lngCargo As Long, Optional ByVal blnSomenteAtivo As Boolean = True)
 10    On Error GoTo Erro
             
 20        Set gobjCmd.ActiveConnection = gSMConexao.Conexao
@@ -58,18 +58,19 @@ Public Sub modManutencao_SelecionarCargos(ByRef objRs As Recordset, Optional ByV
           
 60        With gobjCmd
 70            .Parameters("@Cargo_IN").Value = IIf(lngCargo = 0, Null, lngCargo)
-80        End With
+80            .Parameters("@Ativo_BT").Value = blnSomenteAtivo
+90        End With
           
-90        Set objRs = gobjCmd.Execute
+100       Set objrs = gobjCmd.Execute
 
 
-100   Exit Sub
+110   Exit Sub
 Erro:
-110      Call MsgBox("Erro no módulo: " & "modManutencao" & vbCrLf & "modManutencao_SelecionarCargos" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+120      Call MsgBox("Erro no módulo: " & "modManutencao" & vbCrLf & "modManutencao_SelecionarCargos" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 End Sub
 
-Public Sub modManutencao_SelecionarPermissao(ByRef objRs As Recordset, Optional ByVal lngPermissao As Long)
+Public Sub modManutencao_SelecionarPermissao(ByRef objrs As Recordset, Optional ByVal lngPermissao As Long)
 10    On Error GoTo Erro
             
 20        Set gobjCmd.ActiveConnection = gSMConexao.Conexao
@@ -80,12 +81,74 @@ Public Sub modManutencao_SelecionarPermissao(ByRef objRs As Recordset, Optional 
 60        With gobjCmd
 70            .Parameters("@Permissao_IN").Value = IIf(lngPermissao = 0, Null, lngPermissao)
 80        End With
-          
-90        Set objRs = gobjCmd.Execute
+90        Set objrs = gobjCmd.Execute
 
 
 100   Exit Sub
 Erro:
 110      Call MsgBox("Erro no módulo: " & "modManutencao" & vbCrLf & "modManutencao_SelecionarCargos" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
+End Sub
+
+Public Sub modManutencao_SelecionarPermissaoPorUsuario(ByVal lngUsuario As Long, ByRef objrs As Recordset)
+10    On Error GoTo Erro
+            
+20        Set gobjCmd.ActiveConnection = gSMConexao.Conexao
+30        gobjCmd.CommandText = "usp_SelecionarPermissaoPorUsuario"
+40        gobjCmd.CommandType = adCmdStoredProc
+50        gobjCmd.CommandTimeout = 1000
+          
+60        With gobjCmd
+70            .Parameters("@Usuario_IN").Value = lngUsuario
+80        End With
+          
+90        Set objrs = gobjCmd.Execute
+100   Exit Sub
+
+Erro:
+110      Call MsgBox("Erro no módulo: " & "modManutencao" & vbCrLf & "modManutencao_SelecionarPermissaoPorUsuario" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+End Sub
+
+Public Sub modManutencao_AdicionarAlterarPermissaoPorUsuario(ByVal lngUsuario As Long, ByVal lngPermissao As Long, ByVal blnStatus As Boolean)
+10    On Error GoTo Erro
+            
+20        Set gobjCmd.ActiveConnection = gSMConexao.Conexao
+30        gobjCmd.CommandText = "usp_AdicionarAlterarPermissaoPorUsuario"
+40        gobjCmd.CommandType = adCmdStoredProc
+50        gobjCmd.CommandTimeout = 1000
+          
+60        With gobjCmd
+70            .Parameters("@Usuario_IN").Value = lngUsuario
+80            .Parameters("@Permissao_IN").Value = lngPermissao
+90            .Parameters("@Status_BT").Value = IIf(blnStatus = True, 1, 0)
+100       End With
+          
+110       gobjCmd.Execute , , adExecuteNoRecords
+
+120   Exit Sub
+Erro:
+130      Call MsgBox("Erro no módulo: " & "modManutencao" & vbCrLf & "modManutencao_AdicionarAlterarPermissaoPorUsuario" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+End Sub
+
+Public Sub modManutencao_AdicionarAlterarCargo(ByVal strDescricao As String, ByVal blnAtivo As Boolean, Optional ByVal lngCargo As Long)
+10    On Error GoTo Erro
+            
+20        Set gobjCmd.ActiveConnection = gSMConexao.Conexao
+30        gobjCmd.CommandText = "usp_AdicionarAlterarCargo"
+40        gobjCmd.CommandType = adCmdStoredProc
+50        gobjCmd.CommandTimeout = 1000
+          
+60        With gobjCmd
+70            .Parameters("@Descricao_VC").Value = strDescricao
+80            .Parameters("@Ativo_BT").Value = IIf(blnAtivo = True, 1, 0)
+90            .Parameters("@Cargo_IN").Value = IIf(lngCargo = 0, Null, lngCargo)
+100       End With
+          
+110       gobjCmd.Execute , , adExecuteNoRecords
+
+120   Exit Sub
+Erro:
+130      Call MsgBox("Erro no módulo: " & "modManutencao" & vbCrLf & "modManutencao_AdicionarAlterarCargo" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
 
 End Sub

@@ -1,7 +1,7 @@
 VERSION 5.00
 Object = "{562E3E04-2C31-4ECE-83F4-4017EEE51D40}#8.0#0"; "todg8.ocx"
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.ocx"
-Begin VB.Form frmCargos 
+Begin VB.Form frmPermissao 
    Caption         =   "ProFut - Cargos e Permissões"
    ClientHeight    =   8430
    ClientLeft      =   6705
@@ -15,7 +15,7 @@ Begin VB.Form frmCargos
       Height          =   7755
       Left            =   0
       TabIndex        =   0
-      Top             =   -60
+      Top             =   -30
       Width           =   10605
       Begin VB.Frame fraPermissao 
          Caption         =   "Permisões"
@@ -36,7 +36,7 @@ Begin VB.Form frmCargos
          Begin TrueOleDBGrid80.TDBGrid ssgPermissoes 
             Height          =   4905
             Left            =   60
-            TabIndex        =   6
+            TabIndex        =   4
             Top             =   210
             Width           =   10350
             _ExtentX        =   18256
@@ -196,8 +196,8 @@ Begin VB.Form frmCargos
             _StyleDefs(75)  =   ":id=42,.parent=33"
          End
       End
-      Begin VB.Frame fraCargos 
-         Caption         =   "Cargos"
+      Begin VB.Frame fraUsuarios 
+         Caption         =   "Usuários"
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -207,46 +207,40 @@ Begin VB.Form frmCargos
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   2445
+         Height          =   2415
          Left            =   60
          TabIndex        =   2
          Top             =   60
          Width           =   10485
-         Begin VB.Frame fraAdicionarAlterar 
-            Caption         =   "Adicionar/Alterar"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   2235
-            Left            =   5010
-            TabIndex        =   5
-            Top             =   120
-            Width           =   5415
-         End
-         Begin TrueOleDBGrid80.TDBGrid ssgCargos 
-            Height          =   2145
+         Begin TrueOleDBGrid80.TDBGrid ssgUsuarios 
+            Height          =   2115
             Left            =   60
-            TabIndex        =   4
+            TabIndex        =   5
             Top             =   210
-            Width           =   4905
-            _ExtentX        =   8652
-            _ExtentY        =   3784
+            Width           =   10335
+            _ExtentX        =   18230
+            _ExtentY        =   3731
             _LayoutType     =   4
             _RowHeight      =   -2147483647
             _WasPersistedAsPixels=   0
             Columns(0)._VlistStyle=   0
             Columns(0)._MaxComboItems=   5
-            Columns(0).Caption=   "Cargo"
-            Columns(0).DataField=   "Descricao_VC"
+            Columns(0).Caption=   "Nome"
+            Columns(0).DataField=   "Nome_VC"
             Columns(0)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
-            Columns.Count   =   1
+            Columns(1)._VlistStyle=   0
+            Columns(1)._MaxComboItems=   5
+            Columns(1).Caption=   "Login"
+            Columns(1).DataField=   "Login_VC"
+            Columns(1)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
+            Columns(2)._VlistStyle=   0
+            Columns(2)._MaxComboItems=   5
+            Columns(2).Caption=   "Cargo"
+            Columns(2).DataField=   "Descricao_VC"
+            Columns(2)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
+            Columns.Count   =   3
             Splits(0)._UserFlags=   0
+            Splits(0).Locked=   -1  'True
             Splits(0).MarqueeStyle=   3
             Splits(0).AllowRowSizing=   0   'False
             Splits(0).RecordSelectors=   0   'False
@@ -256,13 +250,26 @@ Begin VB.Form frmCargos
             Splits(0).DividerColor=   -2147483633
             Splits(0).SpringMode=   0   'False
             Splits(0)._PropDict=   "_ColumnProps,515,0;_UserFlags,518,3"
-            Splits(0)._ColumnProps(0)=   "Columns.Count=1"
-            Splits(0)._ColumnProps(1)=   "Column(0).Width=8096"
+            Splits(0)._ColumnProps(0)=   "Columns.Count=3"
+            Splits(0)._ColumnProps(1)=   "Column(0).Width=8229"
             Splits(0)._ColumnProps(2)=   "Column(0).DividerColor=0"
-            Splits(0)._ColumnProps(3)=   "Column(0)._WidthInPix=8017"
+            Splits(0)._ColumnProps(3)=   "Column(0)._WidthInPix=8149"
             Splits(0)._ColumnProps(4)=   "Column(0)._EditAlways=0"
             Splits(0)._ColumnProps(5)=   "Column(0)._ColStyle=513"
-            Splits(0)._ColumnProps(6)=   "Column(0).Order=1"
+            Splits(0)._ColumnProps(6)=   "Column(0).WrapText=1"
+            Splits(0)._ColumnProps(7)=   "Column(0).Order=1"
+            Splits(0)._ColumnProps(8)=   "Column(1).Width=5609"
+            Splits(0)._ColumnProps(9)=   "Column(1).DividerColor=0"
+            Splits(0)._ColumnProps(10)=   "Column(1)._WidthInPix=5530"
+            Splits(0)._ColumnProps(11)=   "Column(1)._EditAlways=0"
+            Splits(0)._ColumnProps(12)=   "Column(1)._ColStyle=1"
+            Splits(0)._ColumnProps(13)=   "Column(1).Order=2"
+            Splits(0)._ColumnProps(14)=   "Column(2).Width=3863"
+            Splits(0)._ColumnProps(15)=   "Column(2).DividerColor=0"
+            Splits(0)._ColumnProps(16)=   "Column(2)._WidthInPix=3784"
+            Splits(0)._ColumnProps(17)=   "Column(2)._EditAlways=0"
+            Splits(0)._ColumnProps(18)=   "Column(2)._ColStyle=513"
+            Splits(0)._ColumnProps(19)=   "Column(2).Order=3"
             Splits.Count    =   1
             PrintInfos(0)._StateFlags=   0
             PrintInfos(0).Name=   "piInternal 0"
@@ -331,31 +338,39 @@ Begin VB.Form frmCargos
             _StyleDefs(39)  =   "Splits(0).OddRowStyle:id=21,.parent=10"
             _StyleDefs(40)  =   "Splits(0).RecordSelectorStyle:id=23,.parent=11"
             _StyleDefs(41)  =   "Splits(0).FilterBarStyle:id=24,.parent=12"
-            _StyleDefs(42)  =   "Splits(0).Columns(0).Style:id=32,.parent=13,.alignment=2"
-            _StyleDefs(43)  =   "Splits(0).Columns(0).HeadingStyle:id=29,.parent=14,.alignment=2"
-            _StyleDefs(44)  =   "Splits(0).Columns(0).FooterStyle:id=30,.parent=15"
-            _StyleDefs(45)  =   "Splits(0).Columns(0).EditorStyle:id=31,.parent=17"
-            _StyleDefs(46)  =   "Named:id=33:Normal"
-            _StyleDefs(47)  =   ":id=33,.parent=0"
-            _StyleDefs(48)  =   "Named:id=34:Heading"
-            _StyleDefs(49)  =   ":id=34,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
-            _StyleDefs(50)  =   ":id=34,.wraptext=-1"
-            _StyleDefs(51)  =   "Named:id=35:Footing"
-            _StyleDefs(52)  =   ":id=35,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
-            _StyleDefs(53)  =   "Named:id=36:Selected"
-            _StyleDefs(54)  =   ":id=36,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&H8000000E&"
-            _StyleDefs(55)  =   "Named:id=37:Caption"
-            _StyleDefs(56)  =   ":id=37,.parent=34,.alignment=2"
-            _StyleDefs(57)  =   "Named:id=38:HighlightRow"
-            _StyleDefs(58)  =   ":id=38,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&H8000000E&"
-            _StyleDefs(59)  =   "Named:id=39:EvenRow"
-            _StyleDefs(60)  =   ":id=39,.parent=33,.bgcolor=&HFFFF00&"
-            _StyleDefs(61)  =   "Named:id=40:OddRow"
-            _StyleDefs(62)  =   ":id=40,.parent=33"
-            _StyleDefs(63)  =   "Named:id=41:RecordSelector"
-            _StyleDefs(64)  =   ":id=41,.parent=34"
-            _StyleDefs(65)  =   "Named:id=42:FilterBar"
-            _StyleDefs(66)  =   ":id=42,.parent=33"
+            _StyleDefs(42)  =   "Splits(0).Columns(0).Style:id=28,.parent=13,.alignment=2,.wraptext=-1"
+            _StyleDefs(43)  =   "Splits(0).Columns(0).HeadingStyle:id=25,.parent=14,.alignment=2"
+            _StyleDefs(44)  =   "Splits(0).Columns(0).FooterStyle:id=26,.parent=15"
+            _StyleDefs(45)  =   "Splits(0).Columns(0).EditorStyle:id=27,.parent=17"
+            _StyleDefs(46)  =   "Splits(0).Columns(1).Style:id=46,.parent=13,.alignment=2"
+            _StyleDefs(47)  =   "Splits(0).Columns(1).HeadingStyle:id=43,.parent=14"
+            _StyleDefs(48)  =   "Splits(0).Columns(1).FooterStyle:id=44,.parent=15"
+            _StyleDefs(49)  =   "Splits(0).Columns(1).EditorStyle:id=45,.parent=17"
+            _StyleDefs(50)  =   "Splits(0).Columns(2).Style:id=32,.parent=13,.alignment=2"
+            _StyleDefs(51)  =   "Splits(0).Columns(2).HeadingStyle:id=29,.parent=14,.alignment=2"
+            _StyleDefs(52)  =   "Splits(0).Columns(2).FooterStyle:id=30,.parent=15"
+            _StyleDefs(53)  =   "Splits(0).Columns(2).EditorStyle:id=31,.parent=17"
+            _StyleDefs(54)  =   "Named:id=33:Normal"
+            _StyleDefs(55)  =   ":id=33,.parent=0"
+            _StyleDefs(56)  =   "Named:id=34:Heading"
+            _StyleDefs(57)  =   ":id=34,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
+            _StyleDefs(58)  =   ":id=34,.wraptext=-1"
+            _StyleDefs(59)  =   "Named:id=35:Footing"
+            _StyleDefs(60)  =   ":id=35,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
+            _StyleDefs(61)  =   "Named:id=36:Selected"
+            _StyleDefs(62)  =   ":id=36,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&H8000000E&"
+            _StyleDefs(63)  =   "Named:id=37:Caption"
+            _StyleDefs(64)  =   ":id=37,.parent=34,.alignment=2"
+            _StyleDefs(65)  =   "Named:id=38:HighlightRow"
+            _StyleDefs(66)  =   ":id=38,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&H8000000E&"
+            _StyleDefs(67)  =   "Named:id=39:EvenRow"
+            _StyleDefs(68)  =   ":id=39,.parent=33,.bgcolor=&HFFFF00&"
+            _StyleDefs(69)  =   "Named:id=40:OddRow"
+            _StyleDefs(70)  =   ":id=40,.parent=33"
+            _StyleDefs(71)  =   "Named:id=41:RecordSelector"
+            _StyleDefs(72)  =   ":id=41,.parent=34"
+            _StyleDefs(73)  =   "Named:id=42:FilterBar"
+            _StyleDefs(74)  =   ":id=42,.parent=33"
          End
       End
    End
@@ -399,7 +414,7 @@ Begin VB.Form frmCargos
    End
    Begin MSComctlLib.ImageList imgList 
       Left            =   60
-      Top             =   8730
+      Top             =   7800
       _ExtentX        =   1005
       _ExtentY        =   1005
       BackColor       =   -2147483643
@@ -468,146 +483,120 @@ Begin VB.Form frmCargos
       Width           =   165
    End
 End
-Attribute VB_Name = "frmCargos"
+Attribute VB_Name = "frmPermissao"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Dim mobjRsCargo As Recordset
+Dim mobjRsUsuarios As Recordset
 Dim mobjrsPermissao As Recordset
-Dim mobjrsPermissaoXCargo As Recordset
+
+Dim mstrFlag As String
 Private Sub Form_Load()
-
+    
     CriarEPreencherRecordsets
-
+    ssgPermissoes.Columns(0).Locked = True
 End Sub
 
-Private Sub CriarEPreencherRecordsets()
-Dim objRsCargos As Recordset
-Dim objRsPermissao As Recordset
-On Error GoTo Erro
-      
-    Set mobjRsCargo = Nothing
-    Set mobjRsCargo = New Recordset
-    
-    With mobjRsCargo
-        .Fields.Append "Cargo_IN", adInteger
-        .Fields.Append "Descricao_VC", adVarChar, 1024
-        .CursorLocation = adUseClient
-        .Open , Nothing, adOpenDynamic, adLockOptimistic
-    End With
-    
-    Call modManutencao_SelecionarCargos(objRsCargos)
-    
-    If Not objRsCargos Is Nothing Then
-        If Not objRsCargos.BOF And Not objRsCargos.EOF Then
-            If objRsCargos.RecordCount > 0 Then
-                objRsCargos.MoveFirst
-                
-                Do While Not objRsCargos.EOF
-                    mobjRsCargo.AddNew
-                        
-                    mobjRsCargo!Cargo_IN = NZ(objRsCargos!ID_IN)
-                    mobjRsCargo!Descricao_VC = NS(objRsCargos!Descricao_VC)
-                    
-                    objRsCargos.MoveNext
-                Loop
-                ssgCargos.DataSource = mobjRsCargo
-                ssgCargos.Update
-            End If
-        End If
-    End If
-    
-    Set mobjrsPermissao = Nothing
-    Set mobjrsPermissao = New Recordset
-    
-    With mobjrsPermissao
-        .Fields.Append "Cargo_IN", adInteger
-        .Fields.Append "ID_IN", adInteger
-        .Fields.Append "Permissao_IN", adInteger
-        .Fields.Append "Descricao_VC", adVarChar, 1024
-        .Fields.Append "check", adBoolean
-        .CursorLocation = adUseClient
-        .Open , Nothing, adOpenDynamic, adLockOptimistic
-    End With
-    
-    Call modManutencao_SelecionarPermissao(objRsPermissao)
-    
-    If Not objRsPermissao Is Nothing Then
-        If Not objRsPermissao.BOF And Not objRsPermissao.EOF Then
-            If objRsPermissao.RecordCount > 0 Then
-                objRsPermissao.MoveFirst
-                
-                Do While Not objRsPermissao.EOF
-                    mobjrsPermissao.AddNew
-                    mobjrsPermissao!ID_IN = NZ(objRsPermissao!ID_IN)
-                    mobjrsPermissao!Permissao_IN = NZ(objRsPermissao!Permissao_IN)
-                    mobjrsPermissao!Descricao_VC = NS(objRsPermissao!Descricao_VC)
-                    'mobjrsPermissao!Status_BT = NB(objRsPermissao!Status_BT)
-                    
-                    objRsPermissao.MoveNext
-                Loop
-                
-                ssgPermissoes.DataSource = mobjrsPermissao
-                ssgPermissoes.Update
-            End If
-        End If
-    End If
-    
-    Set mobjrsPermissaoXCargo = Nothing
-    Set mobjrsPermissaoXCargo = New Recordset
-    
-    With mobjrsPermissaoXCargo
-        .Fields.Append "ID_IN", adInteger
-        .Fields.Append "Cargo_IN", adInteger
-        .Fields.Append "Permissao_IN", adInteger
-        .CursorLocation = adUseClient
-        .Open , Nothing, adOpenDynamic, adLockOptimistic
-    End With
-    
-    Set mobjrsPermissaoXCargo = objRsPermissao.NextRecordset
-    
-    If Not objRsPermissao Is Nothing Then
-        If Not objRsPermissao.BOF And Not objRsPermissao.EOF Then
-            If objRsPermissao.RecordCount > 0 Then
-                objRsPermissao.MoveFirst
-                
-                Do While Not objRsPermissao.EOF
-                    mobjrsPermissao.AddNew
-                    mobjrsPermissao!ID_IN = NZ(objRsPermissao!ID_IN)
-                    mobjrsPermissao!Cargo_IN = NZ(objRsPermissao!Cargo_IN)
-                    mobjrsPermissao!Permissao_IN = NZ(objRsPermissao!Permissao_IN)
-                    
-                    objRsPermissao.MoveNext
-                Loop
-            End If
-        End If
-    End If
-        
+Private Sub CriarEPreencherRecordsets(Optional blnFiltrando As Boolean)
+      Dim objRsUsuarios As Recordset
+      Dim objRsPermissao As Recordset
+10    On Error GoTo Erro
+20        If blnFiltrando = False Then
+30            Set mobjRsUsuarios = Nothing
+40            Set mobjRsUsuarios = New Recordset
+              
+50            With mobjRsUsuarios
+60                .Fields.Append "ID_IN", adInteger
+70                .Fields.Append "Nome_VC", adVarChar, 1024
+80                .Fields.Append "Login_VC", adVarChar, 1024
+90                .Fields.Append "Descricao_VC", adVarChar, 1024 'CARGO
+100               .CursorLocation = adUseClient
+110               .Open , Nothing, adOpenDynamic, adLockOptimistic
+120           End With
+              
+130           Call modManutencao_SelecionarUsuario(objRsUsuarios)
+              
+140           If Not objRsUsuarios Is Nothing Then
+150               If Not objRsUsuarios.BOF And Not objRsUsuarios.EOF Then
+160                   If objRsUsuarios.RecordCount > 0 Then
+170                       objRsUsuarios.MoveFirst
+                          
+180                       Do While Not objRsUsuarios.EOF
+190                           mobjRsUsuarios.AddNew
+                                  
+200                           mobjRsUsuarios!ID_IN = NZ(objRsUsuarios!ID_IN)
+210                           mobjRsUsuarios!Nome_VC = NS(objRsUsuarios!Nome_VC)
+220                           mobjRsUsuarios!Login_VC = NS(objRsUsuarios!Login_VC)
+230                           mobjRsUsuarios!Descricao_VC = NS(objRsUsuarios!Descricao_VC)
+                              
+240                           objRsUsuarios.MoveNext
+250                       Loop
+260                       ssgUsuarios.DataSource = mobjRsUsuarios
+270                   End If
+280               End If
+290           End If
+          
+300           mobjRsUsuarios.MoveFirst
+310       End If
+          
+320       Set mobjrsPermissao = Nothing
+330       Set mobjrsPermissao = New Recordset
+          
+340       With mobjrsPermissao
+350           .Fields.Append "Permissao_IN", adInteger
+360           .Fields.Append "Descricao_VC", adVarChar, 1024
+370           .Fields.Append "Status_BT", adBoolean
+380           .Fields.Append "check", adBoolean
+390           .CursorLocation = adUseClient
+400           .Open , Nothing, adOpenDynamic, adLockOptimistic
+410       End With
+          
+420       Call modManutencao_SelecionarPermissaoPorUsuario(mobjRsUsuarios!ID_IN, objRsPermissao)
+          
+430       If Not objRsPermissao Is Nothing Then
+440           If Not objRsPermissao.BOF And Not objRsPermissao.EOF Then
+450               If objRsPermissao.RecordCount > 0 Then
+460                   objRsPermissao.MoveFirst
+                      
+470                   Do While Not objRsPermissao.EOF
+480                       mobjrsPermissao.AddNew
+490                       mobjrsPermissao!Permissao_IN = NZ(objRsPermissao!Permissao_IN)
+500                       mobjrsPermissao!Descricao_VC = NS(objRsPermissao!Descricao_VC)
+510                       mobjrsPermissao!Status_BT = NB(objRsPermissao!Status_BT)
+520                       mobjrsPermissao!check = NB(objRsPermissao!Status_BT)
+530                       objRsPermissao.MoveNext
+540                   Loop
+                      
+550                   ssgPermissoes.DataSource = mobjrsPermissao
+560               End If
+570           End If
+580       End If
+590       mobjrsPermissao.MoveFirst
 
-Exit Sub
+600   Exit Sub
 Erro:
-   Call MsgBox("Erro no módulo: " & "frmCargos" & vbCrLf & "CriarEPreencherRecordsets" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+610      Call MsgBox("Erro no módulo: " & "frmCargos" & vbCrLf & "CriarEPreencherRecordsets" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 
 
 End Sub
 
-Private Sub ssgCargos_Click()
+Private Sub ssgUsuarios_Click()
 On Error Resume Next
-    ssgCargos.SelBookmarks.Clear
-    ssgCargos.SelBookmarks.Add ssgCargos.Bookmark
+    ssgUsuarios.SelBookmarks.Clear
+    ssgUsuarios.SelBookmarks.Add ssgUsuarios.Bookmark
 On Error GoTo 0
+    
 End Sub
 
-Private Sub ssgCargos_HeadClick(ByVal ColIndex As Integer)
-    OrdenarColunaTrueDB ssgCargos, ColIndex, imgcima, imgbaixo
+Private Sub ssgUsuarios_HeadClick(ByVal ColIndex As Integer)
+    OrdenarColunaTrueDB ssgUsuarios, ColIndex, imgcima, imgbaixo
 End Sub
 
-Private Sub ssgCargos_RowColChange(LastRow As Variant, ByVal LastCol As Integer)
-    'On Error Resume Next
-    'mobjrsPermissao.Filter = "Cargo_IN =" & mobjRsCargo!Cargo_IN
-    ssgCargos_Click
+Private Sub ssgUsuarios_RowColChange(LastRow As Variant, ByVal LastCol As Integer)
+    ssgUsuarios_Click
+    CriarEPreencherRecordsets True
 End Sub
 
 
@@ -619,9 +608,9 @@ On Error GoTo 0
 
 End Sub
 
-Private Sub ssgPermissoes_HeadClick(ByVal ColIndex As Integer)
-    OrdenarColunaTrueDB ssgPermissoes, ColIndex, imgcima, imgbaixo
-End Sub
+'Private Sub ssgPermissoes_HeadClick(ByVal ColIndex As Integer)
+'    OrdenarColunaTrueDB ssgPermissoes, ColIndex, imgcima, imgbaixo
+'End Sub
 
 Private Sub ssgPermissoes_RowColChange(LastRow As Variant, ByVal LastCol As Integer)
     ssgPermissoes_Click
@@ -631,38 +620,72 @@ Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
     If Not (Button.Enabled) Then Exit Sub
     Select Case Button.Key
 
-'              Case "cmdAlterar":
-'30                mstrFlag = "A"
-'40                Call HabilitarCampos(True)
-'50                Call HabilitarTBBotoes(False, True, False)
-'
-'60            Case "cmdGravar"
-'70                mstrFlag = ""
-'80                LimparCampos
-'90                Call HabilitarCampos(False)
-'100               Call HabilitarTBBotoes(True, False, True)
+        Case "cmdAlterar":
+            mstrFlag = "A"
+            Call HabilitarCampos(True)
+            Call HabilitarTBBotoes(False, True, True)
+
+        Case "cmdGravar"
+            mstrFlag = ""
+            GravarAlteracoes
+            Call HabilitarCampos(False)
+            Call HabilitarTBBotoes(True, False, True)
 
         Case "cmdSair"
             Unload Me
-        
+  
     End Select
 End Sub
 
-Private Sub FlegarPermissaoPorCargo()
+Private Sub HabilitarCampos(blnHabilitar As Boolean)
 On Error GoTo Erro
       
-    If mobjrsPermissaoXCargo Is Nothing Then Exit Sub
-    If mobjrsPermissaoXCargo.EOF And mobjrsPermissaoXCargo.BOF Then Exit Sub
-    If mobjrsPermissaoXCargo.RecordCount = 0 Then Exit Sub
-    
-    mobjrsPermissaoXCargo.MoveFirst
-    
-    
-    
+    ssgPermissoes.Columns(0).Locked = Not blnHabilitar
+    ssgUsuarios.Enabled = Not blnHabilitar
 
 Exit Sub
 Erro:
-   Call MsgBox("Erro no módulo: " & "frmCargos" & vbCrLf & "FlegarPermissaoPorCargo" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+   Call MsgBox("Erro no módulo: " & "frmPermissao" & vbCrLf & "HabilitarCampos" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+End Sub
 
+Private Sub HabilitarTBBotoes(blnAlterar As Boolean, blnGravar As Boolean, blnsair As Boolean)
+On Error GoTo Erro
+      
+    tbBotoes.Buttons("cmdAlterar").Enabled = blnAlterar
+    tbBotoes.Buttons("cmdGravar").Enabled = blnGravar
+    tbBotoes.Buttons("cmdSair").Enabled = blnsair
+    
+Exit Sub
+Erro:
+   Call MsgBox("Erro no módulo: " & "frmPermissao" & vbCrLf & "HabilitarTBBotoes" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
+
+End Sub
+
+Private Sub GravarAlteracoes()
+On Error GoTo Erro
+    Dim objRsPermissaoClone As Recordset
+      
+    Set objRsPermissaoClone = mobjrsPermissao.Clone
+      
+    objRsPermissaoClone.MoveFirst
+    
+    gSMConexao.BeginTransaction
+    
+    Do While Not objRsPermissaoClone.EOF
+    
+        Call modManutencao_AdicionarAlterarPermissaoPorUsuario(mobjRsUsuarios!ID_IN, objRsPermissaoClone!Permissao_IN, objRsPermissaoClone!check)
+            
+        objRsPermissaoClone.MoveNext
+    Loop
+    
+    gSMConexao.CommitTransaction
+    MsgBox "Alterações gravadas com sucesso!", vbOKOnly + vbInformation, "Sucesso!"
+    
+Exit Sub
+Erro:
+   Call MsgBox("Erro no módulo: " & "frmPermissao" & vbCrLf & "GravarAlteracoes" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+   MsgBox "Alterações não foram gravadas!", vbOKOnly + vbCritical, "Atenção!"
+   gSMConexao.RollbackTransaction
 
 End Sub
