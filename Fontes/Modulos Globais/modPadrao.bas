@@ -1475,3 +1475,46 @@ On Error Resume Next
 480      End If
 On Error GoTo 0
 End Sub
+
+Public Function RetornaAcessoPorUsuarioEPermissao(ByVal lngUsuario As Long, ByVal lngPermissao As Long) As Boolean
+10    On Error GoTo Erro
+
+20        Set gobjCmd.ActiveConnection = gSMConexao.Conexao
+30        gobjCmd.CommandText = "usp_RetornaAcessoPorUsuarioEPermissao"
+40        gobjCmd.CommandType = adCmdStoredProc
+50        gobjCmd.CommandTimeout = 1000
+        
+60        With gobjCmd
+70            .Parameters("@Permissao_IN").Value = lngPermissao
+80            .Parameters("@Usuario_IN").Value = lngUsuario
+90        End With
+100       gobjCmd.Execute adExecuteNoRecords
+110       RetornaAcessoPorUsuarioEPermissao = NB(gobjCmd.Parameters("@Acesso_BT").Value)
+
+120   Exit Function
+Erro:
+130      Call MsgBox("Erro no módulo: " & "modPadrao" & vbCrLf & "RetornaAcessoPorUsuarioEPermissao" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+End Function
+
+Public Function RetornaCodigoUsuarioPorLogin(ByVal strLogin As String) As Long
+10    On Error GoTo Erro
+
+20        Set gobjCmd.ActiveConnection = gSMConexao.Conexao
+30        gobjCmd.CommandText = "usp_SelecionarUsuarioPorLogin"
+40        gobjCmd.CommandType = adCmdStoredProc
+50        gobjCmd.CommandTimeout = 1000
+        
+60        With gobjCmd
+70            .Parameters("@LoginUsuario_VC").Value = strLogin
+80        End With
+
+90        gobjCmd.Execute , adExecuteNoRecords
+          
+100       RetornaCodigoUsuarioPorLogin = NZ(gobjCmd.Parameters("@CodigoUsuario_IN").Value)
+
+110   Exit Function
+Erro:
+120      Call MsgBox("Erro no módulo: " & "modPadrao" & vbCrLf & "RetornaUsuarioPorLogin" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
+
+End Function

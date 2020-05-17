@@ -1,8 +1,8 @@
 clsManutencao = 189, 127, 1040, 804, C
 mdConexao = 0, 0, 0, 0, C
 modBDCombo = 354, 98, 1432, 775, C
-modPadrao = 196, 128, 651, 805, CZ
-frmUsuarios = 132, 248, 1209, 594, C, 0, 0, 0, 0, C
-frmPermissao = 150, 130, 1254, 462, CZ, 0, 0, 0, 0, C
+modPadrao = 0, 0, 0, 0, C
+frmUsuarios = 132, 248, 1209, 594, , 0, 0, 0, 0, C
+frmPermissao = 150, 130, 1254, 462, C, 0, 0, 0, 0, C
 modManutencao = -18, 108, 1323, 785, C
 frmCargos = 110, 106, 1215, 783, C, 0, 0, 0, 0, C

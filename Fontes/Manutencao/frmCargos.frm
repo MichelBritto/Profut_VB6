@@ -572,8 +572,9 @@ Private Sub CriarEPreencherRecordsets(Optional blnFiltrando As Boolean)
 560               End If
 570           End If
 580       End If
+        On Error Resume Next
 590       mobjrsPermissao.MoveFirst
-
+        On Error GoTo Erro
 600   Exit Sub
 Erro:
 610      Call MsgBox("Erro no módulo: " & "frmCargos" & vbCrLf & "CriarEPreencherRecordsets" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")

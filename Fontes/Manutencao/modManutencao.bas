@@ -36,7 +36,7 @@ Public Sub modManutencao_SelecionarUsuario(ByRef objrs As Recordset, Optional By
 50        gobjCmd.CommandTimeout = 1000
     
 60        With gobjCmd
-70      .Parameters("@Usuario_IN").Value = IIf(lngUsuario = 0, Null, lngUsuario)
+70              .Parameters("@Usuario_IN").Value = IIf(lngUsuario = 0, Null, lngUsuario)
 80        End With
     
 90        Set objrs = gobjCmd.Execute

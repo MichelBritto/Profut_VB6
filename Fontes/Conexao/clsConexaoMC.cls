@@ -52,7 +52,7 @@ Public Property Get NomeServidor() As String
 End Property
 
 Public Property Get CodigoUsuario() As Integer
-    CodigoUsuario = glngUsuario
+    CodigoUsuario = RetornaCodigoUsuarioPorLogin(gstrLoginUsuario)
 End Property
 
 'Permite conhecer o modo do estado da conexão do banco de dados
@@ -66,7 +66,7 @@ On Error Resume Next
 End Property
 
 Public Sub Login(Optional ByRef frmPai As Object = Nothing)
-10    On Error GoTo erro
+10    On Error GoTo Erro
 
 20        If frmPai Is Nothing Then
 30            frmAutenticacao.Show vbModal
@@ -76,7 +76,7 @@ Public Sub Login(Optional ByRef frmPai As Object = Nothing)
 70        End If
 
 80    Exit Sub
-erro:
+Erro:
 90        Select Case Err.Number
               Case 373
 100               frmAutenticacao.Show vbModeless
@@ -100,13 +100,13 @@ End Sub
 
  
 Public Sub BeginTransaction()
-10    On Error GoTo erro
+10    On Error GoTo Erro
 20        If Not gblnTransacaoAberta Then
 30            gobjConn.BeginTrans
 40            gblnTransacaoAberta = True
 50        End If
 60    Exit Sub
-erro:
+Erro:
 70        MsgBox "Ocorreu o erro no procedimento BeginTransaction." & Chr(13) & _
                         "Caso o erro persista, informe os seguintes dados ao administrador da rede:" & Chr(13) & _
                         "Nome do projeto: modConexao." & Chr(13) & _
@@ -120,14 +120,14 @@ erro:
 End Sub
 
 Public Sub CommitTransaction()
-10    On Error GoTo erro
+10    On Error GoTo Erro
           
 20        If gblnTransacaoAberta Then
 30            gobjConn.CommitTrans
 40            gblnTransacaoAberta = False
 50        End If
 60    Exit Sub
-erro:
+Erro:
 70        MsgBox "Ocorreu o erro no procedimento CommitTransaction." & Chr(13) & _
                         "Caso o erro persista, informe os seguintes dados ao administrador da rede:" & Chr(13) & _
                         "Nome do projeto: modConexao." & Chr(13) & _
@@ -141,14 +141,14 @@ erro:
 End Sub
 
 Public Sub RollbackTransaction()
-10    On Error GoTo erro
+10    On Error GoTo Erro
           
 20        If gblnTransacaoAberta Then
 30            gobjConn.RollbackTrans
 40            gblnTransacaoAberta = False
 50        End If
 60    Exit Sub
-erro:
+Erro:
 70        MsgBox "Ocorreu o erro no procedimento RollbackTransaction." & Chr(13) & _
                         "Caso o erro persista, informe os seguintes dados ao administrador da rede:" & Chr(13) & _
                         "Nome do projeto: modConexao." & Chr(13) & _
@@ -163,16 +163,17 @@ erro:
 End Sub
 
 Public Sub conectar()
-On Error GoTo erro
+On Error GoTo Erro
     With gobjConn
         .Provider = "Sqloledb"
         .CursorLocation = adUseClient
         .ConnectionString = "Server=" & gstrNomeServidor & ";Database=" & gstrNomeBaseDados & " ;User Id=" & gstrLoginUsuario & ";Password=" & gstrSenhaUsuario & ";"
         .Open
     End With
+    glngUsuario = CodigoUsuario
     gblnLoginRealizado = True
     Exit Sub
-erro:
+Erro:
     'MsgBox "Falha ao realizar a conexão. Verifique o status da rede e tente novamente.", vbOKOnly + vbCritical, "Erro de conexão"
     gblnLoginRealizado = False
 End Sub

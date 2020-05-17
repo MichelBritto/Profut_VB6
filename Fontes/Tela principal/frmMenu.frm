@@ -269,8 +269,12 @@ Private Sub cmdCadastroDeJogador_Click()
     If Not gSMConexao Is Nothing Then
         If gSMConexao.EstadoConexaoBD = adStateOpen Then
             
-            objJogador.Show gSMConexao, "ProFut - Cadastro de Jogador"
-            Exit Sub
+            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 1) Then
+                objJogador.Show gSMConexao, "ProFut - Cadastro de Jogador"
+                Exit Sub
+            Else
+                MsgBox "Acesso negado!" & vbCrLf & "-> Usuário não possuí a permissão Nº 1", vbOKOnly + vbExclamation, "Atenção!"
+            End If
         Else
            gSMConexao.conectar
         End If
@@ -284,9 +288,12 @@ Private Sub cmdCadastroEquipe_Click()
     
     If Not gSMConexao Is Nothing Then
         If gSMConexao.EstadoConexaoBD = adStateOpen Then
-            
-            objEquipe.Show gSMConexao, "Profut - Cadastro de Equipe"
-            Exit Sub
+            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 5) Then
+                objEquipe.Show gSMConexao, "Profut - Cadastro de Equipe"
+                Exit Sub
+            Else
+                MsgBox "Acesso negado!" & vbCrLf & "->Usuário não tem a permissão Nº5", vbOKOnly + vbExclamation, "Atenção!"
+            End If
         Else
            gSMConexao.conectar
         End If
@@ -335,9 +342,12 @@ Private Sub cmdRelatorioJogador_Click()
     
     If Not gSMConexao Is Nothing Then
         If gSMConexao.EstadoConexaoBD = adStateOpen Then
-            
-            ObjRelatorioJogador.Show gSMConexao, "ProFut - Relatório de Jogador"
-            Exit Sub
+            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 7) Then
+                ObjRelatorioJogador.Show gSMConexao, "ProFut - Relatório de Jogador"
+                Exit Sub
+            Else
+                MsgBox "Acesso negado!" & vbCrLf & "->Usuário não tem a permissão Nº7", vbOKOnly + vbExclamation, "Atenção!"
+            End If
         Else
             gSMConexao.conectar
         End If
@@ -393,9 +403,12 @@ Private Sub cmdUsuario_Click()
     If Not gSMConexao Is Nothing Then
     
         If gSMConexao.EstadoConexaoBD = adStateOpen Then
-            
-            ObjManutencao.ShowUsuarios gSMConexao, "ProFut - Cadastro de Usuário"
-            Exit Sub
+            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 8) Then
+                ObjManutencao.ShowUsuarios gSMConexao, "ProFut - Cadastro de Usuário"
+                Exit Sub
+            Else
+                MsgBox "Acesso negado!" & vbCrLf & "->Usuário não tem a permissão Nº8", vbOKOnly + vbExclamation, "Atenção!"
+            End If
         Else
             gSMConexao.conectar
         End If
@@ -421,9 +434,12 @@ Private Sub cmdPermissao_Click()
     If Not gSMConexao Is Nothing Then
     
         If gSMConexao.EstadoConexaoBD = adStateOpen Then
-            
-            ObjManutencao.ShowCargos gSMConexao, "ProFut - Cadastro de Usuário"
-            Exit Sub
+            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 10) Then
+                ObjManutencao.ShowCargos gSMConexao, "ProFut - Cadastro de Usuário"
+                Exit Sub
+            Else
+                MsgBox "Acesso negado!" & vbCrLf & "->Usuário não tem a permissão Nº10", vbOKOnly + vbExclamation, "Atenção!"
+            End If
         Else
             gSMConexao.conectar
         End If

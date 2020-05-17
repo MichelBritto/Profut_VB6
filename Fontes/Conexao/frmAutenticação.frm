@@ -137,7 +137,7 @@ Begin VB.Form frmAutenticacao
          Left            =   855
          PasswordChar    =   "*"
          TabIndex        =   3
-         Text            =   "123"
+         Text            =   "mi1401"
          Top             =   480
          Width           =   2820
       End

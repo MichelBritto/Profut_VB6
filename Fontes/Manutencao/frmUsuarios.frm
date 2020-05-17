@@ -627,8 +627,12 @@ Dim mstrFlag As String
 Dim mobjRsUsuarios As Recordset
 
 Private Sub cmdAdicionarCargo_Click()
-    frmCargos.Show vbModal, Me
-    Call modBDCombo_SelecionarCargos(sscCargo)
+    If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 11) Then
+        frmCargos.Show vbModal, Me
+        Call modBDCombo_SelecionarCargos(sscCargo)
+    Else
+        MsgBox "Acesso negado!" & vbCrLf & "->Usuário não tem a permissão Nº11", vbOKOnly + vbExclamation, "Atenção!"
+    End If
 End Sub
 
 Private Sub cmdAlterarUsuario_Click()
