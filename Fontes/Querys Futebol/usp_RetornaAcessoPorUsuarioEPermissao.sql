@@ -1,4 +1,4 @@
-CREATE PROCEDURE usp_RetornaAcessoPorUsuarioEPermissao
+ALTER PROCEDURE usp_RetornaAcessoPorUsuarioEPermissao
     (
       @Permissao_IN INT ,
       @Usuario_IN INT ,
@@ -11,6 +11,7 @@ AS
          FROM   dbo.UsuarioXPermissao_T
          WHERE  Permissao_IN = @Permissao_IN
                 AND Usuario_IN = @Usuario_IN
+                AND Status_BT = 1
        ) > 0 
         BEGIN
             SET @Acesso_BT = 1

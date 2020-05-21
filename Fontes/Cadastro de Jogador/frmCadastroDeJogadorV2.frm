@@ -6,6 +6,7 @@ Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.ocx"
 Object = "{B074BC93-5A5B-11CE-98BD-0000C0E6B88E}#2.0#0"; "sstabs32.ocx"
 Object = "{4A4AA691-3E6F-11D2-822F-00104B9E07A1}#3.0#0"; "ssdw3bo.ocx"
 Begin VB.Form frmCadastroDeJogadorV2 
+   BorderStyle     =   1  'Fixed Single
    Caption         =   "ProFut - Cadastro De Jogador"
    ClientHeight    =   6375
    ClientLeft      =   4515
@@ -15,6 +16,8 @@ Begin VB.Form frmCadastroDeJogadorV2
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    LockControls    =   -1  'True
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
    ScaleHeight     =   6375
    ScaleWidth      =   10815
    StartUpPosition =   2  'CenterScreen
@@ -1751,16 +1754,25 @@ Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
     Select Case Button.Key
         
         Case "cmdNovo":
-            mstrFlag = "I"
-            Call HabilitarCampos(True)
-            Call HabilitarTBBotoes(False, False, False, True, True, False, False)
-            txtApelido.SetFocus
+            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 2) = True Then
+                mstrFlag = "I"
+                Call HabilitarCampos(True)
+                Call HabilitarTBBotoes(False, False, False, True, True, False, False)
+                txtApelido.SetFocus
+            Else
+                MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº2" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
+            End If
         
         Case "cmdAlterar":
-            mstrFlag = "A"
-            Call HabilitarCampos(True)
-            Call HabilitarTBBotoes(False, False, False, True, True, False, False)
-            txtApelido.SetFocus
+            
+            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 3) = True Then
+                mstrFlag = "A"
+                Call HabilitarCampos(True)
+                Call HabilitarTBBotoes(False, False, False, True, True, False, False)
+                txtApelido.SetFocus
+            Else
+                MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº3" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
+            End If
         
         Case "cmdLimpar":
             mstrFlag = ""
@@ -1797,13 +1809,18 @@ Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
             End If
         
         Case "cmdimprimir"
-            frmOpcaoImpressao.Show vbModal, Me
-            Select Case mlngOpcao
-                Case 1
-                    ImprimirFicha
-                Case 2
-                    ImprimirCarteirinha
-            End Select
+        
+            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 4) = True Then
+                frmOpcaoImpressao.Show vbModal, Me
+                Select Case mlngOpcao
+                    Case 1
+                        ImprimirFicha
+                    Case 2
+                        ImprimirCarteirinha
+                End Select
+            Else
+                MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº4" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
+            End If
         Case "cmdSair"
             Unload Me
         

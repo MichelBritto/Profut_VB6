@@ -637,61 +637,67 @@ End Sub
 
 Private Sub cmdAlterarUsuario_Click()
 10    On Error GoTo Erro
-            
-20        If cmdAlterarUsuario.Caption = "Alterar" Then
-          
-30            txtCodigoUsuario.Text = mobjRsUsuarios!ID_IN
-40            txtNome.Text = mobjRsUsuarios!Nome_VC
-50            txtLogin.Text = mobjRsUsuarios!Login_VC
-60            Call modBDCombo_SelecionarCargos(sscCargo, mobjRsUsuarios!Cargo_IN)
-70            txtEmail.Text = NS(mobjRsUsuarios!Email_VC)
-80            fpTelefone.Text = NS(mobjRsUsuarios!Telefone_VC)
+20        If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 9) = True Then
+30            If cmdAlterarUsuario.Caption = "Alterar" Then
               
-90            cmdAlterarUsuario.Caption = "Gravar"
-100           cmdNovoUsuario.Enabled = False
-110       Else
-120           If VerificarCampos = True Then
-130               If MsgBox("Deseja alterar o usuário?", vbYesNo + vbExclamation, "Atenção!") = vbNo Then Exit Sub
-140               GravarUsuario
-150               LimparCampos
-160               cmdNovoUsuario.Enabled = True
-170               cmdAlterarUsuario.Caption = "Alterar"
-180               MsgBox "Usuário Alterado!", vbOKOnly + vbInformation, "Sucesso!"
-190           Else
-200               Exit Sub
-210           End If
-220       End If
+40                txtCodigoUsuario.Text = mobjRsUsuarios!ID_IN
+50                txtNome.Text = mobjRsUsuarios!Nome_VC
+60                txtLogin.Text = mobjRsUsuarios!Login_VC
+70                Call modBDCombo_SelecionarCargos(sscCargo, mobjRsUsuarios!Cargo_IN)
+80                txtEmail.Text = NS(mobjRsUsuarios!Email_VC)
+90                fpTelefone.Text = NS(mobjRsUsuarios!Telefone_VC)
+                  
+100               cmdAlterarUsuario.Caption = "Gravar"
+110               cmdNovoUsuario.Enabled = False
+120           Else
+130               If VerificarCampos = True Then
+140                   If MsgBox("Deseja alterar o usuário?", vbYesNo + vbExclamation, "Atenção!") = vbNo Then Exit Sub
+150                   GravarUsuario
+160                   LimparCampos
+170                   cmdNovoUsuario.Enabled = True
+180                   cmdAlterarUsuario.Caption = "Alterar"
+190                   MsgBox "Usuário Alterado!", vbOKOnly + vbInformation, "Sucesso!"
+200               Else
+210                   Exit Sub
+220               End If
+230           End If
+240       Else
+250           MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº9" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
+260       End If
 
-230   Exit Sub
+270   Exit Sub
 Erro:
-240      Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "cmdAlterarUsuario_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+280      Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "cmdAlterarUsuario_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 
 End Sub
 
 Private Sub cmdNovoUsuario_Click()
-On Error GoTo Erro
-      
-    If cmdNovoUsuario.Caption = "Novo" Then
-        LimparCampos
-        cmdAlterarUsuario.Enabled = False
-        cmdNovoUsuario.Caption = "Gravar"
-    Else
-        If VerificarCampos = True Then
-            If MsgBox("Deseja adicionar o usuário?", vbYesNo + vbExclamation, "Atenção!") = vbNo Then Exit Sub
-            GravarUsuario
-            LimparCampos
-            cmdAlterarUsuario.Enabled = True
-            cmdNovoUsuario.Caption = "Novo"
-            MsgBox "Usuário Adicionado!" & vbCrLf & "A senha padrão é 123", vbOKOnly + vbInformation, "Sucesso!"
-        Else
-            Exit Sub
-        End If
-    End If
+10    On Error GoTo Erro
+20        If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 9) = True Then
+30            If cmdNovoUsuario.Caption = "Novo" Then
+40                LimparCampos
+50                cmdAlterarUsuario.Enabled = False
+60                cmdNovoUsuario.Caption = "Gravar"
+70            Else
+80                If VerificarCampos = True Then
+90                    If MsgBox("Deseja adicionar o usuário?", vbYesNo + vbExclamation, "Atenção!") = vbNo Then Exit Sub
+100                   GravarUsuario
+110                   LimparCampos
+120                   cmdAlterarUsuario.Enabled = True
+130                   cmdNovoUsuario.Caption = "Novo"
+140                   MsgBox "Usuário Adicionado!" & vbCrLf & "A senha padrão é 123", vbOKOnly + vbInformation, "Sucesso!"
+150                Else
+160                   Exit Sub
+170               End If
+180           End If
+190       Else
+200           MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº9" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
+210       End If
 
-Exit Sub
+220   Exit Sub
 Erro:
-   Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "cmdNovoUsuario_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+230      Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "cmdNovoUsuario_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 
 End Sub

@@ -810,10 +810,14 @@ Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
     Select Case Button.Key
         
         Case "cmdNovo":
-            mstrFlag = "I"
-            Call LimparCampos
-            Call HabilitarCampos(True)
-            Call HabilitarTBBotoes(False, False, True, True, False)
+            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 6) = True Then
+                mstrFlag = "I"
+                Call LimparCampos
+                Call HabilitarCampos(True)
+                Call HabilitarTBBotoes(False, False, True, True, False)
+            Else
+                MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº6" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
+            End If
         
         Case "cmdAlterar":
             mstrFlag = "A"

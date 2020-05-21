@@ -12,6 +12,7 @@ Begin VB.Form frmOpcaoImpressao
    MinButton       =   0   'False
    ScaleHeight     =   1830
    ScaleWidth      =   3345
+   StartUpPosition =   2  'CenterScreen
    Begin VB.CommandButton cmdCarteirinha 
       BackColor       =   &H80000007&
       Caption         =   "Carteitinha"
