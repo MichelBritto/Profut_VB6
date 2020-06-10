@@ -16,6 +16,7 @@ Begin VB.Form frmAdicionarFotoJogador
    MinButton       =   0   'False
    ScaleHeight     =   7710
    ScaleWidth      =   5880
+   StartUpPosition =   2  'CenterScreen
    Begin VB.CommandButton cmdProximaFoto 
       Caption         =   ">>"
       Height          =   285

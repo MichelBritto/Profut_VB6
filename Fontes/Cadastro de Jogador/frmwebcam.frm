@@ -1,6 +1,7 @@
 VERSION 5.00
 Begin VB.Form frmwebcam 
    BackColor       =   &H00FFFFFF&
+   BorderStyle     =   1  'Fixed Single
    Caption         =   "Capturando Imagens da Web Cam"
    ClientHeight    =   7845
    ClientLeft      =   5415
@@ -8,6 +9,8 @@ Begin VB.Form frmwebcam
    ClientWidth     =   7260
    ControlBox      =   0   'False
    LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
    ScaleHeight     =   7845
    ScaleWidth      =   7260
    StartUpPosition =   2  'CenterScreen
@@ -75,14 +78,17 @@ Private Const WM_CLOSE = &H10
 Private mCapHwnd As Long
 Private mStrEnderecoFoto As String
 Private Sub AtivaVideoContinuo()
+On Error Resume Next
  Timer1.Enabled = True
  Timer1.Interval = 50
 End Sub
 Private Sub DesativaVideoContinuo()
+On Error Resume Next
  Timer1.Enabled = False
  Timer1.Interval = 50
 End Sub
 Private Sub cmdCapturaImagem_Click()
+On Error Resume Next
     'Captura a imagem atual
     Dim lngrnd1 As Long
     Dim lngrnd2 As Long
@@ -101,17 +107,19 @@ Private Sub cmdCapturaImagem_Click()
     SendMessage mCapHwnd, WM_CAP_EDIT_COPY, 0, 0
     Picture1.Picture = Clipboard.GetData
     DesativaVideoContinuo
-    mStrEnderecoFoto = "C:\ProFut\IMG\" & lngrnd1 & lngrnd2 & lngrnd3 & lngrnd4 & lngrnd5 & ".jpg"
+    mStrEnderecoFoto = "C:\ProFut\Compilado\IMG\" & lngrnd1 & lngrnd2 & lngrnd3 & lngrnd4 & lngrnd5 & ".jpg"
     Call SavePicture(Picture1.Image, mStrEnderecoFoto)
     frmAdicionarFotoJogador.FotoWebcam = mStrEnderecoFoto
     Unload Me
    
 End Sub
 Private Sub EncerraWebCam()
+On Error Resume Next
  'Desliga a câmera
    SendMessage mCapHwnd, WM_CAP_DRIVER_DISCONNECT, 0, 0
 End Sub
 Private Sub IniciaWebCam()
+On Error Resume Next
 'Inicia a câmera
    mCapHwnd = capCreateCaptureWindow("captura Janela", 0, 0, 0, 320, 240, Me.hwnd, 0)
    SendMessage mCapHwnd, WM_CAP_DRIVER_CONNECT, 0, 0
@@ -121,15 +129,20 @@ Private Sub cmdSair_Click()
 End Sub
 
 Private Sub Form_Activate()
+On Error Resume Next
+On Error Resume Next
     IniciaWebCam
     AtivaVideoContinuo
 End Sub
 
 Private Sub Form_Terminate()
+On Error Resume Next
    'Desliga a câmera
    SendMessage mCapHwnd, WM_CAP_DRIVER_DISCONNECT, 0, 0
 End Sub
+
 Private Sub Timer1_Timer()
+On Error Resume Next
 'Exibe imagem continua no pictubox
    Clipboard.Clear
    SendMessage mCapHwnd, WM_CAP_GRAB_FRAME, 0, 0

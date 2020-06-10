@@ -114,9 +114,9 @@ Begin VB.Form frmCadastroDeJogadorV2
       Tabs(0).Pages(0).Name=   "page 0"
       Tabs(0).Pages(0).CtlCount=   3
       Tabs(0).Pages(0).CtlEnabled=   -1  'True
-      Tabs(0).Pages(0).Ctl(0)=   "fraInfoSistema"
+      Tabs(0).Pages(0).Ctl(0)=   "fraFoto"
       Tabs(0).Pages(0).Ctl(1)=   "fraDadosCadastrais"
-      Tabs(0).Pages(0).Ctl(2)=   "fraFoto"
+      Tabs(0).Pages(0).Ctl(2)=   "fraInfoSistema"
       Tabs(0).Tag     =   ""
       Tabs(0).Caption =   "Principal"
       Tabs(0).Name    =   "tab 0"
@@ -132,8 +132,8 @@ Begin VB.Form frmCadastroDeJogadorV2
       Tabs(1).Pages(0).Name=   "page 0"
       Tabs(1).Pages(0).CtlCount=   2
       Tabs(1).Pages(0).CtlEnabled=   0   'False
-      Tabs(1).Pages(0).Ctl(0)=   "fraDocumentos"
-      Tabs(1).Pages(0).Ctl(1)=   "fraInfoEscolares"
+      Tabs(1).Pages(0).Ctl(0)=   "fraInfoEscolares"
+      Tabs(1).Pages(0).Ctl(1)=   "fraDocumentos"
       Tabs(1).Tag     =   ""
       Tabs(1).Caption =   "Documentação"
       Tabs(1).Name    =   "tab 1"
@@ -2197,7 +2197,7 @@ Private Sub txtTelCel2_Validate(Cancel As Boolean)
 End Sub
 
 Private Sub LimparArray(arr As Variant)
-    Dim i As Integer
+    Dim i As Long
     
     Do While i < Len(arr)
     

@@ -321,6 +321,23 @@ Begin VB.Form frmRelJogador
             _StyleDefs(92)  =   "Named:id=42:FilterBar"
             _StyleDefs(93)  =   ":id=42,.parent=33"
          End
+         Begin VB.Label lblinfo 
+            Caption         =   "INFORMAÇÃO"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   24
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   -1  'True
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   795
+            Left            =   4740
+            TabIndex        =   34
+            Top             =   2130
+            Width           =   6015
+         End
       End
       Begin VB.Frame fraFiltros 
          Caption         =   "Filtros"
@@ -1068,16 +1085,23 @@ Dim clsExportar As clsExportarExcell
     If mobjRsResultado Is Nothing Then Exit Sub
     
     MousePointer = vbHourglass
+
     
     DoEvents
     
     If Not mobjRsResultado.EOF And Not mobjRsResultado.BOF Then
-    
-       Call clsExportar.ExportarGrid(ssgResultado)
         
+        lblinfo.Visible = True
+        lblinfo.ZOrder 0
+        ssgResultado.Visible = False
+        lblinfo.Caption = "Gerando Tabela Excell..."
+        Call clsExportar.ExportarGrid(ssgResultado)
+        lblinfo.Visible = False
+        ssgResultado.Visible = True
     End If
     
     MousePointer = vbDefault
+    
     
     DoEvents
 Exit Sub
@@ -1088,6 +1112,8 @@ End Sub
 
 Private Sub Form_Load()
 Dim objrs As Recordset
+
+    lblinfo.Visible = False
         
     chkCartegoria_Click
     chkDataNascimento_Click
@@ -1245,6 +1271,31 @@ On Error GoTo Erro
     
     ssgResultado.DataSource = mobjRsResultado
     
+    If Not mobjRsResultado Is Nothing Then
+        If Not mobjRsResultado.BOF And Not mobjRsResultado.EOF Then
+            If mobjRsResultado.RecordCount = 0 Then
+                           
+                lblinfo.Visible = True
+                ssgResultado.Visible = False
+                lblinfo.ZOrder 0
+                lblinfo.Caption = "Sem Resultados"
+            Else
+                ssgResultado.Visible = True
+                lblinfo.Visible = False
+            End If
+        Else
+            lblinfo.Visible = True
+            lblinfo.ZOrder 0
+            ssgResultado.Visible = False
+            lblinfo.Caption = "Sem Resultados"
+        End If
+    Else
+        lblinfo.Visible = True
+        lblinfo.ZOrder 0
+        ssgResultado.Visible = False
+        lblinfo.Caption = "Sem Resultados"
+    End If
+    
 Exit Sub
 Erro:
    Call MsgBox("Erro no módulo: " & "frmRelJogador" & vbCrLf & "No Procedimento: " & "CriarEPreencherRecordsetResultado" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
@@ -1279,7 +1330,7 @@ On Error GoTo Erro
                     
                     mobjRsEquipes!marcado_bt = False
                     mobjRsEquipes!ID_IN = NZ(objRsEquipes!ID_IN)
-                    mobjRsEquipes!nome_vc = NS(objRsEquipes!nome_vc)
+                    mobjRsEquipes!Nome_VC = NS(objRsEquipes!Nome_VC)
                                     
                     objRsEquipes.MoveNext
                 Loop
