@@ -2,6 +2,7 @@ VERSION 5.00
 Object = "{562E3E04-2C31-4ECE-83F4-4017EEE51D40}#8.0#0"; "todg8.ocx"
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.ocx"
 Begin VB.Form frmCargos 
+   BorderStyle     =   1  'Fixed Single
    Caption         =   "ProFut - Manutenção de Cargos"
    ClientHeight    =   6135
    ClientLeft      =   8760
@@ -9,8 +10,11 @@ Begin VB.Form frmCargos
    ClientWidth     =   6585
    LinkTopic       =   "Form1"
    LockControls    =   -1  'True
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
    ScaleHeight     =   6135
    ScaleWidth      =   6585
+   StartUpPosition =   2  'CenterScreen
    Begin VB.Frame frmPrincipal 
       Height          =   5505
       Left            =   0

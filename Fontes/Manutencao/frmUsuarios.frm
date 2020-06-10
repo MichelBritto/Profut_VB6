@@ -5,15 +5,20 @@ Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.ocx"
 Object = "{CDF3B183-D408-11CE-AE2C-0080C786E37D}#3.0#0"; "Edt32x30.ocx"
 Object = "{4A4AA691-3E6F-11D2-822F-00104B9E07A1}#3.0#0"; "ssdw3bo.ocx"
 Begin VB.Form frmUsuarios 
+   BorderStyle     =   1  'Fixed Single
    Caption         =   "ProFut  - Usuários"
    ClientHeight    =   9420
    ClientLeft      =   6690
    ClientTop       =   2265
    ClientWidth     =   10590
+   KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    LockControls    =   -1  'True
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
    ScaleHeight     =   9420
    ScaleWidth      =   10590
+   StartUpPosition =   2  'CenterScreen
    Begin VB.Frame fraPermissao 
       Height          =   8835
       Left            =   30

@@ -2,15 +2,20 @@ VERSION 5.00
 Object = "{562E3E04-2C31-4ECE-83F4-4017EEE51D40}#8.0#0"; "todg8.ocx"
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.ocx"
 Begin VB.Form frmPermissao 
+   BorderStyle     =   1  'Fixed Single
    Caption         =   "ProFut - Cargos e Permissões"
    ClientHeight    =   8430
    ClientLeft      =   6705
    ClientTop       =   2265
    ClientWidth     =   10590
+   KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    LockControls    =   -1  'True
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
    ScaleHeight     =   8430
    ScaleWidth      =   10590
+   StartUpPosition =   2  'CenterScreen
    Begin VB.Frame fraPrincipal 
       Height          =   7755
       Left            =   0
@@ -83,13 +88,13 @@ Begin VB.Form frmPermissao
             Splits(0)._ColumnProps(9)=   "Column(1).DividerColor=0"
             Splits(0)._ColumnProps(10)=   "Column(1)._WidthInPix=926"
             Splits(0)._ColumnProps(11)=   "Column(1)._EditAlways=0"
-            Splits(0)._ColumnProps(12)=   "Column(1)._ColStyle=513"
+            Splits(0)._ColumnProps(12)=   "Column(1)._ColStyle=8705"
             Splits(0)._ColumnProps(13)=   "Column(1).Order=2"
             Splits(0)._ColumnProps(14)=   "Column(2).Width=16536"
             Splits(0)._ColumnProps(15)=   "Column(2).DividerColor=0"
             Splits(0)._ColumnProps(16)=   "Column(2)._WidthInPix=16457"
             Splits(0)._ColumnProps(17)=   "Column(2)._EditAlways=0"
-            Splits(0)._ColumnProps(18)=   "Column(2)._ColStyle=512"
+            Splits(0)._ColumnProps(18)=   "Column(2)._ColStyle=8704"
             Splits(0)._ColumnProps(19)=   "Column(2).Order=3"
             Splits.Count    =   1
             PrintInfos(0)._StateFlags=   0
@@ -165,11 +170,11 @@ Begin VB.Form frmPermissao
             _StyleDefs(44)  =   "Splits(0).Columns(0).HeadingStyle:id=99,.parent=14"
             _StyleDefs(45)  =   "Splits(0).Columns(0).FooterStyle:id=100,.parent=15"
             _StyleDefs(46)  =   "Splits(0).Columns(0).EditorStyle:id=101,.parent=17"
-            _StyleDefs(47)  =   "Splits(0).Columns(1).Style:id=28,.parent=13,.alignment=2"
+            _StyleDefs(47)  =   "Splits(0).Columns(1).Style:id=28,.parent=13,.alignment=2,.locked=-1"
             _StyleDefs(48)  =   "Splits(0).Columns(1).HeadingStyle:id=25,.parent=14,.alignment=2"
             _StyleDefs(49)  =   "Splits(0).Columns(1).FooterStyle:id=26,.parent=15"
             _StyleDefs(50)  =   "Splits(0).Columns(1).EditorStyle:id=27,.parent=17"
-            _StyleDefs(51)  =   "Splits(0).Columns(2).Style:id=32,.parent=13,.alignment=0"
+            _StyleDefs(51)  =   "Splits(0).Columns(2).Style:id=32,.parent=13,.alignment=0,.locked=-1"
             _StyleDefs(52)  =   "Splits(0).Columns(2).HeadingStyle:id=29,.parent=14,.alignment=2"
             _StyleDefs(53)  =   "Splits(0).Columns(2).FooterStyle:id=30,.parent=15"
             _StyleDefs(54)  =   "Splits(0).Columns(2).EditorStyle:id=31,.parent=17"
@@ -255,7 +260,7 @@ Begin VB.Form frmPermissao
             Splits(0)._ColumnProps(2)=   "Column(0).DividerColor=0"
             Splits(0)._ColumnProps(3)=   "Column(0)._WidthInPix=8149"
             Splits(0)._ColumnProps(4)=   "Column(0)._EditAlways=0"
-            Splits(0)._ColumnProps(5)=   "Column(0)._ColStyle=513"
+            Splits(0)._ColumnProps(5)=   "Column(0)._ColStyle=8705"
             Splits(0)._ColumnProps(6)=   "Column(0).WrapText=1"
             Splits(0)._ColumnProps(7)=   "Column(0).Order=1"
             Splits(0)._ColumnProps(8)=   "Column(1).Width=5609"
@@ -338,7 +343,7 @@ Begin VB.Form frmPermissao
             _StyleDefs(39)  =   "Splits(0).OddRowStyle:id=21,.parent=10"
             _StyleDefs(40)  =   "Splits(0).RecordSelectorStyle:id=23,.parent=11"
             _StyleDefs(41)  =   "Splits(0).FilterBarStyle:id=24,.parent=12"
-            _StyleDefs(42)  =   "Splits(0).Columns(0).Style:id=28,.parent=13,.alignment=2,.wraptext=-1"
+            _StyleDefs(42)  =   "Splits(0).Columns(0).Style:id=28,.parent=13,.alignment=2,.wraptext=-1,.locked=-1"
             _StyleDefs(43)  =   "Splits(0).Columns(0).HeadingStyle:id=25,.parent=14,.alignment=2"
             _StyleDefs(44)  =   "Splits(0).Columns(0).FooterStyle:id=26,.parent=15"
             _StyleDefs(45)  =   "Splits(0).Columns(0).EditorStyle:id=27,.parent=17"
@@ -376,13 +381,13 @@ Begin VB.Form frmPermissao
    End
    Begin MSComctlLib.Toolbar tbBotoes 
       Height          =   570
-      Left            =   7650
+      Left            =   5220
       TabIndex        =   1
       Top             =   7800
-      Width           =   2880
-      _ExtentX        =   5080
+      Width           =   5310
+      _ExtentX        =   9366
       _ExtentY        =   1005
-      ButtonWidth     =   1720
+      ButtonWidth     =   2355
       ButtonHeight    =   1005
       AllowCustomize  =   0   'False
       Wrappable       =   0   'False
@@ -390,7 +395,7 @@ Begin VB.Form frmPermissao
       ImageList       =   "imgList"
       _Version        =   393216
       BeginProperty Buttons {66833FE8-8583-11D1-B16A-00C0F0283628} 
-         NumButtons      =   3
+         NumButtons      =   4
          BeginProperty Button1 {66833FEA-8583-11D1-B16A-00C0F0283628} 
             Caption         =   "F3 - Alterar"
             Key             =   "cmdAlterar"
@@ -399,12 +404,19 @@ Begin VB.Form frmPermissao
          EndProperty
          BeginProperty Button2 {66833FEA-8583-11D1-B16A-00C0F0283628} 
             Enabled         =   0   'False
+            Caption         =   "F6 - Abandonar"
+            Key             =   "cmdAbandonar"
+            Object.ToolTipText     =   "Abandonar Alterações"
+            ImageIndex      =   6
+         EndProperty
+         BeginProperty Button3 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Enabled         =   0   'False
             Caption         =   "F7-Gravar"
             Key             =   "cmdGravar"
             Object.ToolTipText     =   "Gravar Alterações"
             ImageIndex      =   7
          EndProperty
-         BeginProperty Button3 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+         BeginProperty Button4 {66833FEA-8583-11D1-B16A-00C0F0283628} 
             Caption         =   "F10-Sair"
             Key             =   "cmdSair"
             Object.ToolTipText     =   "Sair da tela"
@@ -492,6 +504,38 @@ Dim mobjRsUsuarios As Recordset
 Dim mobjrsPermissao As Recordset
 
 Dim mstrFlag As String
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+10        Select Case KeyCode
+              'Case vbKeyF2:  tbBotoes.Buttons("cmdNovo").Value = tbrPressed
+              Case vbKeyF3:  tbBotoes.Buttons("cmdAlterar").Value = tbrPressed
+              'Case vbKeyF5:  tbBotoes.Buttons("cmdApagar").Value = tbrPressed
+20            Case vbKeyF6:  tbBotoes.Buttons("cmdAbandonar").Value = tbrPressed
+30            Case vbKeyF7:  tbBotoes.Buttons("cmdGravar").Value = tbrPressed
+              'Case vbKeyF8:  tbBotoes.Buttons("cmdImprimir").Value = tbrPressed
+40            Case vbKeyF10: tbBotoes.Buttons("cmdSair").Value = tbrPressed
+50       End Select
+End Sub
+
+Private Sub Form_KeyUp(KeyCode As Integer, Shift As Integer)
+          'tbBotoes.Buttons("cmdNovo").Value = tbrUnpressed
+10        tbBotoes.Buttons("cmdAlterar").Value = tbrUnpressed
+          'tbBotoes.Buttons("cmdApagar").Value = tbrUnpressed
+20        tbBotoes.Buttons("cmdAbandonar").Value = tbrUnpressed
+          'tbBotoes.Buttons("cmdImprimir").Value = tbrUnpressed
+30        tbBotoes.Buttons("cmdGravar").Value = tbrUnpressed
+40        tbBotoes.Buttons("cmdSair").Value = tbrUnpressed
+        
+50        Select Case KeyCode
+              'Case vbKeyF2:  If tbBotoes.Buttons("cmdNovo").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdNovo"))
+              Case vbKeyF3:  If tbBotoes.Buttons("cmdAlterar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdAlterar"))
+              'Case vbKeyF5:  If tbBotoes.Buttons("cmdApagar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdApagar"))
+60            Case vbKeyF6:  If tbBotoes.Buttons("cmdAbandonar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdLimpar"))
+70            Case vbKeyF7:  If tbBotoes.Buttons("cmdGravar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdGravar"))
+              'Case vbKeyF8:  If tbBotoes.Buttons("cmdImprimir").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdImprimir"))
+80            Case vbKeyF10: If tbBotoes.Buttons("cmdSair").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdSair"))
+90        End Select
+
+End Sub
 Private Sub Form_Load()
     
     CriarEPreencherRecordsets
@@ -624,13 +668,17 @@ Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
         Case "cmdAlterar":
             mstrFlag = "A"
             Call HabilitarCampos(True)
-            Call HabilitarTBBotoes(False, True, True)
+            Call HabilitarTBBotoes(False, True, True, True)
 
         Case "cmdGravar"
-            mstrFlag = ""
             GravarAlteracoes
+            GoTo Abandonar
+            
+        Case "cmdAbandonar"
+Abandonar:
+            mstrFlag = ""
             Call HabilitarCampos(False)
-            Call HabilitarTBBotoes(True, False, True)
+            Call HabilitarTBBotoes(True, False, True, False)
 
         Case "cmdSair"
             Unload Me
@@ -649,12 +697,13 @@ Erro:
    Call MsgBox("Erro no módulo: " & "frmPermissao" & vbCrLf & "HabilitarCampos" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 End Sub
 
-Private Sub HabilitarTBBotoes(blnAlterar As Boolean, blnGravar As Boolean, blnsair As Boolean)
+Private Sub HabilitarTBBotoes(blnAlterar As Boolean, blnGravar As Boolean, blnsair As Boolean, blnAbandonar As Boolean)
 On Error GoTo Erro
       
     tbBotoes.Buttons("cmdAlterar").Enabled = blnAlterar
     tbBotoes.Buttons("cmdGravar").Enabled = blnGravar
     tbBotoes.Buttons("cmdSair").Enabled = blnsair
+    tbBotoes.Buttons("cmdAbandonar").Enabled = blnAbandonar
     
 Exit Sub
 Erro:

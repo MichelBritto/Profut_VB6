@@ -1,6 +1,7 @@
 VERSION 5.00
 Object = "{065E6FD1-1BF9-11D2-BAE8-00104B9E0792}#3.0#0"; "ssa3d30.ocx"
 Begin VB.Form frmMenu 
+   BorderStyle     =   1  'Fixed Single
    Caption         =   "ProFut - Menu Principal"
    ClientHeight    =   6375
    ClientLeft      =   4515
@@ -9,11 +10,13 @@ Begin VB.Form frmMenu
    Icon            =   "frmMenu.frx":0000
    LinkTopic       =   "Form1"
    LockControls    =   -1  'True
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
    ScaleHeight     =   6375
    ScaleWidth      =   10860
+   StartUpPosition =   2  'CenterScreen
    Begin VB.Frame fraPrincipal 
       BackColor       =   &H00FFFFFF&
-      Caption         =   "{"
       Height          =   6375
       Left            =   30
       TabIndex        =   0
@@ -161,11 +164,11 @@ Begin VB.Form frmMenu
             RoundedCorners  =   0   'False
             Outline         =   0   'False
          End
-         Begin Threed.SSCommand cmdManutencao 
+         Begin Threed.SSCommand cmdUsuario 
             Height          =   645
             Left            =   30
             TabIndex        =   7
-            Top             =   2280
+            Top             =   2250
             Width           =   3360
             _ExtentX        =   5927
             _ExtentY        =   1138
@@ -184,22 +187,21 @@ Begin VB.Form frmMenu
                Strikethrough   =   0   'False
             EndProperty
             Picture         =   "frmMenu.frx":35F1
-            Caption         =   "Manutenção"
+            Caption         =   "Usuário"
             Alignment       =   1
             PictureAlignment=   9
             BevelWidth      =   1
             RoundedCorners  =   0   'False
             Outline         =   0   'False
          End
-         Begin Threed.SSCommand cmdUsuario 
-            Height          =   555
-            Left            =   1020
+         Begin Threed.SSCommand cmdPermissao 
+            Height          =   645
+            Left            =   30
             TabIndex        =   8
             Top             =   2970
-            Visible         =   0   'False
-            Width           =   2370
-            _ExtentX        =   4180
-            _ExtentY        =   979
+            Width           =   3360
+            _ExtentX        =   5927
+            _ExtentY        =   1138
             _Version        =   196609
             ForeColor       =   14737632
             BackColor       =   0
@@ -215,37 +217,6 @@ Begin VB.Form frmMenu
                Strikethrough   =   0   'False
             EndProperty
             Picture         =   "frmMenu.frx":39A3
-            Caption         =   "Usuário"
-            Alignment       =   1
-            PictureAlignment=   9
-            BevelWidth      =   1
-            RoundedCorners  =   0   'False
-            Outline         =   0   'False
-         End
-         Begin Threed.SSCommand cmdPermissao 
-            Height          =   555
-            Left            =   1020
-            TabIndex        =   9
-            Top             =   3570
-            Visible         =   0   'False
-            Width           =   2370
-            _ExtentX        =   4180
-            _ExtentY        =   979
-            _Version        =   196609
-            ForeColor       =   14737632
-            BackColor       =   0
-            PictureMaskColor=   16777152
-            PictureFrames   =   1
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-               Name            =   "Arial Black"
-               Size            =   11.25
-               Charset         =   0
-               Weight          =   900
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Picture         =   "frmMenu.frx":3D55
             Caption         =   "Permissão"
             Alignment       =   1
             PictureAlignment=   9
