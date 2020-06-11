@@ -107,10 +107,19 @@ On Error Resume Next
     SendMessage mCapHwnd, WM_CAP_EDIT_COPY, 0, 0
     Picture1.Picture = Clipboard.GetData
     DesativaVideoContinuo
-    mStrEnderecoFoto = "C:\ProFut\Compilado\IMG\" & lngrnd1 & lngrnd2 & lngrnd3 & lngrnd4 & lngrnd5 & ".jpg"
+    mStrEnderecoFoto = "C:\ProFut\IMG\" & lngrnd1 & lngrnd2 & lngrnd3 & lngrnd4 & lngrnd5 & ".jpg"
+retentar:
+    On Error GoTo criardiretorio
     Call SavePicture(Picture1.Image, mStrEnderecoFoto)
     frmAdicionarFotoJogador.FotoWebcam = mStrEnderecoFoto
     Unload Me
+    Exit Sub
+criardiretorio:
+    If Dir("C:\ProFut\IMG", vbDirectory) = "" Then
+        MkDir "C:\ProFut\IMG"
+    End If
+    
+    GoTo retentar
    
 End Sub
 Private Sub EncerraWebCam()
