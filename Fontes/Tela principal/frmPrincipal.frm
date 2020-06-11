@@ -63,6 +63,8 @@ Private Sub Form_Activate()
     If mblnLoginRealizado = True Then
         frmPrincipal.Visible = False
         Call chamamenu
+    Else
+        End
     End If
 End Sub
 
