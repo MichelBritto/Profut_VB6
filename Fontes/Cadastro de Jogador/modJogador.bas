@@ -215,3 +215,26 @@ Exit Sub
 Erro:
    Call MsgBox("Erro no módulo: " & "modJogador" & vbCrLf & "No Procedimento: " & "modJogador_SelecionarJogadorPorCodigo" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 End Sub
+
+Public Sub modJogador_ApagarJogadorPorCodigo(ByVal lngJogador As Long, lngOperacao As Long)
+On Error GoTo Erro
+'1 - INATIVAR
+'2 - EXCLUIR
+      
+    Set gobjCmd.ActiveConnection = gSMConexao.Conexao
+    gobjCmd.CommandText = "dbo.USP_APAGARJOGADORPORCODIGO"
+    gobjCmd.CommandType = adCmdStoredProc
+    gobjCmd.CommandTimeout = 1000
+    
+    With gobjCmd
+        .Parameters("@Jogador_IN").Value = lngJogador
+        .Parameters("@Operacao_IN").Value = lngOperacao
+    End With
+    
+    gobjCmd.Execute , , adExecuteNoRecords
+    
+Exit Sub
+Erro:
+   Call MsgBox("Erro no módulo: " & "modJogador" & vbCrLf & "modJogador_ApagarJogadorPorCodigo" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+End Sub
+

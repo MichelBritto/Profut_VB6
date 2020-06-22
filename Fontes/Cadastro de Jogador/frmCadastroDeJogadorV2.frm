@@ -114,9 +114,9 @@ Begin VB.Form frmCadastroDeJogadorV2
       Tabs(0).Pages(0).Name=   "page 0"
       Tabs(0).Pages(0).CtlCount=   3
       Tabs(0).Pages(0).CtlEnabled=   -1  'True
-      Tabs(0).Pages(0).Ctl(0)=   "fraFoto"
+      Tabs(0).Pages(0).Ctl(0)=   "fraInfoSistema"
       Tabs(0).Pages(0).Ctl(1)=   "fraDadosCadastrais"
-      Tabs(0).Pages(0).Ctl(2)=   "fraInfoSistema"
+      Tabs(0).Pages(0).Ctl(2)=   "fraFoto"
       Tabs(0).Tag     =   ""
       Tabs(0).Caption =   "Principal"
       Tabs(0).Name    =   "tab 0"
@@ -132,8 +132,8 @@ Begin VB.Form frmCadastroDeJogadorV2
       Tabs(1).Pages(0).Name=   "page 0"
       Tabs(1).Pages(0).CtlCount=   2
       Tabs(1).Pages(0).CtlEnabled=   0   'False
-      Tabs(1).Pages(0).Ctl(0)=   "fraInfoEscolares"
-      Tabs(1).Pages(0).Ctl(1)=   "fraDocumentos"
+      Tabs(1).Pages(0).Ctl(0)=   "fraDocumentos"
+      Tabs(1).Pages(0).Ctl(1)=   "fraInfoEscolares"
       Tabs(1).Tag     =   ""
       Tabs(1).Caption =   "Documentação"
       Tabs(1).Name    =   "tab 1"
@@ -1344,6 +1344,26 @@ Begin VB.Form frmCadastroDeJogadorV2
             _ExtentX        =   6641
             _ExtentY        =   7594
             _Version        =   196609
+            Begin VB.Label lblInativo 
+               AutoSize        =   -1  'True
+               Caption         =   "INATIVO"
+               BeginProperty Font 
+                  Name            =   "MS Sans Serif"
+                  Size            =   24
+                  Charset         =   0
+                  Weight          =   700
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               ForeColor       =   &H000000FF&
+               Height          =   555
+               Left            =   840
+               TabIndex        =   82
+               Top             =   2010
+               Visible         =   0   'False
+               Width           =   2055
+            End
             Begin VB.Image imgFotoJogador 
                Height          =   4215
                Left            =   30
@@ -1356,11 +1376,11 @@ Begin VB.Form frmCadastroDeJogadorV2
    End
    Begin MSComctlLib.Toolbar tbBotoes 
       Height          =   570
-      Left            =   1395
+      Left            =   105
       TabIndex        =   55
       Top             =   5775
-      Width           =   9360
-      _ExtentX        =   16510
+      Width           =   10650
+      _ExtentX        =   18785
       _ExtentY        =   1005
       ButtonWidth     =   2355
       ButtonHeight    =   1005
@@ -1370,7 +1390,7 @@ Begin VB.Form frmCadastroDeJogadorV2
       ImageList       =   "imgList"
       _Version        =   393216
       BeginProperty Buttons {66833FE8-8583-11D1-B16A-00C0F0283628} 
-         NumButtons      =   7
+         NumButtons      =   8
          BeginProperty Button1 {66833FEA-8583-11D1-B16A-00C0F0283628} 
             Caption         =   "F2 - Novo"
             Key             =   "cmdNovo"
@@ -1391,27 +1411,34 @@ Begin VB.Form frmCadastroDeJogadorV2
             ImageIndex      =   4
          EndProperty
          BeginProperty Button4 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Caption         =   "F5 - Inativar"
+            Key             =   "cmdExcluir"
+            Description     =   "Inativar um jogador do sistema"
+            Object.ToolTipText     =   "Inativar um jogador do sistema"
+            ImageIndex      =   5
+         EndProperty
+         BeginProperty Button5 {66833FEA-8583-11D1-B16A-00C0F0283628} 
             Enabled         =   0   'False
             Caption         =   "F6 - Abandonar"
             Key             =   "cmdLimpar"
             Object.ToolTipText     =   "Limpar dados da tela"
             ImageIndex      =   6
          EndProperty
-         BeginProperty Button5 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+         BeginProperty Button6 {66833FEA-8583-11D1-B16A-00C0F0283628} 
             Enabled         =   0   'False
             Caption         =   "F7-Gravar"
             Key             =   "cmdGravar"
             Object.ToolTipText     =   "Gravar Alterações"
             ImageIndex      =   7
          EndProperty
-         BeginProperty Button6 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+         BeginProperty Button7 {66833FEA-8583-11D1-B16A-00C0F0283628} 
             Enabled         =   0   'False
             Caption         =   "F8 - Imprimir"
             Key             =   "cmdimprimir"
             Object.ToolTipText     =   "Impirimir carteirinha ou Ficha do jogador"
             ImageIndex      =   8
          EndProperty
-         BeginProperty Button7 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+         BeginProperty Button8 {66833FEA-8583-11D1-B16A-00C0F0283628} 
             Caption         =   "F10-Sair"
             Key             =   "cmdSair"
             Object.ToolTipText     =   "Sair da tela"
@@ -1491,6 +1518,7 @@ End Property
 Public Property Let OpcaoImpressao(lngOpcao As Long)
     mlngOpcao = lngOpcao
 End Property
+
 
 Private Sub cmdAdicionar_Click()
     On Error GoTo Erro
@@ -1575,6 +1603,7 @@ Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
         Case vbKeyF2:  tbBotoes.Buttons("cmdNovo").Value = tbrPressed
         Case vbKeyF3:  tbBotoes.Buttons("cmdAlterar").Value = tbrPressed
         Case vbKeyF4:  tbBotoes.Buttons("cmdProcurar").Value = tbrPressed
+        Case vbKeyF5:  tbBotoes.Buttons("cmdExcluir").Value = tbrPressed
         Case vbKeyF6:  tbBotoes.Buttons("cmdLimpar").Value = tbrPressed
         Case vbKeyF7:  tbBotoes.Buttons("cmdGravar").Value = tbrPressed
         Case vbKeyF8:  tbBotoes.Buttons("cmdimprimir").Value = tbrPressed
@@ -1589,6 +1618,7 @@ On Error GoTo Erro
     tbBotoes.Buttons("cmdNovo").Value = tbrUnpressed
     tbBotoes.Buttons("cmdAlterar").Value = tbrUnpressed
     tbBotoes.Buttons("cmdProcurar").Value = tbrUnpressed
+    tbBotoes.Buttons("cmdExcluir").Value = tbrUnpressed
     tbBotoes.Buttons("cmdLimpar").Value = tbrUnpressed
     tbBotoes.Buttons("cmdGravar").Value = tbrUnpressed
     tbBotoes.Buttons("cmdimprimir").Value = tbrUnpressed
@@ -1598,6 +1628,7 @@ On Error GoTo Erro
         Case vbKeyF2:  If tbBotoes.Buttons("cmdNovo").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdNovo"))
         Case vbKeyF3:  If tbBotoes.Buttons("cmdAlterar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdAlterar"))
         Case vbKeyF4:  If tbBotoes.Buttons("cmdProcurar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdProcurar"))
+        Case vbKeyF5:  If tbBotoes.Buttons("cmdExcluir").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdExcluir"))
         Case vbKeyF6:  If tbBotoes.Buttons("cmdLimpar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdLimpar"))
         Case vbKeyF7:  If tbBotoes.Buttons("cmdGravar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdGravar"))
         Case vbKeyF8:  If tbBotoes.Buttons("cmdimprimir").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdimprimir"))
@@ -1664,6 +1695,8 @@ Private Sub LimparCampos()
     txtFacebookAtleta.Text = ""
     txtInstagramAtleta.Text = ""
     txtNumCamisa.Text = ""
+    txtUsuarioCadastro.Text = ""
+
     
     optMasculino.Value = vbChecked
     optFeminino.Value = vbUnchecked
@@ -1673,6 +1706,7 @@ Private Sub LimparCampos()
     
     dtcDataUltimaAlteracao.DateValue = Nothing
     dtcDataNascimento.DateValue = Nothing
+    dtcDataCadastro.DateValue = Nothing
     
     sscUfEscola.Text = ""
     sscUfEnderecoAtleta.Text = ""
@@ -1732,7 +1766,7 @@ Private Sub HabilitarCampos(blnhabilitar As Boolean)
     cmdRemover.Enabled = blnhabilitar
 End Sub
 
-Private Sub HabilitarTBBotoes(blnNovo As Boolean, blnAlterar As Boolean, blnProcurar As Boolean, blnAbandonar As Boolean, blnGravar As Boolean, blnSair As Boolean, blnImprimir As Boolean)
+Private Sub HabilitarTBBotoes(blnNovo As Boolean, blnAlterar As Boolean, blnProcurar As Boolean, blnAbandonar As Boolean, blnGravar As Boolean, blnSair As Boolean, blnImprimir As Boolean, blnExcluir As Boolean)
 
     tbBotoes.Buttons("cmdNovo").Enabled = blnNovo
     tbBotoes.Buttons("cmdAlterar").Enabled = blnAlterar
@@ -1741,13 +1775,10 @@ Private Sub HabilitarTBBotoes(blnNovo As Boolean, blnAlterar As Boolean, blnProc
     tbBotoes.Buttons("cmdGravar").Enabled = blnGravar
     tbBotoes.Buttons("cmdSair").Enabled = blnSair
     tbBotoes.Buttons("cmdimprimir").Enabled = blnImprimir
+    tbBotoes.Buttons("cmdExcluir").Enabled = blnExcluir
     
 End Sub
 
-
-Private Sub fraInfoBasicas_DragDrop(Source As Control, X As Single, Y As Single)
-
-End Sub
 
 Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
     If Not (Button.Enabled) Then Exit Sub
@@ -1757,7 +1788,7 @@ Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
             If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 2) = True Then
                 mstrFlag = "I"
                 Call HabilitarCampos(True)
-                Call HabilitarTBBotoes(False, False, False, True, True, False, False)
+                Call HabilitarTBBotoes(False, False, False, True, True, False, False, False)
                 txtApelido.SetFocus
             Else
                 MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº2" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
@@ -1768,17 +1799,36 @@ Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
             If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 3) = True Then
                 mstrFlag = "A"
                 Call HabilitarCampos(True)
-                Call HabilitarTBBotoes(False, False, False, True, True, False, False)
+                Call HabilitarTBBotoes(False, False, False, True, True, False, False, False)
                 txtApelido.SetFocus
             Else
                 MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº3" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
             End If
+            
+        Case "cmdExcluir":
+            
+            If lblInativo.Visible = False Then
+                If MsgBox("Deseja INATIVAR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será removido temporáriamente do sistema mas ainda poderá ser reativado.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
+                    Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 1)
+                    Call CarregarJogador(Val(txtCodigoInterno.Text))
+                End If
+            Else
+                If MsgBox("Deseja EXCLUIR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será removido permanentemente do sistema e NÃO poderá ser reativado.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
+                    Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 2)
+                    mstrFlag = ""
+                    Call LimparCampos
+                    Call HabilitarCampos(False)
+                    Call HabilitarTBBotoes(True, False, True, False, False, True, True, False)
+                    txtCodigoInterno.SetFocus
+                End If
+            End If
+            
         
         Case "cmdLimpar":
             mstrFlag = ""
             Call LimparCampos
             Call HabilitarCampos(False)
-            Call HabilitarTBBotoes(True, False, True, False, False, True, True)
+            Call HabilitarTBBotoes(True, False, True, False, False, True, True, False)
              txtCodigoInterno.SetFocus
         
         Case "cmdGravar"
@@ -1789,22 +1839,29 @@ Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
             Else: Exit Sub
             End If
             Call HabilitarCampos(False)
-            Call HabilitarTBBotoes(False, True, True, True, False, False, True)
+            Call HabilitarTBBotoes(False, True, True, True, False, False, True, True)
             txtCodigoInterno.SetFocus
             
         Case "cmdProcurar"
-            Dim ObjRelatorioJogador As ClsRelJogador
-            Set ObjRelatorioJogador = New ClsRelJogador
-            
-            If Not gSMConexao Is Nothing Then
-                If gSMConexao.EstadoConexaoBD = adStateOpen Then
-                    
-                    ObjRelatorioJogador.Show gSMConexao, "ProFut - Relatório de Jogador", vbModal, Me, True
-                    txtCodigoInterno.Text = ObjRelatorioJogador.ID
-                    txtCodigoInterno_KeyDown vbKeyReturn, 0
-                    Exit Sub
-                Else
-                    gSMConexao.conectar
+            If tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Procurar" Then
+                Dim ObjRelatorioJogador As ClsRelJogador
+                Set ObjRelatorioJogador = New ClsRelJogador
+                
+                If Not gSMConexao Is Nothing Then
+                    If gSMConexao.EstadoConexaoBD = adStateOpen Then
+                        
+                        ObjRelatorioJogador.Show gSMConexao, "ProFut - Relatório de Jogador", vbModal, Me, True
+                        txtCodigoInterno.Text = ObjRelatorioJogador.ID
+                        txtCodigoInterno_KeyDown vbKeyReturn, 0
+                        Exit Sub
+                    Else
+                        gSMConexao.conectar
+                    End If
+                End If
+            Else
+                If MsgBox("Deseja REATIVAR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será ativado novamente no sistema.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
+                    Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 3)
+                    Call CarregarJogador(Val(txtCodigoInterno.Text))
                 End If
             End If
         
@@ -2131,6 +2188,18 @@ On Error GoTo Erro
             dtcDataNascimento.DateValue = ND(objRsJogador!DATANASCIMENTO_DT)
             
             
+            lblInativo.Visible = NB(objRsJogador!EXCLUIDO_BT)
+            
+            If NB(objRsJogador!EXCLUIDO_BT) = True Then
+                tbBotoes.Buttons("cmdExcluir").Caption = "F5 - Excluir"
+                tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Reativar"
+                tbBotoes.Buttons("cmdProcurar").Image = 2
+            Else
+                tbBotoes.Buttons("cmdExcluir").Caption = "F5 - Inativar"
+                tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Procurar"
+                tbBotoes.Buttons("cmdProcurar").Image = 4
+            End If
+            
 '            mstrFoto = NS(objRsJogador!ENDERECOIMAGEM_VC)
 '            If mstrFoto <> "" Then
 '                imgFotoJogador.Picture = Nothing
@@ -2177,7 +2246,7 @@ On Error GoTo Erro
             
             mstrFlag = ""
             Call HabilitarCampos(False)
-            Call HabilitarTBBotoes(False, True, True, True, False, True, True)
+            Call HabilitarTBBotoes(False, True, True, True, False, True, True, True)
             
         Else
             MsgBox "Jogador não encontrado ou código inválido.", vbOKOnly + vbInformation, "Atenção!"

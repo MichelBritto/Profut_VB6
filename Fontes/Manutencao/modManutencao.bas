@@ -2,7 +2,7 @@ Attribute VB_Name = "modManutencao"
 Option Explicit
 
 Public Sub modManutencao_AdicionarAlterarUsuario(ByVal strLogin As String, ByVal strNome As String, ByVal lngCargo As Long, Optional ByVal lngUsuario As Long, _
-                                     Optional ByVal strTelefone As String, Optional ByVal strEmail As String)
+                                     Optional ByVal strTelefone As String, Optional ByVal strEmail As String, Optional ByVal lngClube As Long)
 
 10    On Error GoTo Erro
 
@@ -18,12 +18,13 @@ Public Sub modManutencao_AdicionarAlterarUsuario(ByVal strLogin As String, ByVal
 100          .Parameters("@telefone_VC").Value = IIf(strTelefone = "", Null, strTelefone)
 110          .Parameters("@usuario_IN").Value = IIf(lngUsuario = 0, Null, lngUsuario)
 120          .Parameters("@setorinterno_IN").Value = IIf(lngCargo = 0, Null, lngCargo)
-130       End With
-140       gobjCmd.Execute , , adExecuteNoRecords
+130          .Parameters("@clube_IN").Value = IIf(lngClube = 0, Null, lngClube)
+140       End With
+150       gobjCmd.Execute , , adExecuteNoRecords
 
-150   Exit Sub
+160   Exit Sub
 Erro:
-160      Call MsgBox("Erro no módulo: " & "modManutencao" & vbCrLf & "modEquipe_AdicionarEquipe" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+170      Call MsgBox("Erro no módulo: " & "modManutencao" & vbCrLf & "modEquipe_AdicionarEquipe" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 End Sub
 

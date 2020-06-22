@@ -54,29 +54,29 @@ Begin VB.Form frmUsuarios
             Appearance      =   0  'Flat
             Caption         =   "Alterar"
             Height          =   405
-            Left            =   8940
+            Left            =   9360
             TabIndex        =   16
             Top             =   1080
-            Width           =   1395
+            Width           =   975
          End
          Begin VB.CommandButton cmdNovoUsuario 
             Appearance      =   0  'Flat
             Caption         =   "Novo"
             Height          =   405
-            Left            =   7410
+            Left            =   8370
             Picture         =   "frmUsuarios.frx":0000
             TabIndex        =   15
             Top             =   1080
-            Width           =   1395
+            Width           =   975
          End
          Begin EditLib.fpMask fpTelefone 
             Height          =   405
-            Left            =   4830
+            Left            =   4800
             TabIndex        =   12
             Top             =   1110
-            Width           =   2475
+            Width           =   1845
             _Version        =   196608
-            _ExtentX        =   4366
+            _ExtentX        =   3254
             _ExtentY        =   714
             Enabled         =   -1  'True
             MousePointer    =   0
@@ -239,6 +239,52 @@ Begin VB.Form frmUsuarios
             PictureFrames   =   1
             Picture         =   "frmUsuarios.frx":066A
          End
+         Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscClube 
+            Height          =   390
+            Left            =   6690
+            TabIndex        =   20
+            Top             =   1110
+            Width           =   1635
+            DataFieldList   =   "Column 0"
+            BevelType       =   0
+            _Version        =   196617
+            DataMode        =   2
+            BeginProperty HeadFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            BackColorOdd    =   15724527
+            RowHeight       =   476
+            Columns(0).Width=   3200
+            Columns(0).DataType=   8
+            Columns(0).FieldLen=   4096
+            _ExtentX        =   2884
+            _ExtentY        =   688
+            _StockProps     =   93
+            BackColor       =   -2147483643
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+         End
+         Begin VB.Label Label8 
+            Caption         =   "Equipe"
+            Height          =   285
+            Left            =   6690
+            TabIndex        =   21
+            Top             =   900
+            Width           =   525
+         End
          Begin VB.Label Label4 
             Caption         =   "Código"
             Height          =   285
@@ -258,7 +304,7 @@ Begin VB.Form frmUsuarios
          Begin VB.Label Label3 
             Caption         =   "Telefone/Celular"
             Height          =   285
-            Left            =   4860
+            Left            =   4830
             TabIndex        =   11
             Top             =   900
             Width           =   1365
@@ -359,7 +405,12 @@ Begin VB.Form frmUsuarios
             Columns(4).Caption=   "E-mail"
             Columns(4).DataField=   "Email_VC"
             Columns(4)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
-            Columns.Count   =   5
+            Columns(5)._VlistStyle=   0
+            Columns(5)._MaxComboItems=   5
+            Columns(5).Caption=   "Equipe"
+            Columns(5).DataField=   "NomeEquipe_VC"
+            Columns(5)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
+            Columns.Count   =   6
             Splits(0)._UserFlags=   0
             Splits(0).Locked=   -1  'True
             Splits(0).MarqueeStyle=   3
@@ -371,7 +422,7 @@ Begin VB.Form frmUsuarios
             Splits(0).DividerColor=   -2147483633
             Splits(0).SpringMode=   0   'False
             Splits(0)._PropDict=   "_ColumnProps,515,0;_UserFlags,518,3"
-            Splits(0)._ColumnProps(0)=   "Columns.Count=5"
+            Splits(0)._ColumnProps(0)=   "Columns.Count=6"
             Splits(0)._ColumnProps(1)=   "Column(0).Width=4498"
             Splits(0)._ColumnProps(2)=   "Column(0).DividerColor=0"
             Splits(0)._ColumnProps(3)=   "Column(0)._WidthInPix=4419"
@@ -389,20 +440,28 @@ Begin VB.Form frmUsuarios
             Splits(0)._ColumnProps(15)=   "Column(2).DividerColor=0"
             Splits(0)._ColumnProps(16)=   "Column(2)._WidthInPix=2619"
             Splits(0)._ColumnProps(17)=   "Column(2)._EditAlways=0"
-            Splits(0)._ColumnProps(18)=   "Column(2)._ColStyle=513"
-            Splits(0)._ColumnProps(19)=   "Column(2).Order=3"
-            Splits(0)._ColumnProps(20)=   "Column(3).Width=2910"
-            Splits(0)._ColumnProps(21)=   "Column(3).DividerColor=0"
-            Splits(0)._ColumnProps(22)=   "Column(3)._WidthInPix=2831"
-            Splits(0)._ColumnProps(23)=   "Column(3)._EditAlways=0"
-            Splits(0)._ColumnProps(24)=   "Column(3)._ColStyle=1"
-            Splits(0)._ColumnProps(25)=   "Column(3).Order=4"
-            Splits(0)._ColumnProps(26)=   "Column(4).Width=5847"
-            Splits(0)._ColumnProps(27)=   "Column(4).DividerColor=0"
-            Splits(0)._ColumnProps(28)=   "Column(4)._WidthInPix=5768"
-            Splits(0)._ColumnProps(29)=   "Column(4)._EditAlways=0"
-            Splits(0)._ColumnProps(30)=   "Column(4)._ColStyle=1"
-            Splits(0)._ColumnProps(31)=   "Column(4).Order=5"
+            Splits(0)._ColumnProps(18)=   "Column(2)._ColStyle=512"
+            Splits(0)._ColumnProps(19)=   "Column(2).WrapText=1"
+            Splits(0)._ColumnProps(20)=   "Column(2).Order=3"
+            Splits(0)._ColumnProps(21)=   "Column(3).Width=2910"
+            Splits(0)._ColumnProps(22)=   "Column(3).DividerColor=0"
+            Splits(0)._ColumnProps(23)=   "Column(3)._WidthInPix=2831"
+            Splits(0)._ColumnProps(24)=   "Column(3)._EditAlways=0"
+            Splits(0)._ColumnProps(25)=   "Column(3)._ColStyle=1"
+            Splits(0)._ColumnProps(26)=   "Column(3).Order=4"
+            Splits(0)._ColumnProps(27)=   "Column(4).Width=5847"
+            Splits(0)._ColumnProps(28)=   "Column(4).DividerColor=0"
+            Splits(0)._ColumnProps(29)=   "Column(4)._WidthInPix=5768"
+            Splits(0)._ColumnProps(30)=   "Column(4)._EditAlways=0"
+            Splits(0)._ColumnProps(31)=   "Column(4)._ColStyle=1"
+            Splits(0)._ColumnProps(32)=   "Column(4).Order=5"
+            Splits(0)._ColumnProps(33)=   "Column(5).Width=2725"
+            Splits(0)._ColumnProps(34)=   "Column(5).DividerColor=0"
+            Splits(0)._ColumnProps(35)=   "Column(5)._WidthInPix=2646"
+            Splits(0)._ColumnProps(36)=   "Column(5)._EditAlways=0"
+            Splits(0)._ColumnProps(37)=   "Column(5)._ColStyle=512"
+            Splits(0)._ColumnProps(38)=   "Column(5).WrapText=1"
+            Splits(0)._ColumnProps(39)=   "Column(5).Order=6"
             Splits.Count    =   1
             PrintInfos(0)._StateFlags=   0
             PrintInfos(0).Name=   "piInternal 0"
@@ -479,7 +538,7 @@ Begin VB.Form frmUsuarios
             _StyleDefs(47)  =   "Splits(0).Columns(1).HeadingStyle:id=43,.parent=14"
             _StyleDefs(48)  =   "Splits(0).Columns(1).FooterStyle:id=44,.parent=15"
             _StyleDefs(49)  =   "Splits(0).Columns(1).EditorStyle:id=45,.parent=17"
-            _StyleDefs(50)  =   "Splits(0).Columns(2).Style:id=32,.parent=13,.alignment=2"
+            _StyleDefs(50)  =   "Splits(0).Columns(2).Style:id=32,.parent=13,.alignment=0,.wraptext=-1"
             _StyleDefs(51)  =   "Splits(0).Columns(2).HeadingStyle:id=29,.parent=14,.alignment=2"
             _StyleDefs(52)  =   "Splits(0).Columns(2).FooterStyle:id=30,.parent=15"
             _StyleDefs(53)  =   "Splits(0).Columns(2).EditorStyle:id=31,.parent=17"
@@ -491,27 +550,31 @@ Begin VB.Form frmUsuarios
             _StyleDefs(59)  =   "Splits(0).Columns(4).HeadingStyle:id=51,.parent=14"
             _StyleDefs(60)  =   "Splits(0).Columns(4).FooterStyle:id=52,.parent=15"
             _StyleDefs(61)  =   "Splits(0).Columns(4).EditorStyle:id=53,.parent=17"
-            _StyleDefs(62)  =   "Named:id=33:Normal"
-            _StyleDefs(63)  =   ":id=33,.parent=0"
-            _StyleDefs(64)  =   "Named:id=34:Heading"
-            _StyleDefs(65)  =   ":id=34,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
-            _StyleDefs(66)  =   ":id=34,.wraptext=-1"
-            _StyleDefs(67)  =   "Named:id=35:Footing"
-            _StyleDefs(68)  =   ":id=35,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
-            _StyleDefs(69)  =   "Named:id=36:Selected"
-            _StyleDefs(70)  =   ":id=36,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&H8000000E&"
-            _StyleDefs(71)  =   "Named:id=37:Caption"
-            _StyleDefs(72)  =   ":id=37,.parent=34,.alignment=2"
-            _StyleDefs(73)  =   "Named:id=38:HighlightRow"
-            _StyleDefs(74)  =   ":id=38,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&H8000000E&"
-            _StyleDefs(75)  =   "Named:id=39:EvenRow"
-            _StyleDefs(76)  =   ":id=39,.parent=33,.bgcolor=&HFFFF00&"
-            _StyleDefs(77)  =   "Named:id=40:OddRow"
-            _StyleDefs(78)  =   ":id=40,.parent=33"
-            _StyleDefs(79)  =   "Named:id=41:RecordSelector"
-            _StyleDefs(80)  =   ":id=41,.parent=34"
-            _StyleDefs(81)  =   "Named:id=42:FilterBar"
-            _StyleDefs(82)  =   ":id=42,.parent=33"
+            _StyleDefs(62)  =   "Splits(0).Columns(5).Style:id=58,.parent=13,.alignment=0,.wraptext=-1"
+            _StyleDefs(63)  =   "Splits(0).Columns(5).HeadingStyle:id=55,.parent=14,.alignment=2"
+            _StyleDefs(64)  =   "Splits(0).Columns(5).FooterStyle:id=56,.parent=15"
+            _StyleDefs(65)  =   "Splits(0).Columns(5).EditorStyle:id=57,.parent=17"
+            _StyleDefs(66)  =   "Named:id=33:Normal"
+            _StyleDefs(67)  =   ":id=33,.parent=0"
+            _StyleDefs(68)  =   "Named:id=34:Heading"
+            _StyleDefs(69)  =   ":id=34,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
+            _StyleDefs(70)  =   ":id=34,.wraptext=-1"
+            _StyleDefs(71)  =   "Named:id=35:Footing"
+            _StyleDefs(72)  =   ":id=35,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
+            _StyleDefs(73)  =   "Named:id=36:Selected"
+            _StyleDefs(74)  =   ":id=36,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&H8000000E&"
+            _StyleDefs(75)  =   "Named:id=37:Caption"
+            _StyleDefs(76)  =   ":id=37,.parent=34,.alignment=2"
+            _StyleDefs(77)  =   "Named:id=38:HighlightRow"
+            _StyleDefs(78)  =   ":id=38,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&H8000000E&"
+            _StyleDefs(79)  =   "Named:id=39:EvenRow"
+            _StyleDefs(80)  =   ":id=39,.parent=33,.bgcolor=&HFFFF00&"
+            _StyleDefs(81)  =   "Named:id=40:OddRow"
+            _StyleDefs(82)  =   ":id=40,.parent=33"
+            _StyleDefs(83)  =   "Named:id=41:RecordSelector"
+            _StyleDefs(84)  =   ":id=41,.parent=34"
+            _StyleDefs(85)  =   "Named:id=42:FilterBar"
+            _StyleDefs(86)  =   ":id=42,.parent=33"
          End
       End
    End
@@ -641,68 +704,73 @@ Private Sub cmdAdicionarCargo_Click()
 End Sub
 
 Private Sub cmdAlterarUsuario_Click()
-10    On Error GoTo Erro
-20        If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 9) = True Then
-30            If cmdAlterarUsuario.Caption = "Alterar" Then
-              
-40                txtCodigoUsuario.Text = mobjRsUsuarios!ID_IN
-50                txtNome.Text = mobjRsUsuarios!Nome_VC
-60                txtLogin.Text = mobjRsUsuarios!Login_VC
-70                Call modBDCombo_SelecionarCargos(sscCargo, mobjRsUsuarios!Cargo_IN)
-80                txtEmail.Text = NS(mobjRsUsuarios!Email_VC)
-90                fpTelefone.Text = NS(mobjRsUsuarios!Telefone_VC)
-                  
-100               cmdAlterarUsuario.Caption = "Gravar"
-110               cmdNovoUsuario.Enabled = False
-120           Else
-130               If VerificarCampos = True Then
-140                   If MsgBox("Deseja alterar o usuário?", vbYesNo + vbExclamation, "Atenção!") = vbNo Then Exit Sub
-150                   GravarUsuario
-160                   LimparCampos
-170                   cmdNovoUsuario.Enabled = True
-180                   cmdAlterarUsuario.Caption = "Alterar"
-190                   MsgBox "Usuário Alterado!", vbOKOnly + vbInformation, "Sucesso!"
-200               Else
-210                   Exit Sub
-220               End If
-230           End If
-240       Else
-250           MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº9" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
-260       End If
+On Error GoTo Erro
+    If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 9) = True Then
+        If cmdAlterarUsuario.Caption = "Alterar" Then
+        
+            txtCodigoUsuario.Text = mobjRsUsuarios!ID_IN
+            txtNome.Text = mobjRsUsuarios!Nome_VC
+            txtLogin.Text = mobjRsUsuarios!Login_VC
+            Call modBDCombo_SelecionarCargos(sscCargo, mobjRsUsuarios!Cargo_IN)
+            txtEmail.Text = NS(mobjRsUsuarios!Email_VC)
+            fpTelefone.Text = NS(mobjRsUsuarios!Telefone_VC)
+            Call modBDCombo_SelecionarEquipePorCodigo(sscClube, NZ(mobjRsUsuarios!clube_IN))
+            'ssgUsuarios.Enabled = False
+            txtLogin.Locked = True
+            
+            cmdAlterarUsuario.Caption = "Gravar"
+            cmdNovoUsuario.Enabled = False
+        Else
+            If VerificarCampos = True Then
+                If MsgBox("Deseja alterar o usuário?", vbYesNo + vbExclamation, "Atenção!") = vbNo Then Exit Sub
+                GravarUsuario
+                LimparCampos
+                cmdNovoUsuario.Enabled = True
+                cmdAlterarUsuario.Caption = "Alterar"
+                MsgBox "Usuário Alterado!", vbOKOnly + vbInformation, "Sucesso!"
+                txtLogin.Locked = False
+            Else
+                Exit Sub
+            End If
+            'ssgUsuarios.Enabled = True
+        End If
+    Else
+        MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº9" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
+    End If
 
-270   Exit Sub
+Exit Sub
 Erro:
-280      Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "cmdAlterarUsuario_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+   Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "cmdAlterarUsuario_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 
 End Sub
 
 Private Sub cmdNovoUsuario_Click()
-10    On Error GoTo Erro
-20        If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 9) = True Then
-30            If cmdNovoUsuario.Caption = "Novo" Then
-40                LimparCampos
-50                cmdAlterarUsuario.Enabled = False
-60                cmdNovoUsuario.Caption = "Gravar"
-70            Else
-80                If VerificarCampos = True Then
-90                    If MsgBox("Deseja adicionar o usuário?", vbYesNo + vbExclamation, "Atenção!") = vbNo Then Exit Sub
-100                   GravarUsuario
-110                   LimparCampos
-120                   cmdAlterarUsuario.Enabled = True
-130                   cmdNovoUsuario.Caption = "Novo"
-140                   MsgBox "Usuário Adicionado!" & vbCrLf & "A senha padrão é 123", vbOKOnly + vbInformation, "Sucesso!"
-150                Else
-160                   Exit Sub
-170               End If
-180           End If
-190       Else
-200           MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº9" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
-210       End If
+On Error GoTo Erro
+    If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 9) = True Then
+        If cmdNovoUsuario.Caption = "Novo" Then
+            LimparCampos
+            cmdAlterarUsuario.Enabled = False
+            cmdNovoUsuario.Caption = "Gravar"
+        Else
+            If VerificarCampos = True Then
+                If MsgBox("Deseja adicionar o usuário?", vbYesNo + vbExclamation, "Atenção!") = vbNo Then Exit Sub
+                GravarUsuario
+                LimparCampos
+                cmdAlterarUsuario.Enabled = True
+                cmdNovoUsuario.Caption = "Novo"
+                MsgBox "Usuário Adicionado!" & vbCrLf & "A senha padrão é 123", vbOKOnly + vbInformation, "Sucesso!"
+             Else
+                Exit Sub
+            End If
+        End If
+    Else
+        MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº9" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
+    End If
 
-220   Exit Sub
+Exit Sub
 Erro:
-230      Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "cmdNovoUsuario_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+   Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "cmdNovoUsuario_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 
 End Sub
@@ -745,6 +813,7 @@ Private Sub Form_Load()
     
     mstrFlag = ""
     Call modBDCombo_SelecionarCargos(sscCargo)
+    Call modBDCombo_SelecionarEquipePorCodigo(sscClube)
     Call CarregarCampos
     Call LimparCampos
     Call HabilitarCampos(False)
@@ -758,16 +827,17 @@ Private Sub LimparCampos()
 40        txtLogin.Text = ""
 50        txtEmail.Text = ""
 60        sscCargo.Text = ""
-70        fpTelefone.Text = ""
+70        sscClube.Text = ""
+80        fpTelefone.Text = ""
           
-80        'cmdNovoUsuario.Text = ""
-90        'cmdAlterarUsuario.Text = ""
+          'cmdNovoUsuario.Text = ""
+          'cmdAlterarUsuario.Text = ""
           
           
 
-100   Exit Sub
+90    Exit Sub
 Erro:
-110      Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "LimparCampos" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+100      Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "LimparCampos" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 
 End Sub
@@ -780,14 +850,15 @@ Private Sub HabilitarCampos(blnHabilitar As Boolean)
 40        txtLogin.Enabled = blnHabilitar
 50        txtEmail.Enabled = blnHabilitar
 60        sscCargo.Enabled = blnHabilitar
-70        fpTelefone.Enabled = blnHabilitar
+70        sscClube.Enabled = blnHabilitar
+80        fpTelefone.Enabled = blnHabilitar
           
-80        cmdNovoUsuario.Enabled = blnHabilitar
-90        cmdAlterarUsuario.Enabled = blnHabilitar
+90        cmdNovoUsuario.Enabled = blnHabilitar
+100       cmdAlterarUsuario.Enabled = blnHabilitar
 
-100   Exit Sub
+110   Exit Sub
 Erro:
-110      Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "HabilitarCampos" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+120      Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "HabilitarCampos" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 End Sub
 
@@ -811,13 +882,15 @@ Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
 60            Case "cmdGravar"
 70                mstrFlag = ""
 80                LimparCampos
-90                Call HabilitarCampos(False)
-100               Call HabilitarTBBotoes(True, False, True)
+90                cmdAlterarUsuario.Caption = "Alterar"
+100               cmdNovoUsuario.Caption = "Novo"
+110               Call HabilitarCampos(False)
+120               Call HabilitarTBBotoes(True, False, True)
 
-110           Case "cmdSair"
-120               Unload Me
+130           Case "cmdSair"
+140               Unload Me
               
-130       End Select
+150       End Select
 End Sub
 
 Private Sub GravarUsuario()
@@ -827,17 +900,19 @@ Private Sub GravarUsuario()
               
 30            gSMConexao.BeginTransaction
               
-40            Call modManutencao_AdicionarAlterarUsuario(txtLogin.Text, txtNome.Text, Val(sscCargo.Columns("chcodigo").Value), Val(txtCodigoUsuario.Text), fpTelefone.Text, txtEmail.Text)
-              
+40            Call modManutencao_AdicionarAlterarUsuario(txtLogin.Text, txtNome.Text, Val(sscCargo.Columns("chcodigo").Value), Val(txtCodigoUsuario.Text), fpTelefone.Text, txtEmail.Text, Val(sscClube.Columns("chcodigo").Value))
+45            gSMConexao.CommitTransaction
 50            CarregarCampos
 60            mstrFlag = ""
               
-70            gSMConexao.CommitTransaction
+
 80        End If
 
 90    Exit Sub
 Erro:
 100       gSMConexao.RollbackTransaction
+101       CarregarCampos
+102       mstrFlag = ""
 110       Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "GravarUsuario" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 
