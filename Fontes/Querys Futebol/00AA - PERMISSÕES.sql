@@ -131,3 +131,39 @@ VALUES  ( 11 , -- Permissao_IN - int
           1  -- Status_BT - bit
         )
         
+--PERMISSÃO DE VISUALIZAÇÃO DE JOGADORES E ADMINISTRAÇÃO DE EQUIPES
+
+----PERMITIR VISUALIZAR TODOS OS JOGADORES
+INSERT INTO dbo.Permissao_T
+        ( Permissao_IN ,
+          Descricao_VC ,
+          Status_BT
+        )
+VALUES  ( 12 , -- Permissao_IN - int
+          'Permitir visualizar todos os jogadores' , -- Descricao_VC - varchar(256)
+          1  -- Status_BT - bit
+        )
+
+----PERMITIR VISUALIZAR TODOS OS CLUBES
+INSERT INTO dbo.Permissao_T
+        ( Permissao_IN ,
+          Descricao_VC ,
+          Status_BT
+        )
+VALUES  ( 13 , -- Permissao_IN - int
+          'Permitir visualizar todos os clubes' , -- Descricao_VC - varchar(256)
+          1  -- Status_BT - bit
+        )
+-----PERMITIR ALTERAR CADASTRO DE EQUIPE
+INSERT INTO dbo.Permissao_T
+        ( Permissao_IN ,
+          Descricao_VC ,
+          Status_BT
+        )
+VALUES  ( 14 , -- Permissao_IN - int
+          'Permitir alterar cadastro de equipe' , -- Descricao_VC - varchar(256)
+          1  -- Status_BT - bit
+        )
+        
+
+        

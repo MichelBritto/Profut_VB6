@@ -1518,3 +1518,27 @@ Erro:
 
 
 End Function
+
+Public Function RetornaClubePorUsuario(ByVal lngUsuario As Long) As Long
+10    On Error GoTo Erro
+
+20        Set gobjCmd.ActiveConnection = gSMConexao.Conexao
+30        gobjCmd.CommandText = "usp_RetornaClubePorUsuario"
+40        gobjCmd.CommandType = adCmdStoredProc
+50        gobjCmd.CommandTimeout = 1000
+        
+60        With gobjCmd
+70            .Parameters("@CodigoUsuario_IN").Value = lngUsuario
+80        End With
+
+90        gobjCmd.Execute , adExecuteNoRecords
+          
+100       RetornaClubePorUsuario = NZ(gobjCmd.Parameters("@Clube_IN").Value)
+
+110   Exit Function
+Erro:
+120      Call MsgBox("Erro no módulo: " & "modPadrao" & vbCrLf & "RetornaClubePorUsuario" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
+
+
+End Function

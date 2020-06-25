@@ -1510,6 +1510,9 @@ Dim mstrFlag As String
 Dim mstrFoto As String
 Dim mlngOpcao As Long
 
+Dim mblnCarregando As Boolean
+Dim mlngJogador As Long
+
 Dim mbitFoto() As Byte
 
 Public Property Let DiretorioFotoJogador(strDiretorio As String)
@@ -1517,6 +1520,14 @@ Public Property Let DiretorioFotoJogador(strDiretorio As String)
 End Property
 Public Property Let OpcaoImpressao(lngOpcao As Long)
     mlngOpcao = lngOpcao
+End Property
+
+Public Property Let Jogador(lngJogador As Long)
+    mlngJogador = lngJogador
+End Property
+
+Public Property Let Carregando(blnCarregando As Boolean)
+    mblnCarregando = blnCarregando
 End Property
 
 
@@ -1657,10 +1668,14 @@ Private Sub Form_Load()
     
     mstrFlag = ""
     
-    
-    Call LimparCampos
-    Call HabilitarCampos(False)
-    
+    If mblnCarregando = True Then
+        txtCodigoInterno.Text = mlngJogador
+        Call txtCodigoInterno_KeyDown(vbKeyReturn, 0)
+    Else
+        Call LimparCampos
+        Call HabilitarTBBotoes(True, False, True, False, False, True, False, False)
+        Call HabilitarCampos(False)
+    End If
 End Sub
 
 Private Sub LimparCampos()
@@ -2144,8 +2159,18 @@ On Error GoTo Erro
     Call LimparCampos
     modJogador_SelecionarJogadorPorCodigo lngCodigo, objRsJogador
     
+    
     If Not objRsJogador Is Nothing Then
         If Not objRsJogador.EOF And Not objRsJogador.BOF Then
+        
+        
+            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 12) = False Then
+                If RetornaClubePorUsuario(gSMConexao.CodigoUsuario) <> NZ(objRsJogador!EQUIPE_IN) Then
+                    MsgBox "Você não tem permissão para visualizar o jogador pois ele não pertence a sua equipe.", vbOKOnly + vbExclamation, "Atenção!"
+                    Exit Sub
+                End If
+            End If
+            
             txtCodigoInterno.Text = NZ(objRsJogador!ID_JOGADOR_IN)
             txtApelido.Text = NS(objRsJogador!APELIDO_VC)
             txtNomeJogador.Text = NS(objRsJogador!NOMEATLETA_VC)

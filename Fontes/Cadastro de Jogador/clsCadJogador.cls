@@ -14,16 +14,21 @@ Attribute VB_Exposed = True
 Option Explicit
 
 
+
 Public Function Show(ByRef SMConexao As clsConexaoMC, _
                      Optional ByVal strCaption As String, _
                      Optional ByVal modal As FormShowConstants = vbModeless, _
-                     Optional ByVal OwnerForm As Object = Nothing)
+                     Optional ByVal OwnerForm As Object = Nothing, _
+                     Optional ByVal lngJogador As Long = 0, _
+                     Optional ByVal blnCarregando As Boolean = False)
 On Error GoTo Erro
         
     Set gSMConexao = SMConexao
 
     'frmCadastroDeJogador.Caption = strCaption
     'frmCadastroDeJogador.Show modal, OwnerForm
+    frmCadastroDeJogadorV2.Jogador = lngJogador
+    frmCadastroDeJogadorV2.Carregando = blnCarregando
     frmCadastroDeJogadorV2.Show modal, OwnerForm
 
 Exit Function

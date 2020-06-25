@@ -1160,6 +1160,11 @@ On Error GoTo Erro
                 If Not mobjRsResultado.RecordCount = 0 Then
                     If mblnCarregadoPorcurar = True Then
                         Unload Me
+                    Else
+                        Dim objCadJogador As clsCadJogador
+                        Set objCadJogador = New clsCadJogador
+                        
+                        objCadJogador.Show gSMConexao, , vbModeless, , mobjRsResultado!Codigo, True
                     End If
                 End If
             End If

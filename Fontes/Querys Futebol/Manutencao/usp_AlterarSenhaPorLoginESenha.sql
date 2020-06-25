@@ -1,9 +1,9 @@
-CREATE PROCEDURE usp_AlterarSenhaPorLoginESenha
+ALTER PROCEDURE usp_AlterarSenhaPorLoginESenha
     (
       @Login_VC VARCHAR(1024) ,
       @SenhaAntiga_VC VARCHAR(1024) ,
       @SenhaNova_VC VARCHAR(1024) ,
-      @Rsultado_BT BIT OUTPUT
+      @Resultado_BT BIT OUTPUT
     )
 AS 
     DECLARE @Hash_VB AS VARBINARY(MAX)
@@ -22,11 +22,11 @@ AS
             SET @Comando_VC = 'ALTER LOGIN [' + @login_VC + ']WITH PASSWORD=''@SenhaNova_VC'''
             SET @Comando_VC = REPLACE(@Comando_VC, '@SenhaNova_VC', @SenhaNova_VC)	
             EXEC (@Comando_VC)   
-            SET @Rsultado_BT = 1
+            SET @Resultado_BT = 1
         END
     ELSE 
         BEGIN
-            SET @Rsultado_BT = 0
+            SET @Resultado_BT = 0
         END
         
 GO
