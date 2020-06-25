@@ -717,7 +717,7 @@ On Error GoTo Erro
                 mobjRsJogadores.AddNew
                 
                 mobjRsJogadores!Apelido = NS(objRsJogadores!APELIDO_VC)
-                mobjRsJogadores!Cartegoria = NS(objRsJogadores!DESCRICAO_VC)
+                mobjRsJogadores!Cartegoria = NS(objRsJogadores!Descricao_VC)
                 mobjRsJogadores!Camisa = NS(objRsJogadores!NUMEROCAMISA_IN)
                 mobjRsJogadores!Nome = NS(objRsJogadores!NOMEATLETA_VC)
                 mobjRsJogadores!Sexo = NS(objRsJogadores!SEXO_IN)
@@ -820,6 +820,12 @@ Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
             End If
         
         Case "cmdAlterar":
+        
+            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 14) = False Then
+                MsgBox "Acesso negado!" & vbCrLf & "->Usuário não tem a permissão Nº14", vbOKOnly + vbExclamation, "Atenção!"
+                Exit Sub
+            End If
+            
             mstrFlag = "A"
             Call HabilitarCampos(True)
             Call HabilitarTBBotoes(False, False, True, True, False)
@@ -1023,8 +1029,16 @@ Dim binIMG() As Byte
     
     If Not objRsEquipe Is Nothing Then
         If Not objRsEquipe.EOF And Not objRsEquipe.BOF Then
+        
+            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 13) = False Then
+                If RetornaClubePorUsuario(gSMConexao.CodigoUsuario) <> lngCodigo Then
+                    MsgBox "Você não tem permissão para visualizar a equipe.", vbOKOnly + vbExclamation, "Atenção!"
+                    Exit Sub
+                End If
+            End If
             
-            txtNomeEquipe.Text = NS(objRsEquipe!NOME_VC)
+            
+            txtNomeEquipe.Text = NS(objRsEquipe!Nome_VC)
             txtSiglaEquipe.Text = NS(objRsEquipe!SIGLA_VC)
             txtResponsavel.Text = NS(objRsEquipe!RESPONSAVEL_VC)
             txtEmailResponsavel.Text = NS(objRsEquipe!EMAILCONTATO_VC)
