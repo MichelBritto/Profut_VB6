@@ -22,7 +22,7 @@ Begin VB.Form frmRelJogador
       Left            =   150
       Picture         =   "frmRelJogador.frx":038A
       Style           =   1  'Graphical
-      TabIndex        =   31
+      TabIndex        =   30
       ToolTipText     =   "Exportar para Excell"
       Top             =   7320
       Width           =   345
@@ -52,7 +52,7 @@ Begin VB.Form frmRelJogador
          Begin TrueOleDBGrid80.TDBGrid ssgResultado 
             Height          =   4335
             Left            =   60
-            TabIndex        =   28
+            TabIndex        =   27
             Top             =   240
             Width           =   14400
             _ExtentX        =   25400
@@ -334,7 +334,7 @@ Begin VB.Form frmRelJogador
             EndProperty
             Height          =   795
             Left            =   4740
-            TabIndex        =   34
+            TabIndex        =   33
             Top             =   2130
             Width           =   6015
          End
@@ -358,7 +358,7 @@ Begin VB.Form frmRelJogador
          Begin VB.Frame fraEquipes 
             Height          =   2055
             Left            =   11220
-            TabIndex        =   26
+            TabIndex        =   25
             Top             =   120
             Width           =   3225
             Begin VB.CheckBox chkEquipe 
@@ -374,14 +374,14 @@ Begin VB.Form frmRelJogador
                EndProperty
                Height          =   255
                Left            =   120
-               TabIndex        =   30
+               TabIndex        =   29
                Top             =   -30
                Width           =   975
             End
             Begin TrueOleDBGrid80.TDBGrid ssgEquipes 
                Height          =   1725
                Left            =   90
-               TabIndex        =   29
+               TabIndex        =   28
                Top             =   240
                Width           =   3030
                _ExtentX        =   5345
@@ -546,27 +546,9 @@ Begin VB.Form frmRelJogador
                Height          =   405
                Left            =   4470
                MaxLength       =   128
-               TabIndex        =   21
-               Top             =   480
-               Width           =   3255
-            End
-            Begin VB.TextBox txtCidadeEnderecoAtleta 
-               Appearance      =   0  'Flat
-               BeginProperty Font 
-                  Name            =   "MS Sans Serif"
-                  Size            =   9.75
-                  Charset         =   0
-                  Weight          =   400
-                  Underline       =   0   'False
-                  Italic          =   0   'False
-                  Strikethrough   =   0   'False
-               EndProperty
-               Height          =   405
-               Left            =   900
-               MaxLength       =   128
                TabIndex        =   20
                Top             =   480
-               Width           =   3525
+               Width           =   3255
             End
             Begin VB.CheckBox chkEndereco 
                Caption         =   "Endereço"
@@ -588,10 +570,11 @@ Begin VB.Form frmRelJogador
             Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscUfEnderecoAtleta 
                Height          =   390
                Left            =   60
-               TabIndex        =   22
+               TabIndex        =   21
                Top             =   480
                Width           =   795
                DataFieldList   =   "Column 0"
+               AllowInput      =   0   'False
                BevelType       =   0
                _Version        =   196617
                DataMode        =   2
@@ -623,11 +606,50 @@ Begin VB.Form frmRelJogador
                   Strikethrough   =   0   'False
                EndProperty
             End
+            Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscCidadeEnderecoAtleta 
+               Height          =   390
+               Left            =   900
+               TabIndex        =   34
+               Top             =   480
+               Width           =   3555
+               DataFieldList   =   "Column 0"
+               AllowInput      =   0   'False
+               BevelType       =   0
+               _Version        =   196617
+               DataMode        =   2
+               BeginProperty HeadFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+                  Name            =   "Arial"
+                  Size            =   9
+                  Charset         =   0
+                  Weight          =   400
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               BackColorOdd    =   15724527
+               RowHeight       =   476
+               Columns(0).Width=   3200
+               Columns(0).DataType=   8
+               Columns(0).FieldLen=   4096
+               _ExtentX        =   6271
+               _ExtentY        =   688
+               _StockProps     =   93
+               BackColor       =   -2147483643
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+                  Name            =   "Arial"
+                  Size            =   9
+                  Charset         =   0
+                  Weight          =   400
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+            End
             Begin VB.Label Label12 
                Caption         =   "Bairro"
                Height          =   285
                Left            =   4470
-               TabIndex        =   25
+               TabIndex        =   24
                Top             =   240
                Width           =   2235
             End
@@ -635,7 +657,7 @@ Begin VB.Form frmRelJogador
                Caption         =   "Cidade"
                Height          =   285
                Left            =   900
-               TabIndex        =   24
+               TabIndex        =   23
                Top             =   240
                Width           =   1815
             End
@@ -643,7 +665,7 @@ Begin VB.Form frmRelJogador
                Caption         =   "UF"
                Height          =   285
                Left            =   60
-               TabIndex        =   23
+               TabIndex        =   22
                Top             =   240
                Width           =   615
             End
@@ -667,7 +689,7 @@ Begin VB.Form frmRelJogador
                EndProperty
                Height          =   195
                Left            =   2790
-               TabIndex        =   33
+               TabIndex        =   32
                Top             =   390
                Width           =   555
             End
@@ -684,7 +706,7 @@ Begin VB.Form frmRelJogador
                EndProperty
                Height          =   195
                Left            =   2250
-               TabIndex        =   32
+               TabIndex        =   31
                Top             =   390
                Value           =   -1  'True
                Width           =   555
@@ -709,7 +731,7 @@ Begin VB.Form frmRelJogador
             Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscCartegoria 
                Height          =   390
                Left            =   90
-               TabIndex        =   27
+               TabIndex        =   26
                Top             =   300
                Width           =   1995
                DataFieldList   =   "Column 0"
@@ -1029,7 +1051,11 @@ End Property
 Private Sub chkCartegoria_Click()
     If chkCartegoria.Value = vbChecked Then
         sscCartegoria.Enabled = True
+        optMasculino.Enabled = True
+        optFeminino.Enabled = True
     Else
+        optMasculino.Enabled = False
+        optFeminino.Enabled = False
         sscCartegoria.Enabled = False
     End If
 End Sub
@@ -1047,11 +1073,11 @@ End Sub
 Private Sub chkEndereco_Click()
     If chkEndereco.Value = vbChecked Then
         sscUfEnderecoAtleta.Enabled = True
-        txtCidadeEnderecoAtleta.Enabled = True
+        sscCidadeEnderecoAtleta.Enabled = True
         txtBairroEnderecoAtleta.Enabled = True
     Else
         sscUfEnderecoAtleta.Enabled = False
-        txtCidadeEnderecoAtleta.Enabled = False
+        sscCidadeEnderecoAtleta.Enabled = False
         txtBairroEnderecoAtleta.Enabled = False
     End If
 End Sub
@@ -1112,6 +1138,9 @@ End Sub
 
 Private Sub Form_Load()
 Dim objrs As Recordset
+Dim lngUsuario As Long
+
+    lngUsuario = gSMConexao.CodigoUsuario
 
     lblinfo.Visible = False
         
@@ -1124,7 +1153,16 @@ Dim objrs As Recordset
     modBDCombo_SelecionarEstados sscUfEnderecoAtleta
     modBDCombo_SelecionarCartecoriaJogador sscCartegoria
     
-    modEquipe_SelecionarEquipePorCodigo 0, objrs
+    If RetornaAcessoPorUsuarioEPermissao(lngUsuario, 12) = True Then
+        modEquipe_SelecionarEquipePorCodigo 0, objrs
+    Else
+        modEquipe_SelecionarEquipePorCodigo RetornaClubePorUsuario(lngUsuario), objrs
+        chkEquipe.Value = vbChecked
+        chkEquipe_Click
+        chkEquipe.Enabled = False
+        ssgEquipes.Enabled = False
+    End If
+    
     
     CriarEPreencherRecordsetEquipes objrs
     
@@ -1174,6 +1212,12 @@ Exit Sub
 Erro:
    Call MsgBox("Erro no módulo: " & "frmRelJogador" & vbCrLf & "No Procedimento: " & "mnuVisualizarJogasor_Click" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
+End Sub
+
+
+
+Private Sub sscUfEnderecoAtleta_LostFocus()
+    Call modBDCombo_SelecionarCidades(sscCidadeEnderecoAtleta, , sscUfEnderecoAtleta.Columns("chcodigo").Value)
 End Sub
 
 Private Sub ssgEquipes_Click()
@@ -1333,7 +1377,7 @@ On Error GoTo Erro
                 
                     mobjRsEquipes.AddNew
                     
-                    mobjRsEquipes!marcado_bt = False
+                    mobjRsEquipes!marcado_bt = IIf(RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 12), False, True)
                     mobjRsEquipes!ID_IN = NZ(objRsEquipes!ID_IN)
                     mobjRsEquipes!Nome_VC = NS(objRsEquipes!Nome_VC)
                                     
@@ -1376,7 +1420,7 @@ Dim objRsEquipes As Recordset
     
     If chkEndereco.Value = vbChecked Then
         udtJogador.lngEstado = IIf(sscUfEnderecoAtleta.Columns("chcodigo").Value = 1 And sscUfEnderecoAtleta.Text = "", 0, sscUfEnderecoAtleta.Columns("chcodigo").Value)
-        udtJogador.strCidade = Trim(txtCidadeEnderecoAtleta.Text)
+        udtJogador.strCidade = Trim(sscCidadeEnderecoAtleta.Text)
         udtJogador.strBairro = Trim(txtBairroEnderecoAtleta.Text)
     End If
     
