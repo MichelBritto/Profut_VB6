@@ -1,7 +1,7 @@
 frmCadastroDeJogador = 54, 127, 509, 804, C, 0, 0, 0, 0, C
 clsCadJogador = 201, 127, 656, 672, CZ
 mdConexao = 0, 0, 0, 0, C
-modPadrao = 201, 127, 656, 672, CZ
+modPadrao = 201, 127, 656, 672, C
 modJogador = 547, 116, 1357, 793, C
 modBDCombo = 340, 176, 1289, 853, I
 frmAdicionarFotoJogador = 200, 127, 655, 804, C, 0, 0, 0, 0, C

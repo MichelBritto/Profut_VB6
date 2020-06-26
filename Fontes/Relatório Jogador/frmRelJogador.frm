@@ -4,7 +4,6 @@ Object = "{E8671A8B-E5DD-11CD-836C-0000C0C14E92}#1.0#0"; "SSCALA32.ocx"
 Object = "{4A4AA691-3E6F-11D2-822F-00104B9E07A1}#3.0#0"; "ssdw3bo.ocx"
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.ocx"
 Begin VB.Form frmRelJogador 
-   BorderStyle     =   1  'Fixed Single
    Caption         =   "ProFut - Relatório de Jogador"
    ClientHeight    =   7755
    ClientLeft      =   4050
@@ -14,18 +13,90 @@ Begin VB.Form frmRelJogador
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    LockControls    =   -1  'True
-   MaxButton       =   0   'False
    ScaleHeight     =   7755
    ScaleWidth      =   14715
+   Begin VB.Frame fraLegenda 
+      Caption         =   "Legenda"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   555
+      Left            =   60
+      TabIndex        =   35
+      Top             =   7140
+      Width           =   2835
+      Begin VB.Label Label5 
+         Caption         =   "- Feminino"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   1740
+         TabIndex        =   37
+         Top             =   240
+         Width           =   1035
+      End
+      Begin VB.Label Label4 
+         Caption         =   "- Masculino"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   390
+         TabIndex        =   36
+         Top             =   240
+         Width           =   1035
+      End
+      Begin VB.Shape shpRosa 
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00C00000&
+         BorderStyle     =   0  'Transparent
+         FillColor       =   &H00FF00FF&
+         FillStyle       =   0  'Solid
+         Height          =   225
+         Left            =   1470
+         Top             =   240
+         Width           =   225
+      End
+      Begin VB.Shape shpMasculino 
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00C00000&
+         BorderStyle     =   0  'Transparent
+         FillColor       =   &H00C00000&
+         FillStyle       =   0  'Solid
+         Height          =   225
+         Left            =   120
+         Top             =   240
+         Width           =   225
+      End
+   End
    Begin VB.CommandButton cmdExportar 
       Height          =   345
-      Left            =   150
+      Left            =   3030
       Picture         =   "frmRelJogador.frx":038A
       Style           =   1  'Graphical
       TabIndex        =   30
       ToolTipText     =   "Exportar para Excell"
-      Top             =   7320
-      Width           =   345
+      Top             =   7290
+      Width           =   375
    End
    Begin VB.Frame fraPrincipal 
       Height          =   7185
@@ -1188,7 +1259,30 @@ Private Sub Form_KeyUp(KeyCode As Integer, Shift As Integer)
 
 End Sub
 
+Private Sub Form_Resize()
 
+    If WindowState = vbMinimized Then Exit Sub
+    If Height < 8325 Then Height = 8325
+    If Width < 14955 Then Width = 14955
+
+    fraPrincipal.Width = frmRelJogador.Width - 300
+    fraPrincipal.Height = frmRelJogador.Height - 1140
+    
+    cmdExportar.Top = fraPrincipal.Height + 135
+    
+    fraResultado.Height = fraPrincipal.Height - 2550
+    fraResultado.Width = fraPrincipal.Width - 125
+    
+    ssgResultado.Height = fraResultado.Height - 300
+    ssgResultado.Width = fraResultado.Width - 150
+    
+    fraLegenda.Top = fraPrincipal.Height
+    
+    
+    tbBotoes.Left = Me.Width - 1800
+    tbBotoes.Top = fraPrincipal.Top + fraPrincipal.Height + 50
+
+End Sub
 
 Private Sub mnuVisualizarJogasor_Click()
 On Error GoTo Erro

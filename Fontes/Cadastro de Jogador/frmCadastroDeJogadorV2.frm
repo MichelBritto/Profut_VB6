@@ -1905,7 +1905,8 @@ Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
                 GravarJogador
                 CarregarJogador Val(txtCodigoInterno.Text)
                 mstrFlag = ""
-            Else: Exit Sub
+            Else
+                Exit Sub
             End If
             Call HabilitarCampos(False)
             Call HabilitarTBBotoes(False, True, True, True, False, False, True, True)
@@ -2347,10 +2348,12 @@ End Sub
 Private Sub LimparArray(arr As Variant)
     Dim i As Long
     
-    Do While i < Len(arr)
+
     
-        arr(i) = Empty
-        
-        i = i + 1
-    Loop
+'    Do While i < Len(arr)
+'
+'        arr(i) = Empty
+'
+'        i = i + 1
+'    Loop
 End Sub
