@@ -165,7 +165,7 @@ Public Sub modManutencao_AdicionarAlterarPosicao(ByVal strDescricao As String, B
 60        With gobjCmd
 70            .Parameters("@Descricao_VC").Value = strDescricao
 80            .Parameters("@Ativo_BT").Value = IIf(blnAtivo = True, 1, 0)
-90            .Parameters("Posicao_IN").Value = IIf(lngPosicao = 0, Null, lngPosicao)
+90            .Parameters("@Posicao_IN").Value = IIf(lngPosicao = 0, Null, lngPosicao)
 100       End With
           
 110       gobjCmd.Execute , , adExecuteNoRecords
@@ -198,4 +198,28 @@ Erro:
 
 End Sub
 
-'
+Public Sub modManutencao_AlterarSenhaPorLoginESenha(ByVal strSenhaAtual As String, strSenhaNova As String, ByRef blnResultado As Boolean)
+10    On Error GoTo Erro
+            
+            
+20        Set gobjCmd.ActiveConnection = gSMConexao.Conexao
+30        gobjCmd.CommandText = "usp_AlterarSenhaPorLoginESenha"
+40        gobjCmd.CommandType = adCmdStoredProc
+50        gobjCmd.CommandTimeout = 1000
+          
+60        With gobjCmd
+70            .Parameters("@Login_VC").Value = gSMConexao.LoginUsuario
+80            .Parameters("@SenhaAntiga_VC").Value = strSenhaAtual
+90            .Parameters("@SenhaNova_VC").Value = strSenhaNova
+100       End With
+          
+110       gobjCmd.Execute , , adExecuteNoRecords
+          
+120       blnResultado = NB(gobjCmd.Parameters("@Resultado_BT").Value)
+
+130   Exit Sub
+Erro:
+140      Call MsgBox("Erro no módulo: " & "modManutencao" & vbCrLf & "modManutencao_AlterarSenhaPorLoginESenha" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
+
+End Sub

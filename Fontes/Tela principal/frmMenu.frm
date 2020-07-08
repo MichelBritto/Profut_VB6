@@ -67,7 +67,7 @@ Begin VB.Form frmMenu
                Strikethrough   =   0   'False
             EndProperty
             Picture         =   "frmMenu.frx":2729
-            Caption         =   "Cadastro de Jogador"
+            Caption         =   "Ficha de Jogador"
             Alignment       =   1
             PictureAlignment=   9
             BevelWidth      =   1
@@ -97,7 +97,7 @@ Begin VB.Form frmMenu
                Strikethrough   =   0   'False
             EndProperty
             Picture         =   "frmMenu.frx":2ADB
-            Caption         =   "Cadastro de Equipe"
+            Caption         =   "Clube/Equipe"
             Alignment       =   1
             PictureAlignment=   9
             BevelWidth      =   1
@@ -127,7 +127,7 @@ Begin VB.Form frmMenu
                Strikethrough   =   0   'False
             EndProperty
             Picture         =   "frmMenu.frx":2E8D
-            Caption         =   "Relatório de Jogador"
+            Caption         =   "Lista de Jogadores"
             Alignment       =   1
             PictureAlignment=   9
             BevelWidth      =   1
@@ -135,13 +135,13 @@ Begin VB.Form frmMenu
             Outline         =   0   'False
          End
          Begin Threed.SSCommand cmdSair 
-            Height          =   645
+            Height          =   1035
             Left            =   30
             TabIndex        =   6
-            Top             =   5520
+            Top             =   5130
             Width           =   3360
             _ExtentX        =   5927
-            _ExtentY        =   1138
+            _ExtentY        =   1826
             _Version        =   196609
             ForeColor       =   14737632
             BackColor       =   0
@@ -224,6 +224,66 @@ Begin VB.Form frmMenu
             RoundedCorners  =   0   'False
             Outline         =   0   'False
          End
+         Begin Threed.SSCommand cmdCadCargo 
+            Height          =   645
+            Left            =   30
+            TabIndex        =   9
+            Top             =   3690
+            Width           =   3360
+            _ExtentX        =   5927
+            _ExtentY        =   1138
+            _Version        =   196609
+            ForeColor       =   14737632
+            BackColor       =   0
+            PictureMaskColor=   16777152
+            PictureFrames   =   1
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial Black"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   900
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Picture         =   "frmMenu.frx":3D55
+            Caption         =   "Cadastro de Cargo"
+            Alignment       =   1
+            PictureAlignment=   9
+            BevelWidth      =   1
+            RoundedCorners  =   0   'False
+            Outline         =   0   'False
+         End
+         Begin Threed.SSCommand cmdCadPosicao 
+            Height          =   645
+            Left            =   30
+            TabIndex        =   10
+            Top             =   4410
+            Width           =   3360
+            _ExtentX        =   5927
+            _ExtentY        =   1138
+            _Version        =   196609
+            ForeColor       =   14737632
+            BackColor       =   0
+            PictureMaskColor=   16777152
+            PictureFrames   =   1
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial Black"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   900
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Picture         =   "frmMenu.frx":4107
+            Caption         =   "Cadastro de Posição"
+            Alignment       =   1
+            PictureAlignment=   9
+            BevelWidth      =   1
+            RoundedCorners  =   0   'False
+            Outline         =   0   'False
+         End
       End
    End
 End
@@ -257,6 +317,8 @@ Private Sub cmdCadastroEquipe_Click()
     Dim objEquipe As clsCadEquipe
     Set objEquipe = New clsCadEquipe
     
+On Error GoTo Erro
+          
     If Not gSMConexao Is Nothing Then
         If gSMConexao.EstadoConexaoBD = adStateOpen Then
             If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 5) Then
@@ -269,6 +331,12 @@ Private Sub cmdCadastroEquipe_Click()
            gSMConexao.conectar
         End If
     End If
+    
+Exit Sub
+Erro:
+   Call MsgBox("Erro no módulo: " & "frmMenu" & vbCrLf & "cmdCadastroEquipe_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+    
+    
 End Sub
 
 
@@ -307,9 +375,72 @@ Private Sub cmdManutencao_MouseExit(ByVal Button As Integer, ByVal Shift As Inte
     cmdManutencao.ForeColor = vbWhite
 End Sub
 
+Private Sub cmdCadCargo_Click()
+On Error GoTo Erro
+    Dim objMan As clsManutencao
+    Set objMan = New clsManutencao
+    
+    If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 11) Then
+        objMan.ShowCargos gSMConexao, "ProFut - Cadastro de Cargos", vbModeless, Me
+    Else
+        MsgBox "Acesso negado!" & vbCrLf & "->Usuário não tem a permissão Nº11", vbOKOnly + vbExclamation, "Atenção!"
+    End If
+    
+    Exit Sub
+Erro:
+       Call MsgBox("Erro no módulo: " & "frmMenu" & vbCrLf & "cmdCadCargo_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+End Sub
+Private Sub cmdCadCargo_MouseEnter(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+    'cmdCadastroDeJogador.BackColor = "&H000080FF&"
+    cmdCadCargo.ForeColor = &H80FF&
+End Sub
+
+Private Sub cmdCadCargo_MouseExit(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+    'cmdCadastroDeJogador.BackColor = "&H00000000&"
+    cmdCadCargo.ForeColor = vbWhite
+End Sub
+
+Private Sub cmdCadPosicao_Click()
+On Error GoTo Erro
+   
+    Dim objMan As clsManutencao
+    Set objMan = New clsManutencao
+    
+    If Not gSMConexao Is Nothing Then
+        If gSMConexao.EstadoConexaoBD = adStateOpen Then
+    
+            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 15) Then
+                objMan.ShowPosicao gSMConexao, "ProFut - Cadastro de Posição", vbModeless, Me
+            Else
+                MsgBox "Acesso negado!" & vbCrLf & "->Usuário não tem a permissão Nº15", vbOKOnly + vbExclamation, "Atenção!"
+            End If
+        End If
+    Else
+        gSMConexao.conectar
+    End If
+
+Exit Sub
+Erro:
+   Call MsgBox("Erro no módulo: " & "frmMenu" & vbCrLf & "cmdCadPosicao_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
+
+End Sub
+Private Sub cmdCadPosicao_MouseEnter(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+    'cmdCadastroDeJogador.BackColor = "&H000080FF&"
+    cmdCadPosicao.ForeColor = &H80FF&
+End Sub
+
+Private Sub cmdCadPosicao_MouseExit(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+    'cmdCadastroDeJogador.BackColor = "&H00000000&"
+    cmdCadPosicao.ForeColor = vbWhite
+End Sub
+
 Private Sub cmdRelatorioJogador_Click()
     Dim ObjRelatorioJogador As ClsRelJogador
     Set ObjRelatorioJogador = New ClsRelJogador
+    
+On Error GoTo Erro
+          
     
     If Not gSMConexao Is Nothing Then
         If gSMConexao.EstadoConexaoBD = adStateOpen Then
@@ -323,6 +454,11 @@ Private Sub cmdRelatorioJogador_Click()
             gSMConexao.conectar
         End If
     End If
+    
+Exit Sub
+Erro:
+   Call MsgBox("Erro no módulo: " & "frmMenu" & vbCrLf & "cmdRelatorioJogador_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+    
 End Sub
 
 
@@ -371,6 +507,9 @@ End Sub
 Private Sub cmdUsuario_Click()
     Dim ObjManutencao As clsManutencao
     Set ObjManutencao = New clsManutencao
+On Error GoTo Erro
+          
+    
     If Not gSMConexao Is Nothing Then
     
         If gSMConexao.EstadoConexaoBD = adStateOpen Then
@@ -384,6 +523,12 @@ Private Sub cmdUsuario_Click()
             gSMConexao.conectar
         End If
     End If
+
+Exit Sub
+Erro:
+   Call MsgBox("Erro no módulo: " & "frmMenu" & vbCrLf & "cmdUsuario_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
+
 End Sub
 
 Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
@@ -402,11 +547,14 @@ End Sub
 Private Sub cmdPermissao_Click()
     Dim ObjManutencao As clsManutencao
     Set ObjManutencao = New clsManutencao
+    
+On Error GoTo Erro
+    
     If Not gSMConexao Is Nothing Then
     
         If gSMConexao.EstadoConexaoBD = adStateOpen Then
             If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 10) Then
-                ObjManutencao.ShowCargos gSMConexao, "ProFut - Cadastro de Usuário"
+                ObjManutencao.ShowPermissao gSMConexao, "ProFut - Cadastro de Usuário"
                 Exit Sub
             Else
                 MsgBox "Acesso negado!" & vbCrLf & "->Usuário não tem a permissão Nº10", vbOKOnly + vbExclamation, "Atenção!"
@@ -415,4 +563,10 @@ Private Sub cmdPermissao_Click()
             gSMConexao.conectar
         End If
     End If
+    
+Exit Sub
+Erro:
+   Call MsgBox("Erro no módulo: " & "frmMenu" & vbCrLf & "cmdPermissao_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
+
 End Sub

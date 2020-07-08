@@ -348,7 +348,7 @@ Private Sub cmdAlterar_Click()
     If cmdAlterar.Caption = "Alterar" Then
         cmdAlterar.Caption = "Gravar"
         cmdAdicionar.Enabled = False
-        txtDescricaoPosicao.Text = mobjRsPosicoes!Cargo_VC
+        txtDescricaoPosicao.Text = mobjRsPosicoes!Posicao_VC
         chkAtibo.Value = IIf(mobjRsPosicoes!Ativo_BT = True, vbChecked, vbUnchecked)
         ssgPosicao.Enabled = False
     Else

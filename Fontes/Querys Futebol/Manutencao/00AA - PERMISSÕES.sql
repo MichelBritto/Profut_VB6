@@ -165,5 +165,16 @@ VALUES  ( 14 , -- Permissao_IN - int
           1  -- Status_BT - bit
         )
         
+--ABRIR TELA/ADICIONAR NOVOS Posições
+  
+INSERT INTO dbo.Permissao_T
+        ( Permissao_IN ,
+          Descricao_VC ,
+          Status_BT
+        )
+VALUES  ( 15 , -- Permissao_IN - int
+          'Adicionar/Alterar Posições de atleta no sistema ' , -- Descricao_VC - varchar(256)
+          1  -- Status_BT - bit
+        ) 
 
         
