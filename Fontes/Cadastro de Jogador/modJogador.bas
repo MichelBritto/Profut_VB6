@@ -43,6 +43,7 @@ Type TypJogador
     lngSexo As Long
     lngNumeroCamisa As Long
     blnTemImagem As Boolean
+    lngPosicao As Long
 
 End Type
 
@@ -88,6 +89,7 @@ On Error GoTo Erro
         .Parameters("@ENDERECOIMAGEM_VC").Value = IIf(udtJogador.blnTemImagem = True, udtJogador.strEnderecoImagem(), Null)
         .Parameters("@SEXO_IN").Value = udtJogador.lngSexo
         .Parameters("@NUMEROCAMISA_IN").Value = udtJogador.lngNumeroCamisa
+        .Parameters("@POSICAO_IN").Value = udtJogador.lngPosicao
     End With
     gobjCmd.Execute , , adExecuteNoRecords
     
@@ -141,6 +143,7 @@ Public Sub modJogador_AlterarJogador(ByRef udtJogador As TypJogador)
         .Parameters("@ENDERECOIMAGEM_VC").Value = IIf(udtJogador.blnTemImagem = True, udtJogador.strEnderecoImagem(), Null)
         .Parameters("@SEXO_IN").Value = udtJogador.lngSexo
         .Parameters("@NUMEROCAMISA_IN").Value = udtJogador.lngNumeroCamisa
+        .Parameters("@POSICAO_IN").Value = udtJogador.lngPosicao
     End With
     gobjCmd.Execute , , adExecuteNoRecords
     

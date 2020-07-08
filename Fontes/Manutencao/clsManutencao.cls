@@ -69,6 +69,33 @@ Erro:
 
 End Function
 
+Public Function ShowPosicao(ByRef SMConexao As clsConexaoMC, _
+                     ByVal strCaption As String, _
+                     Optional ByVal modal As FormShowConstants = vbModeless, _
+                     Optional ByVal OwnerForm As Object = Nothing)
+On Error GoTo Erro
+        
+    Set gSMConexao = SMConexao
+
+    'frmCadastroDeEquipe.Caption = strCaption
+    'frmCadastroDeEquipe.Show modal, OwnerForm
+    frmPosicao.Show modal, OwnerForm
+
+Exit Function
+Erro:
+    Select Case Err.Number
+        Case 373
+                frmPosicao.Show vbModeless, OwnerForm
+            Resume Next
+            
+        Case 401
+                frmPosicao.Show vbModal, OwnerForm
+            Resume Next
+        Case Else
+            Call MsgBox("clsManutencao", "Show", Err.Description, Err.Number, Erl)
+    End Select
+
+End Function
 
 
 

@@ -153,3 +153,49 @@ Erro:
 
 
 End Sub
+
+Public Sub modManutencao_AdicionarAlterarPosicao(ByVal strDescricao As String, ByVal blnAtivo As Boolean, Optional ByVal lngPosicao As Long)
+10    On Error GoTo Erro
+            
+20        Set gobjCmd.ActiveConnection = gSMConexao.Conexao
+30        gobjCmd.CommandText = "usp_AdicionarAlterarPosicao"
+40        gobjCmd.CommandType = adCmdStoredProc
+50        gobjCmd.CommandTimeout = 1000
+          
+60        With gobjCmd
+70            .Parameters("@Descricao_VC").Value = strDescricao
+80            .Parameters("@Ativo_BT").Value = IIf(blnAtivo = True, 1, 0)
+90            .Parameters("Posicao_IN").Value = IIf(lngPosicao = 0, Null, lngPosicao)
+100       End With
+          
+110       gobjCmd.Execute , , adExecuteNoRecords
+
+120   Exit Sub
+Erro:
+130      Call MsgBox("Erro no módulo: " & "modManutencao" & vbCrLf & "modManutencao_AdicionarAlterarPosicao" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+End Sub
+
+Public Sub modManutencao_SelecionarPosicoesAtleta(ByRef objrs As Recordset, Optional ByVal lngPosicao As Long, Optional ByVal blnSomenteAtivo As Boolean = True)
+10    On Error GoTo Erro
+            
+20        Set gobjCmd.ActiveConnection = gSMConexao.Conexao
+30        gobjCmd.CommandText = "usp_SelecionarPosicoesAtleta"
+40        gobjCmd.CommandType = adCmdStoredProc
+50        gobjCmd.CommandTimeout = 1000
+          
+60        With gobjCmd
+70            .Parameters("@Posicao_IN").Value = IIf(lngPosicao = 0, Null, lngPosicao)
+80            .Parameters("@Ativo_BT").Value = blnSomenteAtivo
+90        End With
+          
+100       Set objrs = gobjCmd.Execute
+
+
+110   Exit Sub
+Erro:
+120      Call MsgBox("Erro no módulo: " & "modManutencao" & vbCrLf & "modManutencao_SelecionarPosicoesAtleta" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
+
+End Sub
+
+'

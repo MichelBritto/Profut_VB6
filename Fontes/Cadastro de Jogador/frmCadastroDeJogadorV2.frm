@@ -180,7 +180,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          EndProperty
          Height          =   5325
          Left            =   -74940
-         TabIndex        =   68
+         TabIndex        =   69
          Top             =   330
          Width           =   10695
          Begin VB.TextBox txtBairroEnderecoAtleta 
@@ -197,7 +197,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   5430
             MaxLength       =   128
-            TabIndex        =   23
+            TabIndex        =   24
             Top             =   1560
             Width           =   4845
          End
@@ -215,7 +215,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   360
             MaxLength       =   128
-            TabIndex        =   21
+            TabIndex        =   22
             Top             =   930
             Width           =   8895
          End
@@ -233,7 +233,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   5430
             MaxLength       =   11
-            TabIndex        =   26
+            TabIndex        =   27
             Top             =   2220
             Width           =   2235
          End
@@ -251,7 +251,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   360
             MaxLength       =   11
-            TabIndex        =   24
+            TabIndex        =   25
             Top             =   2220
             Width           =   2145
          End
@@ -269,7 +269,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   360
             MaxLength       =   128
-            TabIndex        =   28
+            TabIndex        =   29
             Top             =   2850
             Width           =   9915
          End
@@ -287,7 +287,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   360
             MaxLength       =   128
-            TabIndex        =   29
+            TabIndex        =   30
             Top             =   3480
             Width           =   9915
          End
@@ -305,7 +305,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   360
             MaxLength       =   128
-            TabIndex        =   30
+            TabIndex        =   31
             Top             =   4110
             Width           =   9915
          End
@@ -313,14 +313,14 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   195
             Left            =   2550
             Picture         =   "frmCadastroDeJogadorV2.frx":038A
-            TabIndex        =   25
+            TabIndex        =   26
             Top             =   2310
             Width           =   255
          End
          Begin VB.CheckBox chkwpp2 
             Height          =   195
             Left            =   7710
-            TabIndex        =   27
+            TabIndex        =   28
             Top             =   2340
             Width           =   225
          End
@@ -334,7 +334,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Picture         =   "frmCadastroDeJogadorV2.frx":0A9E
             ScaleHeight     =   345
             ScaleWidth      =   315
-            TabIndex        =   70
+            TabIndex        =   71
             Top             =   2250
             Width           =   315
          End
@@ -348,14 +348,14 @@ Begin VB.Form frmCadastroDeJogadorV2
             Picture         =   "frmCadastroDeJogadorV2.frx":0F54
             ScaleHeight     =   345
             ScaleWidth      =   315
-            TabIndex        =   69
+            TabIndex        =   70
             Top             =   2250
             Width           =   315
          End
          Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscUfEnderecoAtleta 
             Height          =   390
             Left            =   9330
-            TabIndex        =   22
+            TabIndex        =   23
             Top             =   930
             Width           =   945
             DataFieldList   =   "Column 0"
@@ -394,7 +394,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscCidadeEnderecoAtleta 
             Height          =   390
             Left            =   360
-            TabIndex        =   82
+            TabIndex        =   83
             Top             =   1560
             Width           =   5055
             DataFieldList   =   "Column 0"
@@ -434,7 +434,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Bairro"
             Height          =   285
             Left            =   5430
-            TabIndex        =   79
+            TabIndex        =   80
             Top             =   1350
             Width           =   3885
          End
@@ -442,7 +442,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Cidade"
             Height          =   285
             Left            =   360
-            TabIndex        =   78
+            TabIndex        =   79
             Top             =   1320
             Width           =   1815
          End
@@ -450,7 +450,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Endereço "
             Height          =   285
             Left            =   360
-            TabIndex        =   77
+            TabIndex        =   78
             Top             =   720
             Width           =   1815
          End
@@ -458,7 +458,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "UF"
             Height          =   285
             Left            =   9360
-            TabIndex        =   76
+            TabIndex        =   77
             Top             =   720
             Width           =   615
          End
@@ -466,7 +466,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Telefone/Celular 2"
             Height          =   285
             Left            =   5400
-            TabIndex        =   75
+            TabIndex        =   76
             Top             =   2010
             Width           =   1815
          End
@@ -474,7 +474,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Telefone/Celular"
             Height          =   285
             Left            =   360
-            TabIndex        =   74
+            TabIndex        =   75
             Top             =   1980
             Width           =   1815
          End
@@ -482,7 +482,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "E-mail Contato"
             Height          =   285
             Left            =   360
-            TabIndex        =   73
+            TabIndex        =   74
             Top             =   2640
             Width           =   1815
          End
@@ -490,7 +490,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Facebook"
             Height          =   285
             Left            =   360
-            TabIndex        =   72
+            TabIndex        =   73
             Top             =   3270
             Width           =   1815
          End
@@ -498,7 +498,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Instagram"
             Height          =   285
             Left            =   360
-            TabIndex        =   71
+            TabIndex        =   72
             Top             =   3900
             Width           =   1815
          End
@@ -516,7 +516,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          EndProperty
          Height          =   1545
          Left            =   -74940
-         TabIndex        =   63
+         TabIndex        =   64
          Top             =   360
          Width           =   10725
          Begin VB.TextBox txtCertidaoNascimento 
@@ -533,7 +533,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   60
             MaxLength       =   128
-            TabIndex        =   12
+            TabIndex        =   13
             Top             =   420
             Width           =   5355
          End
@@ -551,7 +551,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   5490
             MaxLength       =   128
-            TabIndex        =   13
+            TabIndex        =   14
             Top             =   420
             Width           =   5205
          End
@@ -569,14 +569,14 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   5490
             MaxLength       =   128
-            TabIndex        =   15
+            TabIndex        =   16
             Top             =   1050
             Width           =   5205
          End
          Begin EditLib.fpMask txtIdentidade 
             Height          =   405
             Left            =   60
-            TabIndex        =   14
+            TabIndex        =   15
             Top             =   1050
             Width           =   5355
             _Version        =   196608
@@ -669,7 +669,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Certidão de Nascimento"
             Height          =   285
             Left            =   90
-            TabIndex        =   67
+            TabIndex        =   68
             Top             =   210
             Width           =   4125
          End
@@ -677,7 +677,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Cartório Responsável"
             Height          =   285
             Left            =   5490
-            TabIndex        =   66
+            TabIndex        =   67
             Top             =   210
             Width           =   3765
          End
@@ -685,7 +685,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Identidade(RG)"
             Height          =   285
             Left            =   90
-            TabIndex        =   65
+            TabIndex        =   66
             Top             =   840
             Width           =   4125
          End
@@ -693,7 +693,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Órgão Expedidor"
             Height          =   285
             Left            =   5490
-            TabIndex        =   64
+            TabIndex        =   65
             Top             =   840
             Width           =   3795
          End
@@ -711,7 +711,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          EndProperty
          Height          =   3765
          Left            =   -74940
-         TabIndex        =   56
+         TabIndex        =   57
          Top             =   1890
          Width           =   10725
          Begin VB.TextBox txtNomeEscola 
@@ -728,7 +728,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   60
             MaxLength       =   128
-            TabIndex        =   16
+            TabIndex        =   17
             Top             =   720
             Width           =   10605
          End
@@ -746,7 +746,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   60
             MaxLength       =   128
-            TabIndex        =   17
+            TabIndex        =   18
             Top             =   1320
             Width           =   10605
          End
@@ -764,7 +764,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   5640
             MaxLength       =   128
-            TabIndex        =   19
+            TabIndex        =   20
             Top             =   1980
             Width           =   4995
          End
@@ -782,14 +782,14 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   375
             Left            =   60
             MaxLength       =   128
-            TabIndex        =   20
+            TabIndex        =   21
             Top             =   2610
             Width           =   10575
          End
          Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscUfEscola 
             Height          =   390
             Left            =   90
-            TabIndex        =   18
+            TabIndex        =   19
             Top             =   1980
             Width           =   945
             DataFieldList   =   "Column 0"
@@ -828,7 +828,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscCidadeEscola 
             Height          =   390
             Left            =   1050
-            TabIndex        =   81
+            TabIndex        =   82
             Top             =   1980
             Width           =   4575
             DataFieldList   =   "Column 0"
@@ -868,7 +868,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Nome Instituição"
             Height          =   285
             Left            =   60
-            TabIndex        =   62
+            TabIndex        =   63
             Top             =   510
             Width           =   1485
          End
@@ -876,7 +876,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Endereço"
             Height          =   285
             Left            =   60
-            TabIndex        =   61
+            TabIndex        =   62
             Top             =   1110
             Width           =   5745
          End
@@ -884,7 +884,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Bairro"
             Height          =   285
             Left            =   5640
-            TabIndex        =   60
+            TabIndex        =   61
             Top             =   1770
             Width           =   4695
          End
@@ -892,7 +892,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Cidade"
             Height          =   285
             Left            =   1050
-            TabIndex        =   59
+            TabIndex        =   60
             Top             =   1740
             Width           =   2235
          End
@@ -900,7 +900,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Rede Social"
             Height          =   285
             Left            =   60
-            TabIndex        =   58
+            TabIndex        =   59
             Top             =   2400
             Width           =   1785
          End
@@ -908,7 +908,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "UF"
             Height          =   285
             Left            =   120
-            TabIndex        =   57
+            TabIndex        =   58
             Top             =   1770
             Width           =   615
          End
@@ -917,7 +917,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          Caption         =   "Informações Sistema"
          Height          =   1545
          Left            =   3960
-         TabIndex        =   44
+         TabIndex        =   45
          Top             =   4110
          Width           =   6825
          Begin VB.TextBox txtUsuarioCadastro 
@@ -926,7 +926,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   60
             Locked          =   -1  'True
-            TabIndex        =   49
+            TabIndex        =   50
             Top             =   420
             Width           =   4785
          End
@@ -936,14 +936,14 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   60
             Locked          =   -1  'True
-            TabIndex        =   45
+            TabIndex        =   46
             Top             =   1080
             Width           =   4785
          End
          Begin SSCalendarWidgets_A.SSDateCombo dtcDataUltimaAlteracao 
             Height          =   405
             Left            =   4920
-            TabIndex        =   46
+            TabIndex        =   47
             Top             =   1080
             Width           =   1815
             _Version        =   65543
@@ -957,7 +957,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          Begin SSCalendarWidgets_A.SSDateCombo dtcDataCadastro 
             Height          =   405
             Left            =   4920
-            TabIndex        =   50
+            TabIndex        =   51
             Top             =   420
             Width           =   1815
             _Version        =   65543
@@ -972,7 +972,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Usuário cadastro"
             Height          =   285
             Left            =   60
-            TabIndex        =   52
+            TabIndex        =   53
             Top             =   210
             Width           =   1965
          End
@@ -980,7 +980,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Data Cadastro"
             Height          =   285
             Left            =   4920
-            TabIndex        =   51
+            TabIndex        =   52
             Top             =   210
             Width           =   1575
          End
@@ -988,7 +988,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Usuário Ultima Alteração"
             Height          =   285
             Left            =   60
-            TabIndex        =   48
+            TabIndex        =   49
             Top             =   870
             Width           =   1965
          End
@@ -996,7 +996,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Data Ultima alteração"
             Height          =   285
             Left            =   4920
-            TabIndex        =   47
+            TabIndex        =   48
             Top             =   870
             Width           =   1575
          End
@@ -1014,7 +1014,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          EndProperty
          Height          =   3795
          Left            =   3960
-         TabIndex        =   35
+         TabIndex        =   36
          Top             =   330
          Width           =   6825
          Begin VB.TextBox txtNumCamisa 
@@ -1050,7 +1050,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   60
             MaxLength       =   128
-            TabIndex        =   10
+            TabIndex        =   11
             Top             =   2550
             Width           =   6705
          End
@@ -1068,7 +1068,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   60
             MaxLength       =   128
-            TabIndex        =   11
+            TabIndex        =   12
             Top             =   3150
             Width           =   6705
          End
@@ -1123,7 +1123,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             MaxLength       =   128
             TabIndex        =   6
             Top             =   1260
-            Width           =   6675
+            Width           =   4785
          End
          Begin VB.TextBox txtCodigoInterno 
             Appearance      =   0  'Flat
@@ -1155,7 +1155,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscCartegoria 
             Height          =   390
             Left            =   2700
-            TabIndex        =   8
+            TabIndex        =   9
             Top             =   1890
             Width           =   2175
             DataFieldList   =   "Column 0"
@@ -1193,7 +1193,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          Begin SSCalendarWidgets_A.SSDateCombo dtcDataNascimento 
             Height          =   405
             Left            =   4920
-            TabIndex        =   9
+            TabIndex        =   10
             Top             =   1890
             Width           =   1815
             _Version        =   65543
@@ -1206,7 +1206,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscClube 
             Height          =   390
             Left            =   60
-            TabIndex        =   7
+            TabIndex        =   8
             Top             =   1890
             Width           =   2595
             DataFieldList   =   "Column 0"
@@ -1241,11 +1241,57 @@ Begin VB.Form frmCadastroDeJogadorV2
                Strikethrough   =   0   'False
             EndProperty
          End
+         Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscPosicao 
+            Height          =   390
+            Left            =   4920
+            TabIndex        =   7
+            Top             =   1260
+            Width           =   1815
+            DataFieldList   =   "Column 0"
+            BevelType       =   0
+            _Version        =   196617
+            DataMode        =   2
+            BeginProperty HeadFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            BackColorOdd    =   15724527
+            RowHeight       =   476
+            Columns(0).Width=   3200
+            Columns(0).DataType=   8
+            Columns(0).FieldLen=   4096
+            _ExtentX        =   3201
+            _ExtentY        =   688
+            _StockProps     =   93
+            BackColor       =   -2147483643
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+         End
+         Begin VB.Label Label32 
+            Caption         =   "Posição"
+            Height          =   285
+            Left            =   4920
+            TabIndex        =   84
+            Top             =   1050
+            Width           =   645
+         End
          Begin VB.Label Label8 
             Caption         =   "Equipe"
             Height          =   285
             Left            =   60
-            TabIndex        =   55
+            TabIndex        =   56
             Top             =   1680
             Width           =   525
          End
@@ -1253,7 +1299,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Número da camisa"
             Height          =   285
             Left            =   4140
-            TabIndex        =   54
+            TabIndex        =   55
             Top             =   390
             Width           =   1365
          End
@@ -1261,7 +1307,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Nome do Pai"
             Height          =   285
             Left            =   60
-            TabIndex        =   43
+            TabIndex        =   44
             Top             =   2340
             Width           =   1665
          End
@@ -1269,7 +1315,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Nome da Mãe"
             Height          =   285
             Left            =   60
-            TabIndex        =   42
+            TabIndex        =   43
             Top             =   2940
             Width           =   1725
          End
@@ -1277,7 +1323,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Sexo"
             Height          =   285
             Left            =   5640
-            TabIndex        =   41
+            TabIndex        =   42
             Top             =   390
             Width           =   885
          End
@@ -1285,7 +1331,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Data de Nascimento"
             Height          =   285
             Left            =   4920
-            TabIndex        =   40
+            TabIndex        =   41
             Top             =   1680
             Width           =   1545
          End
@@ -1293,7 +1339,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Cartegoria"
             Height          =   285
             Left            =   2700
-            TabIndex        =   39
+            TabIndex        =   40
             Top             =   1680
             Width           =   1365
          End
@@ -1301,7 +1347,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Código"
             Height          =   285
             Left            =   120
-            TabIndex        =   38
+            TabIndex        =   39
             Top             =   390
             Width           =   855
          End
@@ -1309,7 +1355,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Apelido do Jogador"
             Height          =   285
             Left            =   1080
-            TabIndex        =   37
+            TabIndex        =   38
             Top             =   390
             Width           =   1485
          End
@@ -1317,7 +1363,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Nome Completo"
             Height          =   285
             Left            =   90
-            TabIndex        =   36
+            TabIndex        =   37
             Top             =   1050
             Width           =   1905
          End
@@ -1325,13 +1371,13 @@ Begin VB.Form frmCadastroDeJogadorV2
       Begin VB.Frame fraFoto 
          Height          =   5325
          Left            =   30
-         TabIndex        =   31
+         TabIndex        =   32
          Top             =   330
          Width           =   3915
          Begin Threed.SSCommand cmdRemover 
             Height          =   330
             Left            =   1950
-            TabIndex        =   32
+            TabIndex        =   33
             Top             =   4710
             Width           =   1875
             _ExtentX        =   3307
@@ -1356,7 +1402,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          Begin Threed.SSCommand cmdAdicionar 
             Height          =   330
             Left            =   90
-            TabIndex        =   33
+            TabIndex        =   34
             Top             =   4710
             Width           =   1815
             _ExtentX        =   3201
@@ -1382,7 +1428,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   4305
             Index           =   1
             Left            =   90
-            TabIndex        =   34
+            TabIndex        =   35
             Top             =   180
             Width           =   3765
             _ExtentX        =   6641
@@ -1403,7 +1449,7 @@ Begin VB.Form frmCadastroDeJogadorV2
                ForeColor       =   &H000000FF&
                Height          =   555
                Left            =   840
-               TabIndex        =   80
+               TabIndex        =   81
                Top             =   2010
                Visible         =   0   'False
                Width           =   2055
@@ -1421,7 +1467,7 @@ Begin VB.Form frmCadastroDeJogadorV2
    Begin MSComctlLib.Toolbar tbBotoes 
       Height          =   570
       Left            =   105
-      TabIndex        =   53
+      TabIndex        =   54
       Top             =   5775
       Width           =   10650
       _ExtentX        =   18785
@@ -1732,6 +1778,7 @@ Private Sub LimparCampos()
     txtApelido.Text = ""
     txtNomeJogador.Text = ""
     sscClube.Text = ""
+    sscPosicao.Text = ""
     'txtLocalDeNascimento.Text = ""
     txtNomePai.Text = ""
     txtNomeMae.Text = ""
@@ -1776,6 +1823,7 @@ Private Sub LimparCampos()
     modBDCombo_SelecionarEstados sscUfEscola
     modBDCombo_SelecionarEstados sscUfEnderecoAtleta
     modBDCombo_SelecionarEquipePorCodigo sscClube
+    modBDCombo_SelecionarPosicoesAtleta sscPosicao
     
 '    modBDCombo_SelecionarCidades sscCidadeEnderecoAtleta
 '    modBDCombo_SelecionarCidades sscCidadeEscola
@@ -1820,6 +1868,7 @@ Private Sub HabilitarCampos(blnhabilitar As Boolean)
     dtcDataNascimento.Enabled = blnhabilitar
     
     sscClube.Enabled = blnhabilitar
+    sscPosicao.Enabled = blnhabilitar
     sscCartegoria.Enabled = blnhabilitar
     sscUfEscola.Enabled = blnhabilitar
     sscUfEnderecoAtleta.Enabled = blnhabilitar
@@ -1840,6 +1889,7 @@ Private Sub HabilitarTBBotoes(blnNovo As Boolean, blnAlterar As Boolean, blnProc
     tbBotoes.Buttons("cmdExcluir").Enabled = blnExcluir
     
 End Sub
+
 
 Private Sub sscUfEnderecoAtleta_LostFocus()
     Call modBDCombo_SelecionarCidades(sscCidadeEnderecoAtleta, , sscUfEnderecoAtleta.Columns("chcodigo").Value)
@@ -2021,6 +2071,11 @@ On Error GoTo Erro
         blnContinua = False
     End If
     
+    If sscPosicao.Text = "" Then
+        strMensagem = strMensagem & "-> Posição não informada ou inválida." & vbCrLf
+        blnContinua = False
+    End If
+    
     If txtNomePai.Text = "" Then
         strMensagem = strMensagem & "-> Nome do pai não informado." & vbCrLf
         blnContinua = False
@@ -2155,6 +2210,7 @@ On Error GoTo Erro
         .strNomeAtleta = txtNomeJogador.Text
         .lngCartegoria = sscCartegoria.Columns("chcodigo").Value
         .lngEquipe = sscClube.Columns(1).Value
+        .lngPosicao = sscPosicao.Columns(1).Value
         '.strLocalNascimento = txtLocalDeNascimento.Text
         .strNomePai = txtNomePai.Text
         .strNomeMae = txtNomeMae.Text
@@ -2321,6 +2377,7 @@ On Error GoTo Erro
             
             modBDCombo_SelecionarCartecoriaJogador sscCartegoria, NZ(objRsJogador!CARTEGORIA_IN)
             modBDCombo_SelecionarEquipePorCodigo sscClube, NZ(objRsJogador!EQUIPE_IN)
+            modBDCombo_SelecionarPosicoesAtleta sscPosicao, NZ(objRsJogador!POSICAO_IN)
             modBDCombo_SelecionarEstados sscUfEscola, NZ(objRsJogador!ESTADOESCOLA_IN)
             modBDCombo_SelecionarEstados sscUfEnderecoAtleta, NZ(objRsJogador!Estado_IN)
             

@@ -254,3 +254,54 @@ Erro:
    Call MsgBox("Erro no módulo: " & "modBDCombo" & vbCrLf & "No Procedimento: " & "modBDCombo_SelecionarEstados" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 End Sub
+
+
+Public Sub modBDCombo_SelecionarPosicoesAtleta(ByRef objSSOleDBCombo As SSOleDBCombo, Optional ByVal lngCodigo As Long)
+
+          Dim intIndex          As Integer
+          Dim objrs             As New Recordset
+         
+10    On Error GoTo Erro
+         
+20        intIndex = -1
+30        With objSSOleDBCombo
+40            .Columns.RemoveAll
+              
+50            .Columns.Add (0)
+60            .Columns(0).Name = "chdescricao"
+70            .Columns(0).Caption = "Descricao"
+80            .Columns(0).Width = objSSOleDBCombo.Width
+90            .Columns(0).Visible = True
+              
+100           .Columns.Add (1)
+110           .Columns(1).Name = "chcodigo"
+120           .Columns(1).Caption = "codigo"
+130           .Columns(1).Visible = False
+              
+140           .DataFieldToDisplay = "column 0"
+150       End With
+           
+160       objrs.Open "dbo.usp_SelecionarPosicoesAtleta", gSMConexao.Conexao, adOpenForwardOnly, adLockReadOnly, adCmdStoredProc
+170       With objrs
+180           If Not objrs.RecordCount = 0 Then objrs.MoveFirst
+190           objSSOleDBCombo.RemoveAll
+200           Do While Not .EOF
+210               objSSOleDBCombo.AddItem NS(!Posicao_VC) & vbTab & NZ(!POSICAO_IN)
+220               If NZ(!POSICAO_IN) = lngCodigo Then intIndex = objrs.AbsolutePosition - 1
+230               .MoveNext
+240           Loop
+250       End With
+          
+260       If intIndex = -1 Then
+270           objSSOleDBCombo.Text = ""
+280       Else
+290           objSSOleDBCombo.Bookmark = IIf(lngCodigo = 0, -1, objSSOleDBCombo.AddItemBookmark(intIndex))
+300           objSSOleDBCombo.Text = objSSOleDBCombo.Columns("chDescricao").CellValue(objSSOleDBCombo.Bookmark)
+310       End If
+
+320   Exit Sub
+Erro:
+330      Call MsgBox("Erro no módulo: " & "modBDCombo" & vbCrLf & "modBDCombo_SelecionarPosicoesAtleta" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
+
+End Sub
