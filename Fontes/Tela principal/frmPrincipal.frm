@@ -1,7 +1,7 @@
 VERSION 5.00
 Begin VB.Form frmPrincipal 
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "ProFut - Sistema de Gerenciamento de Campeonatos Futebolísticos"
+   Caption         =   "ProFut - Programa de Recursos Orientados ao Futebol"
    ClientHeight    =   7605
    ClientLeft      =   4485
    ClientTop       =   2340
@@ -23,14 +23,14 @@ Begin VB.Form frmPrincipal
       Begin VB.PictureBox logo 
          BackColor       =   &H00FFFFFF&
          BorderStyle     =   0  'None
-         Height          =   4515
-         Left            =   3120
+         Height          =   5175
+         Left            =   2670
          Picture         =   "frmPrincipal.frx":038A
-         ScaleHeight     =   4515
-         ScaleWidth      =   4515
+         ScaleHeight     =   5175
+         ScaleWidth      =   4995
          TabIndex        =   1
-         Top             =   480
-         Width           =   4515
+         Top             =   720
+         Width           =   4995
       End
    End
 End

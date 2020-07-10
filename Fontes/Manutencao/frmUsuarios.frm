@@ -47,7 +47,8 @@ Begin VB.Form frmUsuarios
             Left            =   60
             MaxLength       =   6
             TabIndex        =   17
-            Top             =   450
+            Top             =   -420
+            Visible         =   0   'False
             Width           =   885
          End
          Begin VB.CommandButton cmdAlterarUsuario 
@@ -173,27 +174,27 @@ Begin VB.Form frmUsuarios
          Begin VB.TextBox txtLogin 
             Appearance      =   0  'Flat
             Height          =   405
-            Left            =   5340
+            Left            =   4800
             MaxLength       =   30
             TabIndex        =   7
             Top             =   450
-            Width           =   2475
+            Width           =   2655
          End
          Begin VB.TextBox txtNome 
             Appearance      =   0  'Flat
             Height          =   405
-            Left            =   990
+            Left            =   90
             MaxLength       =   100
             TabIndex        =   5
             Top             =   450
-            Width           =   4305
+            Width           =   4665
          End
          Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscCargo 
             Height          =   390
-            Left            =   7860
+            Left            =   7500
             TabIndex        =   13
             Top             =   450
-            Width           =   1935
+            Width           =   2445
             DataFieldList   =   "Column 0"
             BevelType       =   0
             _Version        =   196617
@@ -212,7 +213,7 @@ Begin VB.Form frmUsuarios
             Columns(0).Width=   3200
             Columns(0).DataType=   8
             Columns(0).FieldLen=   4096
-            _ExtentX        =   3413
+            _ExtentX        =   4313
             _ExtentY        =   688
             _StockProps     =   93
             BackColor       =   -2147483643
@@ -227,14 +228,14 @@ Begin VB.Form frmUsuarios
             EndProperty
          End
          Begin Threed.SSCommand cmdAdicionarCargo 
-            Height          =   465
-            Left            =   9840
+            Height          =   345
+            Left            =   9990
             TabIndex        =   19
             ToolTipText     =   "Adicionar Cargos"
-            Top             =   420
-            Width           =   465
-            _ExtentX        =   820
-            _ExtentY        =   820
+            Top             =   450
+            Width           =   345
+            _ExtentX        =   609
+            _ExtentY        =   609
             _Version        =   196609
             PictureFrames   =   1
             Picture         =   "frmUsuarios.frx":066A
@@ -290,13 +291,14 @@ Begin VB.Form frmUsuarios
             Height          =   285
             Left            =   90
             TabIndex        =   18
-            Top             =   240
+            Top             =   -630
+            Visible         =   0   'False
             Width           =   555
          End
          Begin VB.Label Label29 
             Caption         =   "Cargo"
             Height          =   285
-            Left            =   7890
+            Left            =   7530
             TabIndex        =   14
             Top             =   240
             Width           =   1365
@@ -320,7 +322,7 @@ Begin VB.Form frmUsuarios
          Begin VB.Label Label1 
             Caption         =   "Login"
             Height          =   285
-            Left            =   5370
+            Left            =   4800
             TabIndex        =   8
             Top             =   240
             Width           =   855
@@ -328,7 +330,7 @@ Begin VB.Form frmUsuarios
          Begin VB.Label Label 
             Caption         =   "Nome"
             Height          =   285
-            Left            =   1020
+            Left            =   120
             TabIndex        =   6
             Top             =   240
             Width           =   735

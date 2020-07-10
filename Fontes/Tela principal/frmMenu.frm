@@ -25,14 +25,26 @@ Begin VB.Form frmMenu
       Begin VB.PictureBox logo 
          BackColor       =   &H00FFFFFF&
          BorderStyle     =   0  'None
-         Height          =   4515
-         Left            =   4890
+         Height          =   5175
+         Left            =   4560
          Picture         =   "frmMenu.frx":038A
-         ScaleHeight     =   4515
-         ScaleWidth      =   4515
-         TabIndex        =   2
-         Top             =   720
-         Width           =   4515
+         ScaleHeight     =   5175
+         ScaleWidth      =   4995
+         TabIndex        =   11
+         Top             =   480
+         Width           =   4995
+      End
+      Begin VB.PictureBox pcMM 
+         BackColor       =   &H00FFFFFF&
+         BorderStyle     =   0  'None
+         Height          =   405
+         Left            =   1920
+         Picture         =   "frmMenu.frx":4286
+         ScaleHeight     =   405
+         ScaleWidth      =   2295
+         TabIndex        =   10
+         Top             =   6900
+         Width           =   2295
       End
       Begin VB.Frame fraAcessos 
          Appearance      =   0  'Flat
@@ -47,7 +59,7 @@ Begin VB.Form frmMenu
          Begin Threed.SSCommand cmdCadastroDeJogador 
             Height          =   645
             Left            =   30
-            TabIndex        =   3
+            TabIndex        =   2
             Top             =   60
             Width           =   3360
             _ExtentX        =   5927
@@ -66,7 +78,7 @@ Begin VB.Form frmMenu
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Picture         =   "frmMenu.frx":2729
+            Picture         =   "frmMenu.frx":4CB8
             Caption         =   "Ficha de Jogador"
             Alignment       =   1
             PictureAlignment=   9
@@ -77,7 +89,7 @@ Begin VB.Form frmMenu
          Begin Threed.SSCommand cmdCadastroEquipe 
             Height          =   645
             Left            =   30
-            TabIndex        =   4
+            TabIndex        =   3
             Top             =   780
             Width           =   3360
             _ExtentX        =   5927
@@ -96,7 +108,7 @@ Begin VB.Form frmMenu
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Picture         =   "frmMenu.frx":2ADB
+            Picture         =   "frmMenu.frx":506A
             Caption         =   "Clube/Equipe"
             Alignment       =   1
             PictureAlignment=   9
@@ -107,7 +119,7 @@ Begin VB.Form frmMenu
          Begin Threed.SSCommand cmdRelatorioJogador 
             Height          =   645
             Left            =   30
-            TabIndex        =   5
+            TabIndex        =   4
             Top             =   1530
             Width           =   3360
             _ExtentX        =   5927
@@ -126,7 +138,7 @@ Begin VB.Form frmMenu
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Picture         =   "frmMenu.frx":2E8D
+            Picture         =   "frmMenu.frx":541C
             Caption         =   "Lista de Jogadores"
             Alignment       =   1
             PictureAlignment=   9
@@ -137,7 +149,7 @@ Begin VB.Form frmMenu
          Begin Threed.SSCommand cmdSair 
             Height          =   1035
             Left            =   30
-            TabIndex        =   6
+            TabIndex        =   5
             Top             =   5130
             Width           =   3360
             _ExtentX        =   5927
@@ -156,7 +168,7 @@ Begin VB.Form frmMenu
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Picture         =   "frmMenu.frx":323F
+            Picture         =   "frmMenu.frx":57CE
             Caption         =   "Sair"
             Alignment       =   1
             PictureAlignment=   9
@@ -167,7 +179,7 @@ Begin VB.Form frmMenu
          Begin Threed.SSCommand cmdUsuario 
             Height          =   645
             Left            =   30
-            TabIndex        =   7
+            TabIndex        =   6
             Top             =   2250
             Width           =   3360
             _ExtentX        =   5927
@@ -186,7 +198,7 @@ Begin VB.Form frmMenu
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Picture         =   "frmMenu.frx":35F1
+            Picture         =   "frmMenu.frx":5B80
             Caption         =   "Usuário"
             Alignment       =   1
             PictureAlignment=   9
@@ -197,7 +209,7 @@ Begin VB.Form frmMenu
          Begin Threed.SSCommand cmdPermissao 
             Height          =   645
             Left            =   30
-            TabIndex        =   8
+            TabIndex        =   7
             Top             =   2970
             Width           =   3360
             _ExtentX        =   5927
@@ -216,7 +228,7 @@ Begin VB.Form frmMenu
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Picture         =   "frmMenu.frx":39A3
+            Picture         =   "frmMenu.frx":5F32
             Caption         =   "Permissão"
             Alignment       =   1
             PictureAlignment=   9
@@ -227,7 +239,7 @@ Begin VB.Form frmMenu
          Begin Threed.SSCommand cmdCadCargo 
             Height          =   645
             Left            =   30
-            TabIndex        =   9
+            TabIndex        =   8
             Top             =   3690
             Width           =   3360
             _ExtentX        =   5927
@@ -246,7 +258,7 @@ Begin VB.Form frmMenu
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Picture         =   "frmMenu.frx":3D55
+            Picture         =   "frmMenu.frx":62E4
             Caption         =   "Cadastro de Cargo"
             Alignment       =   1
             PictureAlignment=   9
@@ -257,7 +269,7 @@ Begin VB.Form frmMenu
          Begin Threed.SSCommand cmdCadPosicao 
             Height          =   645
             Left            =   30
-            TabIndex        =   10
+            TabIndex        =   9
             Top             =   4410
             Width           =   3360
             _ExtentX        =   5927
@@ -276,7 +288,7 @@ Begin VB.Form frmMenu
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Picture         =   "frmMenu.frx":4107
+            Picture         =   "frmMenu.frx":6696
             Caption         =   "Cadastro de Posição"
             Alignment       =   1
             PictureAlignment=   9
