@@ -365,19 +365,19 @@ Private Sub Form_Load()
 End Sub
 
 Private Sub ssgPosicao_Click()
-On Error Resume Next
-    ssgPosicao.SelBookmarks.Clear
-    ssgPosicao.SelBookmarks.Add ssgPosicao.Bookmark
-On Error GoTo 0
+10    On Error Resume Next
+20        ssgPosicao.SelBookmarks.Clear
+30        ssgPosicao.SelBookmarks.Add ssgPosicao.Bookmark
+40    On Error GoTo 0
 
 End Sub
 
 Private Sub ssgPosicao_HeadClick(ByVal ColIndex As Integer)
-    OrdenarColunaTrueDB ssgPosicao, ColIndex, imgcima, imgbaixo
+10        OrdenarColunaTrueDB ssgPosicao, ColIndex, imgcima, imgbaixo
 End Sub
 
 Private Sub ssgPosicao_RowColChange(LastRow As Variant, ByVal LastCol As Integer)
-    ssgPosicao_Click
+10        ssgPosicao_Click
 End Sub
 
 Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
@@ -399,21 +399,21 @@ Erro:
 End Sub
 
 Private Sub AdicionarAlterarPosicao(strPosicao As String, blnAtivo As Boolean, lngOperacao As Long)
-On Error GoTo Erro
-      
-    '1 - Adicionar
-    '2 - Alterar
-    Select Case lngOperacao
-            Case 1
-                modManutencao_AdicionarAlterarPosicao strPosicao, blnAtivo
+10    On Error GoTo Erro
             
-            Case 2
-                modManutencao_AdicionarAlterarPosicao strPosicao, blnAtivo, mobjRsPosicoes!Posicao_IN
-    End Select
-    
-Exit Sub
+          '1 - Adicionar
+          '2 - Alterar
+20        Select Case lngOperacao
+                  Case 1
+30                    modManutencao_AdicionarAlterarPosicao strPosicao, blnAtivo
+                  
+40                Case 2
+50                    modManutencao_AdicionarAlterarPosicao strPosicao, blnAtivo, mobjRsPosicoes!Posicao_IN
+60        End Select
+          
+70    Exit Sub
 Erro:
-   Call MsgBox("Erro no módulo: " & "frmPosicao" & vbCrLf & "AdicionarAlterarPosicao" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+80       Call MsgBox("Erro no módulo: " & "frmPosicao" & vbCrLf & "AdicionarAlterarPosicao" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 
 

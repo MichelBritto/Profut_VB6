@@ -1605,93 +1605,96 @@ Dim mlngJogador As Long
 
 Dim mbitFoto() As Byte
 
+Dim blnRemoveuFoto As Boolean
+
 Public Property Let DiretorioFotoJogador(strDiretorio As String)
-    mstrFoto = strDiretorio
+10        mstrFoto = strDiretorio
 End Property
 Public Property Let OpcaoImpressao(lngOpcao As Long)
-    mlngOpcao = lngOpcao
+10        mlngOpcao = lngOpcao
 End Property
 
 Public Property Let Jogador(lngJogador As Long)
-    mlngJogador = lngJogador
+10        mlngJogador = lngJogador
 End Property
 
 Public Property Let Carregando(blnCarregando As Boolean)
-    mblnCarregando = blnCarregando
+10        mblnCarregando = blnCarregando
 End Property
 
 
 Private Sub cmdAdicionar_Click()
-    On Error GoTo Erro
-    
-    frmAdicionarFotoJogador.Show vbModal
-  
-    If mstrFoto <> "" Then
-        imgFotoJogador.Picture = Nothing
-        imgFotoJogador.Stretch = True
-        imgFotoJogador.Picture = LoadPicture(mstrFoto)
-    End If
-    
-    Exit Sub
+10        On Error GoTo Erro
+          
+20        frmAdicionarFotoJogador.Show vbModal
+        
+30        If mstrFoto <> "" Then
+40            imgFotoJogador.Picture = Nothing
+50            imgFotoJogador.Stretch = True
+60            imgFotoJogador.Picture = LoadPicture(mstrFoto)
+70            blnRemoveuFoto = False
+80        End If
+          
+90        Exit Sub
 Erro:
- Call MsgBox("Erro no módulo: " & "frmCadastroDeJogador" & vbCrLf & "No Procedimento: " & "cmdAdicionar_Click" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+100    Call MsgBox("Erro no módulo: " & "frmCadastroDeJogador" & vbCrLf & "No Procedimento: " & "cmdAdicionar_Click" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 End Sub
 
 Private Sub ImprimirFicha()
-On Error GoTo Erro
-      
-    If (Val(txtCodigoInterno.Text)) = 0 Then Exit Sub
-    
-   rptFichaJogador.Parametros1 = mbitFoto()
-   rptFichaJogador.Parametros111 = (Val(txtCodigoInterno.Text))
-   rptFichaJogador.Parametros2 = (sscClube.Columns("chdescricao").Value)
-   rptFichaJogador.Parametros3 = (txtNomeJogador.Text)
-   rptFichaJogador.Parametros4 = (dtcDataNascimento.DateValue)
-   rptFichaJogador.Parametros5 = ""
-   rptFichaJogador.Parametros6 = txtCertidaoNascimento.Text
-   rptFichaJogador.Parametros7 = txtCartorio.Text
-   rptFichaJogador.Parametros8 = txtIdentidade.Text
-   rptFichaJogador.Parametros9 = txtOrgao.Text
-   rptFichaJogador.Parametros10 = txtNomePai.Text
-   rptFichaJogador.Parametros11 = txtNomeMae.Text
-   rptFichaJogador.Parametros12 = txtEnderecoAtleta.Text
-   rptFichaJogador.Parametros13 = txtBairroEnderecoAtleta.Text
-   rptFichaJogador.Parametros14 = sscCidadeEnderecoAtleta.Text
-   rptFichaJogador.Parametros15 = txtFacebookAtleta.Text
-   rptFichaJogador.Parametros16 = txtNomeEscola.Text
-   rptFichaJogador.Parametros17 = txtEnderecoEscola.Text
-   rptFichaJogador.Parametros18 = txtBairroEscola.Text
-   rptFichaJogador.Parametros19 = sscCidadeEscola.Text
-   rptFichaJogador.Parametros20 = ""
-   rptFichaJogador.Parametros21 = txtRedeSocialEscola.Text
-   
-    rptFichaJogador.Show vbModal, Me
+10    On Error GoTo Erro
+            
+20        If (Val(txtCodigoInterno.Text)) = 0 Then Exit Sub
+          
+30       rptFichaJogador.Parametros1 = mbitFoto()
+40       rptFichaJogador.Parametros111 = (Val(txtCodigoInterno.Text))
+50       rptFichaJogador.Parametros2 = (sscClube.Columns("chdescricao").Value)
+60       rptFichaJogador.Parametros3 = (txtNomeJogador.Text)
+70       rptFichaJogador.Parametros4 = (dtcDataNascimento.DateValue)
+80       rptFichaJogador.Parametros5 = ""
+90       rptFichaJogador.Parametros6 = txtCertidaoNascimento.Text
+100      rptFichaJogador.Parametros7 = txtCartorio.Text
+110      rptFichaJogador.Parametros8 = txtIdentidade.Text
+120      rptFichaJogador.Parametros9 = txtOrgao.Text
+130      rptFichaJogador.Parametros10 = txtNomePai.Text
+140      rptFichaJogador.Parametros11 = txtNomeMae.Text
+150      rptFichaJogador.Parametros12 = txtEnderecoAtleta.Text
+160      rptFichaJogador.Parametros13 = txtBairroEnderecoAtleta.Text
+170      rptFichaJogador.Parametros14 = sscCidadeEnderecoAtleta.Text
+180      rptFichaJogador.Parametros15 = txtFacebookAtleta.Text
+190      rptFichaJogador.Parametros16 = txtNomeEscola.Text
+200      rptFichaJogador.Parametros17 = txtEnderecoEscola.Text
+210      rptFichaJogador.Parametros18 = txtBairroEscola.Text
+220      rptFichaJogador.Parametros19 = sscCidadeEscola.Text
+230      rptFichaJogador.Parametros20 = ""
+240      rptFichaJogador.Parametros21 = txtRedeSocialEscola.Text
+         
+250       rptFichaJogador.Show vbModal, Me
 
-Exit Sub
+260   Exit Sub
 Erro:
-   Call MsgBox("Erro no módulo: " & "frmCadastroDeJogadorV2" & vbCrLf & "No Procedimento: " & "ImprimirFicha" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+270      Call MsgBox("Erro no módulo: " & "frmCadastroDeJogadorV2" & vbCrLf & "No Procedimento: " & "ImprimirFicha" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 End Sub
 
 Private Sub ImprimirCarteirinha()
-On Error GoTo Erro
-    
-    If (Val(txtCodigoInterno.Text)) = 0 Then Exit Sub
-    
-    rptCarteirinha.Codigo = (Val(txtCodigoInterno.Text))
-    rptCarteirinha.Apelido = (txtApelido.Text)
-    rptCarteirinha.Nome = (txtNomeJogador.Text)
-    rptCarteirinha.Camisa = (Val(txtCodigoInterno.Text))
-    rptCarteirinha.Equipe = (sscClube.Columns("chdescricao").Value)
-    rptCarteirinha.Cartegoria = (sscCartegoria.Columns("chdescricao").Value)
-    rptCarteirinha.Nascimento = (dtcDataNascimento.DateValue)
-    rptCarteirinha.Mae = (txtNomePai.Text)
-    rptCarteirinha.Pai = (txtNomeMae.Text)
-    rptCarteirinha.Foto = mbitFoto()
-    rptCarteirinha.Show vbModal, Me
-Exit Sub
+10    On Error GoTo Erro
+          
+20        If (Val(txtCodigoInterno.Text)) = 0 Then Exit Sub
+          
+30        rptCarteirinha.Codigo = (Val(txtCodigoInterno.Text))
+40        rptCarteirinha.Apelido = (txtApelido.Text)
+50        rptCarteirinha.Nome = (txtNomeJogador.Text)
+60        rptCarteirinha.Camisa = (Val(txtCodigoInterno.Text))
+70        rptCarteirinha.Equipe = (sscClube.Columns("chdescricao").Value)
+80        rptCarteirinha.Cartegoria = (sscCartegoria.Columns("chdescricao").Value)
+90        rptCarteirinha.Nascimento = (dtcDataNascimento.DateValue)
+100       rptCarteirinha.Mae = (txtNomePai.Text)
+110       rptCarteirinha.Pai = (txtNomeMae.Text)
+120       rptCarteirinha.Foto = mbitFoto()
+130       rptCarteirinha.Show vbModal, Me
+140   Exit Sub
 Erro:
-   Call MsgBox("Erro no módulo: " & "frmCadastroDeJogadorV2" & vbCrLf & "No Procedimento: " & "ImprimirCarteirinha" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+150      Call MsgBox("Erro no módulo: " & "frmCadastroDeJogadorV2" & vbCrLf & "No Procedimento: " & "ImprimirCarteirinha" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 End Sub
 
@@ -1700,332 +1703,334 @@ Private Sub Command1_Click()
 End Sub
 
 Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
-    Select Case KeyCode
-        Case vbKeyF2:  tbBotoes.Buttons("cmdNovo").Value = tbrPressed
-        Case vbKeyF3:  tbBotoes.Buttons("cmdAlterar").Value = tbrPressed
-        Case vbKeyF4:  tbBotoes.Buttons("cmdProcurar").Value = tbrPressed
-        Case vbKeyF5:  tbBotoes.Buttons("cmdExcluir").Value = tbrPressed
-        Case vbKeyF6:  tbBotoes.Buttons("cmdLimpar").Value = tbrPressed
-        Case vbKeyF7:  tbBotoes.Buttons("cmdGravar").Value = tbrPressed
-        Case vbKeyF8:  tbBotoes.Buttons("cmdimprimir").Value = tbrPressed
-        Case vbKeyF10: tbBotoes.Buttons("cmdSair").Value = tbrPressed
-   End Select
+10        Select Case KeyCode
+              Case vbKeyF2:  tbBotoes.Buttons("cmdNovo").Value = tbrPressed
+20            Case vbKeyF3:  tbBotoes.Buttons("cmdAlterar").Value = tbrPressed
+30            Case vbKeyF4:  tbBotoes.Buttons("cmdProcurar").Value = tbrPressed
+40            Case vbKeyF5:  tbBotoes.Buttons("cmdExcluir").Value = tbrPressed
+50            Case vbKeyF6:  tbBotoes.Buttons("cmdLimpar").Value = tbrPressed
+60            Case vbKeyF7:  tbBotoes.Buttons("cmdGravar").Value = tbrPressed
+70            Case vbKeyF8:  tbBotoes.Buttons("cmdimprimir").Value = tbrPressed
+80            Case vbKeyF10: tbBotoes.Buttons("cmdSair").Value = tbrPressed
+90       End Select
 End Sub
 
 Private Sub Form_KeyUp(KeyCode As Integer, Shift As Integer)
 
-On Error GoTo Erro
+10    On Error GoTo Erro
 
-    tbBotoes.Buttons("cmdNovo").Value = tbrUnpressed
-    tbBotoes.Buttons("cmdAlterar").Value = tbrUnpressed
-    tbBotoes.Buttons("cmdProcurar").Value = tbrUnpressed
-    tbBotoes.Buttons("cmdExcluir").Value = tbrUnpressed
-    tbBotoes.Buttons("cmdLimpar").Value = tbrUnpressed
-    tbBotoes.Buttons("cmdGravar").Value = tbrUnpressed
-    tbBotoes.Buttons("cmdimprimir").Value = tbrUnpressed
-    tbBotoes.Buttons("cmdSair").Value = tbrUnpressed
-  
-    Select Case KeyCode
-        Case vbKeyF2:  If tbBotoes.Buttons("cmdNovo").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdNovo"))
-        Case vbKeyF3:  If tbBotoes.Buttons("cmdAlterar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdAlterar"))
-        Case vbKeyF4:  If tbBotoes.Buttons("cmdProcurar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdProcurar"))
-        Case vbKeyF5:  If tbBotoes.Buttons("cmdExcluir").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdExcluir"))
-        Case vbKeyF6:  If tbBotoes.Buttons("cmdLimpar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdLimpar"))
-        Case vbKeyF7:  If tbBotoes.Buttons("cmdGravar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdGravar"))
-        Case vbKeyF8:  If tbBotoes.Buttons("cmdimprimir").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdimprimir"))
-        Case vbKeyF10: If tbBotoes.Buttons("cmdSair").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdSair"))
+20        tbBotoes.Buttons("cmdNovo").Value = tbrUnpressed
+30        tbBotoes.Buttons("cmdAlterar").Value = tbrUnpressed
+40        tbBotoes.Buttons("cmdProcurar").Value = tbrUnpressed
+50        tbBotoes.Buttons("cmdExcluir").Value = tbrUnpressed
+60        tbBotoes.Buttons("cmdLimpar").Value = tbrUnpressed
+70        tbBotoes.Buttons("cmdGravar").Value = tbrUnpressed
+80        tbBotoes.Buttons("cmdimprimir").Value = tbrUnpressed
+90        tbBotoes.Buttons("cmdSair").Value = tbrUnpressed
         
-        Case vbKeyRight
-            On Error Resume Next
-            tabPrincipal.ActiveTab = tabPrincipal.ActiveTab + 1
-            On Error GoTo Erro
-        Case vbKeyLeft
-             On Error Resume Next
-            tabPrincipal.ActiveTab = tabPrincipal.ActiveTab - 1
-            On Error GoTo Erro
-    End Select
-    
-Exit Sub
+100       Select Case KeyCode
+              Case vbKeyF2:  If tbBotoes.Buttons("cmdNovo").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdNovo"))
+110           Case vbKeyF3:  If tbBotoes.Buttons("cmdAlterar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdAlterar"))
+120           Case vbKeyF4:  If tbBotoes.Buttons("cmdProcurar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdProcurar"))
+130           Case vbKeyF5:  If tbBotoes.Buttons("cmdExcluir").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdExcluir"))
+140           Case vbKeyF6:  If tbBotoes.Buttons("cmdLimpar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdLimpar"))
+150           Case vbKeyF7:  If tbBotoes.Buttons("cmdGravar").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdGravar"))
+160           Case vbKeyF8:  If tbBotoes.Buttons("cmdimprimir").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdimprimir"))
+170           Case vbKeyF10: If tbBotoes.Buttons("cmdSair").Enabled Then Call tbBotoes_ButtonClick(tbBotoes.Buttons("cmdSair"))
+              
+180           Case vbKeyRight
+190               On Error Resume Next
+200               tabPrincipal.ActiveTab = tabPrincipal.ActiveTab + 1
+210               On Error GoTo Erro
+220           Case vbKeyLeft
+230                On Error Resume Next
+240               tabPrincipal.ActiveTab = tabPrincipal.ActiveTab - 1
+250               On Error GoTo Erro
+260       End Select
+          
+270   Exit Sub
 Erro:
-   Call MsgBox("Erro no módulo: " & "frmCadastroDeJogadorV2" & vbCrLf & "No Procedimento: " & "Form_KeyUp" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+280      Call MsgBox("Erro no módulo: " & "frmCadastroDeJogadorV2" & vbCrLf & "No Procedimento: " & "Form_KeyUp" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 End Sub
 Private Sub cmdRemover_Click()
-    imgFotoJogador.Picture = Nothing
-    mstrFoto = ""
+10        imgFotoJogador.Picture = Nothing
+20        mstrFoto = ""
+30        blnRemoveuFoto = True
 End Sub
 
 Private Sub Form_Load()
-    
-    mstrFlag = ""
-    
-    If mblnCarregando = True Then
-        txtCodigoInterno.Text = mlngJogador
-        Call txtCodigoInterno_KeyDown(vbKeyReturn, 0)
-    Else
-        Call LimparCampos
-        Call HabilitarTBBotoes(True, False, True, False, False, True, False, False)
-        Call HabilitarCampos(False)
-    End If
+          
+10        mstrFlag = ""
+          
+20        If mblnCarregando = True Then
+30            txtCodigoInterno.Text = mlngJogador
+40            Call txtCodigoInterno_KeyDown(vbKeyReturn, 0)
+50        Else
+60            Call LimparCampos
+70            Call HabilitarTBBotoes(True, False, True, False, False, True, False, False)
+80            Call HabilitarCampos(False)
+90        End If
 End Sub
 
 Private Sub LimparCampos()
-    
-    LimparArray mbitFoto
-    
-    mstrFlag = ""
-    
-    txtCodigoInterno.Text = ""
-    txtApelido.Text = ""
-    txtNomeJogador.Text = ""
-    sscClube.Text = ""
-    sscPosicao.Text = ""
-    'txtLocalDeNascimento.Text = ""
-    txtNomePai.Text = ""
-    txtNomeMae.Text = ""
-    txtUsuarioAlteracao.Text = ""
-    txtCertidaoNascimento.Text = ""
-    txtCartorio.Text = ""
-    txtIdentidade.Text = ""
-    txtOrgao.Text = ""
-    txtNomeEscola.Text = ""
-    txtEnderecoEscola.Text = ""
-    sscCidadeEscola.Text = ""
-    txtBairroEscola.Text = ""
-    txtRedeSocialEscola.Text = ""
-    txtEnderecoAtleta.Text = ""
-    sscCidadeEnderecoAtleta.Text = ""
-    txtBairroEnderecoAtleta.Text = ""
-    txtTelCel1.Text = ""
-    txtTelCel2.Text = ""
-    txtEmail.Text = ""
-    txtFacebookAtleta.Text = ""
-    txtInstagramAtleta.Text = ""
-    txtNumCamisa.Text = ""
-    txtUsuarioCadastro.Text = ""
+          
+10        LimparArray mbitFoto
+          
+20        mstrFlag = ""
+30        blnRemoveuFoto = False
+          
+40        txtCodigoInterno.Text = ""
+50        txtApelido.Text = ""
+60        txtNomeJogador.Text = ""
+70        sscClube.Text = ""
+80        sscPosicao.Text = ""
+          'txtLocalDeNascimento.Text = ""
+90        txtNomePai.Text = ""
+100       txtNomeMae.Text = ""
+110       txtUsuarioAlteracao.Text = ""
+120       txtCertidaoNascimento.Text = ""
+130       txtCartorio.Text = ""
+140       txtIdentidade.Text = ""
+150       txtOrgao.Text = ""
+160       txtNomeEscola.Text = ""
+170       txtEnderecoEscola.Text = ""
+180       sscCidadeEscola.Text = ""
+190       txtBairroEscola.Text = ""
+200       txtRedeSocialEscola.Text = ""
+210       txtEnderecoAtleta.Text = ""
+220       sscCidadeEnderecoAtleta.Text = ""
+230       txtBairroEnderecoAtleta.Text = ""
+240       txtTelCel1.Text = ""
+250       txtTelCel2.Text = ""
+260       txtEmail.Text = ""
+270       txtFacebookAtleta.Text = ""
+280       txtInstagramAtleta.Text = ""
+290       txtNumCamisa.Text = ""
+300       txtUsuarioCadastro.Text = ""
 
-    
-    optMasculino.Value = vbChecked
-    optFeminino.Value = vbUnchecked
-    
-    chkWpp1.Value = vbUnchecked
-    chkwpp2.Value = vbUnchecked
-    
-    dtcDataUltimaAlteracao.DateValue = Nothing
-    dtcDataNascimento.DateValue = Nothing
-    dtcDataCadastro.DateValue = Nothing
-    
-    sscUfEscola.Text = ""
-    sscUfEnderecoAtleta.Text = ""
-    mstrFoto = ""
-    imgFotoJogador.Picture = Nothing
-    
-    modBDCombo_SelecionarCartecoriaJogador sscCartegoria
-    modBDCombo_SelecionarEstados sscUfEscola
-    modBDCombo_SelecionarEstados sscUfEnderecoAtleta
-    modBDCombo_SelecionarEquipePorCodigo sscClube
-    modBDCombo_SelecionarPosicoesAtleta sscPosicao
-    
-'    modBDCombo_SelecionarCidades sscCidadeEnderecoAtleta
-'    modBDCombo_SelecionarCidades sscCidadeEscola
-    
+          
+310       optMasculino.Value = vbChecked
+320       optFeminino.Value = vbUnchecked
+          
+330       chkWpp1.Value = vbUnchecked
+340       chkwpp2.Value = vbUnchecked
+          
+350       dtcDataUltimaAlteracao.DateValue = Nothing
+360       dtcDataNascimento.DateValue = Nothing
+370       dtcDataCadastro.DateValue = Nothing
+          
+380       sscUfEscola.Text = ""
+390       sscUfEnderecoAtleta.Text = ""
+400       mstrFoto = ""
+410       imgFotoJogador.Picture = Nothing
+          
+420       modBDCombo_SelecionarCartecoriaJogador sscCartegoria
+430       modBDCombo_SelecionarEstados sscUfEscola
+440       modBDCombo_SelecionarEstados sscUfEnderecoAtleta
+450       modBDCombo_SelecionarEquipePorCodigo sscClube
+460       modBDCombo_SelecionarPosicoesAtleta sscPosicao
+          
+      '    modBDCombo_SelecionarCidades sscCidadeEnderecoAtleta
+      '    modBDCombo_SelecionarCidades sscCidadeEscola
+          
 End Sub
 
 Private Sub HabilitarCampos(blnhabilitar As Boolean)
-    
-    txtCodigoInterno.Locked = blnhabilitar
-    txtApelido.Locked = Not blnhabilitar
-    txtNomeJogador.Locked = Not blnhabilitar
-    
-    'txtLocalDeNascimento.Locked = Not blnhabilitar
-    txtNomePai.Locked = Not blnhabilitar
-    txtNomeMae.Locked = Not blnhabilitar
-    txtUsuarioAlteracao.Locked = True
-    txtCertidaoNascimento.Enabled = blnhabilitar
-    txtCartorio.Locked = Not blnhabilitar
-    txtIdentidade.Enabled = blnhabilitar
-    txtOrgao.Locked = Not blnhabilitar
-    txtNomeEscola.Locked = Not blnhabilitar
-    txtEnderecoEscola.Locked = Not blnhabilitar
-    sscCidadeEscola.Enabled = blnhabilitar
-    txtBairroEscola.Locked = Not blnhabilitar
-    txtRedeSocialEscola.Locked = Not blnhabilitar
-    txtEnderecoAtleta.Locked = Not blnhabilitar
-    sscCidadeEnderecoAtleta.Enabled = blnhabilitar
-    txtBairroEnderecoAtleta.Locked = Not blnhabilitar
-    txtTelCel1.Locked = Not blnhabilitar
-    txtTelCel2.Locked = Not blnhabilitar
-    txtEmail.Locked = Not blnhabilitar
-    txtFacebookAtleta.Locked = Not blnhabilitar
-    txtInstagramAtleta.Locked = Not blnhabilitar
-    txtNumCamisa.Locked = Not blnhabilitar
-    
-    chkWpp1.Enabled = blnhabilitar
-    chkwpp2.Enabled = blnhabilitar
-    
-    optMasculino.Enabled = blnhabilitar
-    optFeminino.Enabled = blnhabilitar
-    
-    dtcDataNascimento.Enabled = blnhabilitar
-    
-    sscClube.Enabled = blnhabilitar
-    sscPosicao.Enabled = blnhabilitar
-    sscCartegoria.Enabled = blnhabilitar
-    sscUfEscola.Enabled = blnhabilitar
-    sscUfEnderecoAtleta.Enabled = blnhabilitar
-    
-    cmdAdicionar.Enabled = blnhabilitar
-    cmdRemover.Enabled = blnhabilitar
+          
+10        txtCodigoInterno.Locked = blnhabilitar
+20        txtApelido.Locked = Not blnhabilitar
+30        txtNomeJogador.Locked = Not blnhabilitar
+          
+          'txtLocalDeNascimento.Locked = Not blnhabilitar
+40        txtNomePai.Locked = Not blnhabilitar
+50        txtNomeMae.Locked = Not blnhabilitar
+60        txtUsuarioAlteracao.Locked = True
+70        txtCertidaoNascimento.Enabled = blnhabilitar
+80        txtCartorio.Locked = Not blnhabilitar
+90        txtIdentidade.Enabled = blnhabilitar
+100       txtOrgao.Locked = Not blnhabilitar
+110       txtNomeEscola.Locked = Not blnhabilitar
+120       txtEnderecoEscola.Locked = Not blnhabilitar
+130       sscCidadeEscola.Enabled = blnhabilitar
+140       txtBairroEscola.Locked = Not blnhabilitar
+150       txtRedeSocialEscola.Locked = Not blnhabilitar
+160       txtEnderecoAtleta.Locked = Not blnhabilitar
+170       sscCidadeEnderecoAtleta.Enabled = blnhabilitar
+180       txtBairroEnderecoAtleta.Locked = Not blnhabilitar
+190       txtTelCel1.Locked = Not blnhabilitar
+200       txtTelCel2.Locked = Not blnhabilitar
+210       txtEmail.Locked = Not blnhabilitar
+220       txtFacebookAtleta.Locked = Not blnhabilitar
+230       txtInstagramAtleta.Locked = Not blnhabilitar
+240       txtNumCamisa.Locked = Not blnhabilitar
+          
+250       chkWpp1.Enabled = blnhabilitar
+260       chkwpp2.Enabled = blnhabilitar
+          
+270       optMasculino.Enabled = blnhabilitar
+280       optFeminino.Enabled = blnhabilitar
+          
+290       dtcDataNascimento.Enabled = blnhabilitar
+          
+300       sscClube.Enabled = blnhabilitar
+310       sscPosicao.Enabled = blnhabilitar
+320       sscCartegoria.Enabled = blnhabilitar
+330       sscUfEscola.Enabled = blnhabilitar
+340       sscUfEnderecoAtleta.Enabled = blnhabilitar
+          
+350       cmdAdicionar.Enabled = blnhabilitar
+360       cmdRemover.Enabled = blnhabilitar
 End Sub
 
 Private Sub HabilitarTBBotoes(blnNovo As Boolean, blnAlterar As Boolean, blnProcurar As Boolean, blnAbandonar As Boolean, blnGravar As Boolean, blnSair As Boolean, blnImprimir As Boolean, blnExcluir As Boolean)
 
-    tbBotoes.Buttons("cmdNovo").Enabled = blnNovo
-    tbBotoes.Buttons("cmdAlterar").Enabled = blnAlterar
-    tbBotoes.Buttons("cmdProcurar").Enabled = blnProcurar
-    tbBotoes.Buttons("cmdLimpar").Enabled = blnAbandonar
-    tbBotoes.Buttons("cmdGravar").Enabled = blnGravar
-    tbBotoes.Buttons("cmdSair").Enabled = blnSair
-    tbBotoes.Buttons("cmdimprimir").Enabled = blnImprimir
-    tbBotoes.Buttons("cmdExcluir").Enabled = blnExcluir
-    
+10        tbBotoes.Buttons("cmdNovo").Enabled = blnNovo
+20        tbBotoes.Buttons("cmdAlterar").Enabled = blnAlterar
+30        tbBotoes.Buttons("cmdProcurar").Enabled = blnProcurar
+40        tbBotoes.Buttons("cmdLimpar").Enabled = blnAbandonar
+50        tbBotoes.Buttons("cmdGravar").Enabled = blnGravar
+60        tbBotoes.Buttons("cmdSair").Enabled = blnSair
+70        tbBotoes.Buttons("cmdimprimir").Enabled = blnImprimir
+80        tbBotoes.Buttons("cmdExcluir").Enabled = blnExcluir
+          
 End Sub
 
 
 Private Sub sscUfEnderecoAtleta_LostFocus()
-    Call modBDCombo_SelecionarCidades(sscCidadeEnderecoAtleta, , sscUfEnderecoAtleta.Columns("chcodigo").Value)
+10        Call modBDCombo_SelecionarCidades(sscCidadeEnderecoAtleta, , sscUfEnderecoAtleta.Columns("chcodigo").Value)
 End Sub
 
 Private Sub sscUfEscola_LostFocus()
-    Call modBDCombo_SelecionarCidades(sscCidadeEscola, , sscUfEscola.Columns("chcodigo").Value)
+10        Call modBDCombo_SelecionarCidades(sscCidadeEscola, , sscUfEscola.Columns("chcodigo").Value)
 End Sub
 
 Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
-    If Not (Button.Enabled) Then Exit Sub
-    Select Case Button.Key
-        
-        Case "cmdNovo":
-            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 2) = True Then
-                mstrFlag = "I"
-                Call HabilitarCampos(True)
-                Call HabilitarTBBotoes(False, False, False, True, True, False, False, False)
-                txtApelido.SetFocus
-            Else
-                MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº2" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
-            End If
-        
-        Case "cmdAlterar":
-            
-            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 3) = True Then
-                mstrFlag = "A"
-                Call HabilitarCampos(True)
-                Call HabilitarTBBotoes(False, False, False, True, True, False, False, False)
-                txtApelido.SetFocus
-            Else
-                MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº3" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
-            End If
-            
-        Case "cmdExcluir":
-            
-            If lblInativo.Visible = False Then
-                If MsgBox("Deseja INATIVAR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será removido temporáriamente do sistema mas ainda poderá ser reativado.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
-                    Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 1)
-                    Call CarregarJogador(Val(txtCodigoInterno.Text))
-                End If
-            Else
-                If MsgBox("Deseja EXCLUIR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será removido permanentemente do sistema e NÃO poderá ser reativado.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
-                    Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 2)
-                    mstrFlag = ""
-                    Call LimparCampos
-                    Call HabilitarCampos(False)
-                    Call HabilitarTBBotoes(True, False, True, False, False, True, True, False)
-                    txtCodigoInterno.SetFocus
-                End If
-            End If
-            
-        
-        Case "cmdLimpar":
-            mstrFlag = ""
-            Call LimparCampos
-            Call HabilitarCampos(False)
-            Call HabilitarTBBotoes(True, False, True, False, False, True, True, False)
-             txtCodigoInterno.SetFocus
-        
-        Case "cmdGravar"
-            If VerificarCampos Then
-                GravarJogador
-                CarregarJogador Val(txtCodigoInterno.Text)
-                mstrFlag = ""
-            Else
-                Exit Sub
-            End If
-            Call HabilitarCampos(False)
-            Call HabilitarTBBotoes(False, True, True, True, False, False, True, True)
-            txtCodigoInterno.SetFocus
-            
-        Case "cmdProcurar"
-            If tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Procurar" Then
-                Dim ObjRelatorioJogador As ClsRelJogador
-                Set ObjRelatorioJogador = New ClsRelJogador
-                
-                If Not gSMConexao Is Nothing Then
-                    If gSMConexao.EstadoConexaoBD = adStateOpen Then
-                        
-                        ObjRelatorioJogador.Show gSMConexao, "ProFut - Relatório de Jogador", vbModal, Me, True
-                        txtCodigoInterno.Text = ObjRelatorioJogador.ID
-                        txtCodigoInterno_KeyDown vbKeyReturn, 0
-                        Exit Sub
-                    Else
-                        gSMConexao.conectar
-                    End If
-                End If
-            Else
-                If MsgBox("Deseja REATIVAR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será ativado novamente no sistema.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
-                    Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 3)
-                    Call CarregarJogador(Val(txtCodigoInterno.Text))
-                End If
-            End If
-        
-        Case "cmdimprimir"
-        
-            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 4) = True Then
-                frmOpcaoImpressao.Show vbModal, Me
-                Select Case mlngOpcao
-                    Case 1
-                        ImprimirFicha
-                    Case 2
-                        ImprimirCarteirinha
-                End Select
-            Else
-                MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº4" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
-            End If
-        Case "cmdSair"
-            Unload Me
-        
-    End Select
+10        If Not (Button.Enabled) Then Exit Sub
+20        Select Case Button.Key
+              
+              Case "cmdNovo":
+30                If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 2) = True Then
+40                    mstrFlag = "I"
+50                    Call HabilitarCampos(True)
+60                    Call HabilitarTBBotoes(False, False, False, True, True, False, False, False)
+70                    txtApelido.SetFocus
+80                Else
+90                    MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº2" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
+100               End If
+              
+110           Case "cmdAlterar":
+                  
+120               If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 3) = True Then
+130                   mstrFlag = "A"
+140                   Call HabilitarCampos(True)
+150                   Call HabilitarTBBotoes(False, False, False, True, True, False, False, False)
+160                   txtApelido.SetFocus
+170               Else
+180                   MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº3" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
+190               End If
+                  
+200           Case "cmdExcluir":
+                  
+210               If lblInativo.Visible = False Then
+220                   If MsgBox("Deseja INATIVAR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será removido temporáriamente do sistema mas ainda poderá ser reativado.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
+230                       Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 1)
+240                       Call CarregarJogador(Val(txtCodigoInterno.Text))
+250                   End If
+260               Else
+270                   If MsgBox("Deseja EXCLUIR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será removido permanentemente do sistema e NÃO poderá ser reativado.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
+280                       Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 2)
+290                       mstrFlag = ""
+300                       Call LimparCampos
+310                       Call HabilitarCampos(False)
+320                       Call HabilitarTBBotoes(True, False, True, False, False, True, True, False)
+330                       txtCodigoInterno.SetFocus
+340                   End If
+350               End If
+                  
+              
+360           Case "cmdLimpar":
+370               mstrFlag = ""
+380               Call LimparCampos
+390               Call HabilitarCampos(False)
+400               Call HabilitarTBBotoes(True, False, True, False, False, True, True, False)
+410                txtCodigoInterno.SetFocus
+              
+420           Case "cmdGravar"
+430               If VerificarCampos Then
+440                   GravarJogador
+450                   CarregarJogador Val(txtCodigoInterno.Text)
+460                   mstrFlag = ""
+470               Else
+480                   Exit Sub
+490               End If
+500               Call HabilitarCampos(False)
+510               Call HabilitarTBBotoes(False, True, True, True, False, False, True, True)
+520               txtCodigoInterno.SetFocus
+                  
+530           Case "cmdProcurar"
+540               If tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Procurar" Then
+                      Dim ObjRelatorioJogador As ClsRelJogador
+550                   Set ObjRelatorioJogador = New ClsRelJogador
+                      
+560                   If Not gSMConexao Is Nothing Then
+570                       If gSMConexao.EstadoConexaoBD = adStateOpen Then
+                              
+580                           ObjRelatorioJogador.Show gSMConexao, "ProFut - Relatório de Jogador", vbModal, Me, True
+590                           txtCodigoInterno.Text = ObjRelatorioJogador.ID
+600                           txtCodigoInterno_KeyDown vbKeyReturn, 0
+610                           Exit Sub
+620                       Else
+630                           gSMConexao.conectar
+640                       End If
+650                   End If
+660               Else
+670                   If MsgBox("Deseja REATIVAR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será ativado novamente no sistema.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
+680                       Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 3)
+690                       Call CarregarJogador(Val(txtCodigoInterno.Text))
+700                   End If
+710               End If
+              
+720           Case "cmdimprimir"
+              
+730               If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 4) = True Then
+740                   frmOpcaoImpressao.Show vbModal, Me
+750                   Select Case mlngOpcao
+                          Case 1
+760                           ImprimirFicha
+770                       Case 2
+780                           ImprimirCarteirinha
+790                   End Select
+800               Else
+810                   MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº4" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
+820               End If
+830           Case "cmdSair"
+840               Unload Me
+              
+850       End Select
 End Sub
 
 Private Sub txtCertidaoNascimento_KeyPress(KeyAscii As Integer)
-    TextBoxSomenteNumeros txtCertidaoNascimento.Text, KeyAscii, False, False
+10        TextBoxSomenteNumeros txtCertidaoNascimento.Text, KeyAscii, False, False
 End Sub
 
 Private Sub txtCodigoInterno_KeyDown(KeyCode As Integer, Shift As Integer)
-    If KeyCode = vbKeyReturn Then
-        CarregarJogador Val(txtCodigoInterno.Text)
-    End If
+10        If KeyCode = vbKeyReturn Then
+20            CarregarJogador Val(txtCodigoInterno.Text)
+30        End If
 End Sub
 
 Private Sub txtCodigoInterno_KeyPress(KeyAscii As Integer)
-    TextBoxSomenteNumeros txtCodigoInterno.Text, KeyAscii, False, False
+10        TextBoxSomenteNumeros txtCodigoInterno.Text, KeyAscii, False, False
 End Sub
 
 Private Sub txtEmail_LostFocus()
-    EmailValido txtEmail.Text
+10        EmailValido txtEmail.Text
 End Sub
 
 Private Sub txtApelido_Change()
-    If KeyCode = vbKeyReturn Then
-        'chamo procurar jogador aqui
-    End If
+10        If KeyCode = vbKeyReturn Then
+              'chamo procurar jogador aqui
+20        End If
 End Sub
 
 Private Sub txtApelido_KeyPress(KeyAscii As Integer)
@@ -2033,373 +2038,373 @@ Private Sub txtApelido_KeyPress(KeyAscii As Integer)
 End Sub
 
 Private Sub txtIdentidade_KeyPress(KeyAscii As Integer)
-    TextBoxSomenteNumeros txtIdentidade.Text, KeyAscii, False, False
+10        TextBoxSomenteNumeros txtIdentidade.Text, KeyAscii, False, False
 End Sub
 
 Private Sub txtTelCel1_KeyPress(KeyAscii As Integer)
-    TextBoxSomenteNumeros txtTelCel1.Text, KeyAscii, False, False
+10        TextBoxSomenteNumeros txtTelCel1.Text, KeyAscii, False, False
 End Sub
 
 Private Sub txtTelCel1_Validate(Cancel As Boolean)
-    FormataTelefone txtTelCel1.Text, True
+10        FormataTelefone txtTelCel1.Text, True
 End Sub
 
 Private Sub txtTelCel2_KeyPress(KeyAscii As Integer)
-    TextBoxSomenteNumeros txtTelCel2.Text, KeyAscii, False, False
+10        TextBoxSomenteNumeros txtTelCel2.Text, KeyAscii, False, False
 End Sub
 
 
 Private Function VerificarCampos()
-On Error GoTo Erro
-    Dim blnContinua As Boolean
-    Dim strMensagem As String
-    
-    blnContinua = True
-'------------INFORMAÇÕES BASICAS------------
-    If txtApelido.Text = "" Then
-        strMensagem = strMensagem & "-> Número de inscrição não preenchido." & vbCrLf
-        blnContinua = False
-    End If
-    
-    If txtNomeJogador.Text = "" Then
-        strMensagem = strMensagem & "-> Nome do jogador não preenchido." & vbCrLf
-        blnContinua = False
-    End If
-    
-    If sscClube.Text = "" Then
-        strMensagem = strMensagem & "-> Equipe não informada ou inválida." & vbCrLf
-        blnContinua = False
-    End If
-    
-    If sscPosicao.Text = "" Then
-        strMensagem = strMensagem & "-> Posição não informada ou inválida." & vbCrLf
-        blnContinua = False
-    End If
-    
-    If txtNomePai.Text = "" Then
-        strMensagem = strMensagem & "-> Nome do pai não informado." & vbCrLf
-        blnContinua = False
-    End If
-    
-    If txtNomeMae.Text = "" Then
-        strMensagem = strMensagem & "-> Nome da mãe não informado." & vbCrLf
-        blnContinua = False
-    End If
-    
-    If txtNomeMae.Text = "" Then
-        strMensagem = strMensagem & "-> Nome da mãe não informado." & vbCrLf
-        blnContinua = False
-    End If
-'-----------------Documentos do Atleta------------------
-'    If txtCertidaoNascimento.Text = "" And txtIdentidade.Text = "" Then
-'        strMensagem = strMensagem & "-> Documento do jogador não informado." & vbCrLf
-'        blnContinua = False
-'    End If
-'
-'    If txtCertidaoNascimento.Text <> "" And txtCartorio.Text = "" Then
-'        strMensagem = strMensagem & "-> Cartório responsável pela certidão não informado." & vbCrLf
-'        blnContinua = False
-'    End If
-'
-'    If txtIdentidade.Text <> "" And txtOrgao.Text = "" Then
-'        strMensagem = strMensagem & "-> Órgão expedidor não informado." & vbCrLf
-'        blnContinua = False
-'    End If
-'
-'----------------Informações escolares-------------------
-'OBRIGATÓRIO SOMENTE MEDIANTE AO PREENCHIMENTO DO NOME DA ESCOLA
-    If txtNomeEscola <> "" Then
-    
-        If txtEnderecoEscola.Text = "" Then
-            strMensagem = strMensagem & "-> Endereço da escola não informado." & vbCrLf
-            blnContinua = False
-        End If
-            
-        If sscUfEnderecoAtleta.Text = "" Then
-            strMensagem = strMensagem & "-> Estado da escola não informado." & vbCrLf
-            blnContinua = False
-        End If
-                    
-        If sscCidadeEscola.Text = "" Then
-            strMensagem = strMensagem & "-> Cidade da escola não informado." & vbCrLf
-            blnContinua = False
-        End If
-        
-        If txtBairroEscola.Text = "" Then
-            strMensagem = strMensagem & "-> Bairro da escola não informado." & vbCrLf
-            blnContinua = False
-        End If
-    End If
-    
-'-------------Endereço/Contato do Atleta------------------
-    If txtEnderecoAtleta.Text = "" Then
-        strMensagem = strMensagem & "-> Endereço do atleta não informado." & vbCrLf
-        blnContinua = False
-    End If
-    
-    If sscUfEnderecoAtleta.Text = "" Then
-        strMensagem = strMensagem & "-> Estado do atleta não informado." & vbCrLf
-        blnContinua = False
-    End If
-    
-    If sscCidadeEnderecoAtleta.Text = "" Then
-        strMensagem = strMensagem & "-> Cidade do atleta não informado." & vbCrLf
-        blnContinua = False
-    End If
-    
-    If txtBairroEnderecoAtleta.Text = "" Then
-        strMensagem = strMensagem & "-> Bairro do atleta não informado." & vbCrLf
-        blnContinua = False
-    End If
-    
-    If txtTelCel1.Text = "" And txtTelCel2.Text = "" Then
-        strMensagem = strMensagem & "-> O atleta precisa ter pelo menos um telefone de contato." & vbCrLf
-        blnContinua = False
-    End If
-    
-    
-    If Not blnContinua Then
-        
-        MsgBox "O jogador não pode ser gravado pois possuí as seguintes pendências: " & vbCrLf & strMensagem, vbOKOnly + vbInformation, "Atenção!"
-        
-    End If
-    
-    VerificarCampos = blnContinua
+10    On Error GoTo Erro
+          Dim blnContinua As Boolean
+          Dim strMensagem As String
+          
+20        blnContinua = True
+      '------------INFORMAÇÕES BASICAS------------
+30        If txtApelido.Text = "" Then
+40            strMensagem = strMensagem & "-> Número de inscrição não preenchido." & vbCrLf
+50            blnContinua = False
+60        End If
+          
+70        If txtNomeJogador.Text = "" Then
+80            strMensagem = strMensagem & "-> Nome do jogador não preenchido." & vbCrLf
+90            blnContinua = False
+100       End If
+          
+110       If sscClube.Text = "" Then
+120           strMensagem = strMensagem & "-> Equipe não informada ou inválida." & vbCrLf
+130           blnContinua = False
+140       End If
+          
+150       If sscPosicao.Text = "" Then
+160           strMensagem = strMensagem & "-> Posição não informada ou inválida." & vbCrLf
+170           blnContinua = False
+180       End If
+          
+190       If txtNomePai.Text = "" Then
+200           strMensagem = strMensagem & "-> Nome do pai não informado." & vbCrLf
+210           blnContinua = False
+220       End If
+          
+230       If txtNomeMae.Text = "" Then
+240           strMensagem = strMensagem & "-> Nome da mãe não informado." & vbCrLf
+250           blnContinua = False
+260       End If
+          
+270       If txtNomeMae.Text = "" Then
+280           strMensagem = strMensagem & "-> Nome da mãe não informado." & vbCrLf
+290           blnContinua = False
+300       End If
+      '-----------------Documentos do Atleta------------------
+      '    If txtCertidaoNascimento.Text = "" And txtIdentidade.Text = "" Then
+      '        strMensagem = strMensagem & "-> Documento do jogador não informado." & vbCrLf
+      '        blnContinua = False
+      '    End If
+      '
+      '    If txtCertidaoNascimento.Text <> "" And txtCartorio.Text = "" Then
+      '        strMensagem = strMensagem & "-> Cartório responsável pela certidão não informado." & vbCrLf
+      '        blnContinua = False
+      '    End If
+      '
+      '    If txtIdentidade.Text <> "" And txtOrgao.Text = "" Then
+      '        strMensagem = strMensagem & "-> Órgão expedidor não informado." & vbCrLf
+      '        blnContinua = False
+      '    End If
+      '
+      '----------------Informações escolares-------------------
+      'OBRIGATÓRIO SOMENTE MEDIANTE AO PREENCHIMENTO DO NOME DA ESCOLA
+310       If txtNomeEscola <> "" Then
+          
+320           If txtEnderecoEscola.Text = "" Then
+330               strMensagem = strMensagem & "-> Endereço da escola não informado." & vbCrLf
+340               blnContinua = False
+350           End If
+                  
+360           If sscUfEnderecoAtleta.Text = "" Then
+370               strMensagem = strMensagem & "-> Estado da escola não informado." & vbCrLf
+380               blnContinua = False
+390           End If
+                          
+400           If sscCidadeEscola.Text = "" Then
+410               strMensagem = strMensagem & "-> Cidade da escola não informado." & vbCrLf
+420               blnContinua = False
+430           End If
+              
+440           If txtBairroEscola.Text = "" Then
+450               strMensagem = strMensagem & "-> Bairro da escola não informado." & vbCrLf
+460               blnContinua = False
+470           End If
+480       End If
+          
+      '-------------Endereço/Contato do Atleta------------------
+490       If txtEnderecoAtleta.Text = "" Then
+500           strMensagem = strMensagem & "-> Endereço do atleta não informado." & vbCrLf
+510           blnContinua = False
+520       End If
+          
+530       If sscUfEnderecoAtleta.Text = "" Then
+540           strMensagem = strMensagem & "-> Estado do atleta não informado." & vbCrLf
+550           blnContinua = False
+560       End If
+          
+570       If sscCidadeEnderecoAtleta.Text = "" Then
+580           strMensagem = strMensagem & "-> Cidade do atleta não informado." & vbCrLf
+590           blnContinua = False
+600       End If
+          
+610       If txtBairroEnderecoAtleta.Text = "" Then
+620           strMensagem = strMensagem & "-> Bairro do atleta não informado." & vbCrLf
+630           blnContinua = False
+640       End If
+          
+650       If txtTelCel1.Text = "" And txtTelCel2.Text = "" Then
+660           strMensagem = strMensagem & "-> O atleta precisa ter pelo menos um telefone de contato." & vbCrLf
+670           blnContinua = False
+680       End If
+          
+          
+690       If Not blnContinua Then
+              
+700           MsgBox "O jogador não pode ser gravado pois possuí as seguintes pendências: " & vbCrLf & strMensagem, vbOKOnly + vbInformation, "Atenção!"
+              
+710       End If
+          
+720       VerificarCampos = blnContinua
 
-Exit Function
+730   Exit Function
 Erro:
-   Call MsgBox("Erro no módulo: " & "frmCadastroDeJogador" & vbCrLf & "No Procedimento: " & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+740      Call MsgBox("Erro no módulo: " & "frmCadastroDeJogador" & vbCrLf & "No Procedimento: " & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 End Function
 
 Public Sub SalvaImagem(ByRef f() As Byte, File As String)
-    Dim b() As Byte
-    Dim ff  As Long
-    Dim n   As Long
-    
-    On Error GoTo ErrHandler
-    ff = FreeFile
-    Open File For Binary Access Read As ff
-    n = LOF(ff)
-    If n Then
-       ReDim b(1 To n) As Byte
-       Get ff, , b()
-    End If
-    Close ff
-    f() = b()
-    Exit Sub
-    
+          Dim b() As Byte
+          Dim ff  As Long
+          Dim n   As Long
+          
+10        On Error GoTo ErrHandler
+20        ff = FreeFile
+30        Open File For Binary Access Read As ff
+40        n = LOF(ff)
+50        If n Then
+60           ReDim b(1 To n) As Byte
+70           Get ff, , b()
+80        End If
+90        Close ff
+100       f() = b()
+110       Exit Sub
+          
 ErrHandler:
-    MsgBox "ERROR: " & Err.Description
+120       MsgBox "ERROR: " & Err.Description
 End Sub
 
 Private Sub GravarJogador()
-On Error GoTo Erro
-      
-    Dim udtJogador As TypJogador
-    Dim binIMG() As Byte
-    
-    'COLOCO A IMAGEM EM CÓDIGO BINÁRIO
-    If mstrFoto <> "" Then
-        SalvaImagem binIMG(), mstrFoto
-    End If
-    
-    With udtJogador
-    
-        .lngCodigo = IIf(txtCodigoInterno.Text <> "", Val(txtCodigoInterno.Text), 0)
-        .strApelido = txtApelido.Text
-        .strNomeAtleta = txtNomeJogador.Text
-        .lngCartegoria = sscCartegoria.Columns("chcodigo").Value
-        .lngEquipe = sscClube.Columns(1).Value
-        .lngPosicao = sscPosicao.Columns(1).Value
-        '.strLocalNascimento = txtLocalDeNascimento.Text
-        .strNomePai = txtNomePai.Text
-        .strNomeMae = txtNomeMae.Text
-        .strCertidaoNascimento = txtCertidaoNascimento.Text
-        .strCartorio = txtCartorio.Text
-        .strIdentidade = txtIdentidade.Text
-        .strOrgaoIdentidade = txtOrgao.Text
-        .datDataNascimento = dtcDataNascimento.DateValue
-        If txtNomeEscola.Text <> "" Then
-            .strEscola = txtNomeEscola.Text
-            .lngEstadoEscola = sscUfEscola.Columns(1).Value
-            .strCidadeEscola = sscCidadeEscola.Text
-            .strBairroEscola = txtBairroEscola.Text
-            .strFacebookEscola = txtRedeSocialEscola.Text
-        End If
-        .lngEstado = sscUfEnderecoAtleta.Columns("chcodigo").Value
-        .strEndereco = txtEnderecoAtleta.Text
-        .strCidade = sscCidadeEnderecoAtleta.Text
-        .strBairro = txtBairroEnderecoAtleta.Text
-        .strTelefone1 = txtTelCel1.Text
-        .strTelefone2 = txtTelCel2.Text
-        .blnWpp1 = IIf(chkWpp1.Value = vbChecked, True, False)
-        .blnWpp2 = IIf(chkwpp2.Value = vbChecked, True, False)
-        .strEmailContato = txtEmail.Text
-        .strFacebook = txtFacebookAtleta
-        .strInstagram = txtInstagramAtleta.Text
-        .strEnderecoImagem() = binIMG()
-        .lngSexo = IIf(optMasculino.Value = True, 1, 2)
-        .lngNumeroCamisa = Val(txtNumCamisa.Text)
-        .blnTemImagem = IIf(mstrFoto = "", False, True)
-    End With
-    
-    
-    If mstrFlag = "I" Then
-        Call modJogador_AdicionarJogador(udtJogador)
-       
-    ElseIf mstrFlag = "A" Then
-        Call modJogador_AlterarJogador(udtJogador)
-    End If
-    
-    
-    txtCodigoInterno.Text = udtJogador.lngCodigo
-    
+10    On Error GoTo Erro
+            
+          Dim udtJogador As TypJogador
+          Dim binIMG() As Byte
+          
+          'COLOCO A IMAGEM EM CÓDIGO BINÁRIO
+20        If mstrFoto <> "" Then
+30            SalvaImagem binIMG(), mstrFoto
+40        End If
+          
+50        With udtJogador
+          
+60            .lngCodigo = IIf(txtCodigoInterno.Text <> "", Val(txtCodigoInterno.Text), 0)
+70            .strApelido = txtApelido.Text
+80            .strNomeAtleta = txtNomeJogador.Text
+90            .lngCartegoria = sscCartegoria.Columns("chcodigo").Value
+100           .lngEquipe = sscClube.Columns(1).Value
+110           .lngPosicao = sscPosicao.Columns(1).Value
+              '.strLocalNascimento = txtLocalDeNascimento.Text
+120           .strNomePai = txtNomePai.Text
+130           .strNomeMae = txtNomeMae.Text
+140           .strCertidaoNascimento = txtCertidaoNascimento.Text
+150           .strCartorio = txtCartorio.Text
+160           .strIdentidade = txtIdentidade.Text
+170           .strOrgaoIdentidade = txtOrgao.Text
+180           .datDataNascimento = dtcDataNascimento.DateValue
+190           If txtNomeEscola.Text <> "" Then
+200               .strEscola = txtNomeEscola.Text
+210               .lngEstadoEscola = sscUfEscola.Columns(1).Value
+220               .strCidadeEscola = sscCidadeEscola.Text
+230               .strBairroEscola = txtBairroEscola.Text
+240               .strFacebookEscola = txtRedeSocialEscola.Text
+250           End If
+260           .lngEstado = sscUfEnderecoAtleta.Columns("chcodigo").Value
+270           .strEndereco = txtEnderecoAtleta.Text
+280           .strCidade = sscCidadeEnderecoAtleta.Text
+290           .strBairro = txtBairroEnderecoAtleta.Text
+300           .strTelefone1 = txtTelCel1.Text
+310           .strTelefone2 = txtTelCel2.Text
+320           .blnWpp1 = IIf(chkWpp1.Value = vbChecked, True, False)
+330           .blnWpp2 = IIf(chkwpp2.Value = vbChecked, True, False)
+340           .strEmailContato = txtEmail.Text
+350           .strFacebook = txtFacebookAtleta
+360           .strInstagram = txtInstagramAtleta.Text
+370           .strEnderecoImagem() = IIf(mstrFoto <> "", binIMG(), mbitFoto())
+380           .lngSexo = IIf(optMasculino.Value = True, 1, 2)
+390           .lngNumeroCamisa = Val(txtNumCamisa.Text)
+400           .blnTemImagem = IIf(blnRemoveuFoto = True, False, True)
+410       End With
+          
+          
+420       If mstrFlag = "I" Then
+430           Call modJogador_AdicionarJogador(udtJogador)
+             
+440       ElseIf mstrFlag = "A" Then
+450           Call modJogador_AlterarJogador(udtJogador)
+460       End If
+          
+          
+470       txtCodigoInterno.Text = udtJogador.lngCodigo
+          
 
 
-Exit Sub
+480   Exit Sub
 Erro:
-    Call MsgBox("Erro no módulo: " & "frmCadastroDeJogador" & vbCrLf & "No Procedimento: " & "GravarJogador" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+490       Call MsgBox("Erro no módulo: " & "frmCadastroDeJogador" & vbCrLf & "No Procedimento: " & "GravarJogador" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 End Sub
 
 Private Sub CarregarJogador(lngCodigo As Long)
-On Error GoTo Erro
-    Dim objRsJogador As Recordset
-    Dim binIMG() As Byte
-    Set objRsJogador = New Recordset
-      
-    Call LimparCampos
-    modJogador_SelecionarJogadorPorCodigo lngCodigo, objRsJogador
-    
-    
-    If Not objRsJogador Is Nothing Then
-        If Not objRsJogador.EOF And Not objRsJogador.BOF Then
-        
-        
-            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 12) = False Then
-                If RetornaClubePorUsuario(gSMConexao.CodigoUsuario) <> NZ(objRsJogador!EQUIPE_IN) Then
-                    MsgBox "Você não tem permissão para visualizar o jogador pois ele não pertence a sua equipe.", vbOKOnly + vbExclamation, "Atenção!"
-                    Exit Sub
-                End If
-            End If
+10    On Error GoTo Erro
+          Dim objRsJogador As Recordset
+          Dim binIMG() As Byte
+20        Set objRsJogador = New Recordset
             
-            txtCodigoInterno.Text = NZ(objRsJogador!ID_JOGADOR_IN)
-            txtApelido.Text = NS(objRsJogador!APELIDO_VC)
-            txtNomeJogador.Text = NS(objRsJogador!NOMEATLETA_VC)
-            txtNumCamisa.Text = NZ(objRsJogador!NUMEROCAMISA_IN)
-            txtNomePai.Text = NS(objRsJogador!NOMEPAI_VC)
-            txtNomeMae.Text = NS(objRsJogador!STRNOMEMAE_VC)
-            txtUsuarioAlteracao.Text = NS(objRsJogador!USUARIOULTIMAALTERACAO_VC)
-            txtUsuarioCadastro.Text = NS(objRsJogador!USUARIOCADASTRO_VC)
-            txtCertidaoNascimento.Text = NS(objRsJogador!CERTIDAONASCIMENTO_VC)
-            txtCartorio.Text = NS(objRsJogador!CARTORIO_VC)
-            txtIdentidade.Text = NS(objRsJogador!IDENTIDADE_VC)
-            txtOrgao.Text = NS(objRsJogador!ORGAOIDENTIDADE_VC)
-            txtNomeEscola.Text = NS(objRsJogador!ESCOLA_VC)
-            txtEnderecoEscola.Text = NS(objRsJogador!ENDERECOESCOLA_VC)
-            sscCidadeEscola.Text = NS(objRsJogador!CIDADEESCOLA_VC)
-            txtBairroEscola.Text = NS(objRsJogador!BAIRROESCOLA_VC)
-            txtRedeSocialEscola.Text = NS(objRsJogador!REDESOCIALESCOLA_VC)
-            txtEnderecoAtleta.Text = NS(objRsJogador!ENDERECO_VC)
-            sscCidadeEnderecoAtleta.Text = NS(objRsJogador!CIDADE_VC)
-            txtBairroEnderecoAtleta.Text = NS(objRsJogador!BAIRRO_VC)
-            txtTelCel1.Text = NS(objRsJogador!TELCEL1_VC)
-            txtTelCel2.Text = NS(objRsJogador!TELCEL2_VC)
-            txtEmail.Text = NS(objRsJogador!EMAIL_VC)
-            txtFacebookAtleta.Text = NS(objRsJogador!FACEBOOK_VC)
-            txtInstagramAtleta.Text = NS(objRsJogador!INSTAGRAM_VC)
-            
-            If NZ(objRsJogador!SEXO_IN) = 1 Then
-                optMasculino.Value = True
-                optFeminino.Value = False
-            Else
-                optMasculino.Value = False
-                optFeminino.Value = True
-            End If
-            
-            chkWpp1.Value = IIf(NB(objRsJogador!WPP1_BT), vbChecked, vbUnchecked)
-            chkwpp2.Value = IIf(NB(objRsJogador!WPP2_BT), vbChecked, vbUnchecked)
-            
-            dtcDataCadastro.DateValue = ND(objRsJogador!DATACADASTRO_DT)
-            dtcDataUltimaAlteracao.DateValue = ND(objRsJogador!DATAULTIMAALTERACAO_DT)
-            dtcDataNascimento.DateValue = ND(objRsJogador!DATANASCIMENTO_DT)
-            
-            
-            lblInativo.Visible = NB(objRsJogador!EXCLUIDO_BT)
-            
-            If NB(objRsJogador!EXCLUIDO_BT) = True Then
-                tbBotoes.Buttons("cmdExcluir").Caption = "F5 - Excluir"
-                tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Reativar"
-                tbBotoes.Buttons("cmdProcurar").Image = 2
-            Else
-                tbBotoes.Buttons("cmdExcluir").Caption = "F5 - Inativar"
-                tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Procurar"
-                tbBotoes.Buttons("cmdProcurar").Image = 4
-            End If
-            
-'            mstrFoto = NS(objRsJogador!ENDERECOIMAGEM_VC)
-'            If mstrFoto <> "" Then
-'                imgFotoJogador.Picture = Nothing
-'                imgFotoJogador.Stretch = True
-'                On Error Resume Next
-'                imgFotoJogador.Picture = LoadPicture(mstrFoto)
-'                On Error GoTo Erro
-'            End If
+30        Call LimparCampos
+40        modJogador_SelecionarJogadorPorCodigo lngCodigo, objRsJogador
+          
+          
+50        If Not objRsJogador Is Nothing Then
+60            If Not objRsJogador.EOF And Not objRsJogador.BOF Then
+              
+              
+70                If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 12) = False Then
+80                    If RetornaClubePorUsuario(gSMConexao.CodigoUsuario) <> NZ(objRsJogador!EQUIPE_IN) Then
+90                        MsgBox "Você não tem permissão para visualizar o jogador pois ele não pertence a sua equipe.", vbOKOnly + vbExclamation, "Atenção!"
+100                       Exit Sub
+110                   End If
+120               End If
+                  
+130               txtCodigoInterno.Text = NZ(objRsJogador!ID_JOGADOR_IN)
+140               txtApelido.Text = NS(objRsJogador!APELIDO_VC)
+150               txtNomeJogador.Text = NS(objRsJogador!NOMEATLETA_VC)
+160               txtNumCamisa.Text = NZ(objRsJogador!NUMEROCAMISA_IN)
+170               txtNomePai.Text = NS(objRsJogador!NOMEPAI_VC)
+180               txtNomeMae.Text = NS(objRsJogador!STRNOMEMAE_VC)
+190               txtUsuarioAlteracao.Text = NS(objRsJogador!USUARIOULTIMAALTERACAO_VC)
+200               txtUsuarioCadastro.Text = NS(objRsJogador!USUARIOCADASTRO_VC)
+210               txtCertidaoNascimento.Text = NS(objRsJogador!CERTIDAONASCIMENTO_VC)
+220               txtCartorio.Text = NS(objRsJogador!CARTORIO_VC)
+230               txtIdentidade.Text = NS(objRsJogador!IDENTIDADE_VC)
+240               txtOrgao.Text = NS(objRsJogador!ORGAOIDENTIDADE_VC)
+250               txtNomeEscola.Text = NS(objRsJogador!ESCOLA_VC)
+260               txtEnderecoEscola.Text = NS(objRsJogador!ENDERECOESCOLA_VC)
+270               sscCidadeEscola.Text = NS(objRsJogador!CIDADEESCOLA_VC)
+280               txtBairroEscola.Text = NS(objRsJogador!BAIRROESCOLA_VC)
+290               txtRedeSocialEscola.Text = NS(objRsJogador!REDESOCIALESCOLA_VC)
+300               txtEnderecoAtleta.Text = NS(objRsJogador!ENDERECO_VC)
+310               sscCidadeEnderecoAtleta.Text = NS(objRsJogador!CIDADE_VC)
+320               txtBairroEnderecoAtleta.Text = NS(objRsJogador!BAIRRO_VC)
+330               txtTelCel1.Text = NS(objRsJogador!TELCEL1_VC)
+340               txtTelCel2.Text = NS(objRsJogador!TELCEL2_VC)
+350               txtEmail.Text = NS(objRsJogador!EMAIL_VC)
+360               txtFacebookAtleta.Text = NS(objRsJogador!FACEBOOK_VC)
+370               txtInstagramAtleta.Text = NS(objRsJogador!INSTAGRAM_VC)
+                  
+380               If NZ(objRsJogador!SEXO_IN) = 1 Then
+390                   optMasculino.Value = True
+400                   optFeminino.Value = False
+410               Else
+420                   optMasculino.Value = False
+430                   optFeminino.Value = True
+440               End If
+                  
+450               chkWpp1.Value = IIf(NB(objRsJogador!WPP1_BT), vbChecked, vbUnchecked)
+460               chkwpp2.Value = IIf(NB(objRsJogador!WPP2_BT), vbChecked, vbUnchecked)
+                  
+470               dtcDataCadastro.DateValue = ND(objRsJogador!DATACADASTRO_DT)
+480               dtcDataUltimaAlteracao.DateValue = ND(objRsJogador!DATAULTIMAALTERACAO_DT)
+490               dtcDataNascimento.DateValue = ND(objRsJogador!DATANASCIMENTO_DT)
+                  
+                  
+500               lblInativo.Visible = NB(objRsJogador!EXCLUIDO_BT)
+                  
+510               If NB(objRsJogador!EXCLUIDO_BT) = True Then
+520                   tbBotoes.Buttons("cmdExcluir").Caption = "F5 - Excluir"
+530                   tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Reativar"
+540                   tbBotoes.Buttons("cmdProcurar").Image = 2
+550               Else
+560                   tbBotoes.Buttons("cmdExcluir").Caption = "F5 - Inativar"
+570                   tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Procurar"
+580                   tbBotoes.Buttons("cmdProcurar").Image = 4
+590               End If
+                  
+      '            mstrFoto = NS(objRsJogador!ENDERECOIMAGEM_VC)
+      '            If mstrFoto <> "" Then
+      '                imgFotoJogador.Picture = Nothing
+      '                imgFotoJogador.Stretch = True
+      '                On Error Resume Next
+      '                imgFotoJogador.Picture = LoadPicture(mstrFoto)
+      '                On Error GoTo Erro
+      '            End If
 
-'--------------------------------------------------------------------------------------
-            If Not IsNull(objRsJogador!ENDERECOIMAGEM_VC) Then
-                
-                mbitFoto() = objRsJogador!ENDERECOIMAGEM_VC
-                binIMG() = objRsJogador!ENDERECOIMAGEM_VC
-                If Val(binIMG(1)) <> 0 Then
-                    imgFotoJogador.Picture = Nothing
-                    imgFotoJogador.Stretch = True
-                    On Error Resume Next
+      '--------------------------------------------------------------------------------------
+600               If Not IsNull(objRsJogador!ENDERECOIMAGEM_VC) Then
+                      
+610                   mbitFoto() = objRsJogador!ENDERECOIMAGEM_VC
+620                   binIMG() = objRsJogador!ENDERECOIMAGEM_VC
+630                   If Val(binIMG(1)) <> 0 Then
+640                       imgFotoJogador.Picture = Nothing
+650                       imgFotoJogador.Stretch = True
+660                       On Error Resume Next
 
-                    Dim b()  As Byte
-                    Dim ff   As Long
-                    Dim Arquivo As String
-                
-                    'On Error GoTo ErrHandler
-                    'Call GetRandomArquivoName(Arquivo)
-                    Arquivo = "tempimg.bmp"
-                    ff = FreeFile
-                    Open Arquivo For Binary Access Write As ff
-                    b() = binIMG()
-                    Put ff, , b()
-                    Close ff
-                    Erase b
-                    imgFotoJogador.Picture = LoadPicture(Arquivo)
-                    'Set GetImageFromField = LoadPicture(Arquivo)
-                    Kill Arquivo
-                    End If
-                End If
-'--------------------------------------------------------------------------------------
-            
-            modBDCombo_SelecionarCartecoriaJogador sscCartegoria, NZ(objRsJogador!CARTEGORIA_IN)
-            modBDCombo_SelecionarEquipePorCodigo sscClube, NZ(objRsJogador!EQUIPE_IN)
-            modBDCombo_SelecionarPosicoesAtleta sscPosicao, NZ(objRsJogador!POSICAO_IN)
-            modBDCombo_SelecionarEstados sscUfEscola, NZ(objRsJogador!ESTADOESCOLA_IN)
-            modBDCombo_SelecionarEstados sscUfEnderecoAtleta, NZ(objRsJogador!Estado_IN)
-            
-            mstrFlag = ""
-            Call HabilitarCampos(False)
-            Call HabilitarTBBotoes(False, True, True, True, False, True, True, True)
-            
-        Else
-            MsgBox "Jogador não encontrado ou código inválido.", vbOKOnly + vbInformation, "Atenção!"
-        End If
-    Else
-        MsgBox "Jogador não encontrado ou código inválido.", vbOKOnly + vbInformation, "Atenção!"
-    End If
+                          Dim b()  As Byte
+                          Dim ff   As Long
+                          Dim Arquivo As String
+                      
+                          'On Error GoTo ErrHandler
+                          'Call GetRandomArquivoName(Arquivo)
+670                       Arquivo = "tempimg.bmp"
+680                       ff = FreeFile
+690                       Open Arquivo For Binary Access Write As ff
+700                       b() = binIMG()
+710                       Put ff, , b()
+720                       Close ff
+730                       Erase b
+740                       imgFotoJogador.Picture = LoadPicture(Arquivo)
+                          'Set GetImageFromField = LoadPicture(Arquivo)
+750                       Kill Arquivo
+760                       End If
+770                   End If
+      '--------------------------------------------------------------------------------------
+                  
+780               modBDCombo_SelecionarCartecoriaJogador sscCartegoria, NZ(objRsJogador!CARTEGORIA_IN)
+790               modBDCombo_SelecionarEquipePorCodigo sscClube, NZ(objRsJogador!EQUIPE_IN)
+800               modBDCombo_SelecionarPosicoesAtleta sscPosicao, NZ(objRsJogador!POSICAO_IN)
+810               modBDCombo_SelecionarEstados sscUfEscola, NZ(objRsJogador!ESTADOESCOLA_IN)
+820               modBDCombo_SelecionarEstados sscUfEnderecoAtleta, NZ(objRsJogador!Estado_IN)
+                  
+830               mstrFlag = ""
+840               Call HabilitarCampos(False)
+850               Call HabilitarTBBotoes(False, True, True, True, False, True, True, True)
+                  
+860           Else
+870               MsgBox "Jogador não encontrado ou código inválido.", vbOKOnly + vbInformation, "Atenção!"
+880           End If
+890       Else
+900           MsgBox "Jogador não encontrado ou código inválido.", vbOKOnly + vbInformation, "Atenção!"
+910       End If
 
-Exit Sub
+920   Exit Sub
 Erro:
-   Call MsgBox("Erro no módulo: " & "frmCadastroDeJogador" & vbCrLf & "No Procedimento: " & "CarregarJogador" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+930      Call MsgBox("Erro no módulo: " & "frmCadastroDeJogador" & vbCrLf & "No Procedimento: " & "CarregarJogador" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 End Sub
 
 Private Sub txtTelCel2_Validate(Cancel As Boolean)
-    FormataTelefone txtTelCel2.Text, True
+10        FormataTelefone txtTelCel2.Text, True
 End Sub
 
 Private Sub LimparArray(arr As Variant)

@@ -628,28 +628,28 @@ Erro:
 End Sub
 
 Private Sub ssgUsuarios_Click()
-On Error Resume Next
-    ssgUsuarios.SelBookmarks.Clear
-    ssgUsuarios.SelBookmarks.Add ssgUsuarios.Bookmark
-On Error GoTo 0
-    
+10    On Error Resume Next
+20        ssgUsuarios.SelBookmarks.Clear
+30        ssgUsuarios.SelBookmarks.Add ssgUsuarios.Bookmark
+40    On Error GoTo 0
+          
 End Sub
 
 Private Sub ssgUsuarios_HeadClick(ByVal ColIndex As Integer)
-    OrdenarColunaTrueDB ssgUsuarios, ColIndex, imgcima, imgbaixo
+10        OrdenarColunaTrueDB ssgUsuarios, ColIndex, imgcima, imgbaixo
 End Sub
 
 Private Sub ssgUsuarios_RowColChange(LastRow As Variant, ByVal LastCol As Integer)
-    ssgUsuarios_Click
-    CriarEPreencherRecordsets True
+10        ssgUsuarios_Click
+20        CriarEPreencherRecordsets True
 End Sub
 
 
 Private Sub ssgPermissoes_Click()
-On Error Resume Next
-    ssgPermissoes.SelBookmarks.Clear
-    ssgPermissoes.SelBookmarks.Add ssgPermissoes.Bookmark
-On Error GoTo 0
+10    On Error Resume Next
+20        ssgPermissoes.SelBookmarks.Clear
+30        ssgPermissoes.SelBookmarks.Add ssgPermissoes.Bookmark
+40    On Error GoTo 0
 
 End Sub
 
@@ -658,84 +658,84 @@ End Sub
 'End Sub
 
 Private Sub ssgPermissoes_RowColChange(LastRow As Variant, ByVal LastCol As Integer)
-    ssgPermissoes_Click
+10        ssgPermissoes_Click
 End Sub
 
 Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
-    If Not (Button.Enabled) Then Exit Sub
-    Select Case Button.Key
+10        If Not (Button.Enabled) Then Exit Sub
+20        Select Case Button.Key
 
-        Case "cmdAlterar":
-            mstrFlag = "A"
-            Call HabilitarCampos(True)
-            Call HabilitarTBBotoes(False, True, True, True)
+              Case "cmdAlterar":
+30                mstrFlag = "A"
+40                Call HabilitarCampos(True)
+50                Call HabilitarTBBotoes(False, True, True, True)
 
-        Case "cmdGravar"
-            GravarAlteracoes
-            GoTo Abandonar
-            
-        Case "cmdAbandonar"
+60            Case "cmdGravar"
+70                GravarAlteracoes
+80                GoTo Abandonar
+                  
+90            Case "cmdAbandonar"
 Abandonar:
-            mstrFlag = ""
-            Call HabilitarCampos(False)
-            Call HabilitarTBBotoes(True, False, True, False)
+100               mstrFlag = ""
+110               Call HabilitarCampos(False)
+120               Call HabilitarTBBotoes(True, False, True, False)
 
-        Case "cmdSair"
-            Unload Me
-  
-    End Select
+130           Case "cmdSair"
+140               Unload Me
+        
+150       End Select
 End Sub
 
 Private Sub HabilitarCampos(blnHabilitar As Boolean)
-On Error GoTo Erro
-      
-    ssgPermissoes.Columns(0).Locked = Not blnHabilitar
-    ssgUsuarios.Enabled = Not blnHabilitar
+10    On Error GoTo Erro
+            
+20        ssgPermissoes.Columns(0).Locked = Not blnHabilitar
+30        ssgUsuarios.Enabled = Not blnHabilitar
 
-Exit Sub
+40    Exit Sub
 Erro:
-   Call MsgBox("Erro no módulo: " & "frmPermissao" & vbCrLf & "HabilitarCampos" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+50       Call MsgBox("Erro no módulo: " & "frmPermissao" & vbCrLf & "HabilitarCampos" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 End Sub
 
 Private Sub HabilitarTBBotoes(blnAlterar As Boolean, blnGravar As Boolean, blnsair As Boolean, blnAbandonar As Boolean)
-On Error GoTo Erro
-      
-    tbBotoes.Buttons("cmdAlterar").Enabled = blnAlterar
-    tbBotoes.Buttons("cmdGravar").Enabled = blnGravar
-    tbBotoes.Buttons("cmdSair").Enabled = blnsair
-    tbBotoes.Buttons("cmdAbandonar").Enabled = blnAbandonar
-    
-Exit Sub
+10    On Error GoTo Erro
+            
+20        tbBotoes.Buttons("cmdAlterar").Enabled = blnAlterar
+30        tbBotoes.Buttons("cmdGravar").Enabled = blnGravar
+40        tbBotoes.Buttons("cmdSair").Enabled = blnsair
+50        tbBotoes.Buttons("cmdAbandonar").Enabled = blnAbandonar
+          
+60    Exit Sub
 Erro:
-   Call MsgBox("Erro no módulo: " & "frmPermissao" & vbCrLf & "HabilitarTBBotoes" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+70       Call MsgBox("Erro no módulo: " & "frmPermissao" & vbCrLf & "HabilitarTBBotoes" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 
 End Sub
 
 Private Sub GravarAlteracoes()
-On Error GoTo Erro
-    Dim objRsPermissaoClone As Recordset
-      
-    Set objRsPermissaoClone = mobjrsPermissao.Clone
-      
-    objRsPermissaoClone.MoveFirst
-    
-    gSMConexao.BeginTransaction
-    
-    Do While Not objRsPermissaoClone.EOF
-    
-        Call modManutencao_AdicionarAlterarPermissaoPorUsuario(mobjRsUsuarios!ID_IN, objRsPermissaoClone!Permissao_IN, objRsPermissaoClone!check)
+10    On Error GoTo Erro
+          Dim objRsPermissaoClone As Recordset
             
-        objRsPermissaoClone.MoveNext
-    Loop
-    
-    gSMConexao.CommitTransaction
-    MsgBox "Alterações gravadas com sucesso!", vbOKOnly + vbInformation, "Sucesso!"
-    
-Exit Sub
+20        Set objRsPermissaoClone = mobjrsPermissao.Clone
+            
+30        objRsPermissaoClone.MoveFirst
+          
+40        gSMConexao.BeginTransaction
+          
+50        Do While Not objRsPermissaoClone.EOF
+          
+60            Call modManutencao_AdicionarAlterarPermissaoPorUsuario(mobjRsUsuarios!ID_IN, objRsPermissaoClone!Permissao_IN, objRsPermissaoClone!check)
+                  
+70            objRsPermissaoClone.MoveNext
+80        Loop
+          
+90        gSMConexao.CommitTransaction
+100       MsgBox "Alterações gravadas com sucesso!", vbOKOnly + vbInformation, "Sucesso!"
+          
+110   Exit Sub
 Erro:
-   Call MsgBox("Erro no módulo: " & "frmPermissao" & vbCrLf & "GravarAlteracoes" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
-   MsgBox "Alterações não foram gravadas!", vbOKOnly + vbCritical, "Atenção!"
-   gSMConexao.RollbackTransaction
+120      Call MsgBox("Erro no módulo: " & "frmPermissao" & vbCrLf & "GravarAlteracoes" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+130      MsgBox "Alterações não foram gravadas!", vbOKOnly + vbCritical, "Atenção!"
+140      gSMConexao.RollbackTransaction
 
 End Sub

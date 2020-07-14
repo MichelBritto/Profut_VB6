@@ -5,8 +5,8 @@ Begin VB.Form frmAutenticacao
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Login"
    ClientHeight    =   2505
-   ClientLeft      =   11235
-   ClientTop       =   7200
+   ClientLeft      =   11475
+   ClientTop       =   7320
    ClientWidth     =   3855
    ControlBox      =   0   'False
    Icon            =   "frmAutenticação.frx":0000

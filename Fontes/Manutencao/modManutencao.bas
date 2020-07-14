@@ -198,28 +198,28 @@ Erro:
 
 End Sub
 
-Public Sub modManutencao_AlterarSenhaPorLoginESenha(ByVal strSenhaAtual As String, strSenhaNova As String, ByRef blnResultado As Boolean)
-10    On Error GoTo Erro
-            
-            
-20        Set gobjCmd.ActiveConnection = gSMConexao.Conexao
-30        gobjCmd.CommandText = "usp_AlterarSenhaPorLoginESenha"
-40        gobjCmd.CommandType = adCmdStoredProc
-50        gobjCmd.CommandTimeout = 1000
-          
-60        With gobjCmd
-70            .Parameters("@Login_VC").Value = gSMConexao.LoginUsuario
-80            .Parameters("@SenhaAntiga_VC").Value = strSenhaAtual
-90            .Parameters("@SenhaNova_VC").Value = strSenhaNova
-100       End With
-          
-110       gobjCmd.Execute , , adExecuteNoRecords
-          
-120       blnResultado = NB(gobjCmd.Parameters("@Resultado_BT").Value)
+Public Sub modManutencao_AlterarSenhaPorLoginESenha(ByVal strLogin As String, ByVal strSenhaAtual As String, strSenhaNova As String, ByRef blnResultado As Boolean)
+On Error GoTo Erro
+      
+      
+    Set gobjCmd.ActiveConnection = gSMConexao.Conexao
+    gobjCmd.CommandText = "usp_AlterarSenhaPorLoginESenha"
+    gobjCmd.CommandType = adCmdStoredProc
+    gobjCmd.CommandTimeout = 1000
+    
+    With gobjCmd
+        .Parameters("@Login_VC").Value = strLogin
+        .Parameters("@SenhaAntiga_VC").Value = strSenhaAtual
+        .Parameters("@SenhaNova_VC").Value = strSenhaNova
+    End With
+    
+    gobjCmd.Execute , , adExecuteNoRecords
+    
+    blnResultado = NB(gobjCmd.Parameters("@Resultado_BT").Value)
 
-130   Exit Sub
+Exit Sub
 Erro:
-140      Call MsgBox("Erro no módulo: " & "modManutencao" & vbCrLf & "modManutencao_AlterarSenhaPorLoginESenha" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+   Call MsgBox("Erro no módulo: " & "modManutencao" & vbCrLf & "modManutencao_AlterarSenhaPorLoginESenha" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 
 End Sub

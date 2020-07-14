@@ -341,8 +341,8 @@ Attribute VB_Exposed = False
 Dim mobjRsCargos As Recordset
 
 Private Sub cmdAdicionar_Click()
-    AdicionarAlterarCargo txtDescricaoCargo.Text, IIf(chkAtibo.Value = vbChecked, True, False), 1
-    CarregarCargos
+10        AdicionarAlterarCargo txtDescricaoCargo.Text, IIf(chkAtibo.Value = vbChecked, True, False), 1
+20        CarregarCargos
 End Sub
 
 Private Sub cmdAlterar_Click()
@@ -366,19 +366,19 @@ Private Sub Form_Load()
 End Sub
 
 Private Sub ssgCargos_Click()
-On Error Resume Next
-    ssgCargos.SelBookmarks.Clear
-    ssgCargos.SelBookmarks.Add ssgCargos.Bookmark
-On Error GoTo 0
+10    On Error Resume Next
+20        ssgCargos.SelBookmarks.Clear
+30        ssgCargos.SelBookmarks.Add ssgCargos.Bookmark
+40    On Error GoTo 0
 
 End Sub
 
 Private Sub ssgCargos_HeadClick(ByVal ColIndex As Integer)
-    OrdenarColunaTrueDB ssgCargos, ColIndex, imgcima, imgbaixo
+10        OrdenarColunaTrueDB ssgCargos, ColIndex, imgcima, imgbaixo
 End Sub
 
 Private Sub ssgCargos_RowColChange(LastRow As Variant, ByVal LastCol As Integer)
-    ssgCargos_Click
+10        ssgCargos_Click
 End Sub
 
 Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)

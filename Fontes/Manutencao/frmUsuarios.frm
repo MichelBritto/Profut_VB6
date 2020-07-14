@@ -8,23 +8,22 @@ Begin VB.Form frmUsuarios
    BorderStyle     =   1  'Fixed Single
    Caption         =   "ProFut  - Usuários"
    ClientHeight    =   9420
-   ClientLeft      =   6690
-   ClientTop       =   2265
-   ClientWidth     =   10590
+   ClientLeft      =   4380
+   ClientTop       =   2220
+   ClientWidth     =   13095
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    LockControls    =   -1  'True
    MaxButton       =   0   'False
    MinButton       =   0   'False
    ScaleHeight     =   9420
-   ScaleWidth      =   10590
-   StartUpPosition =   2  'CenterScreen
+   ScaleWidth      =   13095
    Begin VB.Frame fraPermissao 
       Height          =   8835
       Left            =   30
       TabIndex        =   0
       Top             =   -60
-      Width           =   10515
+      Width           =   13035
       Begin VB.Frame fraCadastro 
          Caption         =   "Novo"
          BeginProperty Font 
@@ -40,7 +39,7 @@ Begin VB.Form frmUsuarios
          Left            =   60
          TabIndex        =   4
          Top             =   120
-         Width           =   10425
+         Width           =   12915
          Begin VB.TextBox txtCodigoUsuario 
             Appearance      =   0  'Flat
             Height          =   405
@@ -55,7 +54,7 @@ Begin VB.Form frmUsuarios
             Appearance      =   0  'Flat
             Caption         =   "Alterar"
             Height          =   405
-            Left            =   9360
+            Left            =   10590
             TabIndex        =   16
             Top             =   1080
             Width           =   975
@@ -64,10 +63,10 @@ Begin VB.Form frmUsuarios
             Appearance      =   0  'Flat
             Caption         =   "Novo"
             Height          =   405
-            Left            =   8370
+            Left            =   10590
             Picture         =   "frmUsuarios.frx":0000
             TabIndex        =   15
-            Top             =   1080
+            Top             =   390
             Width           =   975
          End
          Begin EditLib.fpMask fpTelefone 
@@ -245,7 +244,7 @@ Begin VB.Form frmUsuarios
             Left            =   6690
             TabIndex        =   20
             Top             =   1110
-            Width           =   1635
+            Width           =   2175
             DataFieldList   =   "Column 0"
             BevelType       =   0
             _Version        =   196617
@@ -264,7 +263,7 @@ Begin VB.Form frmUsuarios
             Columns(0).Width=   3200
             Columns(0).DataType=   8
             Columns(0).FieldLen=   4096
-            _ExtentX        =   2884
+            _ExtentX        =   3836
             _ExtentY        =   688
             _StockProps     =   93
             BackColor       =   -2147483643
@@ -277,6 +276,22 @@ Begin VB.Form frmUsuarios
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
+         End
+         Begin Threed.SSCommand cmdAlterarSenha 
+            Height          =   375
+            Left            =   8880
+            TabIndex        =   22
+            Top             =   1110
+            Width           =   1455
+            _ExtentX        =   2566
+            _ExtentY        =   661
+            _Version        =   196609
+            PictureFrames   =   1
+            Picture         =   "frmUsuarios.frx":0BAC
+            Caption         =   "Alterar Senha"
+            Alignment       =   3
+            PictureAlignment=   1
+            RoundedCorners  =   0   'False
          End
          Begin VB.Label Label8 
             Caption         =   "Equipe"
@@ -351,14 +366,14 @@ Begin VB.Form frmUsuarios
          Left            =   60
          TabIndex        =   2
          Top             =   1770
-         Width           =   10425
+         Width           =   12915
          Begin TrueOleDBGrid80.TDBGrid ssgUsuarios 
             Height          =   6765
             Left            =   60
             TabIndex        =   3
             Top             =   210
-            Width           =   10275
-            _ExtentX        =   18124
+            Width           =   12765
+            _ExtentX        =   22516
             _ExtentY        =   11933
             _LayoutType     =   4
             _RowHeight      =   -2147483647
@@ -582,7 +597,7 @@ Begin VB.Form frmUsuarios
    End
    Begin MSComctlLib.Toolbar tbBotoes 
       Height          =   570
-      Left            =   6900
+      Left            =   9420
       TabIndex        =   1
       Top             =   8820
       Width           =   3630
@@ -630,43 +645,43 @@ Begin VB.Form frmUsuarios
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
          NumListImages   =   10
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":0BAC
+            Picture         =   "frmUsuarios.frx":10EE
             Key             =   ""
          EndProperty
          BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":1146
+            Picture         =   "frmUsuarios.frx":1688
             Key             =   ""
          EndProperty
          BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":16E0
+            Picture         =   "frmUsuarios.frx":1C22
             Key             =   ""
          EndProperty
          BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":1C7A
+            Picture         =   "frmUsuarios.frx":21BC
             Key             =   ""
          EndProperty
          BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":2214
+            Picture         =   "frmUsuarios.frx":2756
             Key             =   ""
          EndProperty
          BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":27AE
+            Picture         =   "frmUsuarios.frx":2CF0
             Key             =   ""
          EndProperty
          BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":2D48
+            Picture         =   "frmUsuarios.frx":328A
             Key             =   ""
          EndProperty
          BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":32E2
+            Picture         =   "frmUsuarios.frx":3824
             Key             =   ""
          EndProperty
          BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":387C
+            Picture         =   "frmUsuarios.frx":3DBE
             Key             =   ""
          EndProperty
          BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":3E16
+            Picture         =   "frmUsuarios.frx":4358
             Key             =   ""
          EndProperty
       EndProperty
@@ -674,7 +689,7 @@ Begin VB.Form frmUsuarios
    Begin VB.Image imgbaixo 
       Height          =   135
       Left            =   0
-      Picture         =   "frmUsuarios.frx":43B0
+      Picture         =   "frmUsuarios.frx":48F2
       Top             =   0
       Visible         =   0   'False
       Width           =   165
@@ -682,7 +697,7 @@ Begin VB.Form frmUsuarios
    Begin VB.Image imgcima 
       Height          =   135
       Left            =   180
-      Picture         =   "frmUsuarios.frx":4536
+      Picture         =   "frmUsuarios.frx":4A78
       Top             =   0
       Visible         =   0   'False
       Width           =   165
@@ -705,6 +720,18 @@ Private Sub cmdAdicionarCargo_Click()
     End If
 End Sub
 
+Private Sub cmdAlterarSenha_Click()
+On Error GoTo Erro
+      
+      frmAlterarSenha.Login = mobjRsUsuarios!Login_VC
+      frmAlterarSenha.Show vbModal, Me
+
+Exit Sub
+Erro:
+   Call MsgBox("Erro no módulo: " & "frmUsuarios" & vbCrLf & "cmdAlterarSenha_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+
+End Sub
+
 Private Sub cmdAlterarUsuario_Click()
 On Error GoTo Erro
     If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 9) = True Then
@@ -722,6 +749,7 @@ On Error GoTo Erro
             
             cmdAlterarUsuario.Caption = "Gravar"
             cmdNovoUsuario.Enabled = False
+            cmdAlterarSenha.Enabled = False
         Else
             If VerificarCampos = True Then
                 If MsgBox("Deseja alterar o usuário?", vbYesNo + vbExclamation, "Atenção!") = vbNo Then Exit Sub
@@ -731,6 +759,7 @@ On Error GoTo Erro
                 cmdAlterarUsuario.Caption = "Alterar"
                 MsgBox "Usuário Alterado!", vbOKOnly + vbInformation, "Sucesso!"
                 txtLogin.Locked = False
+                cmdAlterarSenha.Enabled = True
             Else
                 Exit Sub
             End If
@@ -886,13 +915,14 @@ Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
 80                LimparCampos
 90                cmdAlterarUsuario.Caption = "Alterar"
 100               cmdNovoUsuario.Caption = "Novo"
-110               Call HabilitarCampos(False)
-120               Call HabilitarTBBotoes(True, False, True)
+110               cmdAlterarSenha.Enabled = True
+120               Call HabilitarCampos(False)
+130               Call HabilitarTBBotoes(True, False, True)
 
-130           Case "cmdSair"
-140               Unload Me
+140           Case "cmdSair"
+150               Unload Me
               
-150       End Select
+160       End Select
 End Sub
 
 Private Sub GravarUsuario()
