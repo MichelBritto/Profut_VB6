@@ -2229,41 +2229,42 @@ Private Sub GravarJogador()
 210               .lngEstadoEscola = sscUfEscola.Columns(1).Value
 220               .strCidadeEscola = sscCidadeEscola.Text
 230               .strBairroEscola = txtBairroEscola.Text
-240               .strFacebookEscola = txtRedeSocialEscola.Text
-250           End If
-260           .lngEstado = sscUfEnderecoAtleta.Columns("chcodigo").Value
-270           .strEndereco = txtEnderecoAtleta.Text
-280           .strCidade = sscCidadeEnderecoAtleta.Text
-290           .strBairro = txtBairroEnderecoAtleta.Text
-300           .strTelefone1 = txtTelCel1.Text
-310           .strTelefone2 = txtTelCel2.Text
-320           .blnWpp1 = IIf(chkWpp1.Value = vbChecked, True, False)
-330           .blnWpp2 = IIf(chkwpp2.Value = vbChecked, True, False)
-340           .strEmailContato = txtEmail.Text
-350           .strFacebook = txtFacebookAtleta
-360           .strInstagram = txtInstagramAtleta.Text
-370           .strEnderecoImagem() = IIf(mstrFoto <> "", binIMG(), mbitFoto())
-380           .lngSexo = IIf(optMasculino.Value = True, 1, 2)
-390           .lngNumeroCamisa = Val(txtNumCamisa.Text)
-400           .blnTemImagem = IIf(blnRemoveuFoto = True, False, True)
-410       End With
+240               .strEnderecoEscola = txtEnderecoEscola.Text
+250               .strFacebookEscola = txtRedeSocialEscola.Text
+260           End If
+270           .lngEstado = sscUfEnderecoAtleta.Columns("chcodigo").Value
+280           .strEndereco = txtEnderecoAtleta.Text
+290           .strCidade = sscCidadeEnderecoAtleta.Text
+300           .strBairro = txtBairroEnderecoAtleta.Text
+310           .strTelefone1 = txtTelCel1.Text
+320           .strTelefone2 = txtTelCel2.Text
+330           .blnWpp1 = IIf(chkWpp1.Value = vbChecked, True, False)
+340           .blnWpp2 = IIf(chkwpp2.Value = vbChecked, True, False)
+350           .strEmailContato = txtEmail.Text
+360           .strFacebook = txtFacebookAtleta
+370           .strInstagram = txtInstagramAtleta.Text
+380           .strEnderecoImagem() = IIf(mstrFoto <> "", binIMG(), mbitFoto())
+390           .lngSexo = IIf(optMasculino.Value = True, 1, 2)
+400           .lngNumeroCamisa = Val(txtNumCamisa.Text)
+410           .blnTemImagem = IIf(blnRemoveuFoto = True, False, True)
+420       End With
           
           
-420       If mstrFlag = "I" Then
-430           Call modJogador_AdicionarJogador(udtJogador)
+430       If mstrFlag = "I" Then
+440           Call modJogador_AdicionarJogador(udtJogador)
              
-440       ElseIf mstrFlag = "A" Then
-450           Call modJogador_AlterarJogador(udtJogador)
-460       End If
+450       ElseIf mstrFlag = "A" Then
+460           Call modJogador_AlterarJogador(udtJogador)
+470       End If
           
           
-470       txtCodigoInterno.Text = udtJogador.lngCodigo
+480       txtCodigoInterno.Text = udtJogador.lngCodigo
           
 
 
-480   Exit Sub
+490   Exit Sub
 Erro:
-490       Call MsgBox("Erro no módulo: " & "frmCadastroDeJogador" & vbCrLf & "No Procedimento: " & "GravarJogador" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+500       Call MsgBox("Erro no módulo: " & "frmCadastroDeJogador" & vbCrLf & "No Procedimento: " & "GravarJogador" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 End Sub
 
 Private Sub CarregarJogador(lngCodigo As Long)

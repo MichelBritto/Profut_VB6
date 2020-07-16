@@ -36,6 +36,19 @@ ALTER PROCEDURE dbo.USP_ADICIONARJOGADOR
       @CodigoOutput INT OUTPUT
     )
 AS 
+    DECLARE @CodigoUnico_VC VARCHAR(8)
+	
+    SET @CodigoUnico_VC = CAST(RAND() * 100000000 AS BIGINT)
+	
+    IF ( SELECT COUNT(*)
+         FROM   dbo.JOGADOR_T
+         WHERE  CODIGOUNICO_VC = @CodigoUnico_VC
+       ) > 0 
+        BEGIN
+            SET @CodigoUnico_VC = CAST(RAND() * 100000000 AS BIGINT)
+        END
+	
+	
     INSERT  INTO dbo.JOGADOR_T
             ( APELIDO_VC ,
               CARTEGORIA_IN ,
@@ -74,7 +87,8 @@ AS
               DATAULTIMAALTERACAO_DT ,
               SEXO_IN ,
               NUMEROCAMISA_IN ,
-              POSICAO_IN
+              POSICAO_IN ,
+              CODIGOUNICO_VC
               	        
             )
     VALUES  ( @APELIDO_VC ,
@@ -114,7 +128,8 @@ AS
               GETDATE() ,
               @SEXO_IN ,
               @NUMEROCAMISA_IN ,
-              @POSICAO_IN
+              @POSICAO_IN ,
+              @CodigoUnico_VC
 	        
             )
 	        
