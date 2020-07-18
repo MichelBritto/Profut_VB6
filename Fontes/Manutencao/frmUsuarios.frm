@@ -11,6 +11,7 @@ Begin VB.Form frmUsuarios
    ClientLeft      =   4380
    ClientTop       =   2220
    ClientWidth     =   13095
+   Icon            =   "frmUsuarios.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    LockControls    =   -1  'True
@@ -64,7 +65,7 @@ Begin VB.Form frmUsuarios
             Caption         =   "Novo"
             Height          =   405
             Left            =   10590
-            Picture         =   "frmUsuarios.frx":0000
+            Picture         =   "frmUsuarios.frx":500A
             TabIndex        =   15
             Top             =   390
             Width           =   975
@@ -237,7 +238,7 @@ Begin VB.Form frmUsuarios
             _ExtentY        =   609
             _Version        =   196609
             PictureFrames   =   1
-            Picture         =   "frmUsuarios.frx":066A
+            Picture         =   "frmUsuarios.frx":5674
          End
          Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscClube 
             Height          =   390
@@ -287,7 +288,7 @@ Begin VB.Form frmUsuarios
             _ExtentY        =   661
             _Version        =   196609
             PictureFrames   =   1
-            Picture         =   "frmUsuarios.frx":0BAC
+            Picture         =   "frmUsuarios.frx":5BB6
             Caption         =   "Alterar Senha"
             Alignment       =   3
             PictureAlignment=   1
@@ -645,43 +646,43 @@ Begin VB.Form frmUsuarios
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
          NumListImages   =   10
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":10EE
+            Picture         =   "frmUsuarios.frx":60F8
             Key             =   ""
          EndProperty
          BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":1688
+            Picture         =   "frmUsuarios.frx":6692
             Key             =   ""
          EndProperty
          BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":1C22
+            Picture         =   "frmUsuarios.frx":6C2C
             Key             =   ""
          EndProperty
          BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":21BC
+            Picture         =   "frmUsuarios.frx":71C6
             Key             =   ""
          EndProperty
          BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":2756
+            Picture         =   "frmUsuarios.frx":7760
             Key             =   ""
          EndProperty
          BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":2CF0
+            Picture         =   "frmUsuarios.frx":7CFA
             Key             =   ""
          EndProperty
          BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":328A
+            Picture         =   "frmUsuarios.frx":8294
             Key             =   ""
          EndProperty
          BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":3824
+            Picture         =   "frmUsuarios.frx":882E
             Key             =   ""
          EndProperty
          BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":3DBE
+            Picture         =   "frmUsuarios.frx":8DC8
             Key             =   ""
          EndProperty
          BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmUsuarios.frx":4358
+            Picture         =   "frmUsuarios.frx":9362
             Key             =   ""
          EndProperty
       EndProperty
@@ -689,7 +690,7 @@ Begin VB.Form frmUsuarios
    Begin VB.Image imgbaixo 
       Height          =   135
       Left            =   0
-      Picture         =   "frmUsuarios.frx":48F2
+      Picture         =   "frmUsuarios.frx":98FC
       Top             =   0
       Visible         =   0   'False
       Width           =   165
@@ -697,7 +698,7 @@ Begin VB.Form frmUsuarios
    Begin VB.Image imgcima 
       Height          =   135
       Left            =   180
-      Picture         =   "frmUsuarios.frx":4A78
+      Picture         =   "frmUsuarios.frx":9A82
       Top             =   0
       Visible         =   0   'False
       Width           =   165

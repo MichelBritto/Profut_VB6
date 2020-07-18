@@ -27,7 +27,7 @@ Begin VB.Form frmMenu
          BorderStyle     =   0  'None
          Height          =   5175
          Left            =   4560
-         Picture         =   "frmMenu.frx":038A
+         Picture         =   "frmMenu.frx":500A
          ScaleHeight     =   5175
          ScaleWidth      =   4995
          TabIndex        =   11
@@ -39,7 +39,7 @@ Begin VB.Form frmMenu
          BorderStyle     =   0  'None
          Height          =   405
          Left            =   1920
-         Picture         =   "frmMenu.frx":4286
+         Picture         =   "frmMenu.frx":8F06
          ScaleHeight     =   405
          ScaleWidth      =   2295
          TabIndex        =   10
@@ -78,7 +78,7 @@ Begin VB.Form frmMenu
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Picture         =   "frmMenu.frx":4CB8
+            Picture         =   "frmMenu.frx":9938
             Caption         =   "Ficha de Jogador"
             Alignment       =   1
             PictureAlignment=   9
@@ -108,7 +108,7 @@ Begin VB.Form frmMenu
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Picture         =   "frmMenu.frx":506A
+            Picture         =   "frmMenu.frx":9CEA
             Caption         =   "Clube/Equipe"
             Alignment       =   1
             PictureAlignment=   9
@@ -138,7 +138,7 @@ Begin VB.Form frmMenu
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Picture         =   "frmMenu.frx":541C
+            Picture         =   "frmMenu.frx":A09C
             Caption         =   "Lista de Jogadores"
             Alignment       =   1
             PictureAlignment=   9
@@ -168,7 +168,7 @@ Begin VB.Form frmMenu
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Picture         =   "frmMenu.frx":57CE
+            Picture         =   "frmMenu.frx":A44E
             Caption         =   "Sair"
             Alignment       =   1
             PictureAlignment=   9
@@ -198,7 +198,7 @@ Begin VB.Form frmMenu
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Picture         =   "frmMenu.frx":5B80
+            Picture         =   "frmMenu.frx":A800
             Caption         =   "Usuário"
             Alignment       =   1
             PictureAlignment=   9
@@ -228,7 +228,7 @@ Begin VB.Form frmMenu
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Picture         =   "frmMenu.frx":5F32
+            Picture         =   "frmMenu.frx":ABB2
             Caption         =   "Permissão"
             Alignment       =   1
             PictureAlignment=   9
@@ -258,7 +258,7 @@ Begin VB.Form frmMenu
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Picture         =   "frmMenu.frx":62E4
+            Picture         =   "frmMenu.frx":AF64
             Caption         =   "Cadastro de Cargo"
             Alignment       =   1
             PictureAlignment=   9
@@ -288,7 +288,7 @@ Begin VB.Form frmMenu
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Picture         =   "frmMenu.frx":6696
+            Picture         =   "frmMenu.frx":B316
             Caption         =   "Cadastro de Posição"
             Alignment       =   1
             PictureAlignment=   9

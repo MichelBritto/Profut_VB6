@@ -8,6 +8,7 @@ Begin VB.Form frmPermissao
    ClientLeft      =   6705
    ClientTop       =   2265
    ClientWidth     =   10590
+   Icon            =   "frmCargos.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    LockControls    =   -1  'True
@@ -437,43 +438,43 @@ Begin VB.Form frmPermissao
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
          NumListImages   =   10
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmCargos.frx":0000
+            Picture         =   "frmCargos.frx":500A
             Key             =   ""
          EndProperty
          BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmCargos.frx":059A
+            Picture         =   "frmCargos.frx":55A4
             Key             =   ""
          EndProperty
          BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmCargos.frx":0B34
+            Picture         =   "frmCargos.frx":5B3E
             Key             =   ""
          EndProperty
          BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmCargos.frx":10CE
+            Picture         =   "frmCargos.frx":60D8
             Key             =   ""
          EndProperty
          BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmCargos.frx":1668
+            Picture         =   "frmCargos.frx":6672
             Key             =   ""
          EndProperty
          BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmCargos.frx":1C02
+            Picture         =   "frmCargos.frx":6C0C
             Key             =   ""
          EndProperty
          BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmCargos.frx":219C
+            Picture         =   "frmCargos.frx":71A6
             Key             =   ""
          EndProperty
          BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmCargos.frx":2736
+            Picture         =   "frmCargos.frx":7740
             Key             =   ""
          EndProperty
          BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmCargos.frx":2CD0
+            Picture         =   "frmCargos.frx":7CDA
             Key             =   ""
          EndProperty
          BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmCargos.frx":326A
+            Picture         =   "frmCargos.frx":8274
             Key             =   ""
          EndProperty
       EndProperty
@@ -481,7 +482,7 @@ Begin VB.Form frmPermissao
    Begin VB.Image imgcima 
       Height          =   135
       Left            =   180
-      Picture         =   "frmCargos.frx":3804
+      Picture         =   "frmCargos.frx":880E
       Top             =   0
       Visible         =   0   'False
       Width           =   165
@@ -489,7 +490,7 @@ Begin VB.Form frmPermissao
    Begin VB.Image imgbaixo 
       Height          =   135
       Left            =   0
-      Picture         =   "frmCargos.frx":398A
+      Picture         =   "frmCargos.frx":8994
       Top             =   0
       Visible         =   0   'False
       Width           =   165

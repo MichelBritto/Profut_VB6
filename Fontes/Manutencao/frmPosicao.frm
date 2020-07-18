@@ -8,6 +8,7 @@ Begin VB.Form frmPosicao
    ClientLeft      =   7845
    ClientTop       =   3045
    ClientWidth     =   6585
+   Icon            =   "frmPosicao.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
@@ -76,7 +77,7 @@ Begin VB.Form frmPosicao
             Caption         =   "Adicionar"
             Height          =   405
             Left            =   30
-            Picture         =   "frmPosicao.frx":0000
+            Picture         =   "frmPosicao.frx":500A
             TabIndex        =   2
             Top             =   930
             Width           =   1395
@@ -249,43 +250,43 @@ Begin VB.Form frmPosicao
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
          NumListImages   =   10
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmPosicao.frx":066A
+            Picture         =   "frmPosicao.frx":5674
             Key             =   ""
          EndProperty
          BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmPosicao.frx":0C04
+            Picture         =   "frmPosicao.frx":5C0E
             Key             =   ""
          EndProperty
          BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmPosicao.frx":119E
+            Picture         =   "frmPosicao.frx":61A8
             Key             =   ""
          EndProperty
          BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmPosicao.frx":1738
+            Picture         =   "frmPosicao.frx":6742
             Key             =   ""
          EndProperty
          BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmPosicao.frx":1CD2
+            Picture         =   "frmPosicao.frx":6CDC
             Key             =   ""
          EndProperty
          BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmPosicao.frx":226C
+            Picture         =   "frmPosicao.frx":7276
             Key             =   ""
          EndProperty
          BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmPosicao.frx":2806
+            Picture         =   "frmPosicao.frx":7810
             Key             =   ""
          EndProperty
          BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmPosicao.frx":2DA0
+            Picture         =   "frmPosicao.frx":7DAA
             Key             =   ""
          EndProperty
          BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmPosicao.frx":333A
+            Picture         =   "frmPosicao.frx":8344
             Key             =   ""
          EndProperty
          BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmPosicao.frx":38D4
+            Picture         =   "frmPosicao.frx":88DE
             Key             =   ""
          EndProperty
       EndProperty
@@ -318,7 +319,7 @@ Begin VB.Form frmPosicao
    Begin VB.Image imgcima 
       Height          =   135
       Left            =   180
-      Picture         =   "frmPosicao.frx":3E6E
+      Picture         =   "frmPosicao.frx":8E78
       Top             =   0
       Visible         =   0   'False
       Width           =   165
@@ -326,7 +327,7 @@ Begin VB.Form frmPosicao
    Begin VB.Image imgbaixo 
       Height          =   135
       Left            =   0
-      Picture         =   "frmPosicao.frx":3FF4
+      Picture         =   "frmPosicao.frx":8FFE
       Top             =   0
       Visible         =   0   'False
       Width           =   165
@@ -408,7 +409,7 @@ Private Sub AdicionarAlterarPosicao(strPosicao As String, blnAtivo As Boolean, l
 30                    modManutencao_AdicionarAlterarPosicao strPosicao, blnAtivo
                   
 40                Case 2
-50                    modManutencao_AdicionarAlterarPosicao strPosicao, blnAtivo, mobjRsPosicoes!Posicao_IN
+50                    modManutencao_AdicionarAlterarPosicao strPosicao, blnAtivo, mobjRsPosicoes!POSICAO_IN
 60        End Select
           
 70    Exit Sub

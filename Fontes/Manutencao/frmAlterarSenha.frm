@@ -7,6 +7,7 @@ Begin VB.Form frmAlterarSenha
    ClientTop       =   5235
    ClientWidth     =   3690
    ControlBox      =   0   'False
+   Icon            =   "frmAlterarSenha.frx":0000
    LinkTopic       =   "Form1"
    LockControls    =   -1  'True
    MaxButton       =   0   'False
@@ -42,7 +43,7 @@ Begin VB.Form frmAlterarSenha
          Caption         =   "Confirmar"
          Height          =   405
          Left            =   1500
-         Picture         =   "frmAlterarSenha.frx":0000
+         Picture         =   "frmAlterarSenha.frx":500A
          TabIndex        =   8
          Top             =   2130
          Width           =   975

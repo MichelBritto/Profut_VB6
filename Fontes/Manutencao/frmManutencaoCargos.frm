@@ -8,6 +8,7 @@ Begin VB.Form frmCargos
    ClientLeft      =   8760
    ClientTop       =   2370
    ClientWidth     =   6585
+   Icon            =   "frmManutencaoCargos.frx":0000
    LinkTopic       =   "Form1"
    LockControls    =   -1  'True
    MaxButton       =   0   'False
@@ -42,7 +43,7 @@ Begin VB.Form frmCargos
             Caption         =   "Adicionar"
             Height          =   405
             Left            =   30
-            Picture         =   "frmManutencaoCargos.frx":0000
+            Picture         =   "frmManutencaoCargos.frx":500A
             TabIndex        =   8
             Top             =   930
             Width           =   1395
@@ -275,43 +276,43 @@ Begin VB.Form frmCargos
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
          NumListImages   =   10
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmManutencaoCargos.frx":066A
+            Picture         =   "frmManutencaoCargos.frx":5674
             Key             =   ""
          EndProperty
          BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmManutencaoCargos.frx":0C04
+            Picture         =   "frmManutencaoCargos.frx":5C0E
             Key             =   ""
          EndProperty
          BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmManutencaoCargos.frx":119E
+            Picture         =   "frmManutencaoCargos.frx":61A8
             Key             =   ""
          EndProperty
          BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmManutencaoCargos.frx":1738
+            Picture         =   "frmManutencaoCargos.frx":6742
             Key             =   ""
          EndProperty
          BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmManutencaoCargos.frx":1CD2
+            Picture         =   "frmManutencaoCargos.frx":6CDC
             Key             =   ""
          EndProperty
          BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmManutencaoCargos.frx":226C
+            Picture         =   "frmManutencaoCargos.frx":7276
             Key             =   ""
          EndProperty
          BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmManutencaoCargos.frx":2806
+            Picture         =   "frmManutencaoCargos.frx":7810
             Key             =   ""
          EndProperty
          BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmManutencaoCargos.frx":2DA0
+            Picture         =   "frmManutencaoCargos.frx":7DAA
             Key             =   ""
          EndProperty
          BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmManutencaoCargos.frx":333A
+            Picture         =   "frmManutencaoCargos.frx":8344
             Key             =   ""
          EndProperty
          BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmManutencaoCargos.frx":38D4
+            Picture         =   "frmManutencaoCargos.frx":88DE
             Key             =   ""
          EndProperty
       EndProperty
@@ -319,7 +320,7 @@ Begin VB.Form frmCargos
    Begin VB.Image imgbaixo 
       Height          =   135
       Left            =   0
-      Picture         =   "frmManutencaoCargos.frx":3E6E
+      Picture         =   "frmManutencaoCargos.frx":8E78
       Top             =   0
       Visible         =   0   'False
       Width           =   165
@@ -327,7 +328,7 @@ Begin VB.Form frmCargos
    Begin VB.Image imgcima 
       Height          =   135
       Left            =   180
-      Picture         =   "frmManutencaoCargos.frx":3FF4
+      Picture         =   "frmManutencaoCargos.frx":8FFE
       Top             =   0
       Visible         =   0   'False
       Width           =   165

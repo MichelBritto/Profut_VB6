@@ -8,6 +8,7 @@ Begin VB.Form frmwebcam
    ClientTop       =   1785
    ClientWidth     =   7260
    ControlBox      =   0   'False
+   Icon            =   "frmwebcam.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
