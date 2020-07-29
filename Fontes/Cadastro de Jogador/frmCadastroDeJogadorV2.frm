@@ -114,9 +114,9 @@ Begin VB.Form frmCadastroDeJogadorV2
       Tabs(0).Pages(0).Name=   "page 0"
       Tabs(0).Pages(0).CtlCount=   3
       Tabs(0).Pages(0).CtlEnabled=   -1  'True
-      Tabs(0).Pages(0).Ctl(0)=   "fraInfoSistema"
+      Tabs(0).Pages(0).Ctl(0)=   "fraFoto"
       Tabs(0).Pages(0).Ctl(1)=   "fraDadosCadastrais"
-      Tabs(0).Pages(0).Ctl(2)=   "fraFoto"
+      Tabs(0).Pages(0).Ctl(2)=   "fraInfoSistema"
       Tabs(0).Tag     =   ""
       Tabs(0).Caption =   "Principal"
       Tabs(0).Name    =   "tab 0"
@@ -132,8 +132,8 @@ Begin VB.Form frmCadastroDeJogadorV2
       Tabs(1).Pages(0).Name=   "page 0"
       Tabs(1).Pages(0).CtlCount=   2
       Tabs(1).Pages(0).CtlEnabled=   0   'False
-      Tabs(1).Pages(0).Ctl(0)=   "fraDocumentos"
-      Tabs(1).Pages(0).Ctl(1)=   "fraInfoEscolares"
+      Tabs(1).Pages(0).Ctl(0)=   "fraInfoEscolares"
+      Tabs(1).Pages(0).Ctl(1)=   "fraDocumentos"
       Tabs(1).Tag     =   ""
       Tabs(1).Caption =   "Documentação"
       Tabs(1).Name    =   "tab 1"
@@ -180,7 +180,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          EndProperty
          Height          =   5325
          Left            =   -74940
-         TabIndex        =   69
+         TabIndex        =   70
          Top             =   330
          Width           =   10695
          Begin VB.TextBox txtBairroEnderecoAtleta 
@@ -197,7 +197,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   5430
             MaxLength       =   128
-            TabIndex        =   24
+            TabIndex        =   25
             Top             =   1560
             Width           =   4845
          End
@@ -215,7 +215,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   360
             MaxLength       =   128
-            TabIndex        =   22
+            TabIndex        =   23
             Top             =   930
             Width           =   8895
          End
@@ -233,7 +233,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   5430
             MaxLength       =   11
-            TabIndex        =   27
+            TabIndex        =   28
             Top             =   2220
             Width           =   2235
          End
@@ -251,7 +251,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   360
             MaxLength       =   11
-            TabIndex        =   25
+            TabIndex        =   26
             Top             =   2220
             Width           =   2145
          End
@@ -269,7 +269,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   360
             MaxLength       =   128
-            TabIndex        =   29
+            TabIndex        =   30
             Top             =   2850
             Width           =   9915
          End
@@ -287,7 +287,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   360
             MaxLength       =   128
-            TabIndex        =   30
+            TabIndex        =   31
             Top             =   3480
             Width           =   9915
          End
@@ -305,7 +305,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   360
             MaxLength       =   128
-            TabIndex        =   31
+            TabIndex        =   32
             Top             =   4110
             Width           =   9915
          End
@@ -313,14 +313,14 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   195
             Left            =   2550
             Picture         =   "frmCadastroDeJogadorV2.frx":038A
-            TabIndex        =   26
+            TabIndex        =   27
             Top             =   2310
             Width           =   255
          End
          Begin VB.CheckBox chkwpp2 
             Height          =   195
             Left            =   7710
-            TabIndex        =   28
+            TabIndex        =   29
             Top             =   2340
             Width           =   225
          End
@@ -334,7 +334,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Picture         =   "frmCadastroDeJogadorV2.frx":0A9E
             ScaleHeight     =   345
             ScaleWidth      =   315
-            TabIndex        =   71
+            TabIndex        =   72
             Top             =   2250
             Width           =   315
          End
@@ -348,14 +348,14 @@ Begin VB.Form frmCadastroDeJogadorV2
             Picture         =   "frmCadastroDeJogadorV2.frx":0F54
             ScaleHeight     =   345
             ScaleWidth      =   315
-            TabIndex        =   70
+            TabIndex        =   71
             Top             =   2250
             Width           =   315
          End
          Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscUfEnderecoAtleta 
             Height          =   390
             Left            =   9330
-            TabIndex        =   23
+            TabIndex        =   24
             Top             =   930
             Width           =   945
             DataFieldList   =   "Column 0"
@@ -394,7 +394,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscCidadeEnderecoAtleta 
             Height          =   390
             Left            =   360
-            TabIndex        =   83
+            TabIndex        =   84
             Top             =   1560
             Width           =   5055
             DataFieldList   =   "Column 0"
@@ -434,7 +434,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Bairro"
             Height          =   285
             Left            =   5430
-            TabIndex        =   80
+            TabIndex        =   81
             Top             =   1350
             Width           =   3885
          End
@@ -442,7 +442,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Cidade"
             Height          =   285
             Left            =   360
-            TabIndex        =   79
+            TabIndex        =   80
             Top             =   1320
             Width           =   1815
          End
@@ -450,7 +450,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Endereço "
             Height          =   285
             Left            =   360
-            TabIndex        =   78
+            TabIndex        =   79
             Top             =   720
             Width           =   1815
          End
@@ -458,7 +458,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "UF"
             Height          =   285
             Left            =   9360
-            TabIndex        =   77
+            TabIndex        =   78
             Top             =   720
             Width           =   615
          End
@@ -466,7 +466,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Telefone/Celular 2"
             Height          =   285
             Left            =   5400
-            TabIndex        =   76
+            TabIndex        =   77
             Top             =   2010
             Width           =   1815
          End
@@ -474,7 +474,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Telefone/Celular"
             Height          =   285
             Left            =   360
-            TabIndex        =   75
+            TabIndex        =   76
             Top             =   1980
             Width           =   1815
          End
@@ -482,7 +482,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "E-mail Contato"
             Height          =   285
             Left            =   360
-            TabIndex        =   74
+            TabIndex        =   75
             Top             =   2640
             Width           =   1815
          End
@@ -490,7 +490,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Facebook"
             Height          =   285
             Left            =   360
-            TabIndex        =   73
+            TabIndex        =   74
             Top             =   3270
             Width           =   1815
          End
@@ -498,7 +498,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Instagram"
             Height          =   285
             Left            =   360
-            TabIndex        =   72
+            TabIndex        =   73
             Top             =   3900
             Width           =   1815
          End
@@ -516,7 +516,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          EndProperty
          Height          =   1545
          Left            =   -74940
-         TabIndex        =   64
+         TabIndex        =   65
          Top             =   360
          Width           =   10725
          Begin VB.TextBox txtCertidaoNascimento 
@@ -669,7 +669,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Certidão de Nascimento"
             Height          =   285
             Left            =   90
-            TabIndex        =   68
+            TabIndex        =   69
             Top             =   210
             Width           =   4125
          End
@@ -677,7 +677,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Cartório Responsável"
             Height          =   285
             Left            =   5490
-            TabIndex        =   67
+            TabIndex        =   68
             Top             =   210
             Width           =   3765
          End
@@ -685,7 +685,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Identidade(RG)"
             Height          =   285
             Left            =   90
-            TabIndex        =   66
+            TabIndex        =   67
             Top             =   840
             Width           =   4125
          End
@@ -693,7 +693,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Órgão Expedidor"
             Height          =   285
             Left            =   5490
-            TabIndex        =   65
+            TabIndex        =   66
             Top             =   840
             Width           =   3795
          End
@@ -711,9 +711,27 @@ Begin VB.Form frmCadastroDeJogadorV2
          EndProperty
          Height          =   3765
          Left            =   -74940
-         TabIndex        =   57
+         TabIndex        =   58
          Top             =   1890
          Width           =   10725
+         Begin VB.TextBox txtTelefoneEscola 
+            Appearance      =   0  'Flat
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   405
+            Left            =   8520
+            MaxLength       =   11
+            TabIndex        =   18
+            Top             =   720
+            Width           =   2145
+         End
          Begin VB.TextBox txtNomeEscola 
             Appearance      =   0  'Flat
             BeginProperty Font 
@@ -730,7 +748,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             MaxLength       =   128
             TabIndex        =   17
             Top             =   720
-            Width           =   10605
+            Width           =   8415
          End
          Begin VB.TextBox txtEnderecoEscola 
             Appearance      =   0  'Flat
@@ -746,7 +764,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   60
             MaxLength       =   128
-            TabIndex        =   18
+            TabIndex        =   19
             Top             =   1320
             Width           =   10605
          End
@@ -764,7 +782,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   5640
             MaxLength       =   128
-            TabIndex        =   20
+            TabIndex        =   21
             Top             =   1980
             Width           =   4995
          End
@@ -782,14 +800,14 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   375
             Left            =   60
             MaxLength       =   128
-            TabIndex        =   21
+            TabIndex        =   22
             Top             =   2610
             Width           =   10575
          End
          Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscUfEscola 
             Height          =   390
             Left            =   90
-            TabIndex        =   19
+            TabIndex        =   20
             Top             =   1980
             Width           =   945
             DataFieldList   =   "Column 0"
@@ -828,7 +846,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscCidadeEscola 
             Height          =   390
             Left            =   1050
-            TabIndex        =   82
+            TabIndex        =   83
             Top             =   1980
             Width           =   4575
             DataFieldList   =   "Column 0"
@@ -864,11 +882,19 @@ Begin VB.Form frmCadastroDeJogadorV2
                Strikethrough   =   0   'False
             EndProperty
          End
+         Begin VB.Label Label33 
+            Caption         =   "Telefone/Celular"
+            Height          =   285
+            Left            =   8520
+            TabIndex        =   86
+            Top             =   480
+            Width           =   1815
+         End
          Begin VB.Label Label21 
             Caption         =   "Nome Instituição"
             Height          =   285
             Left            =   60
-            TabIndex        =   63
+            TabIndex        =   64
             Top             =   510
             Width           =   1485
          End
@@ -876,7 +902,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Endereço"
             Height          =   285
             Left            =   60
-            TabIndex        =   62
+            TabIndex        =   63
             Top             =   1110
             Width           =   5745
          End
@@ -884,7 +910,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Bairro"
             Height          =   285
             Left            =   5640
-            TabIndex        =   61
+            TabIndex        =   62
             Top             =   1770
             Width           =   4695
          End
@@ -892,7 +918,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Cidade"
             Height          =   285
             Left            =   1050
-            TabIndex        =   60
+            TabIndex        =   61
             Top             =   1740
             Width           =   2235
          End
@@ -900,7 +926,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Rede Social"
             Height          =   285
             Left            =   60
-            TabIndex        =   59
+            TabIndex        =   60
             Top             =   2400
             Width           =   1785
          End
@@ -908,7 +934,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "UF"
             Height          =   285
             Left            =   120
-            TabIndex        =   58
+            TabIndex        =   59
             Top             =   1770
             Width           =   615
          End
@@ -917,7 +943,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          Caption         =   "Informações Sistema"
          Height          =   1545
          Left            =   3960
-         TabIndex        =   45
+         TabIndex        =   46
          Top             =   4110
          Width           =   6825
          Begin VB.TextBox txtUsuarioCadastro 
@@ -926,7 +952,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   60
             Locked          =   -1  'True
-            TabIndex        =   50
+            TabIndex        =   51
             Top             =   420
             Width           =   4785
          End
@@ -936,14 +962,14 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   405
             Left            =   60
             Locked          =   -1  'True
-            TabIndex        =   46
+            TabIndex        =   47
             Top             =   1080
             Width           =   4785
          End
          Begin SSCalendarWidgets_A.SSDateCombo dtcDataUltimaAlteracao 
             Height          =   405
             Left            =   4920
-            TabIndex        =   47
+            TabIndex        =   48
             Top             =   1080
             Width           =   1815
             _Version        =   65543
@@ -957,7 +983,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          Begin SSCalendarWidgets_A.SSDateCombo dtcDataCadastro 
             Height          =   405
             Left            =   4920
-            TabIndex        =   51
+            TabIndex        =   52
             Top             =   420
             Width           =   1815
             _Version        =   65543
@@ -972,7 +998,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Usuário cadastro"
             Height          =   285
             Left            =   60
-            TabIndex        =   53
+            TabIndex        =   54
             Top             =   210
             Width           =   1965
          End
@@ -980,7 +1006,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Data Cadastro"
             Height          =   285
             Left            =   4920
-            TabIndex        =   52
+            TabIndex        =   53
             Top             =   210
             Width           =   1575
          End
@@ -988,7 +1014,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Usuário Ultima Alteração"
             Height          =   285
             Left            =   60
-            TabIndex        =   49
+            TabIndex        =   50
             Top             =   870
             Width           =   1965
          End
@@ -996,7 +1022,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Data Ultima alteração"
             Height          =   285
             Left            =   4920
-            TabIndex        =   48
+            TabIndex        =   49
             Top             =   870
             Width           =   1575
          End
@@ -1014,7 +1040,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          EndProperty
          Height          =   3795
          Left            =   3960
-         TabIndex        =   36
+         TabIndex        =   37
          Top             =   330
          Width           =   6825
          Begin VB.TextBox txtNumCamisa 
@@ -1283,7 +1309,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Posição"
             Height          =   285
             Left            =   4920
-            TabIndex        =   84
+            TabIndex        =   85
             Top             =   1050
             Width           =   645
          End
@@ -1291,7 +1317,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Equipe"
             Height          =   285
             Left            =   60
-            TabIndex        =   56
+            TabIndex        =   57
             Top             =   1680
             Width           =   525
          End
@@ -1299,7 +1325,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Número da camisa"
             Height          =   285
             Left            =   4140
-            TabIndex        =   55
+            TabIndex        =   56
             Top             =   390
             Width           =   1365
          End
@@ -1307,7 +1333,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Nome do Pai"
             Height          =   285
             Left            =   60
-            TabIndex        =   44
+            TabIndex        =   45
             Top             =   2340
             Width           =   1665
          End
@@ -1315,7 +1341,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Nome da Mãe"
             Height          =   285
             Left            =   60
-            TabIndex        =   43
+            TabIndex        =   44
             Top             =   2940
             Width           =   1725
          End
@@ -1323,7 +1349,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Sexo"
             Height          =   285
             Left            =   5640
-            TabIndex        =   42
+            TabIndex        =   43
             Top             =   390
             Width           =   885
          End
@@ -1331,7 +1357,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Data de Nascimento"
             Height          =   285
             Left            =   4920
-            TabIndex        =   41
+            TabIndex        =   42
             Top             =   1680
             Width           =   1545
          End
@@ -1339,7 +1365,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Cartegoria"
             Height          =   285
             Left            =   2700
-            TabIndex        =   40
+            TabIndex        =   41
             Top             =   1680
             Width           =   1365
          End
@@ -1347,7 +1373,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Código"
             Height          =   285
             Left            =   120
-            TabIndex        =   39
+            TabIndex        =   40
             Top             =   390
             Width           =   855
          End
@@ -1355,7 +1381,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Apelido do Jogador"
             Height          =   285
             Left            =   1080
-            TabIndex        =   38
+            TabIndex        =   39
             Top             =   390
             Width           =   1485
          End
@@ -1363,7 +1389,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Caption         =   "Nome Completo"
             Height          =   285
             Left            =   90
-            TabIndex        =   37
+            TabIndex        =   38
             Top             =   1050
             Width           =   1905
          End
@@ -1371,13 +1397,13 @@ Begin VB.Form frmCadastroDeJogadorV2
       Begin VB.Frame fraFoto 
          Height          =   5325
          Left            =   30
-         TabIndex        =   32
+         TabIndex        =   33
          Top             =   330
          Width           =   3915
          Begin Threed.SSCommand cmdRemover 
             Height          =   330
             Left            =   1950
-            TabIndex        =   33
+            TabIndex        =   34
             Top             =   4710
             Width           =   1875
             _ExtentX        =   3307
@@ -1402,7 +1428,7 @@ Begin VB.Form frmCadastroDeJogadorV2
          Begin Threed.SSCommand cmdAdicionar 
             Height          =   330
             Left            =   90
-            TabIndex        =   34
+            TabIndex        =   35
             Top             =   4710
             Width           =   1815
             _ExtentX        =   3201
@@ -1428,7 +1454,7 @@ Begin VB.Form frmCadastroDeJogadorV2
             Height          =   4305
             Index           =   1
             Left            =   90
-            TabIndex        =   35
+            TabIndex        =   36
             Top             =   180
             Width           =   3765
             _ExtentX        =   6641
@@ -1449,7 +1475,7 @@ Begin VB.Form frmCadastroDeJogadorV2
                ForeColor       =   &H000000FF&
                Height          =   555
                Left            =   840
-               TabIndex        =   81
+               TabIndex        =   82
                Top             =   2010
                Visible         =   0   'False
                Width           =   2055
@@ -1467,7 +1493,7 @@ Begin VB.Form frmCadastroDeJogadorV2
    Begin MSComctlLib.Toolbar tbBotoes 
       Height          =   570
       Left            =   105
-      TabIndex        =   54
+      TabIndex        =   55
       Top             =   5775
       Width           =   10650
       _ExtentX        =   18785
@@ -1641,38 +1667,38 @@ Erro:
 End Sub
 
 Private Sub ImprimirFicha()
-10    On Error GoTo Erro
-            
-20        If (Val(txtCodigoInterno.Text)) = 0 Then Exit Sub
-          
-30       rptFichaJogador.Parametros1 = mbitFoto()
-40       rptFichaJogador.Parametros111 = (Val(txtCodigoInterno.Text))
-50       rptFichaJogador.Parametros2 = (sscClube.Columns("chdescricao").Value)
-60       rptFichaJogador.Parametros3 = (txtNomeJogador.Text)
-70       rptFichaJogador.Parametros4 = (dtcDataNascimento.DateValue)
-80       rptFichaJogador.Parametros5 = ""
-90       rptFichaJogador.Parametros6 = txtCertidaoNascimento.Text
-100      rptFichaJogador.Parametros7 = txtCartorio.Text
-110      rptFichaJogador.Parametros8 = txtIdentidade.Text
-120      rptFichaJogador.Parametros9 = txtOrgao.Text
-130      rptFichaJogador.Parametros10 = txtNomePai.Text
-140      rptFichaJogador.Parametros11 = txtNomeMae.Text
-150      rptFichaJogador.Parametros12 = txtEnderecoAtleta.Text
-160      rptFichaJogador.Parametros13 = txtBairroEnderecoAtleta.Text
-170      rptFichaJogador.Parametros14 = sscCidadeEnderecoAtleta.Text
-180      rptFichaJogador.Parametros15 = txtFacebookAtleta.Text
-190      rptFichaJogador.Parametros16 = txtNomeEscola.Text
-200      rptFichaJogador.Parametros17 = txtEnderecoEscola.Text
-210      rptFichaJogador.Parametros18 = txtBairroEscola.Text
-220      rptFichaJogador.Parametros19 = sscCidadeEscola.Text
-230      rptFichaJogador.Parametros20 = ""
-240      rptFichaJogador.Parametros21 = txtRedeSocialEscola.Text
-         
-250       rptFichaJogador.Show vbModal, Me
+On Error GoTo Erro
+      
+    If (Val(txtCodigoInterno.Text)) = 0 Then Exit Sub
+    
+   rptFichaJogador.Parametros1 = mbitFoto()
+   rptFichaJogador.Parametros111 = (Val(txtCodigoInterno.Text))
+   rptFichaJogador.Parametros2 = (sscClube.Columns("chdescricao").Value)
+   rptFichaJogador.Parametros3 = (txtNomeJogador.Text)
+   rptFichaJogador.Parametros4 = (dtcDataNascimento.DateValue)
+   rptFichaJogador.Parametros5 = ""
+   rptFichaJogador.Parametros6 = txtCertidaoNascimento.Text
+   rptFichaJogador.Parametros7 = txtCartorio.Text
+   rptFichaJogador.Parametros8 = txtIdentidade.Text
+   rptFichaJogador.Parametros9 = txtOrgao.Text
+   rptFichaJogador.Parametros10 = txtNomePai.Text
+   rptFichaJogador.Parametros11 = txtNomeMae.Text
+   rptFichaJogador.Parametros12 = txtEnderecoAtleta.Text
+   rptFichaJogador.Parametros13 = txtBairroEnderecoAtleta.Text
+   rptFichaJogador.Parametros14 = sscCidadeEnderecoAtleta.Text
+   rptFichaJogador.Parametros15 = txtFacebookAtleta.Text
+   rptFichaJogador.Parametros16 = txtNomeEscola.Text
+   rptFichaJogador.Parametros17 = txtEnderecoEscola.Text
+   rptFichaJogador.Parametros18 = txtBairroEscola.Text
+   rptFichaJogador.Parametros19 = sscCidadeEscola.Text
+   rptFichaJogador.Parametros20 = txtTelefoneEscola.Text
+   rptFichaJogador.Parametros21 = txtRedeSocialEscola.Text
+   
+    rptFichaJogador.Show vbModal, Me
 
-260   Exit Sub
+Exit Sub
 Erro:
-270      Call MsgBox("Erro no módulo: " & "frmCadastroDeJogadorV2" & vbCrLf & "No Procedimento: " & "ImprimirFicha" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+   Call MsgBox("Erro no módulo: " & "frmCadastroDeJogadorV2" & vbCrLf & "No Procedimento: " & "ImprimirFicha" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 End Sub
 
@@ -1807,28 +1833,29 @@ Private Sub LimparCampos()
 280       txtInstagramAtleta.Text = ""
 290       txtNumCamisa.Text = ""
 300       txtUsuarioCadastro.Text = ""
+310       txtTelefoneEscola.Text = ""
 
           
-310       optMasculino.Value = vbChecked
-320       optFeminino.Value = vbUnchecked
+320       optMasculino.Value = vbChecked
+330       optFeminino.Value = vbUnchecked
           
-330       chkWpp1.Value = vbUnchecked
-340       chkwpp2.Value = vbUnchecked
+340       chkWpp1.Value = vbUnchecked
+350       chkwpp2.Value = vbUnchecked
           
-350       dtcDataUltimaAlteracao.DateValue = Nothing
-360       dtcDataNascimento.DateValue = Nothing
-370       dtcDataCadastro.DateValue = Nothing
+360       dtcDataUltimaAlteracao.DateValue = Nothing
+370       dtcDataNascimento.DateValue = Nothing
+380       dtcDataCadastro.DateValue = Nothing
           
-380       sscUfEscola.Text = ""
-390       sscUfEnderecoAtleta.Text = ""
-400       mstrFoto = ""
-410       imgFotoJogador.Picture = Nothing
+390       sscUfEscola.Text = ""
+400       sscUfEnderecoAtleta.Text = ""
+410       mstrFoto = ""
+420       imgFotoJogador.Picture = Nothing
           
-420       modBDCombo_SelecionarCartecoriaJogador sscCartegoria
-430       modBDCombo_SelecionarEstados sscUfEscola
-440       modBDCombo_SelecionarEstados sscUfEnderecoAtleta
-450       modBDCombo_SelecionarEquipePorCodigo sscClube
-460       modBDCombo_SelecionarPosicoesAtleta sscPosicao
+430       modBDCombo_SelecionarCartecoriaJogador sscCartegoria
+440       modBDCombo_SelecionarEstados sscUfEscola
+450       modBDCombo_SelecionarEstados sscUfEnderecoAtleta
+460       modBDCombo_SelecionarEquipePorCodigo sscClube
+470       modBDCombo_SelecionarPosicoesAtleta sscPosicao
           
       '    modBDCombo_SelecionarCidades sscCidadeEnderecoAtleta
       '    modBDCombo_SelecionarCidades sscCidadeEscola
@@ -1863,23 +1890,24 @@ Private Sub HabilitarCampos(blnhabilitar As Boolean)
 220       txtFacebookAtleta.Locked = Not blnhabilitar
 230       txtInstagramAtleta.Locked = Not blnhabilitar
 240       txtNumCamisa.Locked = Not blnhabilitar
+250       txtTelefoneEscola.Locked = Not blnhabilitar
           
-250       chkWpp1.Enabled = blnhabilitar
-260       chkwpp2.Enabled = blnhabilitar
+260       chkWpp1.Enabled = blnhabilitar
+270       chkwpp2.Enabled = blnhabilitar
           
-270       optMasculino.Enabled = blnhabilitar
-280       optFeminino.Enabled = blnhabilitar
+280       optMasculino.Enabled = blnhabilitar
+290       optFeminino.Enabled = blnhabilitar
           
-290       dtcDataNascimento.Enabled = blnhabilitar
+300       dtcDataNascimento.Enabled = blnhabilitar
           
-300       sscClube.Enabled = blnhabilitar
-310       sscPosicao.Enabled = blnhabilitar
-320       sscCartegoria.Enabled = blnhabilitar
-330       sscUfEscola.Enabled = blnhabilitar
-340       sscUfEnderecoAtleta.Enabled = blnhabilitar
+310       sscClube.Enabled = blnhabilitar
+320       sscPosicao.Enabled = blnhabilitar
+330       sscCartegoria.Enabled = blnhabilitar
+340       sscUfEscola.Enabled = blnhabilitar
+350       sscUfEnderecoAtleta.Enabled = blnhabilitar
           
-350       cmdAdicionar.Enabled = blnhabilitar
-360       cmdRemover.Enabled = blnhabilitar
+360       cmdAdicionar.Enabled = blnhabilitar
+370       cmdRemover.Enabled = blnhabilitar
 End Sub
 
 Private Sub HabilitarTBBotoes(blnNovo As Boolean, blnAlterar As Boolean, blnProcurar As Boolean, blnAbandonar As Boolean, blnGravar As Boolean, blnSair As Boolean, blnImprimir As Boolean, blnExcluir As Boolean)
@@ -1905,6 +1933,9 @@ Private Sub sscUfEscola_LostFocus()
 End Sub
 
 Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
+
+      Dim lngClube As Long
+
 10        If Not (Button.Enabled) Then Exit Sub
 20        Select Case Button.Key
               
@@ -1913,100 +1944,114 @@ Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
 40                    mstrFlag = "I"
 50                    Call HabilitarCampos(True)
 60                    Call HabilitarTBBotoes(False, False, False, True, True, False, False, False)
-70                    txtApelido.SetFocus
-80                Else
-90                    MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº2" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
-100               End If
+70                    lngClube = NZ(RetornaClubePorUsuario(gSMConexao.CodigoUsuario))
+80                    If lngClube <> 0 Then
+90                        If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 13) = False Then
+100                           modBDCombo_SelecionarEquipePorCodigo sscClube, lngClube
+110                           sscClube.Enabled = False
+120                       End If
+130                   End If
+140                   txtApelido.SetFocus
+150               Else
+160                   MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº2" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
+170               End If
               
-110           Case "cmdAlterar":
+180           Case "cmdAlterar":
                   
-120               If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 3) = True Then
-130                   mstrFlag = "A"
-140                   Call HabilitarCampos(True)
-150                   Call HabilitarTBBotoes(False, False, False, True, True, False, False, False)
-160                   txtApelido.SetFocus
-170               Else
-180                   MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº3" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
-190               End If
+190               If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 3) = True Then
+200                   mstrFlag = "A"
+210                   Call HabilitarCampos(True)
+220                   Call HabilitarTBBotoes(False, False, False, True, True, False, False, False)
+230                   lngClube = NZ(RetornaClubePorUsuario(gSMConexao.CodigoUsuario))
+240                   If lngClube <> 0 Then
+250                       If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 13) = False Then
+260                           modBDCombo_SelecionarEquipePorCodigo sscClube, lngClube
+270                           sscClube.Enabled = False
+280                       End If
+290                   End If
+300                   txtApelido.SetFocus
+310               Else
+320                   MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº3" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
+330               End If
                   
-200           Case "cmdExcluir":
+340           Case "cmdExcluir":
                   
-210               If lblInativo.Visible = False Then
-220                   If MsgBox("Deseja INATIVAR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será removido temporáriamente do sistema mas ainda poderá ser reativado.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
-230                       Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 1)
-240                       Call CarregarJogador(Val(txtCodigoInterno.Text))
-250                   End If
-260               Else
-270                   If MsgBox("Deseja EXCLUIR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será removido permanentemente do sistema e NÃO poderá ser reativado.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
-280                       Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 2)
-290                       mstrFlag = ""
-300                       Call LimparCampos
-310                       Call HabilitarCampos(False)
-320                       Call HabilitarTBBotoes(True, False, True, False, False, True, True, False)
-330                       txtCodigoInterno.SetFocus
-340                   End If
-350               End If
-                  
-              
-360           Case "cmdLimpar":
-370               mstrFlag = ""
-380               Call LimparCampos
-390               Call HabilitarCampos(False)
-400               Call HabilitarTBBotoes(True, False, True, False, False, True, True, False)
-410                txtCodigoInterno.SetFocus
-              
-420           Case "cmdGravar"
-430               If VerificarCampos Then
-440                   GravarJogador
-450                   CarregarJogador Val(txtCodigoInterno.Text)
-460                   mstrFlag = ""
-470               Else
-480                   Exit Sub
+350               If lblInativo.Visible = False Then
+360                   If MsgBox("Deseja INATIVAR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será removido temporáriamente do sistema mas ainda poderá ser reativado.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
+370                       Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 1)
+380                       Call CarregarJogador(Val(txtCodigoInterno.Text))
+390                   End If
+400               Else
+410                   If MsgBox("Deseja EXCLUIR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será removido permanentemente do sistema e NÃO poderá ser reativado.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
+420                       Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 2)
+430                       mstrFlag = ""
+440                       Call LimparCampos
+450                       Call HabilitarCampos(False)
+460                       Call HabilitarTBBotoes(True, False, True, False, False, True, True, False)
+470                       txtCodigoInterno.SetFocus
+480                   End If
 490               End If
-500               Call HabilitarCampos(False)
-510               Call HabilitarTBBotoes(False, True, True, True, False, False, True, True)
-520               txtCodigoInterno.SetFocus
                   
-530           Case "cmdProcurar"
-540               If tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Procurar" Then
+              
+500           Case "cmdLimpar":
+510               mstrFlag = ""
+520               Call LimparCampos
+530               Call HabilitarCampos(False)
+540               Call HabilitarTBBotoes(True, False, True, False, False, True, True, False)
+550                txtCodigoInterno.SetFocus
+              
+560           Case "cmdGravar"
+570               If VerificarCampos Then
+580                   GravarJogador
+590                   CarregarJogador Val(txtCodigoInterno.Text)
+600                   mstrFlag = ""
+610               Else
+620                   Exit Sub
+630               End If
+640               Call HabilitarCampos(False)
+650               Call HabilitarTBBotoes(False, True, True, True, False, False, True, True)
+660               txtCodigoInterno.SetFocus
+                  
+670           Case "cmdProcurar"
+680               If tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Procurar" Then
                       Dim ObjRelatorioJogador As ClsRelJogador
-550                   Set ObjRelatorioJogador = New ClsRelJogador
+690                   Set ObjRelatorioJogador = New ClsRelJogador
                       
-560                   If Not gSMConexao Is Nothing Then
-570                       If gSMConexao.EstadoConexaoBD = adStateOpen Then
+700                   If Not gSMConexao Is Nothing Then
+710                       If gSMConexao.EstadoConexaoBD = adStateOpen Then
                               
-580                           ObjRelatorioJogador.Show gSMConexao, "ProFut - Relatório de Jogador", vbModal, Me, True
-590                           txtCodigoInterno.Text = ObjRelatorioJogador.ID
-600                           txtCodigoInterno_KeyDown vbKeyReturn, 0
-610                           Exit Sub
-620                       Else
-630                           gSMConexao.conectar
-640                       End If
-650                   End If
-660               Else
-670                   If MsgBox("Deseja REATIVAR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será ativado novamente no sistema.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
-680                       Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 3)
-690                       Call CarregarJogador(Val(txtCodigoInterno.Text))
-700                   End If
-710               End If
-              
-720           Case "cmdimprimir"
-              
-730               If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 4) = True Then
-740                   frmOpcaoImpressao.Show vbModal, Me
-750                   Select Case mlngOpcao
-                          Case 1
-760                           ImprimirFicha
-770                       Case 2
-780                           ImprimirCarteirinha
-790                   End Select
+720                           ObjRelatorioJogador.Show gSMConexao, "ProFut - Relatório de Jogador", vbModal, Me, True
+730                           txtCodigoInterno.Text = ObjRelatorioJogador.ID
+740                           txtCodigoInterno_KeyDown vbKeyReturn, 0
+750                           Exit Sub
+760                       Else
+770                           gSMConexao.conectar
+780                       End If
+790                   End If
 800               Else
-810                   MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº4" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
-820               End If
-830           Case "cmdSair"
-840               Unload Me
+810                   If MsgBox("Deseja REATIVAR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será ativado novamente no sistema.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
+820                       Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 3)
+830                       Call CarregarJogador(Val(txtCodigoInterno.Text))
+840                   End If
+850               End If
               
-850       End Select
+860           Case "cmdimprimir"
+              
+870               If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 4) = True Then
+880                   frmOpcaoImpressao.Show vbModal, Me
+890                   Select Case mlngOpcao
+                          Case 1
+900                           ImprimirFicha
+910                       Case 2
+920                           ImprimirCarteirinha
+930                   End Select
+940               Else
+950                   MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº4" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
+960               End If
+970           Case "cmdSair"
+980               Unload Me
+              
+990       End Select
 End Sub
 
 Private Sub txtCertidaoNascimento_KeyPress(KeyAscii As Integer)
@@ -2134,46 +2179,51 @@ Private Function VerificarCampos()
 450               strMensagem = strMensagem & "-> Bairro da escola não informado." & vbCrLf
 460               blnContinua = False
 470           End If
-480       End If
-          
-      '-------------Endereço/Contato do Atleta------------------
-490       If txtEnderecoAtleta.Text = "" Then
-500           strMensagem = strMensagem & "-> Endereço do atleta não informado." & vbCrLf
-510           blnContinua = False
+              
+480           If txtTelefoneEscola.Text = "" Then
+490               strMensagem = strMensagem & "-> Telefone da escola não informado." & vbCrLf
+500               blnContinua = False
+510           End If
 520       End If
           
-530       If sscUfEnderecoAtleta.Text = "" Then
-540           strMensagem = strMensagem & "-> Estado do atleta não informado." & vbCrLf
+      '-------------Endereço/Contato do Atleta------------------
+530       If txtEnderecoAtleta.Text = "" Then
+540           strMensagem = strMensagem & "-> Endereço do atleta não informado." & vbCrLf
 550           blnContinua = False
 560       End If
           
-570       If sscCidadeEnderecoAtleta.Text = "" Then
-580           strMensagem = strMensagem & "-> Cidade do atleta não informado." & vbCrLf
+570       If sscUfEnderecoAtleta.Text = "" Then
+580           strMensagem = strMensagem & "-> Estado do atleta não informado." & vbCrLf
 590           blnContinua = False
 600       End If
           
-610       If txtBairroEnderecoAtleta.Text = "" Then
-620           strMensagem = strMensagem & "-> Bairro do atleta não informado." & vbCrLf
+610       If sscCidadeEnderecoAtleta.Text = "" Then
+620           strMensagem = strMensagem & "-> Cidade do atleta não informado." & vbCrLf
 630           blnContinua = False
 640       End If
           
-650       If txtTelCel1.Text = "" And txtTelCel2.Text = "" Then
-660           strMensagem = strMensagem & "-> O atleta precisa ter pelo menos um telefone de contato." & vbCrLf
+650       If txtBairroEnderecoAtleta.Text = "" Then
+660           strMensagem = strMensagem & "-> Bairro do atleta não informado." & vbCrLf
 670           blnContinua = False
 680       End If
           
+690       If txtTelCel1.Text = "" And txtTelCel2.Text = "" Then
+700           strMensagem = strMensagem & "-> O atleta precisa ter pelo menos um telefone de contato." & vbCrLf
+710           blnContinua = False
+720       End If
           
-690       If Not blnContinua Then
-              
-700           MsgBox "O jogador não pode ser gravado pois possuí as seguintes pendências: " & vbCrLf & strMensagem, vbOKOnly + vbInformation, "Atenção!"
-              
-710       End If
           
-720       VerificarCampos = blnContinua
+730       If Not blnContinua Then
+              
+740           MsgBox "O jogador não pode ser gravado pois possuí as seguintes pendências: " & vbCrLf & strMensagem, vbOKOnly + vbInformation, "Atenção!"
+              
+750       End If
+          
+760       VerificarCampos = blnContinua
 
-730   Exit Function
+770   Exit Function
 Erro:
-740      Call MsgBox("Erro no módulo: " & "frmCadastroDeJogador" & vbCrLf & "No Procedimento: " & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+780      Call MsgBox("Erro no módulo: " & "frmCadastroDeJogador" & vbCrLf & "No Procedimento: " & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 End Function
 
 Public Sub SalvaImagem(ByRef f() As Byte, File As String)
@@ -2231,176 +2281,178 @@ Private Sub GravarJogador()
 230               .strBairroEscola = txtBairroEscola.Text
 240               .strEnderecoEscola = txtEnderecoEscola.Text
 250               .strFacebookEscola = txtRedeSocialEscola.Text
-260           End If
-270           .lngEstado = sscUfEnderecoAtleta.Columns("chcodigo").Value
-280           .strEndereco = txtEnderecoAtleta.Text
-290           .strCidade = sscCidadeEnderecoAtleta.Text
-300           .strBairro = txtBairroEnderecoAtleta.Text
-310           .strTelefone1 = txtTelCel1.Text
-320           .strTelefone2 = txtTelCel2.Text
-330           .blnWpp1 = IIf(chkWpp1.Value = vbChecked, True, False)
-340           .blnWpp2 = IIf(chkwpp2.Value = vbChecked, True, False)
-350           .strEmailContato = txtEmail.Text
-360           .strFacebook = txtFacebookAtleta
-370           .strInstagram = txtInstagramAtleta.Text
-380           .strEnderecoImagem() = IIf(mstrFoto <> "", binIMG(), mbitFoto())
-390           .lngSexo = IIf(optMasculino.Value = True, 1, 2)
-400           .lngNumeroCamisa = Val(txtNumCamisa.Text)
-410           .blnTemImagem = IIf(blnRemoveuFoto = True, False, True)
-420       End With
+260               .strTelefoneEscola = txtTelefoneEscola.Text
+270           End If
+280           .lngEstado = sscUfEnderecoAtleta.Columns("chcodigo").Value
+290           .strEndereco = txtEnderecoAtleta.Text
+300           .strCidade = sscCidadeEnderecoAtleta.Text
+310           .strBairro = txtBairroEnderecoAtleta.Text
+320           .strTelefone1 = txtTelCel1.Text
+330           .strTelefone2 = txtTelCel2.Text
+340           .blnWpp1 = IIf(chkWpp1.Value = vbChecked, True, False)
+350           .blnWpp2 = IIf(chkwpp2.Value = vbChecked, True, False)
+360           .strEmailContato = txtEmail.Text
+370           .strFacebook = txtFacebookAtleta
+380           .strInstagram = txtInstagramAtleta.Text
+390           .strEnderecoImagem() = IIf(mstrFoto <> "", binIMG(), mbitFoto())
+400           .lngSexo = IIf(optMasculino.Value = True, 1, 2)
+410           .lngNumeroCamisa = Val(txtNumCamisa.Text)
+420           .blnTemImagem = IIf(blnRemoveuFoto = True, False, True)
+430       End With
           
           
-430       If mstrFlag = "I" Then
-440           Call modJogador_AdicionarJogador(udtJogador)
+440       If mstrFlag = "I" Then
+450           Call modJogador_AdicionarJogador(udtJogador)
              
-450       ElseIf mstrFlag = "A" Then
-460           Call modJogador_AlterarJogador(udtJogador)
-470       End If
+460       ElseIf mstrFlag = "A" Then
+470           Call modJogador_AlterarJogador(udtJogador)
+480       End If
           
           
-480       txtCodigoInterno.Text = udtJogador.lngCodigo
+490       txtCodigoInterno.Text = udtJogador.lngCodigo
           
 
 
-490   Exit Sub
+500   Exit Sub
 Erro:
-500       Call MsgBox("Erro no módulo: " & "frmCadastroDeJogador" & vbCrLf & "No Procedimento: " & "GravarJogador" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+510       Call MsgBox("Erro no módulo: " & "frmCadastroDeJogador" & vbCrLf & "No Procedimento: " & "GravarJogador" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 End Sub
 
 Private Sub CarregarJogador(lngCodigo As Long)
-10    On Error GoTo Erro
-          Dim objRsJogador As Recordset
-          Dim binIMG() As Byte
-20        Set objRsJogador = New Recordset
+On Error GoTo Erro
+    Dim objRsJogador As Recordset
+    Dim binIMG() As Byte
+    Set objRsJogador = New Recordset
+      
+    Call LimparCampos
+    modJogador_SelecionarJogadorPorCodigo lngCodigo, objRsJogador
+    
+    
+    If Not objRsJogador Is Nothing Then
+        If Not objRsJogador.EOF And Not objRsJogador.BOF Then
+        
+        
+            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 12) = False Then
+                If RetornaClubePorUsuario(gSMConexao.CodigoUsuario) <> NZ(objRsJogador!EQUIPE_IN) Then
+                    MsgBox "Você não tem permissão para visualizar o jogador pois ele não pertence a sua equipe.", vbOKOnly + vbExclamation, "Atenção!"
+                    Exit Sub
+                End If
+            End If
             
-30        Call LimparCampos
-40        modJogador_SelecionarJogadorPorCodigo lngCodigo, objRsJogador
-          
-          
-50        If Not objRsJogador Is Nothing Then
-60            If Not objRsJogador.EOF And Not objRsJogador.BOF Then
-              
-              
-70                If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 12) = False Then
-80                    If RetornaClubePorUsuario(gSMConexao.CodigoUsuario) <> NZ(objRsJogador!EQUIPE_IN) Then
-90                        MsgBox "Você não tem permissão para visualizar o jogador pois ele não pertence a sua equipe.", vbOKOnly + vbExclamation, "Atenção!"
-100                       Exit Sub
-110                   End If
-120               End If
-                  
-130               txtCodigoInterno.Text = NZ(objRsJogador!ID_JOGADOR_IN)
-140               txtApelido.Text = NS(objRsJogador!APELIDO_VC)
-150               txtNomeJogador.Text = NS(objRsJogador!NOMEATLETA_VC)
-160               txtNumCamisa.Text = NZ(objRsJogador!NUMEROCAMISA_IN)
-170               txtNomePai.Text = NS(objRsJogador!NOMEPAI_VC)
-180               txtNomeMae.Text = NS(objRsJogador!STRNOMEMAE_VC)
-190               txtUsuarioAlteracao.Text = NS(objRsJogador!USUARIOULTIMAALTERACAO_VC)
-200               txtUsuarioCadastro.Text = NS(objRsJogador!USUARIOCADASTRO_VC)
-210               txtCertidaoNascimento.Text = NS(objRsJogador!CERTIDAONASCIMENTO_VC)
-220               txtCartorio.Text = NS(objRsJogador!CARTORIO_VC)
-230               txtIdentidade.Text = NS(objRsJogador!IDENTIDADE_VC)
-240               txtOrgao.Text = NS(objRsJogador!ORGAOIDENTIDADE_VC)
-250               txtNomeEscola.Text = NS(objRsJogador!ESCOLA_VC)
-260               txtEnderecoEscola.Text = NS(objRsJogador!ENDERECOESCOLA_VC)
-270               sscCidadeEscola.Text = NS(objRsJogador!CIDADEESCOLA_VC)
-280               txtBairroEscola.Text = NS(objRsJogador!BAIRROESCOLA_VC)
-290               txtRedeSocialEscola.Text = NS(objRsJogador!REDESOCIALESCOLA_VC)
-300               txtEnderecoAtleta.Text = NS(objRsJogador!ENDERECO_VC)
-310               sscCidadeEnderecoAtleta.Text = NS(objRsJogador!CIDADE_VC)
-320               txtBairroEnderecoAtleta.Text = NS(objRsJogador!BAIRRO_VC)
-330               txtTelCel1.Text = NS(objRsJogador!TELCEL1_VC)
-340               txtTelCel2.Text = NS(objRsJogador!TELCEL2_VC)
-350               txtEmail.Text = NS(objRsJogador!EMAIL_VC)
-360               txtFacebookAtleta.Text = NS(objRsJogador!FACEBOOK_VC)
-370               txtInstagramAtleta.Text = NS(objRsJogador!INSTAGRAM_VC)
-                  
-380               If NZ(objRsJogador!SEXO_IN) = 1 Then
-390                   optMasculino.Value = True
-400                   optFeminino.Value = False
-410               Else
-420                   optMasculino.Value = False
-430                   optFeminino.Value = True
-440               End If
-                  
-450               chkWpp1.Value = IIf(NB(objRsJogador!WPP1_BT), vbChecked, vbUnchecked)
-460               chkwpp2.Value = IIf(NB(objRsJogador!WPP2_BT), vbChecked, vbUnchecked)
-                  
-470               dtcDataCadastro.DateValue = ND(objRsJogador!DATACADASTRO_DT)
-480               dtcDataUltimaAlteracao.DateValue = ND(objRsJogador!DATAULTIMAALTERACAO_DT)
-490               dtcDataNascimento.DateValue = ND(objRsJogador!DATANASCIMENTO_DT)
-                  
-                  
-500               lblInativo.Visible = NB(objRsJogador!EXCLUIDO_BT)
-                  
-510               If NB(objRsJogador!EXCLUIDO_BT) = True Then
-520                   tbBotoes.Buttons("cmdExcluir").Caption = "F5 - Excluir"
-530                   tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Reativar"
-540                   tbBotoes.Buttons("cmdProcurar").Image = 2
-550               Else
-560                   tbBotoes.Buttons("cmdExcluir").Caption = "F5 - Inativar"
-570                   tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Procurar"
-580                   tbBotoes.Buttons("cmdProcurar").Image = 4
-590               End If
-                  
-      '            mstrFoto = NS(objRsJogador!ENDERECOIMAGEM_VC)
-      '            If mstrFoto <> "" Then
-      '                imgFotoJogador.Picture = Nothing
-      '                imgFotoJogador.Stretch = True
-      '                On Error Resume Next
-      '                imgFotoJogador.Picture = LoadPicture(mstrFoto)
-      '                On Error GoTo Erro
-      '            End If
+            txtCodigoInterno.Text = NZ(objRsJogador!ID_JOGADOR_IN)
+            txtApelido.Text = NS(objRsJogador!APELIDO_VC)
+            txtNomeJogador.Text = NS(objRsJogador!NOMEATLETA_VC)
+            txtNumCamisa.Text = NZ(objRsJogador!NUMEROCAMISA_IN)
+            txtNomePai.Text = NS(objRsJogador!NOMEPAI_VC)
+            txtNomeMae.Text = NS(objRsJogador!STRNOMEMAE_VC)
+            txtUsuarioAlteracao.Text = NS(objRsJogador!USUARIOULTIMAALTERACAO_VC)
+            txtUsuarioCadastro.Text = NS(objRsJogador!USUARIOCADASTRO_VC)
+            txtCertidaoNascimento.Text = NS(objRsJogador!CERTIDAONASCIMENTO_VC)
+            txtCartorio.Text = NS(objRsJogador!CARTORIO_VC)
+            txtIdentidade.Text = NS(objRsJogador!IDENTIDADE_VC)
+            txtOrgao.Text = NS(objRsJogador!ORGAOIDENTIDADE_VC)
+            txtNomeEscola.Text = NS(objRsJogador!ESCOLA_VC)
+            txtEnderecoEscola.Text = NS(objRsJogador!ENDERECOESCOLA_VC)
+            sscCidadeEscola.Text = NS(objRsJogador!CIDADEESCOLA_VC)
+            txtBairroEscola.Text = NS(objRsJogador!BAIRROESCOLA_VC)
+            txtRedeSocialEscola.Text = NS(objRsJogador!REDESOCIALESCOLA_VC)
+            txtEnderecoAtleta.Text = NS(objRsJogador!ENDERECO_VC)
+            sscCidadeEnderecoAtleta.Text = NS(objRsJogador!CIDADE_VC)
+            txtBairroEnderecoAtleta.Text = NS(objRsJogador!BAIRRO_VC)
+            txtTelCel1.Text = NS(objRsJogador!TELCEL1_VC)
+            txtTelCel2.Text = NS(objRsJogador!TELCEL2_VC)
+            txtEmail.Text = NS(objRsJogador!EMAIL_VC)
+            txtFacebookAtleta.Text = NS(objRsJogador!FACEBOOK_VC)
+            txtInstagramAtleta.Text = NS(objRsJogador!INSTAGRAM_VC)
+            txtTelefoneEscola.Text = NS(objRsJogador!TELEFONEESCOLA_VC)
+            
+            If NZ(objRsJogador!SEXO_IN) = 1 Then
+                optMasculino.Value = True
+                optFeminino.Value = False
+            Else
+                optMasculino.Value = False
+                optFeminino.Value = True
+            End If
+            
+            chkWpp1.Value = IIf(NB(objRsJogador!WPP1_BT), vbChecked, vbUnchecked)
+            chkwpp2.Value = IIf(NB(objRsJogador!WPP2_BT), vbChecked, vbUnchecked)
+            
+            dtcDataCadastro.DateValue = ND(objRsJogador!DATACADASTRO_DT)
+            dtcDataUltimaAlteracao.DateValue = ND(objRsJogador!DATAULTIMAALTERACAO_DT)
+            dtcDataNascimento.DateValue = ND(objRsJogador!DATANASCIMENTO_DT)
+            
+            
+            lblInativo.Visible = NB(objRsJogador!EXCLUIDO_BT)
+            
+            If NB(objRsJogador!EXCLUIDO_BT) = True Then
+                tbBotoes.Buttons("cmdExcluir").Caption = "F5 - Excluir"
+                tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Reativar"
+                tbBotoes.Buttons("cmdProcurar").Image = 2
+            Else
+                tbBotoes.Buttons("cmdExcluir").Caption = "F5 - Inativar"
+                tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Procurar"
+                tbBotoes.Buttons("cmdProcurar").Image = 4
+            End If
+            
+'            mstrFoto = NS(objRsJogador!ENDERECOIMAGEM_VC)
+'            If mstrFoto <> "" Then
+'                imgFotoJogador.Picture = Nothing
+'                imgFotoJogador.Stretch = True
+'                On Error Resume Next
+'                imgFotoJogador.Picture = LoadPicture(mstrFoto)
+'                On Error GoTo Erro
+'            End If
 
-      '--------------------------------------------------------------------------------------
-600               If Not IsNull(objRsJogador!ENDERECOIMAGEM_VC) Then
-                      
-610                   mbitFoto() = objRsJogador!ENDERECOIMAGEM_VC
-620                   binIMG() = objRsJogador!ENDERECOIMAGEM_VC
-630                   If Val(binIMG(1)) <> 0 Then
-640                       imgFotoJogador.Picture = Nothing
-650                       imgFotoJogador.Stretch = True
-660                       On Error Resume Next
+'--------------------------------------------------------------------------------------
+            If Not IsNull(objRsJogador!ENDERECOIMAGEM_VC) Then
+                
+                mbitFoto() = objRsJogador!ENDERECOIMAGEM_VC
+                binIMG() = objRsJogador!ENDERECOIMAGEM_VC
+                If Val(binIMG(1)) <> 0 Then
+                    imgFotoJogador.Picture = Nothing
+                    imgFotoJogador.Stretch = True
+                    On Error Resume Next
 
-                          Dim b()  As Byte
-                          Dim ff   As Long
-                          Dim Arquivo As String
-                      
-                          'On Error GoTo ErrHandler
-                          'Call GetRandomArquivoName(Arquivo)
-670                       Arquivo = "tempimg.bmp"
-680                       ff = FreeFile
-690                       Open Arquivo For Binary Access Write As ff
-700                       b() = binIMG()
-710                       Put ff, , b()
-720                       Close ff
-730                       Erase b
-740                       imgFotoJogador.Picture = LoadPicture(Arquivo)
-                          'Set GetImageFromField = LoadPicture(Arquivo)
-750                       Kill Arquivo
-760                       End If
-770                   End If
-      '--------------------------------------------------------------------------------------
-                  
-780               modBDCombo_SelecionarCartecoriaJogador sscCartegoria, NZ(objRsJogador!CARTEGORIA_IN)
-790               modBDCombo_SelecionarEquipePorCodigo sscClube, NZ(objRsJogador!EQUIPE_IN)
-800               modBDCombo_SelecionarPosicoesAtleta sscPosicao, NZ(objRsJogador!POSICAO_IN)
-810               modBDCombo_SelecionarEstados sscUfEscola, NZ(objRsJogador!ESTADOESCOLA_IN)
-820               modBDCombo_SelecionarEstados sscUfEnderecoAtleta, NZ(objRsJogador!Estado_IN)
-                  
-830               mstrFlag = ""
-840               Call HabilitarCampos(False)
-850               Call HabilitarTBBotoes(False, True, True, True, False, True, True, True)
-                  
-860           Else
-870               MsgBox "Jogador não encontrado ou código inválido.", vbOKOnly + vbInformation, "Atenção!"
-880           End If
-890       Else
-900           MsgBox "Jogador não encontrado ou código inválido.", vbOKOnly + vbInformation, "Atenção!"
-910       End If
+                    Dim b()  As Byte
+                    Dim ff   As Long
+                    Dim Arquivo As String
+                
+                    'On Error GoTo ErrHandler
+                    'Call GetRandomArquivoName(Arquivo)
+                    Arquivo = "tempimg.bmp"
+                    ff = FreeFile
+                    Open Arquivo For Binary Access Write As ff
+                    b() = binIMG()
+                    Put ff, , b()
+                    Close ff
+                    Erase b
+                    imgFotoJogador.Picture = LoadPicture(Arquivo)
+                    'Set GetImageFromField = LoadPicture(Arquivo)
+                    Kill Arquivo
+                    End If
+                End If
+'--------------------------------------------------------------------------------------
+            
+            modBDCombo_SelecionarCartecoriaJogador sscCartegoria, NZ(objRsJogador!CARTEGORIA_IN)
+            modBDCombo_SelecionarEquipePorCodigo sscClube, NZ(objRsJogador!EQUIPE_IN)
+            modBDCombo_SelecionarPosicoesAtleta sscPosicao, NZ(objRsJogador!POSICAO_IN)
+            modBDCombo_SelecionarEstados sscUfEscola, NZ(objRsJogador!ESTADOESCOLA_IN)
+            modBDCombo_SelecionarEstados sscUfEnderecoAtleta, NZ(objRsJogador!Estado_IN)
+            
+            mstrFlag = ""
+            Call HabilitarCampos(False)
+            Call HabilitarTBBotoes(False, True, True, True, False, True, True, True)
+            
+        Else
+            MsgBox "Jogador não encontrado ou código inválido.", vbOKOnly + vbInformation, "Atenção!"
+        End If
+    Else
+        MsgBox "Jogador não encontrado ou código inválido.", vbOKOnly + vbInformation, "Atenção!"
+    End If
 
-920   Exit Sub
+Exit Sub
 Erro:
-930      Call MsgBox("Erro no módulo: " & "frmCadastroDeJogador" & vbCrLf & "No Procedimento: " & "CarregarJogador" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+   Call MsgBox("Erro no módulo: " & "frmCadastroDeJogador" & vbCrLf & "No Procedimento: " & "CarregarJogador" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 End Sub
 
@@ -2419,4 +2471,8 @@ Private Sub LimparArray(arr As Variant)
 '
 '        i = i + 1
 '    Loop
+End Sub
+
+Private Sub txtTelefoneEscola_KeyPress(KeyAscii As Integer)
+    TextBoxSomenteNumeros txtTelefoneEscola.Text, KeyAscii, False, False
 End Sub

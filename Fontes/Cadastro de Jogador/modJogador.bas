@@ -44,6 +44,7 @@ Type TypJogador
     lngNumeroCamisa As Long
     blnTemImagem As Boolean
     lngPosicao As Long
+    strTelefoneEscola As String
 
 End Type
 
@@ -90,6 +91,7 @@ On Error GoTo Erro
         .Parameters("@SEXO_IN").Value = udtJogador.lngSexo
         .Parameters("@NUMEROCAMISA_IN").Value = udtJogador.lngNumeroCamisa
         .Parameters("@POSICAO_IN").Value = udtJogador.lngPosicao
+        .Parameters("@TELEFONEESCOLA_VC").Value = udtJogador.strTelefoneEscola
     End With
     gobjCmd.Execute , , adExecuteNoRecords
     
@@ -144,6 +146,7 @@ Public Sub modJogador_AlterarJogador(ByRef udtJogador As TypJogador)
         .Parameters("@SEXO_IN").Value = udtJogador.lngSexo
         .Parameters("@NUMEROCAMISA_IN").Value = udtJogador.lngNumeroCamisa
         .Parameters("@POSICAO_IN").Value = udtJogador.lngPosicao
+        .Parameters("@TELEFONEESCOLA_VC").Value = udtJogador.strTelefoneEscola
     End With
     gobjCmd.Execute , , adExecuteNoRecords
     

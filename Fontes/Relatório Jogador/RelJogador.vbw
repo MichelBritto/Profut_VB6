@@ -2,6 +2,6 @@ ClsRelJogador = 131, 90, 908, 635, C
 modBDCombo = 0, 0, 0, 0, C
 mdConexao = 0, 0, 0, 0, C
 modPadrao = 200, 127, 1131, 804, C
-frmRelJogador = 246, 160, 1005, 705, , 0, 0, 0, 0, C
+frmRelJogador = 246, 160, 1005, 705, CZ, 0, 0, 0, 0, C
 modJogador = 54, 127, 1294, 804, C
 modEquipe = 54, 127, 956, 804, C

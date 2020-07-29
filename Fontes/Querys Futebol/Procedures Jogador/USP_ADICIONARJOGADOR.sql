@@ -33,6 +33,7 @@ ALTER PROCEDURE dbo.USP_ADICIONARJOGADOR
       @SEXO_IN INT = 1 ,
       @NUMEROCAMISA_IN INT ,
       @POSICAO_IN INT ,
+      @TELEFONEESCOLA_VC VARCHAR(128) ,
       @CodigoOutput INT OUTPUT
     )
 AS 
@@ -88,7 +89,8 @@ AS
               SEXO_IN ,
               NUMEROCAMISA_IN ,
               POSICAO_IN ,
-              CODIGOUNICO_VC
+              CODIGOUNICO_VC ,
+              TELEFONEESCOLA_VC
               	        
             )
     VALUES  ( @APELIDO_VC ,
@@ -129,7 +131,8 @@ AS
               @SEXO_IN ,
               @NUMEROCAMISA_IN ,
               @POSICAO_IN ,
-              @CodigoUnico_VC
+              @CodigoUnico_VC ,
+              @TELEFONEESCOLA_VC
 	        
             )
 	        

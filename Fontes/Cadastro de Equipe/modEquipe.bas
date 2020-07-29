@@ -94,9 +94,26 @@ On Error GoTo Erro
     Exit Sub
 Erro:
        Call MsgBox("Erro no módulo: " & "modEquipe" & vbCrLf & "No Procedimento: " & "modEquipe_SelecionarEquipePorCodigo" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
-
 End Sub
 
+Public Sub modEquipe_SelecionarEquipePorDescricao(ByVal strDescricao As String, ByRef objrs As Recordset)
+On Error GoTo Erro
+    
+    Set gobjCmd.ActiveConnection = gSMConexao.Conexao
+    gobjCmd.CommandText = "dbo.usp_SelecionarEquipePorDescricao"
+    gobjCmd.CommandType = adCmdStoredProc
+    gobjCmd.CommandTimeout = 1000
+    
+    With gobjCmd
+       .Parameters("@Descricao_VC").Value = strDescricao
+    End With
+    
+    Set objrs = gobjCmd.Execute
+    
+Exit Sub
+Erro:
+   Call MsgBox("Erro no módulo: " & "modEquipe" & vbCrLf & "modEquipe_SelecionarEquipePorCodigo" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+End Sub
 
 
 
