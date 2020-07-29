@@ -3,7 +3,7 @@ Object = "{065E6FD1-1BF9-11D2-BAE8-00104B9E0792}#3.0#0"; "ssa3d30.ocx"
 Begin VB.Form frmMenu 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "ProFut - Menu Principal"
-   ClientHeight    =   6375
+   ClientHeight    =   6330
    ClientLeft      =   4515
    ClientTop       =   2340
    ClientWidth     =   10860
@@ -12,7 +12,7 @@ Begin VB.Form frmMenu
    LockControls    =   -1  'True
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   6375
+   ScaleHeight     =   6330
    ScaleWidth      =   10860
    StartUpPosition =   2  'CenterScreen
    Begin VB.Frame fraPrincipal 
@@ -56,11 +56,11 @@ Begin VB.Form frmMenu
          TabIndex        =   1
          Top             =   120
          Width           =   3435
-         Begin Threed.SSCommand cmdCadastroDeJogador 
+         Begin Threed.SSCommand cmdMenuCompeticao 
             Height          =   645
             Left            =   30
-            TabIndex        =   2
-            Top             =   60
+            TabIndex        =   13
+            Top             =   780
             Width           =   3360
             _ExtentX        =   5927
             _ExtentY        =   1138
@@ -79,7 +79,7 @@ Begin VB.Form frmMenu
                Strikethrough   =   0   'False
             EndProperty
             Picture         =   "frmMenu.frx":9938
-            Caption         =   "Ficha de Jogador"
+            Caption         =   "Menu Competição"
             Alignment       =   1
             PictureAlignment=   9
             BevelWidth      =   1
@@ -91,6 +91,7 @@ Begin VB.Form frmMenu
             Left            =   30
             TabIndex        =   3
             Top             =   780
+            Visible         =   0   'False
             Width           =   3360
             _ExtentX        =   5927
             _ExtentY        =   1138
@@ -118,9 +119,10 @@ Begin VB.Form frmMenu
          End
          Begin Threed.SSCommand cmdRelatorioJogador 
             Height          =   645
-            Left            =   30
+            Left            =   3270
             TabIndex        =   4
             Top             =   1530
+            Visible         =   0   'False
             Width           =   3360
             _ExtentX        =   5927
             _ExtentY        =   1138
@@ -178,9 +180,10 @@ Begin VB.Form frmMenu
          End
          Begin Threed.SSCommand cmdUsuario 
             Height          =   645
-            Left            =   30
+            Left            =   3270
             TabIndex        =   6
             Top             =   2250
+            Visible         =   0   'False
             Width           =   3360
             _ExtentX        =   5927
             _ExtentY        =   1138
@@ -208,9 +211,10 @@ Begin VB.Form frmMenu
          End
          Begin Threed.SSCommand cmdPermissao 
             Height          =   645
-            Left            =   30
+            Left            =   3270
             TabIndex        =   7
             Top             =   2970
+            Visible         =   0   'False
             Width           =   3360
             _ExtentX        =   5927
             _ExtentY        =   1138
@@ -238,9 +242,10 @@ Begin VB.Form frmMenu
          End
          Begin Threed.SSCommand cmdCadCargo 
             Height          =   645
-            Left            =   30
+            Left            =   3270
             TabIndex        =   8
             Top             =   3690
+            Visible         =   0   'False
             Width           =   3360
             _ExtentX        =   5927
             _ExtentY        =   1138
@@ -268,9 +273,10 @@ Begin VB.Form frmMenu
          End
          Begin Threed.SSCommand cmdCadPosicao 
             Height          =   645
-            Left            =   30
+            Left            =   3270
             TabIndex        =   9
             Top             =   4410
+            Visible         =   0   'False
             Width           =   3360
             _ExtentX        =   5927
             _ExtentY        =   1138
@@ -290,6 +296,97 @@ Begin VB.Form frmMenu
             EndProperty
             Picture         =   "frmMenu.frx":B316
             Caption         =   "Cadastro de Posição"
+            Alignment       =   1
+            PictureAlignment=   9
+            BevelWidth      =   1
+            RoundedCorners  =   0   'False
+            Outline         =   0   'False
+         End
+         Begin Threed.SSCommand cmdModuloCadastro 
+            Height          =   645
+            Left            =   30
+            TabIndex        =   12
+            Top             =   60
+            Width           =   3360
+            _ExtentX        =   5927
+            _ExtentY        =   1138
+            _Version        =   196609
+            ForeColor       =   14737632
+            BackColor       =   0
+            PictureMaskColor=   16777152
+            PictureFrames   =   1
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial Black"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   900
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Picture         =   "frmMenu.frx":B6C8
+            Caption         =   "Menu Cadastral"
+            Alignment       =   1
+            PictureAlignment=   9
+            BevelWidth      =   1
+            RoundedCorners  =   0   'False
+            Outline         =   0   'False
+         End
+         Begin Threed.SSCommand cmdCadastroDeJogador 
+            Height          =   645
+            Left            =   30
+            TabIndex        =   2
+            Top             =   60
+            Visible         =   0   'False
+            Width           =   3360
+            _ExtentX        =   5927
+            _ExtentY        =   1138
+            _Version        =   196609
+            ForeColor       =   14737632
+            BackColor       =   0
+            PictureMaskColor=   16777152
+            PictureFrames   =   1
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial Black"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   900
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Picture         =   "frmMenu.frx":BA7A
+            Caption         =   "Ficha de Jogador"
+            Alignment       =   1
+            PictureAlignment=   9
+            BevelWidth      =   1
+            RoundedCorners  =   0   'False
+            Outline         =   0   'False
+         End
+         Begin Threed.SSCommand cmdVoltar 
+            Height          =   1035
+            Left            =   3270
+            TabIndex        =   14
+            Top             =   5130
+            Width           =   3360
+            _ExtentX        =   5927
+            _ExtentY        =   1826
+            _Version        =   196609
+            ForeColor       =   14737632
+            BackColor       =   0
+            PictureMaskColor=   16777152
+            PictureFrames   =   1
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial Black"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   900
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Picture         =   "frmMenu.frx":BE2C
+            Caption         =   "Voltar ao menu"
             Alignment       =   1
             PictureAlignment=   9
             BevelWidth      =   1
@@ -447,6 +544,60 @@ Private Sub cmdCadPosicao_MouseExit(ByVal Button As Integer, ByVal Shift As Inte
     cmdCadPosicao.ForeColor = vbWhite
 End Sub
 
+
+Private Sub cmdMenuCompeticao_Click()
+    MsgBox "Módulo ainda não implementado, aguarde novidades!", vbOKOnly + vbInformation, "Atenção!"
+End Sub
+Private Sub cmdMenuCompeticao_MouseEnter(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+    'cmdCadastroDeJogador.BackColor = "&H000080FF&"
+    cmdMenuCompeticao.ForeColor = &H80FF&
+End Sub
+
+Private Sub cmdMenuCompeticao_MouseExit(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+    'cmdCadastroDeJogador.BackColor = "&H00000000&"
+    cmdMenuCompeticao.ForeColor = vbWhite
+End Sub
+
+Private Sub cmdModuloCadastro_Click()
+On Error GoTo Erro
+    'Oculto os menús
+    cmdModuloCadastro.Visible = False
+    cmdMenuCompeticao.Visible = False
+    cmdSair.Visible = False
+    'Exibo os cadastros
+    cmdCadastroDeJogador.Visible = True
+    cmdCadastroEquipe.Visible = True
+    cmdRelatorioJogador.Visible = True
+    cmdPermissao.Visible = True
+    cmdUsuario.Visible = True
+    cmdCadCargo.Visible = True
+    cmdCadPosicao.Visible = True
+    cmdVoltar.Visible = True
+    'Acerto o left
+    cmdCadastroDeJogador.Left = cmdModuloCadastro.Left
+    cmdCadastroEquipe.Left = cmdModuloCadastro.Left
+    cmdRelatorioJogador.Left = cmdModuloCadastro.Left
+    cmdPermissao.Left = cmdModuloCadastro.Left
+    cmdUsuario.Left = cmdModuloCadastro.Left
+    cmdCadCargo.Left = cmdModuloCadastro.Left
+    cmdCadPosicao.Left = cmdModuloCadastro.Left
+    cmdVoltar.Left = cmdModuloCadastro.Left
+    
+Exit Sub
+Erro:
+   Call MsgBox("Erro no módulo: " & "frmMenu" & vbCrLf & "cmdModuloCadastro_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+End Sub
+
+Private Sub cmdModuloCadastro_MouseEnter(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+    'cmdCadastroDeJogador.BackColor = "&H000080FF&"
+    cmdModuloCadastro.ForeColor = &H80FF&
+End Sub
+
+Private Sub cmdModuloCadastro_MouseExit(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+    'cmdCadastroDeJogador.BackColor = "&H00000000&"
+    cmdModuloCadastro.ForeColor = vbWhite
+End Sub
+
 Private Sub cmdRelatorioJogador_Click()
     Dim ObjRelatorioJogador As ClsRelJogador
     Set ObjRelatorioJogador = New ClsRelJogador
@@ -541,6 +692,37 @@ Erro:
    Call MsgBox("Erro no módulo: " & "frmMenu" & vbCrLf & "cmdUsuario_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 
+End Sub
+
+Private Sub cmdVoltar_Click()
+On Error GoTo Erro
+    
+    'Exibo os menús
+    cmdModuloCadastro.Visible = True
+    cmdMenuCompeticao.Visible = True
+    cmdSair.Visible = True
+    'oculto os cadastros
+    cmdCadastroDeJogador.Visible = False
+    cmdCadastroEquipe.Visible = False
+    cmdRelatorioJogador.Visible = False
+    cmdPermissao.Visible = False
+    cmdUsuario.Visible = False
+    cmdCadCargo.Visible = False
+    cmdCadPosicao.Visible = False
+    cmdVoltar.Visible = False
+        
+    Exit Sub
+Erro:
+       Call MsgBox("Erro no módulo: " & "frmMenu" & vbCrLf & "cmdVoltar_Click" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+End Sub
+Private Sub cmdVoltar_MouseEnter(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+    'cmdCadastroDeJogador.BackColor = "&H000080FF&"
+    cmdVoltar.ForeColor = &H80FF&
+End Sub
+
+Private Sub cmdVoltar_MouseExit(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+    'cmdCadastroDeJogador.BackColor = "&H00000000&"
+    cmdVoltar.ForeColor = vbWhite
 End Sub
 
 Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)

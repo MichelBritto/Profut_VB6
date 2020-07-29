@@ -5,4 +5,4 @@ modPadrao = 108, 416, 1189, 1093, C
 modEquipe = 160, 114, 1213, 791, C
 modBDCombo = 200, 127, 1145, 804, C
 frmAdicionarFotoEquipe = 189, 127, 644, 804, C, 0, 0, 0, 0, C
-frmCadastroDeEquipeV2 = 235, 137, 1537, 814, , 0, 0, 0, 0, C
+frmCadastroDeEquipeV2 = 235, 137, 1537, 814, C, 0, 0, 0, 0, C
