@@ -1,0 +1,8 @@
+ALTER PROCEDURE dbo.USP_SELECIONARESTADOS  ( @Codigo_IN INT = NULL )
+AS 
+    SELECT  UF_CH ,
+            ID_IN
+    FROM    dbo.ESTADOS_T
+    WHERE   ID_IN = ISNULL(@Codigo_IN, ID_IN)
+    
+GO

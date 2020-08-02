@@ -1,0 +1,12 @@
+CREATE PROCEDURE dbo.usp_ApagarEquipe ( @EQUIPE_IN INT )
+AS 
+    UPDATE  dbo.EQUIPE_T
+    SET     EXCLUIDO_BT = 1
+    WHERE   ID_IN = @EQUIPE_IN
+    UPDATE  dbo.EQUIPEXJOGADOR_T
+    SET     EXCLUIDO_BT = 1
+    WHERE   EQUIPE_IN = @EQUIPE_IN
+
+GO
+
+
