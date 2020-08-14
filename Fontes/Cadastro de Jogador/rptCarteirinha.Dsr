@@ -1,12 +1,12 @@
 VERSION 5.00
 Begin {82282820-C017-11D0-A87C-00A0C90F29FC} rptCarteirinha 
    Caption         =   "CadJogador - rptCarteirinha (ActiveReport)"
-   ClientHeight    =   10590
-   ClientLeft      =   0
-   ClientTop       =   330
-   ClientWidth     =   20490
-   _ExtentX        =   36142
-   _ExtentY        =   18680
+   ClientHeight    =   12570
+   ClientLeft      =   30
+   ClientTop       =   450
+   ClientWidth     =   16470
+   _ExtentX        =   29051
+   _ExtentY        =   22172
    SectionData     =   "rptCarteirinha.dsx":0000
 End
 Attribute VB_Name = "rptCarteirinha"
@@ -23,6 +23,7 @@ Dim mdatNascimento As Date
 Dim mstrPai As String
 Dim mstrMae As String
 Dim mlngCamisa As Long
+Dim mlngSexo As Long '1 masculino 2 feminino
 
 Dim mbitFoto() As Byte
 
@@ -56,6 +57,9 @@ End Property
 Public Property Let Foto(bitParam() As Byte)
     mbitFoto() = bitParam()
 End Property
+Public Property Let Sexo(lngSexo As Long)
+    mlngSexo = lngSexo
+End Property
 
 Private Sub ActiveReport_ReportStart()
 Dim binIMG() As Byte
@@ -65,10 +69,23 @@ Dim binIMG() As Byte
     fldNomeCompleto.Text = mstrNomeCompleto
     fldNomeEquipe.Text = mstrEquipe
     fldCartegoria.Text = mstrCartegoria
+    
     fldDataNascimento.Text = Format(mdatNascimento, "dd/mm/yyyy")
+    fldDiaNasc.Text = Left(fldDataNascimento.Text, 2)
+    fldMesNasc.Text = Mid(fldDataNascimento.Text, 4, 2)
+    fldAnoNasc.Text = Right(fldDataNascimento.Text, 2)
+        
     fldNomePai.Text = mstrPai
     fldNomeMae.Text = mstrMae
     fldNumero.Text = mlngCamisa
+    
+    If mlngSexo = 1 Then
+        lblXM.Caption = "X"
+        lblXF.Caption = ""
+    Else
+        lblXM.Caption = ""
+        lblXF.Caption = "X"
+    End If
     
 '---------------------------------------------------------
     'AQUI TRATO A IMAGEM BINÁRIA

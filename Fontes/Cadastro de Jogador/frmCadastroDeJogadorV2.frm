@@ -1629,6 +1629,9 @@ Dim mlngOpcao As Long
 Dim mblnCarregando As Boolean
 Dim mlngJogador As Long
 
+Dim mobjrsJogador As Recordset
+
+
 Dim mbitFoto() As Byte
 
 Dim blnRemoveuFoto As Boolean
@@ -1667,38 +1670,38 @@ Erro:
 End Sub
 
 Private Sub ImprimirFicha()
-On Error GoTo Erro
-      
-    If (Val(txtCodigoInterno.Text)) = 0 Then Exit Sub
-    
-   rptFichaJogador.Parametros1 = mbitFoto()
-   rptFichaJogador.Parametros111 = (Val(txtCodigoInterno.Text))
-   rptFichaJogador.Parametros2 = (sscClube.Columns("chdescricao").Value)
-   rptFichaJogador.Parametros3 = (txtNomeJogador.Text)
-   rptFichaJogador.Parametros4 = (dtcDataNascimento.DateValue)
-   rptFichaJogador.Parametros5 = ""
-   rptFichaJogador.Parametros6 = txtCertidaoNascimento.Text
-   rptFichaJogador.Parametros7 = txtCartorio.Text
-   rptFichaJogador.Parametros8 = txtIdentidade.Text
-   rptFichaJogador.Parametros9 = txtOrgao.Text
-   rptFichaJogador.Parametros10 = txtNomePai.Text
-   rptFichaJogador.Parametros11 = txtNomeMae.Text
-   rptFichaJogador.Parametros12 = txtEnderecoAtleta.Text
-   rptFichaJogador.Parametros13 = txtBairroEnderecoAtleta.Text
-   rptFichaJogador.Parametros14 = sscCidadeEnderecoAtleta.Text
-   rptFichaJogador.Parametros15 = txtFacebookAtleta.Text
-   rptFichaJogador.Parametros16 = txtNomeEscola.Text
-   rptFichaJogador.Parametros17 = txtEnderecoEscola.Text
-   rptFichaJogador.Parametros18 = txtBairroEscola.Text
-   rptFichaJogador.Parametros19 = sscCidadeEscola.Text
-   rptFichaJogador.Parametros20 = txtTelefoneEscola.Text
-   rptFichaJogador.Parametros21 = txtRedeSocialEscola.Text
-   
-    rptFichaJogador.Show vbModal, Me
+10    On Error GoTo Erro
+            
+20        If (Val(txtCodigoInterno.Text)) = 0 Then Exit Sub
+          
+30       rptFichaJogador.Parametros1 = mbitFoto()
+40       rptFichaJogador.Parametros111 = (Val(txtCodigoInterno.Text))
+50       rptFichaJogador.Parametros2 = (sscClube.Columns("chdescricao").Value)
+60       rptFichaJogador.Parametros3 = (txtNomeJogador.Text)
+70       rptFichaJogador.Parametros4 = (dtcDataNascimento.DateValue)
+80       rptFichaJogador.Parametros5 = ""
+90       rptFichaJogador.Parametros6 = txtCertidaoNascimento.Text
+100      rptFichaJogador.Parametros7 = txtCartorio.Text
+110      rptFichaJogador.Parametros8 = txtIdentidade.Text
+120      rptFichaJogador.Parametros9 = txtOrgao.Text
+130      rptFichaJogador.Parametros10 = txtNomePai.Text
+140      rptFichaJogador.Parametros11 = txtNomeMae.Text
+150      rptFichaJogador.Parametros12 = txtEnderecoAtleta.Text
+160      rptFichaJogador.Parametros13 = txtBairroEnderecoAtleta.Text
+170      rptFichaJogador.Parametros14 = sscCidadeEnderecoAtleta.Text
+180      rptFichaJogador.Parametros15 = txtFacebookAtleta.Text
+190      rptFichaJogador.Parametros16 = txtNomeEscola.Text
+200      rptFichaJogador.Parametros17 = txtEnderecoEscola.Text
+210      rptFichaJogador.Parametros18 = txtBairroEscola.Text
+220      rptFichaJogador.Parametros19 = sscCidadeEscola.Text
+230      rptFichaJogador.Parametros20 = txtTelefoneEscola.Text
+240      rptFichaJogador.Parametros21 = txtRedeSocialEscola.Text
+         
+250       rptFichaJogador.Show vbModal, Me
 
-Exit Sub
+260   Exit Sub
 Erro:
-   Call MsgBox("Erro no módulo: " & "frmCadastroDeJogadorV2" & vbCrLf & "No Procedimento: " & "ImprimirFicha" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+270      Call MsgBox("Erro no módulo: " & "frmCadastroDeJogadorV2" & vbCrLf & "No Procedimento: " & "ImprimirFicha" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 End Sub
 
@@ -1707,7 +1710,7 @@ Private Sub ImprimirCarteirinha()
           
 20        If (Val(txtCodigoInterno.Text)) = 0 Then Exit Sub
           
-30        rptCarteirinha.Codigo = (Val(txtCodigoInterno.Text))
+30        rptCarteirinha.Codigo = Val(mobjrsJogador!CODIGOUNICO_VC) '(Val(txtCodigoInterno.Text))
 40        rptCarteirinha.Apelido = (txtApelido.Text)
 50        rptCarteirinha.Nome = (txtNomeJogador.Text)
 60        rptCarteirinha.Camisa = (Val(txtCodigoInterno.Text))
@@ -1717,10 +1720,16 @@ Private Sub ImprimirCarteirinha()
 100       rptCarteirinha.Mae = (txtNomePai.Text)
 110       rptCarteirinha.Pai = (txtNomeMae.Text)
 120       rptCarteirinha.Foto = mbitFoto()
-130       rptCarteirinha.Show vbModal, Me
-140   Exit Sub
+          
+130       If optMasculino.Value = True Then
+140           rptCarteirinha.Sexo = 1
+150       Else
+160           rptCarteirinha.Sexo = 2
+170       End If
+180       rptCarteirinha.Show vbModal, Me
+190   Exit Sub
 Erro:
-150      Call MsgBox("Erro no módulo: " & "frmCadastroDeJogadorV2" & vbCrLf & "No Procedimento: " & "ImprimirCarteirinha" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+200      Call MsgBox("Erro no módulo: " & "frmCadastroDeJogadorV2" & vbCrLf & "No Procedimento: " & "ImprimirCarteirinha" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 End Sub
 
@@ -1856,6 +1865,8 @@ Private Sub LimparCampos()
 450       modBDCombo_SelecionarEstados sscUfEnderecoAtleta
 460       modBDCombo_SelecionarEquipePorCodigo sscClube
 470       modBDCombo_SelecionarPosicoesAtleta sscPosicao
+          
+480       Set mobjrsJogador = Nothing
           
       '    modBDCombo_SelecionarCidades sscCidadeEnderecoAtleta
       '    modBDCombo_SelecionarCidades sscCidadeEscola
@@ -2338,6 +2349,8 @@ On Error GoTo Erro
                     Exit Sub
                 End If
             End If
+            
+            Set mobjrsJogador = objRsJogador.Clone
             
             txtCodigoInterno.Text = NZ(objRsJogador!ID_JOGADOR_IN)
             txtApelido.Text = NS(objRsJogador!APELIDO_VC)
