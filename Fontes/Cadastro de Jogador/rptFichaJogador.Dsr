@@ -1,12 +1,12 @@
 VERSION 5.00
 Begin {82282820-C017-11D0-A87C-00A0C90F29FC} rptFichaJogador 
    Caption         =   "CadJogador - rptFichaJogador (ActiveReport)"
-   ClientHeight    =   10590
-   ClientLeft      =   150
+   ClientHeight    =   12570
+   ClientLeft      =   0
    ClientTop       =   450
-   ClientWidth     =   11250
-   _ExtentX        =   19844
-   _ExtentY        =   18680
+   ClientWidth     =   12345
+   _ExtentX        =   21775
+   _ExtentY        =   22172
    SectionData     =   "rptFichaJogador.dsx":0000
 End
 Attribute VB_Name = "rptFichaJogador"
@@ -36,6 +36,7 @@ Dim mstrBairroEscola As String
 Dim mstrCidadeEscola As String
 Dim mstrTelefoneEscola As String
 Dim mstrFacebookEscola As String
+Dim mstrCartegoria  As String
 
 
 Public Property Let Parametros1(bitFoto() As Byte)
@@ -53,8 +54,8 @@ End Property
 Public Property Let Parametros4(datNascimento As Date)
     mdatNascimento = datNascimento
 End Property
-Public Property Let Parametros5(strLocal As String)
-    mstrLocal = strLocal
+Public Property Let Parametros5(strCartegoria As String)
+    mstrCartegoria = strCartegoria
 End Property
 Public Property Let Parametros6(strCertidao As String)
     mstrCertidao = strCertidao
@@ -129,6 +130,7 @@ Dim binIMG() As Byte
     fldCidadeEscola.Text = mstrCidadeEscola
     fldTelefoneEscola.Text = mstrTelefoneEscola
     fldFacebookEscola.Text = mstrFacebookEscola
+    fldCartegoria = mstrCartegoria
     
 '---------------------------------------------------------
     'AQUI TRATO A IMAGEM BINÁRIA
