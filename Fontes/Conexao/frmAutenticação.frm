@@ -4,7 +4,7 @@ Begin VB.Form frmAutenticacao
    Appearance      =   0  'Flat
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Login"
-   ClientHeight    =   2505
+   ClientHeight    =   1335
    ClientLeft      =   11475
    ClientTop       =   7320
    ClientWidth     =   3855
@@ -15,7 +15,7 @@ Begin VB.Form frmAutenticacao
    LockControls    =   -1  'True
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   2505
+   ScaleHeight     =   1335
    ScaleWidth      =   3855
    ShowInTaskbar   =   0   'False
    Begin VB.CheckBox chkAlterarSenha 
@@ -54,7 +54,7 @@ Begin VB.Form frmAutenticacao
       Height          =   330
       Left            =   75
       TabIndex        =   10
-      Top             =   2130
+      Top             =   990
       Width           =   1890
    End
    Begin VB.CommandButton cmdConfirmar 
@@ -72,17 +72,17 @@ Begin VB.Form frmAutenticacao
       Height          =   330
       Left            =   2060
       TabIndex        =   11
-      Top             =   2130
+      Top             =   990
       Width           =   1740
    End
    Begin Threed.SSFrame fraUsuarioSenha 
-      Height          =   1755
+      Height          =   915
       Left            =   45
       TabIndex        =   0
       Top             =   45
       Width           =   3750
       _ExtentX        =   6615
-      _ExtentY        =   3096
+      _ExtentY        =   1614
       _Version        =   196609
       Begin VB.TextBox txtServidor 
          Appearance      =   0  'Flat
@@ -98,7 +98,7 @@ Begin VB.Form frmAutenticacao
          Height          =   330
          Left            =   855
          TabIndex        =   5
-         Text            =   "FALCO-PC"
+         Text            =   "PC-PC"
          Top             =   990
          Width           =   2820
       End
@@ -117,7 +117,7 @@ Begin VB.Form frmAutenticacao
          IMEMode         =   3  'DISABLE
          Left            =   855
          TabIndex        =   7
-         Text            =   "DBFUTEBOL"
+         Text            =   "DBPROFUT"
          Top             =   1365
          Width           =   2820
       End
@@ -137,7 +137,6 @@ Begin VB.Form frmAutenticacao
          Left            =   855
          PasswordChar    =   "*"
          TabIndex        =   3
-         Text            =   "mi1401"
          Top             =   480
          Width           =   2820
       End
@@ -155,7 +154,6 @@ Begin VB.Form frmAutenticacao
          Height          =   330
          Left            =   855
          TabIndex        =   1
-         Text            =   "sa"
          Top             =   105
          Width           =   2820
       End
@@ -234,6 +232,7 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Dim mblnTamanhoAumentado As Boolean
 
 Public Sub FecharPeloMenu()
     If gblnLoginRealizado = True Then Unload frmAutenticacao
@@ -303,4 +302,41 @@ Private Sub txtServidor_KeyDown(KeyCode As Integer, Shift As Integer)
     If KeyCode = vbKeyReturn Then
         Call cmdConfirmar_Click
     End If
+End Sub
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+10    On Error GoTo Erro
+          'tamanho original
+          '1785 height do frame
+          '2130 top dos butões
+          '3075 height do form
+          
+          'tamanho reduzido
+          '915 height do frame
+          '990 top dos butões
+          '1905 height do form
+            
+20        If KeyCode = vbKeyF12 Then
+30            If mblnTamanhoAumentado = True Then
+              
+40                fraUsuarioSenha.Height = 915
+50                cmdConfirmar.Top = 990
+60                cmdCancelar.Top = 990
+70                frmAutenticacao.Height = 1905
+80                mblnTamanhoAumentado = False
+                  
+90            Else
+              
+100               fraUsuarioSenha.Height = 1785
+110               cmdConfirmar.Top = 2130
+120               cmdCancelar.Top = 2130
+130               frmAutenticacao.Height = 3075
+140               mblnTamanhoAumentado = True
+                  
+150           End If
+160       End If
+
+170   Exit Sub
+Erro:
+180      Call MsgBox("Erro no módulo: " & "frmAutenticacao" & vbCrLf & "Form_KeyDown" & "VerificarCampos" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 End Sub

@@ -8,5 +8,5 @@ frmAdicionarFotoJogador = 200, 127, 1031, 804, C, 0, 0, 0, 0, C
 frmwebcam = 54, 127, 1053, 804, C, 0, 0, 0, 0, C
 frmCadastroDeJogadorV2 = 66, 238, 1075, 514, I, 0, 0, 0, 0, C
 rptCarteirinha = 153, 35, 944, 580, C, 0, 0, 0, 0, C
-rptFichaJogador = 397, 139, 1139, 684, , 0, 0, 0, 0, C
+rptFichaJogador = 397, 139, 1139, 684, C, 0, 0, 0, 0, C
 frmOpcaoImpressao = 201, 127, 656, 672, CZ, 0, 0, 0, 0, C

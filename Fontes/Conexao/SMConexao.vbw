@@ -1,4 +1,4 @@
 clsConexaoMC = 54, 127, 1298, 804, C
-frmAutenticacao = 189, 127, 644, 804, C, 0, 0, 0, 0, C
+frmAutenticacao = -7, 0, 751, 677, C, 0, 0, 0, 0, C
 modPadrao = 200, 127, 1129, 804, C
 mdConexao = 159, 127, 614, 804, C
