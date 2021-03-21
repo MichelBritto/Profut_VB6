@@ -1289,11 +1289,11 @@ End Sub
 Private Sub Form_Resize()
 
     If WindowState = vbMinimized Then Exit Sub
-    If Height < 8325 Then Height = 8325
+    If Height < 8565 Then Height = 8565
     If Width < 14955 Then Width = 14955
 
     fraPrincipal.Width = frmRelJogador.Width - 300
-    fraPrincipal.Height = frmRelJogador.Height - 1140
+    fraPrincipal.Height = frmRelJogador.Height - 1380
     
     cmdExportar.Top = fraPrincipal.Height + 135
     
@@ -1308,6 +1308,10 @@ Private Sub Form_Resize()
     
     tbBotoes.Left = Me.Width - 1800
     tbBotoes.Top = fraPrincipal.Top + fraPrincipal.Height + 50
+    
+    sta.Panels(1).Width = frmRelJogador.Width / 3
+    sta.Panels(2).Width = frmRelJogador.Width / 3
+    sta.Panels(3).Width = frmRelJogador.Width / 3
 
 End Sub
 
