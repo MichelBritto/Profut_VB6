@@ -98,7 +98,7 @@ Begin VB.Form frmAutenticacao
          Height          =   330
          Left            =   855
          TabIndex        =   5
-         Text            =   "PC-PC"
+         Text            =   "FALCO-PC"
          Top             =   990
          Width           =   2820
       End
@@ -117,7 +117,7 @@ Begin VB.Form frmAutenticacao
          IMEMode         =   3  'DISABLE
          Left            =   855
          TabIndex        =   7
-         Text            =   "DBPROFUT"
+         Text            =   "DBFUTEBOL"
          Top             =   1365
          Width           =   2820
       End

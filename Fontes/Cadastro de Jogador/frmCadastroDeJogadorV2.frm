@@ -114,9 +114,9 @@ Begin VB.Form frmCadastroDeJogadorV2
       Tabs(0).Pages(0).Name=   "page 0"
       Tabs(0).Pages(0).CtlCount=   3
       Tabs(0).Pages(0).CtlEnabled=   -1  'True
-      Tabs(0).Pages(0).Ctl(0)=   "fraInfoSistema"
+      Tabs(0).Pages(0).Ctl(0)=   "fraFoto"
       Tabs(0).Pages(0).Ctl(1)=   "fraDadosCadastrais"
-      Tabs(0).Pages(0).Ctl(2)=   "fraFoto"
+      Tabs(0).Pages(0).Ctl(2)=   "fraInfoSistema"
       Tabs(0).Tag     =   ""
       Tabs(0).Caption =   "Principal"
       Tabs(0).Name    =   "tab 0"
@@ -132,8 +132,8 @@ Begin VB.Form frmCadastroDeJogadorV2
       Tabs(1).Pages(0).Name=   "page 0"
       Tabs(1).Pages(0).CtlCount=   2
       Tabs(1).Pages(0).CtlEnabled=   0   'False
-      Tabs(1).Pages(0).Ctl(0)=   "fraDocumentos"
-      Tabs(1).Pages(0).Ctl(1)=   "fraInfoEscolares"
+      Tabs(1).Pages(0).Ctl(0)=   "fraInfoEscolares"
+      Tabs(1).Pages(0).Ctl(1)=   "fraDocumentos"
       Tabs(1).Tag     =   ""
       Tabs(1).Caption =   "Documentação"
       Tabs(1).Name    =   "tab 1"
@@ -1808,69 +1808,77 @@ Private Sub Form_Load()
 End Sub
 
 Private Sub LimparCampos()
-          
-10        LimparArray mbitFoto
-          
-20        mstrFlag = ""
-30        blnRemoveuFoto = False
-          
-40        txtCodigoInterno.Text = ""
-50        txtApelido.Text = ""
-60        txtNomeJogador.Text = ""
-70        sscClube.Text = ""
-80        sscPosicao.Text = ""
-          'txtLocalDeNascimento.Text = ""
-90        txtNomePai.Text = ""
-100       txtNomeMae.Text = ""
-110       txtUsuarioAlteracao.Text = ""
-120       txtCertidaoNascimento.Text = ""
-130       txtCartorio.Text = ""
-140       txtIdentidade.Text = ""
-150       txtOrgao.Text = ""
-160       txtNomeEscola.Text = ""
-170       txtEnderecoEscola.Text = ""
-180       sscCidadeEscola.Text = ""
-190       txtBairroEscola.Text = ""
-200       txtRedeSocialEscola.Text = ""
-210       txtEnderecoAtleta.Text = ""
-220       sscCidadeEnderecoAtleta.Text = ""
-230       txtBairroEnderecoAtleta.Text = ""
-240       txtTelCel1.Text = ""
-250       txtTelCel2.Text = ""
-260       txtEmail.Text = ""
-270       txtFacebookAtleta.Text = ""
-280       txtInstagramAtleta.Text = ""
-290       txtNumCamisa.Text = ""
-300       txtUsuarioCadastro.Text = ""
-310       txtTelefoneEscola.Text = ""
+    
+    LimparArray mbitFoto
+    
+    mstrFlag = ""
+    blnRemoveuFoto = False
+    
+    txtCodigoInterno.Text = ""
+    txtApelido.Text = ""
+    txtNomeJogador.Text = ""
+    sscClube.Text = ""
+    sscPosicao.Text = ""
+    'txtLocalDeNascimento.Text = ""
+    txtNomePai.Text = ""
+    txtNomeMae.Text = ""
+    txtUsuarioAlteracao.Text = ""
+    txtCertidaoNascimento.Text = ""
+    txtCartorio.Text = ""
+    txtIdentidade.Text = ""
+    txtOrgao.Text = ""
+    txtNomeEscola.Text = ""
+    txtEnderecoEscola.Text = ""
+    sscCidadeEscola.Text = ""
+    txtBairroEscola.Text = ""
+    txtRedeSocialEscola.Text = ""
+    txtEnderecoAtleta.Text = ""
+    sscCidadeEnderecoAtleta.Text = ""
+    txtBairroEnderecoAtleta.Text = ""
+    txtTelCel1.Text = ""
+    txtTelCel2.Text = ""
+    txtEmail.Text = ""
+    txtFacebookAtleta.Text = ""
+    txtInstagramAtleta.Text = ""
+    txtNumCamisa.Text = ""
+    txtUsuarioCadastro.Text = ""
+    txtTelefoneEscola.Text = ""
 
-          
-320       optMasculino.Value = vbChecked
-330       optFeminino.Value = vbUnchecked
-          
-340       chkWpp1.Value = vbUnchecked
-350       chkwpp2.Value = vbUnchecked
-          
-360       dtcDataUltimaAlteracao.DateValue = Nothing
-370       dtcDataNascimento.DateValue = Nothing
-380       dtcDataCadastro.DateValue = Nothing
-          
-390       sscUfEscola.Text = ""
-400       sscUfEnderecoAtleta.Text = ""
-410       mstrFoto = ""
-420       imgFotoJogador.Picture = Nothing
-          
-430       modBDCombo_SelecionarCartecoriaJogador sscCartegoria
-440       modBDCombo_SelecionarEstados sscUfEscola
-450       modBDCombo_SelecionarEstados sscUfEnderecoAtleta
-460       modBDCombo_SelecionarEquipePorCodigo sscClube
-470       modBDCombo_SelecionarPosicoesAtleta sscPosicao
-          
-480       Set mobjrsJogador = Nothing
-          
-      '    modBDCombo_SelecionarCidades sscCidadeEnderecoAtleta
-      '    modBDCombo_SelecionarCidades sscCidadeEscola
-          
+    
+    optMasculino.Value = vbChecked
+    optFeminino.Value = vbUnchecked
+    
+    chkWpp1.Value = vbUnchecked
+    chkwpp2.Value = vbUnchecked
+    
+    dtcDataUltimaAlteracao.DateValue = Nothing
+    dtcDataNascimento.DateValue = Nothing
+    dtcDataCadastro.DateValue = Nothing
+    
+    sscUfEscola.Text = ""
+    sscUfEnderecoAtleta.Text = ""
+    mstrFoto = ""
+    imgFotoJogador.Picture = Nothing
+    
+    modBDCombo_SelecionarCartecoriaJogador sscCartegoria
+    modBDCombo_SelecionarEstados sscUfEscola
+    modBDCombo_SelecionarEstados sscUfEnderecoAtleta
+    modBDCombo_SelecionarEquipePorCodigo sscClube
+    modBDCombo_SelecionarPosicoesAtleta sscPosicao
+    
+    lblInativo.Visible = False
+    
+    tbBotoes.Buttons("cmdExcluir").Caption = "F5 - Inativar"
+    tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Procurar"
+    tbBotoes.Buttons("cmdProcurar").Image = 4
+    tbBotoes.Buttons("cmdAlterar").Enabled = True
+    tbBotoes.Buttons("cmdProcurar").ToolTipText = "Procurar Jogador"
+    
+    Set mobjrsJogador = Nothing
+    
+'    modBDCombo_SelecionarCidades sscCidadeEnderecoAtleta
+'    modBDCombo_SelecionarCidades sscCidadeEscola
+    
 End Sub
 
 Private Sub HabilitarCampos(blnhabilitar As Boolean)
@@ -1945,124 +1953,124 @@ End Sub
 
 Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
 
-      Dim lngClube As Long
+Dim lngClube As Long
 
-10        If Not (Button.Enabled) Then Exit Sub
-20        Select Case Button.Key
-              
-              Case "cmdNovo":
-30                If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 2) = True Then
-40                    mstrFlag = "I"
-50                    Call HabilitarCampos(True)
-60                    Call HabilitarTBBotoes(False, False, False, True, True, False, False, False)
-70                    lngClube = NZ(RetornaClubePorUsuario(gSMConexao.CodigoUsuario))
-80                    If lngClube <> 0 Then
-90                        If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 13) = False Then
-100                           modBDCombo_SelecionarEquipePorCodigo sscClube, lngClube
-110                           sscClube.Enabled = False
-120                       End If
-130                   End If
-140                   txtApelido.SetFocus
-150               Else
-160                   MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº2" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
-170               End If
-              
-180           Case "cmdAlterar":
-                  
-190               If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 3) = True Then
-200                   mstrFlag = "A"
-210                   Call HabilitarCampos(True)
-220                   Call HabilitarTBBotoes(False, False, False, True, True, False, False, False)
-230                   lngClube = NZ(RetornaClubePorUsuario(gSMConexao.CodigoUsuario))
-240                   If lngClube <> 0 Then
-250                       If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 13) = False Then
-260                           modBDCombo_SelecionarEquipePorCodigo sscClube, lngClube
-270                           sscClube.Enabled = False
-280                       End If
-290                   End If
-300                   txtApelido.SetFocus
-310               Else
-320                   MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº3" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
-330               End If
-                  
-340           Case "cmdExcluir":
-                  
-350               If lblInativo.Visible = False Then
-360                   If MsgBox("Deseja INATIVAR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será removido temporáriamente do sistema mas ainda poderá ser reativado.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
-370                       Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 1)
-380                       Call CarregarJogador(Val(txtCodigoInterno.Text))
-390                   End If
-400               Else
-410                   If MsgBox("Deseja EXCLUIR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será removido permanentemente do sistema e NÃO poderá ser reativado.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
-420                       Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 2)
-430                       mstrFlag = ""
-440                       Call LimparCampos
-450                       Call HabilitarCampos(False)
-460                       Call HabilitarTBBotoes(True, False, True, False, False, True, True, False)
-470                       txtCodigoInterno.SetFocus
-480                   End If
-490               End If
-                  
-              
-500           Case "cmdLimpar":
-510               mstrFlag = ""
-520               Call LimparCampos
-530               Call HabilitarCampos(False)
-540               Call HabilitarTBBotoes(True, False, True, False, False, True, True, False)
-550                txtCodigoInterno.SetFocus
-              
-560           Case "cmdGravar"
-570               If VerificarCampos Then
-580                   GravarJogador
-590                   CarregarJogador Val(txtCodigoInterno.Text)
-600                   mstrFlag = ""
-610               Else
-620                   Exit Sub
-630               End If
-640               Call HabilitarCampos(False)
-650               Call HabilitarTBBotoes(False, True, True, True, False, False, True, True)
-660               txtCodigoInterno.SetFocus
-                  
-670           Case "cmdProcurar"
-680               If tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Procurar" Then
-                      Dim ObjRelatorioJogador As ClsRelJogador
-690                   Set ObjRelatorioJogador = New ClsRelJogador
-                      
-700                   If Not gSMConexao Is Nothing Then
-710                       If gSMConexao.EstadoConexaoBD = adStateOpen Then
-                              
-720                           ObjRelatorioJogador.Show gSMConexao, "ProFut - Relatório de Jogador", vbModal, Me, True
-730                           txtCodigoInterno.Text = ObjRelatorioJogador.ID
-740                           txtCodigoInterno_KeyDown vbKeyReturn, 0
-750                           Exit Sub
-760                       Else
-770                           gSMConexao.conectar
-780                       End If
-790                   End If
-800               Else
-810                   If MsgBox("Deseja REATIVAR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será ativado novamente no sistema.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
-820                       Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 3)
-830                       Call CarregarJogador(Val(txtCodigoInterno.Text))
-840                   End If
-850               End If
-              
-860           Case "cmdimprimir"
-              
-870               If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 4) = True Then
-880                   frmOpcaoImpressao.Show vbModal, Me
-890                   Select Case mlngOpcao
-                          Case 1
-900                           ImprimirFicha
-910                       Case 2
-920                           ImprimirCarteirinha
-930                   End Select
-940               Else
-950                   MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº4" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
-960               End If
-970           Case "cmdSair"
-980               Unload Me
-              
-990       End Select
+    If Not (Button.Enabled) Then Exit Sub
+    Select Case Button.Key
+        
+        Case "cmdNovo":
+            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 2) = True Then
+                mstrFlag = "I"
+                Call HabilitarCampos(True)
+                Call HabilitarTBBotoes(False, False, False, True, True, False, False, False)
+                lngClube = NZ(RetornaClubePorUsuario(gSMConexao.CodigoUsuario))
+                If lngClube <> 0 Then
+                    If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 13) = False Then
+                        modBDCombo_SelecionarEquipePorCodigo sscClube, lngClube
+                        sscClube.Enabled = False
+                    End If
+                End If
+                txtApelido.SetFocus
+            Else
+                MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº2" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
+            End If
+        
+        Case "cmdAlterar":
+            
+            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 3) = True Then
+                mstrFlag = "A"
+                Call HabilitarCampos(True)
+                Call HabilitarTBBotoes(False, False, False, True, True, False, False, False)
+                lngClube = NZ(RetornaClubePorUsuario(gSMConexao.CodigoUsuario))
+                If lngClube <> 0 Then
+                    If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 13) = False Then
+                        modBDCombo_SelecionarEquipePorCodigo sscClube, lngClube
+                        sscClube.Enabled = False
+                    End If
+                End If
+                txtApelido.SetFocus
+            Else
+                MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº3" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
+            End If
+            
+        Case "cmdExcluir":
+            
+            If lblInativo.Visible = False Then
+                If MsgBox("Deseja INATIVAR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será removido temporáriamente do sistema mas ainda poderá ser reativado.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
+                    Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 1)
+                    Call CarregarJogador(Val(txtCodigoInterno.Text))
+                End If
+            Else
+                If MsgBox("Deseja EXCLUIR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será removido permanentemente do sistema e NÃO poderá ser reativado.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
+                    Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 2)
+                    mstrFlag = ""
+                    Call LimparCampos
+                    Call HabilitarCampos(False)
+                    Call HabilitarTBBotoes(True, False, True, False, False, True, True, False)
+                    txtCodigoInterno.SetFocus
+                End If
+            End If
+            
+        
+        Case "cmdLimpar":
+            mstrFlag = ""
+            Call LimparCampos
+            Call HabilitarCampos(False)
+            Call HabilitarTBBotoes(True, False, True, False, False, True, True, False)
+             txtCodigoInterno.SetFocus
+        
+        Case "cmdGravar"
+            If VerificarCampos Then
+                GravarJogador
+                CarregarJogador Val(txtCodigoInterno.Text)
+                mstrFlag = ""
+            Else
+                Exit Sub
+            End If
+            Call HabilitarCampos(False)
+            Call HabilitarTBBotoes(False, True, True, True, False, False, True, True)
+            txtCodigoInterno.SetFocus
+            
+        Case "cmdProcurar"
+            If tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Procurar" Then
+                Dim ObjRelatorioJogador As ClsRelJogador
+                Set ObjRelatorioJogador = New ClsRelJogador
+                
+                If Not gSMConexao Is Nothing Then
+                    If gSMConexao.EstadoConexaoBD = adStateOpen Then
+                        
+                        ObjRelatorioJogador.Show gSMConexao, "ProFut - Relatório de Jogador", vbModal, Me, True
+                        txtCodigoInterno.Text = ObjRelatorioJogador.ID
+                        txtCodigoInterno_KeyDown vbKeyReturn, 0
+                        Exit Sub
+                    Else
+                        gSMConexao.conectar
+                    End If
+                End If
+            Else
+                If MsgBox("Deseja REATIVAR o jogador no sistema?" & vbCrLf & vbCrLf & "O jogador será ativado novamente no sistema.", vbYesNo + vbInformation, "Atenção!") = vbYes Then
+                    Call modJogador_ApagarJogadorPorCodigo(Val(txtCodigoInterno.Text), 3)
+                    Call CarregarJogador(Val(txtCodigoInterno.Text))
+                End If
+            End If
+        
+        Case "cmdimprimir"
+        
+            If RetornaAcessoPorUsuarioEPermissao(gSMConexao.CodigoUsuario, 4) = True Then
+                frmOpcaoImpressao.Show vbModal, Me
+                Select Case mlngOpcao
+                    Case 1
+                        ImprimirFicha
+                    Case 2
+                        ImprimirCarteirinha
+                End Select
+            Else
+                MsgBox "Permissão requerida!" & vbCrLf & "-> Permissão Nº4" & vbCrLf & vbCrLf & "Entre em contato com o administrador para liberar a permissão!", vbOKOnly + vbExclamation, "Permissão negada!"
+            End If
+        Case "cmdSair"
+            Unload Me
+        
+    End Select
 End Sub
 
 Private Sub txtCertidaoNascimento_KeyPress(KeyAscii As Integer)
@@ -2401,10 +2409,14 @@ On Error GoTo Erro
                 tbBotoes.Buttons("cmdExcluir").Caption = "F5 - Excluir"
                 tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Reativar"
                 tbBotoes.Buttons("cmdProcurar").Image = 2
+                tbBotoes.Buttons("cmdAlterar").Enabled = False
+                tbBotoes.Buttons("cmdProcurar").ToolTipText = "Reativar Jogador"
             Else
                 tbBotoes.Buttons("cmdExcluir").Caption = "F5 - Inativar"
                 tbBotoes.Buttons("cmdProcurar").Caption = "F4 - Procurar"
                 tbBotoes.Buttons("cmdProcurar").Image = 4
+                tbBotoes.Buttons("cmdAlterar").Enabled = True
+                tbBotoes.Buttons("cmdProcurar").ToolTipText = "Procurar Jogador"
             End If
             
 '            mstrFoto = NS(objRsJogador!ENDERECOIMAGEM_VC)
@@ -2458,9 +2470,13 @@ On Error GoTo Erro
             
         Else
             MsgBox "Jogador não encontrado ou código inválido.", vbOKOnly + vbInformation, "Atenção!"
+            LimparCampos
+            HabilitarTBBotoes True, False, True, False, False, True, False, False
         End If
     Else
         MsgBox "Jogador não encontrado ou código inválido.", vbOKOnly + vbInformation, "Atenção!"
+        LimparCampos
+        HabilitarTBBotoes True, False, True, False, False, True, False, False
     End If
 
 Exit Sub
