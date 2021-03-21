@@ -4,7 +4,7 @@ Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.ocx"
 Begin VB.Form frmCargos 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "ProFut - Manutenção de Cargos"
-   ClientHeight    =   6135
+   ClientHeight    =   6345
    ClientLeft      =   8760
    ClientTop       =   2370
    ClientWidth     =   6585
@@ -13,9 +13,29 @@ Begin VB.Form frmCargos
    LockControls    =   -1  'True
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   6135
+   ScaleHeight     =   6345
    ScaleWidth      =   6585
    StartUpPosition =   2  'CenterScreen
+   Begin MSComctlLib.StatusBar sta 
+      Align           =   2  'Align Bottom
+      Height          =   225
+      Left            =   0
+      TabIndex        =   9
+      Top             =   6120
+      Width           =   6585
+      _ExtentX        =   11615
+      _ExtentY        =   397
+      _Version        =   393216
+      BeginProperty Panels {8E3867A5-8586-11D1-B16A-00C0F0283628} 
+         NumPanels       =   3
+         BeginProperty Panel1 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+         BeginProperty Panel2 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+         BeginProperty Panel3 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+      EndProperty
+   End
    Begin VB.Frame frmPrincipal 
       Height          =   5505
       Left            =   0
@@ -364,6 +384,13 @@ End Sub
 
 Private Sub Form_Load()
     CarregarCargos
+    
+    sta.Panels(1).Text = gSMConexao.LoginUsuario
+    sta.Panels(1).Width = frmCargos.Width / 3
+    sta.Panels(2).Text = gSMConexao.NomeBaseDados
+    sta.Panels(2).Width = frmCargos.Width / 3
+    sta.Panels(3).Text = gSMConexao.NomeServidor
+    sta.Panels(3).Width = frmCargos.Width / 3
 End Sub
 
 Private Sub ssgCargos_Click()

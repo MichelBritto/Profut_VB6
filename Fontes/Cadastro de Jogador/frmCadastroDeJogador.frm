@@ -1846,7 +1846,7 @@ On Error GoTo Erro
             modBDCombo_SelecionarCartecoriaJogador sscCartegoria, NZ(objRsJogador!CARTEGORIA_IN)
             modBDCombo_SelecionarEquipePorCodigo sscClube, NZ(objRsJogador!EQUIPE_IN)
             modBDCombo_SelecionarEstados sscUfEscola, NZ(objRsJogador!ESTADOESCOLA_IN)
-            modBDCombo_SelecionarEstados sscUfEnderecoAtleta, NZ(objRsJogador!ESTADO_IN)
+            modBDCombo_SelecionarEstados sscUfEnderecoAtleta, NZ(objRsJogador!Estado_IN)
             
             mstrFlag = ""
             Call HabilitarCampos(False)

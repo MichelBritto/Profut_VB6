@@ -5,7 +5,7 @@ Object = "{4A4AA691-3E6F-11D2-822F-00104B9E07A1}#3.0#0"; "ssdw3bo.ocx"
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.ocx"
 Begin VB.Form frmRelJogador 
    Caption         =   "ProFut - Relatório de Jogador"
-   ClientHeight    =   7755
+   ClientHeight    =   7995
    ClientLeft      =   4050
    ClientTop       =   1860
    ClientWidth     =   14715
@@ -13,8 +13,28 @@ Begin VB.Form frmRelJogador
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    LockControls    =   -1  'True
-   ScaleHeight     =   7755
+   ScaleHeight     =   7995
    ScaleWidth      =   14715
+   Begin MSComctlLib.StatusBar sta 
+      Align           =   2  'Align Bottom
+      Height          =   195
+      Left            =   0
+      TabIndex        =   38
+      Top             =   7800
+      Width           =   14715
+      _ExtentX        =   25956
+      _ExtentY        =   344
+      _Version        =   393216
+      BeginProperty Panels {8E3867A5-8586-11D1-B16A-00C0F0283628} 
+         NumPanels       =   3
+         BeginProperty Panel1 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+         BeginProperty Panel2 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+         BeginProperty Panel3 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+      EndProperty
+   End
    Begin VB.Frame fraLegenda 
       Caption         =   "Legenda"
       BeginProperty Font 
@@ -1238,6 +1258,13 @@ Dim lngUsuario As Long
     CriarEPreencherRecordsetEquipes objrs
     
     ssgEquipes.DataSource = mobjRsEquipes
+    
+    sta.Panels(1).Text = gSMConexao.LoginUsuario
+    sta.Panels(1).Width = frmRelJogador.Width / 3
+    sta.Panels(2).Text = gSMConexao.NomeBaseDados
+    sta.Panels(2).Width = frmRelJogador.Width / 3
+    sta.Panels(3).Text = gSMConexao.NomeServidor
+    sta.Panels(3).Width = frmRelJogador.Width / 3
     
 End Sub
 Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)

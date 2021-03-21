@@ -4,7 +4,7 @@ Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.ocx"
 Begin VB.Form frmPermissao 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "ProFut - Cargos e Permissões"
-   ClientHeight    =   8430
+   ClientHeight    =   8640
    ClientLeft      =   6705
    ClientTop       =   2265
    ClientWidth     =   10590
@@ -14,7 +14,7 @@ Begin VB.Form frmPermissao
    LockControls    =   -1  'True
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   8430
+   ScaleHeight     =   8640
    ScaleWidth      =   10590
    StartUpPosition =   2  'CenterScreen
    Begin VB.Frame fraPrincipal 
@@ -479,6 +479,26 @@ Begin VB.Form frmPermissao
          EndProperty
       EndProperty
    End
+   Begin MSComctlLib.StatusBar sta 
+      Align           =   2  'Align Bottom
+      Height          =   225
+      Left            =   0
+      TabIndex        =   6
+      Top             =   8415
+      Width           =   10590
+      _ExtentX        =   18680
+      _ExtentY        =   397
+      _Version        =   393216
+      BeginProperty Panels {8E3867A5-8586-11D1-B16A-00C0F0283628} 
+         NumPanels       =   3
+         BeginProperty Panel1 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+         BeginProperty Panel2 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+         BeginProperty Panel3 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+      EndProperty
+   End
    Begin VB.Image imgcima 
       Height          =   135
       Left            =   180
@@ -541,6 +561,13 @@ Private Sub Form_Load()
     
     CriarEPreencherRecordsets
     ssgPermissoes.Columns(0).Locked = True
+    
+    sta.Panels(1).Text = gSMConexao.LoginUsuario
+    sta.Panels(1).Width = frmPermissao.Width / 3
+    sta.Panels(2).Text = gSMConexao.NomeBaseDados
+    sta.Panels(2).Width = frmPermissao.Width / 3
+    sta.Panels(3).Text = gSMConexao.NomeServidor
+    sta.Panels(3).Width = frmPermissao.Width / 3
 End Sub
 
 Private Sub CriarEPreencherRecordsets(Optional blnFiltrando As Boolean)

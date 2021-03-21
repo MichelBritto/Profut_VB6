@@ -8,7 +8,7 @@ Object = "{4A4AA691-3E6F-11D2-822F-00104B9E07A1}#3.0#0"; "ssdw3bo.ocx"
 Begin VB.Form frmCadastroDeJogadorV2 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "ProFut - Cadastro De Jogador"
-   ClientHeight    =   6375
+   ClientHeight    =   6600
    ClientLeft      =   4515
    ClientTop       =   2355
    ClientWidth     =   10815
@@ -18,7 +18,7 @@ Begin VB.Form frmCadastroDeJogadorV2
    LockControls    =   -1  'True
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   6375
+   ScaleHeight     =   6600
    ScaleWidth      =   10815
    StartUpPosition =   2  'CenterScreen
    Begin SSDesignerWidgetsTabs.SSIndexTab tabPrincipal 
@@ -1616,6 +1616,26 @@ Begin VB.Form frmCadastroDeJogadorV2
          EndProperty
       EndProperty
    End
+   Begin MSComctlLib.StatusBar Sta 
+      Align           =   2  'Align Bottom
+      Height          =   210
+      Left            =   0
+      TabIndex        =   87
+      Top             =   6390
+      Width           =   10815
+      _ExtentX        =   19076
+      _ExtentY        =   370
+      _Version        =   393216
+      BeginProperty Panels {8E3867A5-8586-11D1-B16A-00C0F0283628} 
+         NumPanels       =   3
+         BeginProperty Panel1 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+         BeginProperty Panel2 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+         BeginProperty Panel3 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+      EndProperty
+   End
 End
 Attribute VB_Name = "frmCadastroDeJogadorV2"
 Attribute VB_GlobalNameSpace = False
@@ -1805,6 +1825,14 @@ Private Sub Form_Load()
 70            Call HabilitarTBBotoes(True, False, True, False, False, True, False, False)
 80            Call HabilitarCampos(False)
 90        End If
+          
+100       Sta.Panels(1).Text = gSMConexao.LoginUsuario
+110       Sta.Panels(1).Width = frmCadastroDeJogadorV2.Width / 3
+120       Sta.Panels(2).Text = gSMConexao.NomeBaseDados
+130       Sta.Panels(2).Width = frmCadastroDeJogadorV2.Width / 3
+140       Sta.Panels(3).Text = gSMConexao.NomeServidor
+150       Sta.Panels(3).Width = frmCadastroDeJogadorV2.Width / 3
+          
 End Sub
 
 Private Sub LimparCampos()

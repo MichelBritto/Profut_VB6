@@ -7,7 +7,7 @@ Object = "{4A4AA691-3E6F-11D2-822F-00104B9E07A1}#3.0#0"; "ssdw3bo.ocx"
 Begin VB.Form frmUsuarios 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "ProFut  - Usuários"
-   ClientHeight    =   9420
+   ClientHeight    =   9645
    ClientLeft      =   4380
    ClientTop       =   2220
    ClientWidth     =   13095
@@ -17,7 +17,7 @@ Begin VB.Form frmUsuarios
    LockControls    =   -1  'True
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   9420
+   ScaleHeight     =   9645
    ScaleWidth      =   13095
    Begin VB.Frame fraPermissao 
       Height          =   8835
@@ -79,7 +79,7 @@ Begin VB.Form frmUsuarios
             _Version        =   196608
             _ExtentX        =   3254
             _ExtentY        =   714
-            Enabled         =   -1  'True
+            Enabled         =   0   'False
             MousePointer    =   0
             Object.TabStop         =   -1  'True
             BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
@@ -164,6 +164,7 @@ Begin VB.Form frmUsuarios
          End
          Begin VB.TextBox txtEmail 
             Appearance      =   0  'Flat
+            Enabled         =   0   'False
             Height          =   405
             Left            =   60
             MaxLength       =   100
@@ -173,6 +174,7 @@ Begin VB.Form frmUsuarios
          End
          Begin VB.TextBox txtLogin 
             Appearance      =   0  'Flat
+            Enabled         =   0   'False
             Height          =   405
             Left            =   4800
             MaxLength       =   30
@@ -182,6 +184,7 @@ Begin VB.Form frmUsuarios
          End
          Begin VB.TextBox txtNome 
             Appearance      =   0  'Flat
+            Enabled         =   0   'False
             Height          =   405
             Left            =   90
             MaxLength       =   100
@@ -226,6 +229,7 @@ Begin VB.Form frmUsuarios
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
+            Enabled         =   0   'False
          End
          Begin Threed.SSCommand cmdAdicionarCargo 
             Height          =   345
@@ -238,6 +242,7 @@ Begin VB.Form frmUsuarios
             _ExtentY        =   609
             _Version        =   196609
             PictureFrames   =   1
+            Enabled         =   0   'False
             Picture         =   "frmUsuarios.frx":5674
          End
          Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscClube 
@@ -277,6 +282,7 @@ Begin VB.Form frmUsuarios
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
+            Enabled         =   0   'False
          End
          Begin Threed.SSCommand cmdAlterarSenha 
             Height          =   375
@@ -288,6 +294,7 @@ Begin VB.Form frmUsuarios
             _ExtentY        =   661
             _Version        =   196609
             PictureFrames   =   1
+            Enabled         =   0   'False
             Picture         =   "frmUsuarios.frx":5BB6
             Caption         =   "Alterar Senha"
             Alignment       =   3
@@ -598,13 +605,13 @@ Begin VB.Form frmUsuarios
    End
    Begin MSComctlLib.Toolbar tbBotoes 
       Height          =   570
-      Left            =   9420
+      Left            =   12270
       TabIndex        =   1
       Top             =   8820
-      Width           =   3630
-      _ExtentX        =   6403
+      Width           =   750
+      _ExtentX        =   1323
       _ExtentY        =   1005
-      ButtonWidth     =   2196
+      ButtonWidth     =   1296
       ButtonHeight    =   1005
       AllowCustomize  =   0   'False
       Wrappable       =   0   'False
@@ -612,20 +619,8 @@ Begin VB.Form frmUsuarios
       ImageList       =   "imgList"
       _Version        =   393216
       BeginProperty Buttons {66833FE8-8583-11D1-B16A-00C0F0283628} 
-         NumButtons      =   3
+         NumButtons      =   1
          BeginProperty Button1 {66833FEA-8583-11D1-B16A-00C0F0283628} 
-            Caption         =   "F3 - Alterar"
-            Key             =   "cmdAlterar"
-            Object.ToolTipText     =   "Alterar Jogador"
-            ImageIndex      =   3
-         EndProperty
-         BeginProperty Button2 {66833FEA-8583-11D1-B16A-00C0F0283628} 
-            Enabled         =   0   'False
-            Caption         =   "F7-Abandonar"
-            Key             =   "cmdGravar"
-            ImageIndex      =   6
-         EndProperty
-         BeginProperty Button3 {66833FEA-8583-11D1-B16A-00C0F0283628} 
             Caption         =   "F10-Sair"
             Key             =   "cmdSair"
             Object.ToolTipText     =   "Sair da tela"
@@ -684,6 +679,26 @@ Begin VB.Form frmUsuarios
          BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmUsuarios.frx":9362
             Key             =   ""
+         EndProperty
+      EndProperty
+   End
+   Begin MSComctlLib.StatusBar sta 
+      Align           =   2  'Align Bottom
+      Height          =   225
+      Left            =   0
+      TabIndex        =   23
+      Top             =   9420
+      Width           =   13095
+      _ExtentX        =   23098
+      _ExtentY        =   397
+      _Version        =   393216
+      BeginProperty Panels {8E3867A5-8586-11D1-B16A-00C0F0283628} 
+         NumPanels       =   3
+         BeginProperty Panel1 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+         BeginProperty Panel2 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+         BeginProperty Panel3 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
          EndProperty
       EndProperty
    End
@@ -784,6 +799,8 @@ On Error GoTo Erro
             LimparCampos
             cmdAlterarUsuario.Enabled = False
             cmdNovoUsuario.Caption = "Gravar"
+            
+            HabilitarCampos True
         Else
             If VerificarCampos = True Then
                 If MsgBox("Deseja adicionar o usuário?", vbYesNo + vbExclamation, "Atenção!") = vbNo Then Exit Sub
@@ -792,6 +809,7 @@ On Error GoTo Erro
                 cmdAlterarUsuario.Enabled = True
                 cmdNovoUsuario.Caption = "Novo"
                 MsgBox "Usuário Adicionado!" & vbCrLf & "A senha padrão é 123", vbOKOnly + vbInformation, "Sucesso!"
+                HabilitarCampos False
              Else
                 Exit Sub
             End If
@@ -848,7 +866,14 @@ Private Sub Form_Load()
     Call modBDCombo_SelecionarEquipePorCodigo(sscClube)
     Call CarregarCampos
     Call LimparCampos
-    Call HabilitarCampos(False)
+    'Call HabilitarCampos(False)
+    
+    sta.Panels(1).Text = gSMConexao.LoginUsuario
+    sta.Panels(1).Width = frmUsuarios.Width / 3
+    sta.Panels(2).Text = gSMConexao.NomeBaseDados
+    sta.Panels(2).Width = frmUsuarios.Width / 3
+    sta.Panels(3).Text = gSMConexao.NomeServidor
+    sta.Panels(3).Width = frmUsuarios.Width / 3
 End Sub
 
 Private Sub LimparCampos()
@@ -885,8 +910,8 @@ Private Sub HabilitarCampos(blnHabilitar As Boolean)
 70        sscClube.Enabled = blnHabilitar
 80        fpTelefone.Enabled = blnHabilitar
           
-90        cmdNovoUsuario.Enabled = blnHabilitar
-100       cmdAlterarUsuario.Enabled = blnHabilitar
+90        'cmdNovoUsuario.Enabled = blnHabilitar
+100       'cmdAlterarUsuario.Enabled = blnHabilitar
 
 110   Exit Sub
 Erro:
@@ -903,27 +928,29 @@ Private Sub HabilitarTBBotoes(blnAlterar As Boolean, blnGravar As Boolean, blnsa
 End Sub
 
 Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
-10        If Not (Button.Enabled) Then Exit Sub
-20        Select Case Button.Key
+    If Not (Button.Enabled) Then Exit Sub
+    Select Case Button.Key
 
-              Case "cmdAlterar":
-30                mstrFlag = "A"
-40                Call HabilitarCampos(True)
-50                Call HabilitarTBBotoes(False, True, False)
+        Case "cmdAlterar":
+            mstrFlag = "A"
+            'Call HabilitarCampos(True)
+            cmdNovoUsuario.Enabled = True
+            cmdAlterarUsuario.Enabled = True
+            Call HabilitarTBBotoes(False, True, False)
 
-60            Case "cmdGravar"
-70                mstrFlag = ""
-80                LimparCampos
-90                cmdAlterarUsuario.Caption = "Alterar"
-100               cmdNovoUsuario.Caption = "Novo"
-110               cmdAlterarSenha.Enabled = True
-120               Call HabilitarCampos(False)
-130               Call HabilitarTBBotoes(True, False, True)
+        Case "cmdGravar"
+            mstrFlag = ""
+            LimparCampos
+            cmdAlterarUsuario.Caption = "Alterar"
+            cmdNovoUsuario.Caption = "Novo"
+            cmdAlterarSenha.Enabled = True
+            Call HabilitarCampos(False)
+            Call HabilitarTBBotoes(True, False, True)
 
-140           Case "cmdSair"
-150               Unload Me
-              
-160       End Select
+        Case "cmdSair"
+            Unload Me
+        
+    End Select
 End Sub
 
 Private Sub GravarUsuario()

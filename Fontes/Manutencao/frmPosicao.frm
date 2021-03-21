@@ -4,7 +4,7 @@ Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.ocx"
 Begin VB.Form frmPosicao 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "ProFut - Manutenção de Posição do Atleta"
-   ClientHeight    =   6180
+   ClientHeight    =   6420
    ClientLeft      =   7845
    ClientTop       =   3045
    ClientWidth     =   6585
@@ -12,7 +12,7 @@ Begin VB.Form frmPosicao
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   6180
+   ScaleHeight     =   6420
    ScaleWidth      =   6585
    StartUpPosition =   2  'CenterScreen
    Begin VB.Frame frmPrincipal 
@@ -316,6 +316,26 @@ Begin VB.Form frmPosicao
          EndProperty
       EndProperty
    End
+   Begin MSComctlLib.StatusBar sta 
+      Align           =   2  'Align Bottom
+      Height          =   225
+      Left            =   0
+      TabIndex        =   9
+      Top             =   6195
+      Width           =   6585
+      _ExtentX        =   11615
+      _ExtentY        =   397
+      _Version        =   393216
+      BeginProperty Panels {8E3867A5-8586-11D1-B16A-00C0F0283628} 
+         NumPanels       =   3
+         BeginProperty Panel1 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+         BeginProperty Panel2 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+         BeginProperty Panel3 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+      EndProperty
+   End
    Begin VB.Image imgcima 
       Height          =   135
       Left            =   180
@@ -363,6 +383,13 @@ End Sub
 
 Private Sub Form_Load()
     CarregarPosicoes
+    
+    sta.Panels(1).Text = gSMConexao.LoginUsuario
+    sta.Panels(1).Width = frmPosicao.Width / 3
+    sta.Panels(2).Text = gSMConexao.NomeBaseDados
+    sta.Panels(2).Width = frmPosicao.Width / 3
+    sta.Panels(3).Text = gSMConexao.NomeServidor
+    sta.Panels(3).Width = frmPosicao.Width / 3
 End Sub
 
 Private Sub ssgPosicao_Click()

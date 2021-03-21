@@ -109,10 +109,12 @@ Begin VB.Form frmAdicionarFotoEquipe
       _ExtentY        =   370
       _Version        =   393216
       BeginProperty Panels {8E3867A5-8586-11D1-B16A-00C0F0283628} 
-         NumPanels       =   2
+         NumPanels       =   3
          BeginProperty Panel1 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
          EndProperty
          BeginProperty Panel2 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+         BeginProperty Panel3 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
          EndProperty
       EndProperty
    End
@@ -287,8 +289,12 @@ Private Sub Form_Load()
     txtFoto.Enabled = True
     cmdProcurar.Enabled = True
     
-    sta.Panels(1).Text = gSMConexao.LoginUsuario
-    sta.Panels(2).Text = gSMConexao.NomeBaseDados
+    Sta.Panels(1).Text = gSMConexao.LoginUsuario
+    Sta.Panels(1).Width = frmAdicionarFotoEquipe.Width / 3
+    Sta.Panels(2).Text = gSMConexao.NomeBaseDados
+    Sta.Panels(2).Width = frmAdicionarFotoEquipe.Width / 3
+    Sta.Panels(3).Text = gSMConexao.NomeServidor
+    Sta.Panels(3).Width = frmAdicionarFotoEquipe.Width / 3
 End Sub
 
 'Public Sub CarregarFotos()

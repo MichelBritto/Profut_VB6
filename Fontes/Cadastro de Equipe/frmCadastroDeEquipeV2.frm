@@ -6,7 +6,7 @@ Object = "{562E3E04-2C31-4ECE-83F4-4017EEE51D40}#8.0#0"; "todg8.ocx"
 Begin VB.Form frmCadastroDeEquipeV2 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "ProFut - Cadastro de Equipe"
-   ClientHeight    =   6375
+   ClientHeight    =   6630
    ClientLeft      =   4830
    ClientTop       =   2340
    ClientWidth     =   10860
@@ -16,7 +16,7 @@ Begin VB.Form frmCadastroDeEquipeV2
    LockControls    =   -1  'True
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   6375
+   ScaleHeight     =   6630
    ScaleWidth      =   10860
    StartUpPosition =   2  'CenterScreen
    Begin VB.Frame fraPrincipal 
@@ -838,6 +838,26 @@ Begin VB.Form frmCadastroDeEquipeV2
          EndProperty
       EndProperty
    End
+   Begin MSComctlLib.StatusBar Sta 
+      Align           =   2  'Align Bottom
+      Height          =   210
+      Left            =   0
+      TabIndex        =   35
+      Top             =   6420
+      Width           =   10860
+      _ExtentX        =   19156
+      _ExtentY        =   370
+      _Version        =   393216
+      BeginProperty Panels {8E3867A5-8586-11D1-B16A-00C0F0283628} 
+         NumPanels       =   3
+         BeginProperty Panel1 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+         BeginProperty Panel2 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+         BeginProperty Panel3 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+      EndProperty
+   End
    Begin VB.Image imgbaixo 
       Height          =   135
       Left            =   0
@@ -979,11 +999,19 @@ End Sub
 
 
 Private Sub Form_Load()
-          
-10        mstrFlag = ""
-          
-20        Call LimparCampos
-30        Call HabilitarCampos(False)
+    
+    mstrFlag = ""
+    
+    Call LimparCampos
+    Call HabilitarCampos(False)
+    
+    Sta.Panels(1).Text = gSMConexao.LoginUsuario
+    Sta.Panels(1).Width = frmCadastroDeEquipeV2.Width / 3
+    Sta.Panels(2).Text = gSMConexao.NomeBaseDados
+    Sta.Panels(2).Width = frmCadastroDeEquipeV2.Width / 3
+    Sta.Panels(3).Text = gSMConexao.NomeServidor
+    Sta.Panels(3).Width = frmCadastroDeEquipeV2.Width / 3
+    
 End Sub
 
 

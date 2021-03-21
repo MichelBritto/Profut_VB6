@@ -1,9 +1,10 @@
 VERSION 5.00
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.ocx"
 Begin VB.Form frmwebcam 
    BackColor       =   &H00FFFFFF&
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Capturando Imagens da Web Cam"
-   ClientHeight    =   7845
+   ClientHeight    =   7935
    ClientLeft      =   5415
    ClientTop       =   1785
    ClientWidth     =   7260
@@ -12,7 +13,7 @@ Begin VB.Form frmwebcam
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   7845
+   ScaleHeight     =   7935
    ScaleWidth      =   7260
    StartUpPosition =   2  'CenterScreen
    Begin VB.Timer Timer1 
@@ -59,6 +60,26 @@ Begin VB.Form frmwebcam
       TabIndex        =   0
       Top             =   90
       Width           =   7000
+   End
+   Begin MSComctlLib.StatusBar Sta 
+      Align           =   2  'Align Bottom
+      Height          =   210
+      Left            =   0
+      TabIndex        =   3
+      Top             =   7725
+      Width           =   7260
+      _ExtentX        =   12806
+      _ExtentY        =   370
+      _Version        =   393216
+      BeginProperty Panels {8E3867A5-8586-11D1-B16A-00C0F0283628} 
+         NumPanels       =   3
+         BeginProperty Panel1 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+         BeginProperty Panel2 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+         BeginProperty Panel3 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+      EndProperty
    End
 End
 Attribute VB_Name = "frmwebcam"
@@ -143,6 +164,15 @@ On Error Resume Next
 On Error Resume Next
     IniciaWebCam
     AtivaVideoContinuo
+End Sub
+
+Private Sub Form_Load()
+    Sta.Panels(1).Text = gSMConexao.LoginUsuario
+    Sta.Panels(1).Width = frmwebcam.Width / 3
+    Sta.Panels(2).Text = gSMConexao.NomeBaseDados
+    Sta.Panels(2).Width = frmwebcam.Width / 3
+    Sta.Panels(3).Text = gSMConexao.NomeServidor
+    Sta.Panels(3).Width = frmwebcam.Width / 3
 End Sub
 
 Private Sub Form_Terminate()
