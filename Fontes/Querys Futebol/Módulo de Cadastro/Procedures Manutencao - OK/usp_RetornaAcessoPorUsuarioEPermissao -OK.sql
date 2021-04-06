@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.usp_RetornaAcessoPorUsuarioEPermissao
+CREATE PROCEDURE dbo.usp_RetornaAcessoPorUsuarioEPermissao
     (
       @Permissao_IN INT ,
       @Usuario_IN INT ,

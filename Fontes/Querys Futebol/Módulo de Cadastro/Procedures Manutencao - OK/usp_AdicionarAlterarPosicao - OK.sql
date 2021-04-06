@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.usp_AdicionarAlterarPosicao
+CREATE PROCEDURE dbo.usp_AdicionarAlterarPosicao
     (
       @Descricao_VC VARCHAR(1024) ,
       @Ativo_BT BIT ,

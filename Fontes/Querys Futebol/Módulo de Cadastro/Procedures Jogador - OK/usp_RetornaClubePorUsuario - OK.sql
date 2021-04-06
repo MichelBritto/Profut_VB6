@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.usp_RetornaClubePorUsuario
+CREATE PROCEDURE dbo.usp_RetornaClubePorUsuario
     (
       @CodigoUsuario_IN INT ,
       @Clube_IN INT OUTPUT

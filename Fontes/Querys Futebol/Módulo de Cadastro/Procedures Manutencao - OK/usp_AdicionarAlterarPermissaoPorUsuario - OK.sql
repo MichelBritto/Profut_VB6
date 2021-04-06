@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.usp_AdicionarAlterarPermissaoPorUsuario
+CREATE PROCEDURE dbo.usp_AdicionarAlterarPermissaoPorUsuario
     (
       @Usuario_IN INT ,
       @Permissao_IN INT ,

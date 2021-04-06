@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.usp_AdicionarAlterarUsuario
+CREATE PROCEDURE dbo.usp_AdicionarAlterarUsuario
     (
       @login_VC VARCHAR(20) ,
       @nomecompleto_VC VARCHAR(50) ,

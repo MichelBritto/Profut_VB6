@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.usp_SelecionarDadosParaRelatorioDeJogador
+CREATE PROCEDURE dbo.usp_SelecionarDadosParaRelatorioDeJogador
     (
       @Nome_VC VARCHAR(1024) = NULL ,
       @Apelido_VC VARCHAR(1024) = NULL ,

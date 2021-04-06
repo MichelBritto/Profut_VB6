@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.usp_SelecionarPermissaoPorUsuario ( @Usuario_IN INT )
+CREATE PROCEDURE dbo.usp_SelecionarPermissaoPorUsuario ( @Usuario_IN INT )
 AS 
     SELECT  ISNULL(UXP.Status_BT, 0) AS Status_BT ,
             PER.Permissao_IN ,

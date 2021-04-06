@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.usp_SelecionarUsuarioPorLogin
+CREATE PROCEDURE dbo.usp_SelecionarUsuarioPorLogin
     (
       @LoginUsuario_VC VARCHAR(1024) ,
       @CodigoUsuario_IN INT OUTPUT

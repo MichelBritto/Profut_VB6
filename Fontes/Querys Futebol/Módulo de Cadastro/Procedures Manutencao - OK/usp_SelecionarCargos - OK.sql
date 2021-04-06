@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.usp_SelecionarCargos
+CREATE PROCEDURE dbo.usp_SelecionarCargos
     (
       @Cargo_IN INT = NULL ,
       @Ativo_BT BIT = NULL

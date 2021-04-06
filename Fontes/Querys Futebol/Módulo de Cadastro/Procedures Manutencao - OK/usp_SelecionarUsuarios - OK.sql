@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.usp_SelecionarUsuarios ( @Usuario_IN INT = NULL )
+CREATE PROCEDURE dbo.usp_SelecionarUsuarios ( @Usuario_IN INT = NULL )
 AS 
     SELECT  USU.ID_IN ,
             USU.Login_VC ,

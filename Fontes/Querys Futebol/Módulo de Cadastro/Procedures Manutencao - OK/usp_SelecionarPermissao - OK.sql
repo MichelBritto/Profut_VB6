@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.usp_SelecionarPermissao
+CREATE PROCEDURE dbo.usp_SelecionarPermissao
     (
       @Permissao_IN INT = NULL
     )

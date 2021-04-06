@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.usp_AdicionarAlterarCargo
+CREATE PROCEDURE dbo.usp_AdicionarAlterarCargo
     (
       @Descricao_VC VARCHAR(1024) ,
       @Ativo_BT BIT ,
@@ -28,3 +28,14 @@ AS
             WHERE   ID_IN = @Cargo_IN
         END
 GO
+
+INSERT INTO dbo.Cargo_T
+        ( Descricao_VC, Ativo_BT )
+VALUES  ( 'Administrador', -- Descricao_VC - varchar(128)
+          1  -- Ativo_BT - bit
+          )
+INSERT INTO dbo.Cargo_T
+        ( Descricao_VC, Ativo_BT )
+VALUES  ( 'Responsável de Clube', -- Descricao_VC - varchar(128)
+          1  -- Ativo_BT - bit
+          )          

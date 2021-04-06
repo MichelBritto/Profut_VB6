@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.usp_AlterarSenhaPorLoginESenha
+CREATE PROCEDURE dbo.usp_AlterarSenhaPorLoginESenha
     (
       @Login_VC VARCHAR(1024) ,
       @SenhaAntiga_VC VARCHAR(1024) ,

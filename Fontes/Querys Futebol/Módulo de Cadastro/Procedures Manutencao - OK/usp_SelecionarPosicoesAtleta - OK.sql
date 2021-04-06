@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.usp_SelecionarPosicoesAtleta
+CREATE PROCEDURE dbo.usp_SelecionarPosicoesAtleta
     (
       @Posicao_IN INT = NULL ,
       @Ativo_BT BIT = 1

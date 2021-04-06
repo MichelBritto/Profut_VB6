@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.usp_SelecionarCidades
+CREATE PROCEDURE dbo.usp_SelecionarCidades
     (
       @Cidade_IN INT = NULL ,
       @UF_IN INT = NULL

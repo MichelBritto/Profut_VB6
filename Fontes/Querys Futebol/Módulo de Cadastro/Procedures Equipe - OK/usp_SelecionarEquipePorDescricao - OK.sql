@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.usp_SelecionarEquipePorDescricao
+CREATE PROCEDURE dbo.usp_SelecionarEquipePorDescricao
     (
       @Descricao_VC VARCHAR(1024)
     )
