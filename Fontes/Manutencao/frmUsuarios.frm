@@ -2,7 +2,6 @@ VERSION 5.00
 Object = "{065E6FD1-1BF9-11D2-BAE8-00104B9E0792}#3.0#0"; "ssa3d30.ocx"
 Object = "{562E3E04-2C31-4ECE-83F4-4017EEE51D40}#8.0#0"; "todg8.ocx"
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.ocx"
-Object = "{CDF3B183-D408-11CE-AE2C-0080C786E37D}#3.0#0"; "Edt32x30.ocx"
 Object = "{4A4AA691-3E6F-11D2-822F-00104B9E07A1}#3.0#0"; "ssdw3bo.ocx"
 Begin VB.Form frmUsuarios 
    BorderStyle     =   1  'Fixed Single
@@ -38,15 +37,25 @@ Begin VB.Form frmUsuarios
          EndProperty
          Height          =   1665
          Left            =   60
-         TabIndex        =   4
+         TabIndex        =   10
          Top             =   120
          Width           =   12915
+         Begin VB.TextBox txtTelefone 
+            Appearance      =   0  'Flat
+            Enabled         =   0   'False
+            Height          =   405
+            Left            =   4800
+            MaxLength       =   11
+            TabIndex        =   5
+            Top             =   1110
+            Width           =   1845
+         End
          Begin VB.TextBox txtCodigoUsuario 
             Appearance      =   0  'Flat
             Height          =   405
             Left            =   60
             MaxLength       =   6
-            TabIndex        =   17
+            TabIndex        =   18
             Top             =   -420
             Visible         =   0   'False
             Width           =   885
@@ -56,7 +65,7 @@ Begin VB.Form frmUsuarios
             Caption         =   "Alterar"
             Height          =   405
             Left            =   10590
-            TabIndex        =   16
+            TabIndex        =   17
             Top             =   1080
             Width           =   975
          End
@@ -66,101 +75,9 @@ Begin VB.Form frmUsuarios
             Height          =   405
             Left            =   10590
             Picture         =   "frmUsuarios.frx":500A
-            TabIndex        =   15
+            TabIndex        =   16
             Top             =   390
             Width           =   975
-         End
-         Begin EditLib.fpMask fpTelefone 
-            Height          =   405
-            Left            =   4800
-            TabIndex        =   12
-            Top             =   1110
-            Width           =   1845
-            _Version        =   196608
-            _ExtentX        =   3254
-            _ExtentY        =   714
-            Enabled         =   0   'False
-            MousePointer    =   0
-            Object.TabStop         =   -1  'True
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-               Name            =   "MS Sans Serif"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            BackColor       =   -2147483643
-            ForeColor       =   -2147483640
-            ThreeDInsideStyle=   0
-            ThreeDInsideHighlightColor=   -2147483633
-            ThreeDInsideShadowColor=   -2147483642
-            ThreeDInsideWidth=   1
-            ThreeDOutsideStyle=   0
-            ThreeDOutsideHighlightColor=   -2147483628
-            ThreeDOutsideShadowColor=   -2147483632
-            ThreeDOutsideWidth=   1
-            ThreeDFrameWidth=   0
-            BorderStyle     =   1
-            BorderColor     =   -2147483642
-            BorderWidth     =   1
-            ButtonDisable   =   0   'False
-            ButtonHide      =   0   'False
-            ButtonIncrement =   1
-            ButtonMin       =   0
-            ButtonMax       =   100
-            ButtonStyle     =   0
-            ButtonWidth     =   0
-            ButtonWrap      =   -1  'True
-            ThreeDText      =   0
-            ThreeDTextHighlightColor=   -2147483633
-            ThreeDTextShadowColor=   -2147483632
-            ThreeDTextOffset=   1
-            AlignTextH      =   0
-            AlignTextV      =   0
-            AllowNull       =   0   'False
-            NoSpecialKeys   =   0
-            AutoAdvance     =   0   'False
-            AutoBeep        =   0   'False
-            CaretInsert     =   0
-            CaretOverWrite  =   3
-            UserEntry       =   0
-            HideSelection   =   -1  'True
-            InvalidColor    =   -2147483637
-            InvalidOption   =   0
-            MarginLeft      =   3
-            MarginTop       =   3
-            MarginRight     =   3
-            MarginBottom    =   3
-            NullColor       =   -2147483637
-            OnFocusAlignH   =   0
-            OnFocusAlignV   =   0
-            OnFocusNoSelect =   0   'False
-            OnFocusPosition =   0
-            ControlType     =   0
-            AllowOverflow   =   0   'False
-            BestFit         =   0   'False
-            ClipMode        =   0
-            DataFormatEx    =   0
-            Mask            =   ""
-            PromptChar      =   "_"
-            PromptInclude   =   0   'False
-            RequireFill     =   0   'False
-            BorderGrayAreaColor=   -2147483637
-            NoPrefix        =   0   'False
-            ThreeDOnFocusInvert=   0   'False
-            ThreeDFrameColor=   -2147483633
-            Appearance      =   1
-            BorderDropShadow=   0
-            BorderDropShadowColor=   -2147483632
-            BorderDropShadowWidth=   3
-            AutoTab         =   0   'False
-            ButtonColor     =   -2147483633
-            AutoMenu        =   0   'False
-            ButtonAlign     =   0
-            OLEDropMode     =   0
-            OLEDragMode     =   0
          End
          Begin VB.TextBox txtEmail 
             Appearance      =   0  'Flat
@@ -168,7 +85,7 @@ Begin VB.Form frmUsuarios
             Height          =   405
             Left            =   60
             MaxLength       =   100
-            TabIndex        =   9
+            TabIndex        =   4
             Top             =   1110
             Width           =   4695
          End
@@ -178,7 +95,7 @@ Begin VB.Form frmUsuarios
             Height          =   405
             Left            =   4800
             MaxLength       =   30
-            TabIndex        =   7
+            TabIndex        =   2
             Top             =   450
             Width           =   2655
          End
@@ -188,17 +105,19 @@ Begin VB.Form frmUsuarios
             Height          =   405
             Left            =   90
             MaxLength       =   100
-            TabIndex        =   5
+            TabIndex        =   1
             Top             =   450
             Width           =   4665
          End
          Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscCargo 
             Height          =   390
             Left            =   7500
-            TabIndex        =   13
+            TabIndex        =   3
             Top             =   450
             Width           =   2445
             DataFieldList   =   "Column 0"
+            AllowInput      =   0   'False
+            AllowNull       =   0   'False
             BevelType       =   0
             _Version        =   196617
             DataMode        =   2
@@ -234,7 +153,7 @@ Begin VB.Form frmUsuarios
          Begin Threed.SSCommand cmdAdicionarCargo 
             Height          =   345
             Left            =   9990
-            TabIndex        =   19
+            TabIndex        =   20
             ToolTipText     =   "Adicionar Cargos"
             Top             =   450
             Width           =   345
@@ -248,7 +167,7 @@ Begin VB.Form frmUsuarios
          Begin SSDataWidgets_B_OLEDB.SSOleDBCombo sscClube 
             Height          =   390
             Left            =   6690
-            TabIndex        =   20
+            TabIndex        =   6
             Top             =   1110
             Width           =   2175
             DataFieldList   =   "Column 0"
@@ -313,7 +232,7 @@ Begin VB.Form frmUsuarios
             Caption         =   "Código"
             Height          =   285
             Left            =   90
-            TabIndex        =   18
+            TabIndex        =   19
             Top             =   -630
             Visible         =   0   'False
             Width           =   555
@@ -322,7 +241,7 @@ Begin VB.Form frmUsuarios
             Caption         =   "Cargo"
             Height          =   285
             Left            =   7530
-            TabIndex        =   14
+            TabIndex        =   15
             Top             =   240
             Width           =   1365
          End
@@ -330,7 +249,7 @@ Begin VB.Form frmUsuarios
             Caption         =   "Telefone/Celular"
             Height          =   285
             Left            =   4830
-            TabIndex        =   11
+            TabIndex        =   14
             Top             =   900
             Width           =   1365
          End
@@ -338,7 +257,7 @@ Begin VB.Form frmUsuarios
             Caption         =   "E-mail"
             Height          =   285
             Left            =   90
-            TabIndex        =   10
+            TabIndex        =   13
             Top             =   900
             Width           =   3135
          End
@@ -346,7 +265,7 @@ Begin VB.Form frmUsuarios
             Caption         =   "Login"
             Height          =   285
             Left            =   4800
-            TabIndex        =   8
+            TabIndex        =   12
             Top             =   240
             Width           =   855
          End
@@ -354,7 +273,7 @@ Begin VB.Form frmUsuarios
             Caption         =   "Nome"
             Height          =   285
             Left            =   120
-            TabIndex        =   6
+            TabIndex        =   11
             Top             =   240
             Width           =   735
          End
@@ -372,13 +291,13 @@ Begin VB.Form frmUsuarios
          EndProperty
          Height          =   7035
          Left            =   60
-         TabIndex        =   2
+         TabIndex        =   8
          Top             =   1770
          Width           =   12915
          Begin TrueOleDBGrid80.TDBGrid ssgUsuarios 
             Height          =   6765
             Left            =   60
-            TabIndex        =   3
+            TabIndex        =   9
             Top             =   210
             Width           =   12765
             _ExtentX        =   22516
@@ -606,7 +525,7 @@ Begin VB.Form frmUsuarios
    Begin MSComctlLib.Toolbar tbBotoes 
       Height          =   570
       Left            =   12270
-      TabIndex        =   1
+      TabIndex        =   7
       Top             =   8820
       Width           =   750
       _ExtentX        =   1323
@@ -758,7 +677,7 @@ On Error GoTo Erro
             txtLogin.Text = mobjRsUsuarios!Login_VC
             Call modBDCombo_SelecionarCargos(sscCargo, mobjRsUsuarios!Cargo_IN)
             txtEmail.Text = NS(mobjRsUsuarios!Email_VC)
-            fpTelefone.Text = NS(mobjRsUsuarios!Telefone_VC)
+            txtTelefone.Text = NS(mobjRsUsuarios!Telefone_VC)
             Call modBDCombo_SelecionarEquipePorCodigo(sscClube, NZ(mobjRsUsuarios!clube_IN))
             'ssgUsuarios.Enabled = False
             txtLogin.Locked = True
@@ -839,11 +758,11 @@ End Sub
 
 Private Sub Form_KeyUp(KeyCode As Integer, Shift As Integer)
           'tbBotoes.Buttons("cmdNovo").Value = tbrUnpressed
-10        tbBotoes.Buttons("cmdAlterar").Value = tbrUnpressed
+10        'tbBotoes.Buttons("cmdAlterar").Value = tbrUnpressed
           'tbBotoes.Buttons("cmdApagar").Value = tbrUnpressed
           'tbBotoes.Buttons("cmdLimpar").Value = tbrUnpressed
           'tbBotoes.Buttons("cmdImprimir").Value = tbrUnpressed
-20        tbBotoes.Buttons("cmdGravar").Value = tbrUnpressed
+20        'tbBotoes.Buttons("cmdGravar").Value = tbrUnpressed
 30        tbBotoes.Buttons("cmdSair").Value = tbrUnpressed
         
 40        Select Case KeyCode
@@ -885,7 +804,7 @@ Private Sub LimparCampos()
 50        txtEmail.Text = ""
 60        sscCargo.Text = ""
 70        sscClube.Text = ""
-80        fpTelefone.Text = ""
+80        txtTelefone.Text = ""
           
           'cmdNovoUsuario.Text = ""
           'cmdAlterarUsuario.Text = ""
@@ -908,7 +827,7 @@ Private Sub HabilitarCampos(blnHabilitar As Boolean)
 50        txtEmail.Enabled = blnHabilitar
 60        sscCargo.Enabled = blnHabilitar
 70        sscClube.Enabled = blnHabilitar
-80        fpTelefone.Enabled = blnHabilitar
+80        txtTelefone.Enabled = blnHabilitar
           
 90        'cmdNovoUsuario.Enabled = blnHabilitar
 100       'cmdAlterarUsuario.Enabled = blnHabilitar
@@ -925,6 +844,12 @@ Private Sub HabilitarTBBotoes(blnAlterar As Boolean, blnGravar As Boolean, blnsa
 20        tbBotoes.Buttons("cmdGravar").Enabled = blnGravar
 30        tbBotoes.Buttons("cmdSair").Enabled = blnsair
           
+End Sub
+
+
+
+Private Sub txtTelefone_KeyPress(KeyAscii As Integer)
+    TextBoxSomenteNumeros txtTelefone.Text, KeyAscii, False, False
 End Sub
 
 Private Sub tbBotoes_ButtonClick(ByVal Button As MSComctlLib.Button)
@@ -960,7 +885,7 @@ Private Sub GravarUsuario()
               
 30            gSMConexao.BeginTransaction
               
-40            Call modManutencao_AdicionarAlterarUsuario(txtLogin.Text, txtNome.Text, Val(sscCargo.Columns("chcodigo").Value), Val(txtCodigoUsuario.Text), fpTelefone.Text, txtEmail.Text, Val(sscClube.Columns("chcodigo").Value))
+40            Call modManutencao_AdicionarAlterarUsuario(txtLogin.Text, txtNome.Text, Val(sscCargo.Columns("chcodigo").Value), Val(txtCodigoUsuario.Text), txtTelefone.Text, txtEmail.Text, Val(sscClube.Columns("chcodigo").Value))
 45            gSMConexao.CommitTransaction
 50            CarregarCampos
 60            mstrFlag = ""

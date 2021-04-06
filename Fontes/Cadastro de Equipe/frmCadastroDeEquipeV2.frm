@@ -1276,7 +1276,7 @@ Private Sub CarregarEquipe(lngCodigo As Long)
 120               End If
                   
                   
-130               txtNomeEquipe.Text = NS(objRsEquipe!NOME_VC)
+130               txtNomeEquipe.Text = NS(objRsEquipe!Nome_VC)
 140               txtSiglaEquipe.Text = NS(objRsEquipe!SIGLA_VC)
 150               txtResponsavel.Text = NS(objRsEquipe!RESPONSAVEL_VC)
 160               txtEmailResponsavel.Text = NS(objRsEquipe!EMAILCONTATO_VC)
@@ -1331,18 +1331,22 @@ Private Sub CarregarEquipe(lngCodigo As Long)
 480               Call HabilitarCampos(False)
 490               Call HabilitarTBBotoes(False, True, True, False, False)
                   
-500           Else
-510               MsgBox "Equipe não encontrada ou código inválido.", vbOKOnly + vbInformation, "Atenção!"
-520           End If
-530       Else
-540           MsgBox "Equipe não encontrada ou código inválido.", vbOKOnly + vbInformation, "Atenção!"
-550       End If
+                  '06-04-2021 Coloquei isso aqui pois dava bug ao alterar e procurar código
+                  
+500               txtCodigoInterno.Locked = True
+                  
+510           Else
+520               MsgBox "Equipe não encontrada ou código inválido.", vbOKOnly + vbInformation, "Atenção!"
+530           End If
+540       Else
+550           MsgBox "Equipe não encontrada ou código inválido.", vbOKOnly + vbInformation, "Atenção!"
+560       End If
 
             
 
-560   Exit Sub
+570   Exit Sub
 Erro:
-570      Call MsgBox("Erro no módulo: " & "frmCadastroDeEquipe" & vbCrLf & "No Procedimento: " & "CarregarEquipe" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
+580      Call MsgBox("Erro no módulo: " & "frmCadastroDeEquipe" & vbCrLf & "No Procedimento: " & "CarregarEquipe" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 End Sub
 

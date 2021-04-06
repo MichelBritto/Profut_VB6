@@ -3,6 +3,7 @@ Object = "{562E3E04-2C31-4ECE-83F4-4017EEE51D40}#8.0#0"; "todg8.ocx"
 Object = "{E8671A8B-E5DD-11CD-836C-0000C0C14E92}#1.0#0"; "SSCALA32.ocx"
 Object = "{4A4AA691-3E6F-11D2-822F-00104B9E07A1}#3.0#0"; "ssdw3bo.ocx"
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.ocx"
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.ocx"
 Begin VB.Form frmRelJogador 
    Caption         =   "ProFut - Relatório de Jogador"
    ClientHeight    =   7995
@@ -1096,6 +1097,13 @@ Begin VB.Form frmRelJogador
          EndProperty
       EndProperty
    End
+   Begin MSComDlg.CommonDialog cmnDlg 
+      Left            =   0
+      Top             =   0
+      _ExtentX        =   847
+      _ExtentY        =   847
+      _Version        =   393216
+   End
    Begin VB.Image imgcima 
       Height          =   135
       Left            =   180
@@ -1136,6 +1144,7 @@ Public Property Let CarregadoViaProcurar(blnProcurar As Boolean)
 End Property
 
 Public Property Get IDJogador() As Integer
+    On Error Resume Next
     IDJogador = IIf(mobjRsResultado!Codigo = 0, 0, mobjRsResultado!Codigo)
 End Property
 
@@ -1195,9 +1204,11 @@ End Sub
 
 Private Sub cmdExportar_Click()
 On Error GoTo Erro
-Dim clsExportar As clsExportarExcell
+'Dim clsExportar As clsExportarExcell
     
-    Set clsExportar = New clsExportarExcell
+    Dim strPath As String
+    
+    'Set clsExportar = New clsExportarExcell
         
     If mobjRsResultado Is Nothing Then Exit Sub
     
@@ -1208,11 +1219,18 @@ Dim clsExportar As clsExportarExcell
     
     If Not mobjRsResultado.EOF And Not mobjRsResultado.BOF Then
         
+        
         lblinfo.Visible = True
         lblinfo.ZOrder 0
-        ssgResultado.Visible = False
+        'ssgResultado.Visible = False
         lblinfo.Caption = "Gerando Tabela Excell..."
-        Call clsExportar.ExportarGrid(ssgResultado)
+        
+        If ProcurarArquivoTexto(strPath) Then
+            On Error Resume Next
+            ssgResultado.ExportToFile strPath, True
+        End If
+    
+        'Call clsExportar.ExportarGrid(ssgResultado)
         lblinfo.Visible = False
         ssgResultado.Visible = True
     End If
@@ -1577,3 +1595,38 @@ Erro:
    Call MsgBox("Erro no módulo: " & "frmRelJogador" & vbCrLf & "No Procedimento: " & "GerarRelatorio" & vbCrLf & "Descrição: " & Err.Description & vbCrLf & "Número: " & Err.Number & vbCrLf & "Na linha: " & Erl & vbCrLf & "Entre em contato com o suporte e mostre esta mensagem!", vbOKOnly + vbCritical, "Atenção!")
 
 End Sub
+
+Public Function ProcurarArquivoTexto(ByRef strPath As String) As Boolean
+On Error GoTo Erro 'para ver se clicou em cancelar a única maneira é colocando a propriedade cancelerror = true e testando o número do erro
+
+    cmnDlg.CancelError = False 'True
+    'cmnDlg.InitDir = strPath
+    cmnDlg.Flags = cdlOFNOverwritePrompt 'faz ficar center screen
+    
+    'cmnDlg.Filter = "Bancos (*.bb)(*.txt)(*.doc)|*.bb||*.txt||*.doc|" 'txt e doc são apenas para efeito de testes, a extensão de arquivos de retorno acho que é .ret
+    cmnDlg.Filter = "Planilha Eletrônica (*.xls)|*.xls|"
+    'Else
+ '   cmnDlg.Filter = ""
+    'End If
+    'cmnDlg.DefaultExt
+    cmnDlg.ShowSave
+        
+    'If Dir(cmnDlg.FileName, vbArchive) <> "" Then
+    If cmnDlg.FileName <> "" Then
+        strPath = cmnDlg.FileName
+        ProcurarArquivoTexto = True
+        'txtArquivo.Text = Dir(cmnDlg.FileName, vbArchive)
+        'txtArquivo.Tag = cmnDlg.FileName
+    End If
+Exit Function
+Erro:
+    If Err.Number = 32755 Then 'clicou em cancelar
+        strPath = ""
+    Else
+        MsgBox "Ocorreu um erro na rotina de abrir arquivo texto" & Chr(13) & _
+                "Erro número: " & Err.Number & Chr(13) & _
+                "Erro Descrição: " & Err.Description
+    End If
+    ProcurarArquivoTexto = False
+End Function
+

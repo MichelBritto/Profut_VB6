@@ -1,2 +1,2 @@
-clsExportarExcell = 0, 0, 0, 0, C
-frmExportarGrid = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+clsExportarExcell = 200, 127, 1479, 804, C
+frmExportarGrid = 200, 127, 1193, 804, C, 0, 0, 0, 0, C
